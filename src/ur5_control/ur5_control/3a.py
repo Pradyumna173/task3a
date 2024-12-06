@@ -1,7 +1,7 @@
-#!/usr/bin/python3
+#!/home/northee/..platformio/penv/python
 # -*- coding: utf-8 -*-
 
-import rclpy
+import rclpy, time
 import sys
 import cv2
 import math
@@ -27,8 +27,9 @@ def detect_aruco(image):
     angle_aruco_list = []
     marker_ids = []
 
-    ARUCO_DICT = cv2.aruco.Dictionary_get(cv2.aruco.DICT_4X4_50)
-    ARUCO_PARAMS = cv2.aruco.DetectorParameters_create()
+    ARUCO_DICT = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
+    ARUCO_PARAMS = cv2.aruco.DetectorParameters()
+    detector = cv2.aruco.ArucoDetector(ARUCO_DICT, ARUCO_PARAMS)
 
     MARKER_SIZE = 0.15
 
@@ -41,16 +42,16 @@ def detect_aruco(image):
     )
     dist_coeffs = np.zeros((5, 1))
 
+    
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-    corners, ids, rejected = cv2.aruco.detectMarkers(
-        gray, ARUCO_DICT, parameters=ARUCO_PARAMS
-    )
+
+    corners, ids, rejected = detector.detectMarkers(gray)
 
     if ids is not None:
         for corner, marker_id in zip(corners, ids):
             if marker_id == 12:
-                MARKER_SIZE = 0.1275
+                MARKER_SIZE = 0.15
             else:
                 MARKER_SIZE = 0.15
 
@@ -58,8 +59,8 @@ def detect_aruco(image):
                 corner, MARKER_SIZE, camera_matrix, dist_coeffs
             )
 
-            cv2.aruco.drawDetectedMarkers(image, corners, ids)
-            cv2.aruco.drawAxis(image, camera_matrix, dist_coeffs, rvec, tvec, 0.1)
+            # cv2.aruco.drawDetectedMarkers(image, corners, ids)
+            # cv2.aruco.drawAxis(image, camera_matrix, dist_coeffs, rvec, tvec, 0.1)
 
             R, _ = cv2.Rodrigues(rvec[0])
             roll, pitch, yaw = rotation_matrix_to_euler_angles(R)
@@ -81,7 +82,7 @@ def detect_aruco(image):
             marker_ids.append(marker)
             translation_aruco_list.append(translation_aruco)
             angle_aruco_list.append(angle_aruco)
-
+            # self.get_logger().info("Logger chalto")
             print(f"Marker ID: {marker_id[0]}")
             print(f"Translation (x, y, z): {tvec[0][0]}")
             print(f"Rotation (roll, pitch, yaw): {roll:.2f}, {pitch:.2f}, {yaw:.2f}\n")
@@ -130,7 +131,8 @@ class aruco_tf(Node):
         self.tf_buffer = tf2_ros.buffer.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
         self.tf_broadcaster = tf2_ros.TransformBroadcaster(self)
-        self.timer = self.create_timer(image_processing_rate, self.process_image)
+        # self.timer = self.create_timer(image_processing_rate, self.process_image)
+        self.timer = None
 
         self.servo_tf_buffer = tf2_ros.Buffer()
         self.servo_tf_listener = tf2_ros.TransformListener(self.servo_tf_buffer, self)
@@ -220,7 +222,7 @@ class aruco_tf(Node):
         for i in range(0, len(ids)):
             self.broadcast_transform(
                 "camera_color_optical_frame",
-                "cam_" + str(ids[i]),
+                "1048_cam_" + str(ids[i]),
                 translation[i],
                 quaternion_from_euler(0.0, 0.0, 0.0, "sxyz"),
             )
