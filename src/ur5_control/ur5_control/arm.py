@@ -2,729 +2,794 @@
 # -*- coding: utf-8 -*-
 
 """
-*****************************************************************************************
-*
-*        		===============================================
-*           		    Logistic coBot (LB) Theme (eYRC 2024-25)
-*        		===============================================
-*
-*  This script should be used to implement Task 1B of Logistic coBot (LB) Theme (eYRC 2024-25).
-*
-*  This software is made available on an "AS IS WHERE IS BASIS".
-*  Licensee/end user indemnifies and will keep e-Yantra indemnified from
-*  any and all claim(s) that emanate from the use of the Software or
-*  breach of the terms of this agreement.
-*
-*****************************************************************************************
+# Team ID:          1048
+# Theme:            Logistic Cobot
+# Author List:      Pradyumna Ponkshe, Shantanu Ekad
+# Filename:         arm_1048.py
+# Functions:        < Comma separated list of functions in this file >
+# Global variables: ARUCO_DICT, ARUCO_PARAMS, detector
 """
 
-# Team ID:          [ Team-ID ]
-# Author List:		[ Names of team members worked on this file separated by Comma: Name1, Name2, ... ]
-# Filename:		    task1b_boiler_plate.py
-# Functions:
-# 			        [ Comma separated list of functions in this file ]
-# Nodes:		    Add your publishing and subscribing node
-# 			        Publishing Topics  - [ /tf ]
-#                   Subscribing Topics - [ /camera/aligned_depth_to_color/image_raw, /etc... ]
-
-
-################### IMPORT MODULES #######################
-
-import rclpy
-import sys
-import cv2
-import math
+import rclpy, sys, cv2, math, time
 import tf2_ros
 import numpy as np
 from rclpy.node import Node
-from cv_bridge import CvBridge, CvBridgeError
+from cv_bridge import CvBridge
 from geometry_msgs.msg import TransformStamped, TwistStamped
-from scipy.spatial.transform import Rotation as R
+from rclpy.callback_groups import MutuallyExclusiveCallbackGroup, ReentrantCallbackGroup
 from sensor_msgs.msg import CompressedImage, Image
-from tf_transformations import quaternion_from_euler, quaternion_matrix, translation_matrix, concatenate_matrices, translation_from_matrix, quaternion_from_matrix, euler_from_quaternion
-from linkattacher_msgs.srv import AttachLink, DetachLink
-from servo_msgs.srv import ServoLink
-##################### FUNCTION DEFINITIONS #######################
+from tf_transformations import (
+    quaternion_from_euler,
+    euler_from_quaternion,
+    quaternion_matrix,
+    translation_matrix,
+    concatenate_matrices,
+    translation_from_matrix,
+)
+from functools import partial
+
+# from linkattacher_msgs.srv import AttachLink, DetachLink
+from ur_msgs.srv import SetIO
+from std_srvs.srv import Trigger
+from my_robot_interfaces.srv import PassingService
 
 
-def calculate_rectangle_area(coordinates):
-    """
-    Description:    Function to calculate area or detected aruco
-
-    Args:
-        coordinates (list):     coordinates of detected aruco (4 set of (x,y) coordinates)
-
-    Returns:
-        area        (float):    area of detected aruco
-        width       (float):    width of detected aruco
-    """
-
-    ############ Function VARIABLES ############
-
-    # You can remove these variables after reading the instructions. These are just for sample.
-
-    area = None
-    width = None
-
-    ############ ADD YOUR CODE HERE ############
-
-    # INSTRUCTIONS & HELP :
-    # 	->  Recevice coordiantes from 'detectMarkers' using cv2.aruco library
-    #       and use these coordinates to calculate area and width of aruco detected.
-    # 	->  Extract values from input set of 4 (x,y) coordinates
-    #       and formulate width and height of aruco detected to return 'area' and 'width'.
-
-    ############################################
-
-    return area, width
+# Aruco Processing Objects
+ARUCO_DICT = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
+ARUCO_PARAMS = cv2.aruco.DetectorParameters()
+detector = cv2.aruco.ArucoDetector(ARUCO_DICT, ARUCO_PARAMS)
 
 
 def detect_aruco(image):
     """
-    Description:    Function to perform ArUco detection and return each detail of ArUco detected
-                    such as marker ID, distance, angle, width, center point location, etc.
+    Purpose:
+    ---
+    Detect ArUco markers in an input image and estimate their pose (translation and rotation)
+    using a predefined dictionary.
 
-    Args:
-        image (Image): Input image frame received from respective camera topic
+    Input Arguments:
+    ---
+    `image` : [ numpy.ndarray ]
+        The input image, gotten from aruco_tf.color_cam_sub in which ArUco markers are to be
+        detected.
 
     Returns:
-        center_aruco_list (list): Center points of all ArUco markers detected
-        distance_from_rgb_list (list): Distance value of each ArUco marker detected from RGB camera
-        angle_aruco_list (list): Angle of all pose estimated for ArUco marker
-        width_aruco_list (list): Width of all detected ArUco markers
-        ids (list): List of all ArUco marker IDs detected in a single frame
+    ---
+    `translation_aruco_list` : [ list ]
+        A list of translations (x, y, z) for each detected ArUco marker.
+
+    `angle_aruco_list` : [ list ]
+        A list of angles (roll, pitch, yaw) for each detected ArUco marker, in radians.
+
+    `marker_ids` : [ list ]
+        A list of IDs corresponding to the detected ArUco markers.
+
+    Example call:
+    ---
+    translation_aruco_list, angle_aruco_list, marker_ids = detect_aruco(input_image)
     """
 
-    ############ Function VARIABLES ############
+    # Empty Arrays made, to fill return at end of function with meaningful values
+    translation_aruco_list = []
+    angle_aruco_list = []
+    marker_ids = []
 
-    # Threshold value to detect ArUco markers of certain size
-    aruco_area_threshold = 500
-
-    # Camera matrix and distortion matrix
-    cam_mat = np.array(
+    # Distortion matrix provided by E-Yantra team for their particular camera/camera-plugin
+    camera_matrix = np.array(
         [
             [931.1829833984375, 0.0, 640.0],
             [0.0, 931.1829833984375, 360.0],
             [0.0, 0.0, 1.0],
         ]
     )
-    dist_mat = np.array([0.0, 0.0, 0.0, 0.0, 0.0])
 
-    # ArUco marker size in meters
-    size_of_aruco_m = 0.15
+    dist_coeffs = np.zeros((5, 1))
 
-    # Lists to hold results
-    center_aruco_list = []
-    distance_from_rgb_list = []
-    angle_aruco_list = []
-    width_aruco_list = []
-    ids = []
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-    ############ ADD YOUR CODE HERE ############
+    corners, ids, rejected = detector.detectMarkers(gray)
 
-    # Convert input BGR image to GRAYSCALE for ArUco detection
-    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-    # Define the dictionary for ArUco markers
-    aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_4X4_50)
-
-    # Define parameters for ArUco detection
-    parameters = cv2.aruco.DetectorParameters_create()
-
-    # Detect ArUco markers in the image
-    corners, ids, _ = cv2.aruco.detectMarkers(
-        gray_image, aruco_dict, parameters=parameters
-    )
-
-    # Check if any markers are detected
     if ids is not None:
-        for i, corner in enumerate(corners):
-            # Calculate the area of the detected marker
-            marker_area = cv2.contourArea(corner[0])
-            # print(marker_area)
+        for corner, marker_id in zip(corners, ids):
+            if marker_id == 12:  # Marker ID Sim is 12. In Hardware it is 3
+                MARKER_SIZE = 0.1275  # Sim Aruco Size = 0.1275m. Hardware Aruco = 0.15
+            else:
+                MARKER_SIZE = 0.15
 
-            # Check if the marker area is above the threshold
-            if marker_area > aruco_area_threshold:
-                # Calculate the center point of the marker
-                x_coords = corner[0][:, 0]
-                y_coords = corner[0][:, 1]
-                center_x = np.mean(x_coords)
-                center_y = np.mean(y_coords)
-                center_aruco_list.append((center_x, center_y))
+            rvec, tvec, _ = cv2.aruco.estimatePoseSingleMarkers(
+                corner, MARKER_SIZE, camera_matrix, dist_coeffs
+            )
 
-                # Estimate pose of the marker
-                rvec, tvec, retVal = cv2.aruco.estimatePoseSingleMarkers(
-                    corner, size_of_aruco_m, cam_mat, dist_mat
-                )
+            cv2.aruco.drawDetectedMarkers(image, corners, ids)
+            cv2.drawFrameAxes(image, camera_matrix, dist_coeffs, rvec[0], tvec[0], 0.1)
 
-                # Calculate the distance from the camera
-                # distance_from_rgb_list.append(np.linalg.norm(tvec[0][0]))
-                distance = np.sqrt(np.sum(np.square(tvec[0][0])))
-                distance_from_rgb_list.append(distance)
+            R, _ = cv2.Rodrigues(
+                rvec[0]
+            )  # Get rotation matrix of axis orientation of aruco marker
+            roll, pitch, yaw = rotation_matrix_to_euler_angles(R)
 
-                # Calculate angles (roll, pitch, yaw) from rotation vector
-                rvec = rvec[0][0]
-                rot_mat, _ = cv2.Rodrigues(rvec)
-                angles = cv2.RQDecomp3x3(rot_mat)[0]
-                roll, pitch, yaw = angles
+            marker = marker_id[0]
+            translation_aruco = tvec[0][0]
+            angle_aruco = [
+                math.radians(roll),
+                math.radians(pitch),
+                math.radians(yaw),
+            ]  # Converting the degrees back to radian because quaternion_from_euler requires so
 
-                angle_aruco_list.append((roll, pitch, yaw))
-                # print(angle_aruco_list)
+            marker_ids.append(marker)
+            translation_aruco_list.append(translation_aruco)
+            angle_aruco_list.append(angle_aruco)
 
-                # Calculate the width of the marker
-                marker_width = np.sqrt(
-                    (x_coords[0] - x_coords[1]) ** 2 + (y_coords[0] - y_coords[1]) ** 2
-                )
-                width_aruco_list.append(marker_width)
+            print(f"Marker ID: {marker_id[0]}")
+            print(f"Translation (x, y, z): {tvec[0][0]}")
+            print(
+                f"Rotation (roll, pitch, yaw): {roll:.2f}, {pitch:.2f}, {yaw:.2f}\n"
+            )  # Printing in degrees for debugging
 
-                # Draw detected marker and axes on the image
-                cv2.aruco.drawDetectedMarkers(image, corners, ids)
-                cv2.drawFrameAxes(image, cam_mat, dist_mat, rvec, tvec, size_of_aruco_m)
+    # cv2.imshow("ArUco Marker Detection", image)
+    # cv2.waitKey(1)
 
-    # Return the results
+    return translation_aruco_list, angle_aruco_list, marker_ids
+
+
+def rotation_matrix_to_euler_angles(R):
+    """
+    Purpose:
+    ---
+    Convert a rotation matrix to Euler angles (roll, pitch, yaw).
+
+    Input Arguments:
+    ---
+    `R` : [ numpy.ndarray ]
+        A 3x3 rotation matrix representing the rotation.
+
+    Returns:
+    ---
+    `roll` : [ float ]
+        The roll angle in degrees.
+
+    `pitch` : [ float ]
+        The pitch angle in degrees.
+
+    `yaw` : [ float ]
+        The yaw angle in degrees.
+
+    Example call:
+    ---
+    roll, pitch, yaw = rotation_matrix_to_euler_angles(rotation_matrix)
+    """
+
+    sy = math.sqrt(
+        R[0, 0] ** 2 + R[1, 0] ** 2
+    )  # Calculate the magnitude of the first two elements in the first column of R
+
+    singular = sy < 1e-6  # Check for a singularity (gimbal lock)
+
+    if not singular:
+        roll = math.atan2(R[2, 1], R[2, 2])
+        pitch = math.atan2(-R[2, 0], sy)
+        yaw = math.atan2(R[1, 0], R[0, 0])
+    else:  # Handle singularity where pitch is limited to +-90 degrees
+        roll = math.atan2(-R[1, 2], R[1, 1])
+        pitch = math.atan2(-R[2, 0], sy)
+        yaw = 0
+
     return (
-        center_aruco_list,
-        distance_from_rgb_list,
-        angle_aruco_list,
-        width_aruco_list,
-        ids,
-    )
+        np.degrees(roll),
+        np.degrees(pitch),
+        np.degrees(yaw),
+    )  # Converting to degrees for debugging. It is easier to imagine degrees than radian.
 
 
-##################### CLASS DEFINITION #######################
-
-
-class aruco_tf(Node):
-    """
-    ___CLASS___
-
-    Description:    Class which servers purpose to define process for detecting aruco marker and publishing tf on pose estimated.
-    """
-
+class ArucoTF(Node):
     def __init__(self):
-        """
-        Description:    Initialization of class aruco_tf
-                        All classes have a function called __init__(), which is always executed when the class is being initiated.
-                        The __init__() function is called automatically every time the class is being used to create a new object.
-                        You can find more on this topic here -> https://www.w3schools.com/python/python_classes.asp
-        """
 
-        super().__init__("aruco_tf_publisher")  # registering node
+        super().__init__("aruco_tf_node")
+        # Variables
+        self.ur5_engaged = False
+        self.current_box = None
+        self.servo_started = False
+        self.servo_x = None
+        self.servo_y = None
+        self.servo_z = None
 
-        ############ Topic SUBSCRIPTIONS ############
+        self.servo_roll = None
+        self.servo_pitch = None
+        self.servo_yaw = None
 
+        self.image_received = False
+        self.cv_image = None
+        self.depth_image = None
+        self.box_dict = {}  # Will hold box_name: box_pose, gotten by processing image
+        self.box_done = []  # List of boxes passed by arm
+        self.ebot_pose = [
+            0.57770305,
+            -0.15345971,
+            -0.26956964,
+        ]  # Changes when cam sees ebot aruco
+
+        # Callback group declaration
+        self.sub_group = ReentrantCallbackGroup()
+        self.client_group = MutuallyExclusiveCallbackGroup()
+        self.controller_group = MutuallyExclusiveCallbackGroup()
+        self.image_group = MutuallyExclusiveCallbackGroup()
+        # Server groups
+        self.passing_group = MutuallyExclusiveCallbackGroup()
+
+        # Subscribers
         self.color_cam_sub = self.create_subscription(
-            Image, "/camera/color/image_raw", self.colorimagecb, 10
+            Image,
+            "/camera/color/image_raw",
+            # "/camera/camera/color/image_raw",
+            self.colorimagecb,
+            10,
+            callback_group=self.sub_group,
         )
+
         self.depth_cam_sub = self.create_subscription(
-            Image, "/camera/aligned_depth_to_color/image_raw", self.depthimagecb, 10
+            Image,
+            "/camera/aligned_depth_to_color/image_raw",
+            self.depthimagecb,
+            10,
+            callback_group=self.sub_group,
+        )  # Not in use right now
+
+        # Publishers
+        # self.servo_pub = self.create_publisher(
+        #     TwistStamped, "/servo_node/delta_twist_cmds", 10
+        # )
+
+        self.servo_pub = self.create_publisher(
+            TwistStamped, "/ServoCmdVel", 10
         )
 
-        ############ Constructor VARIABLES/OBJECTS ############
+        # Timers
+        self.process_image_timer = self.create_timer(
+            1.0, self.process_image, callback_group=self.image_group
+        )
 
-        image_processing_rate = 0.5  # rate of time to process image (seconds)
-        self.bridge = CvBridge()  # initialise CvBridge object for image conversion
-        self.tf_buffer = (
-            tf2_ros.buffer.Buffer()
-        )  # buffer time used for listening transforms
+        self.servo_lookup_timer = self.create_timer(
+            0.05, self.servo_lookup, callback_group=self.controller_group
+        )
+
+        self.pick_check_timer = self.create_timer(
+            1.0, self.pick_box, callback_group=self.passing_group
+        )
+
+        # Lookup and Broadcast TF
+        self.tf_buffer = tf2_ros.buffer.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
-        self.tf_broadcaster = tf2_ros.TransformBroadcaster(
-            self
-        )  # object as transform broadcaster to send transform wrt some frame_id
-        self.timer = self.create_timer(
-            image_processing_rate, self.process_image
-        )  # creating a timer based function which gets called on every 0.2 seconds (as defined by 'image_processing_rate' variable)
-
-        self.target_x = 0.0
-        self.target_y = 0.0
-        self.target_z = 0.0
+        self.tf_broadcaster = tf2_ros.TransformBroadcaster(self)
 
         self.servo_tf_buffer = tf2_ros.Buffer()
         self.servo_tf_listener = tf2_ros.TransformListener(self.servo_tf_buffer, self)
 
-        self.servo_timer = self.create_timer(0.1, self.control_loop)
+        # Cv2 Objects
+        self.bridge = CvBridge()
 
-        self.servo_pub = self.create_publisher(TwistStamped, '/servo_node/delta_twist_cmds', 10)
-        self.cv_image = None  # colour raw image variable (from colorimagecb())
-        self.depth_image = None  # depth image variable (from depthimagecb())
-        self.box_dict = {}
-        self.ebot_drop = [0.54770305, -0.01345971, -0.26956964]
-        self.box_done = []
-        self.pick = True
-        
+        self.call_servo_trigger()
 
-
-    def control_loop(self):
-        if self.box_dict:
-            first_ele = list(self.box_dict)[0]
-            print("BOX - ")
-            print(self.box_dict[first_ele])
-            print("\n EBOT - ")
-            print(self.ebot_drop)
-            box = self.box_dict[first_ele]
-
-            if self.pick:
-                self.target_x = box[0]
-                self.target_y = box[1]
-                self.target_z = box[2] + 0.025
-            else:
-                self.target_x = self.ebot_drop[0]
-                self.target_y = self.ebot_drop[1]
-                self.target_z = self.ebot_drop[2]
-
-            try:
-                # Look up transform from base_link to wrist_3_link
-                transform = self.tf_buffer.lookup_transform('base_link', 'wrist_3_link', rclpy.time.Time())
-                
-                # Calculate position errors in x, y, and z
-                error_x = self.target_x - transform.transform.translation.x
-                error_y = self.target_y - transform.transform.translation.y
-                if self.pick:
-                    error_z = self.target_z - transform.transform.translation.z
-                else:
-                    error_z = 0.0
-          
-                if(abs(error_x) < 0.01 and abs(error_y) < 0.01 and abs(error_z) < 0.01):
-                    print("POCHLO")
-                    print(self.pick)
-                    if self.pick:
-                        gripClientNode = Node("attach_node")
-
-                        gripClient = gripClientNode.create_client(AttachLink, "GripperMagnetON")
-                        # else:
-                        #     client = clientNode.create_client(DetachLink, "GripperMagnetOFF")
-
-                        while not gripClient.wait_for_service(0.1):
-                            self.get_logger().warn("Waiting for Gripper Server...")
-
-                        request = AttachLink.Request()  
-                        #     request = DetachLink.Request()
-
-                        request.model1_name = "box" + first_ele[1:-1]
-                        print(request.model1_name)
-                        request.link1_name = 'link'
-                        request.model2_name = 'ur5'
-                        request.link2_name = 'wrist_3_link'
-
-                        future = gripClient.call_async(request)
-                        rclpy.spin_until_future_complete(gripClientNode, future)
-                        # print("zaala")
-
-                        try:
-                            response = future.result()
-                            if response.success:
-                                self.pick = False
-                        except Exception as e:
-                            self.get_logger().error("Service Failed Trying Again...")    
-                    else:
-                        gripClientNode = Node("attach_node")
-
-                        gripClient = gripClientNode.create_client(DetachLink, "GripperMagnetOFF")
-                       
-
-                        while not gripClient.wait_for_service(0.1):
-                            self.get_logger().warn("Waiting for Gripper Server...")
-
-                        request = DetachLink.Request()
-
-                        request.model1_name = "box" + first_ele[1:-1]
-                        request.link1_name = 'link'
-                        request.model2_name = 'ur5'
-                        request.link2_name = 'wrist_3_link'
-
-                        future = gripClient.call_async(request)
-                        rclpy.spin_until_future_complete(gripClientNode, future)
-                        # print("zaala")
-
-                        try:
-                            response = future.result()
-                            if response.success:
-                                self.pick = True
-                        except Exception as e:
-                            self.get_logger().error("Service Failed Trying Again...")
-
-                        remNode = Node("servo_box_remove")
-                        rem_box = remNode.create_client(ServoLink, '/SERVOLINK')
-                        while not rem_box.wait_for_service(timeout_sec=1.0):
-                            self.get_logger().info('Servo service not available, waiting again...')
-
-                        req = ServoLink.Request()
-                        req.box_name = "box" + first_ele[1:-1]
-                        req.box_link = 'link'
-                        future = rem_box.call_async(req)
-                        rclpy.spin_until_future_complete(remNode, future)
-
-                        try:
-                            response = future.result()
-                            if response.success:
-                                del self.box_dict[first_ele]
-                        except Exception as e:
-                            self.get_logger().error("Service Failed Trying Again...")
-                
-                # Calculate orientation errors
-                # Desired orientation: x-axis pointing downward, aligned with base_link z-axis
-                quaternion = (
-                    transform.transform.rotation.x,
-                    transform.transform.rotation.y,
-                    transform.transform.rotation.z,
-                    transform.transform.rotation.w
-                )
-                roll, pitch, yaw = euler_from_quaternion(quaternion)
-                print(transform.transform.translation.x, 
-                    transform.transform.translation.y, 
-                    transform.transform.translation.z)
-                #[-0.0085, 0.5809, 0.1334]
-                # Orientation error - assuming downward x-axis, adjusting roll and pitch only
-                target_rot = math.pi  # x-axis pointing downward
-                if(roll > 0):
-                    rot_error = target_rot - roll
-                elif(roll < 0):
-                    rot_error = (-target_rot) - roll
-                else:
-                    rot_error = 0.0
-
-                # Apply P control for position
-                twist_msg = TwistStamped()
-                twist_msg.header.stamp = self.get_clock().now().to_msg()
-                twist_msg.header.frame_id = 'base_link'
-                if(abs(rot_error) < 0.01):
-                    twist_msg.twist.linear.x = 13.0 * error_x
-                    # twist_msg.twist.linear.x = 1.0
-                    twist_msg.twist.linear.y = 13.0 * error_y
-                    twist_msg.twist.linear.z = 13.0 * error_z
-                
-                # Apply P control for orientation
-                twist_msg.twist.angular.x = 0.0
-                twist_msg.twist.angular.y = 5.0 * rot_error
-                twist_msg.twist.angular.z = 0.0  # Assuming yaw is free to rotate
-
-                # Publish the twist command
-                # self.servo_pub.publish(twist_msg)
-                
-                self.get_logger().info(f'Published linear twist: {twist_msg.twist.linear.x:.2f}, {twist_msg.twist.linear.y:.2f}, {twist_msg.twist.linear.z:.2f}')
-                self.get_logger().info(f'Published angular twist: {twist_msg.twist.angular.x:.2f}, {twist_msg.twist.angular.y:.2f}, {twist_msg.twist.angular.z:.2f}')
-            
-            except tf2_ros.LookupException:
-                self.get_logger().warn('Transform between base_link and wrist_3_link not found.')
-            except tf2_ros.ConnectivityException:
-                self.get_logger().warn('Connectivity issue between base_link and wrist_3_link.')
-            except tf2_ros.ExtrapolationException:
-                self.get_logger().warn('Extrapolation issue between base_link and wrist_3_link.')
-
-    def depthimagecb(self, data):
+    # ---------------------------------------- CLASS END ------------------------------------------
+    def pick_box(self):
         """
-        Description:    Callback function for aligned depth camera topic.
-                        Use this function to receive image depth data and convert to CV2 image
+        Purpose:
+        ---
+        Guides the UR5 end-effector to pick up a specified box or the first available box
+        in the `box_dict` as added by process_image function. The function aligns the
+        end-effector's orientation and position with the box's coordinates, attaches the box,
+        and confirms the pick operation.
 
-        Args:
-            data (Image):    Input depth image frame received from aligned depth camera topic
+        Input Arguments:
+        ---
+        `box_number` : [ int or str | optional | default=None ]
+            Identifier for the box to be picked. If not provided, the first box in `box_dict` is
+            chosen.
 
         Returns:
+        ---
+        `box_number` : [ int or str ]
+            Identifier of the box that was successfully picked.
+
+        Example call:
+        ---
+        pick_box(69)  # Pick the box with ID 69.
+        picked_box = pick_box()  # Pick the first available box.
         """
+        if self.ur5_engaged:
+            return
 
-        ############ ADD YOUR CODE HERE ############
+        if self.image_received:
+            self.process_image()
+        else:
+            return
 
-        # INSTRUCTIONS & HELP :
+        if not self.box_dict:
+            return
 
-        # 	->  Use data variable to convert ROS Image message to CV2 Image type
+        print(self.box_dict)
 
-        #   ->  HINT: You may use CvBridge to do the same
+        self.ur5_engaged = True
 
-        ############################################
-        self.depth_image = self.bridge.imgmsg_to_cv2(
-            data, desired_encoding="passthrough"
+        box_number = list(self.box_dict)[0]
+        box_pose = self.box_dict[box_number]
+
+        print(box_number)
+
+        goal_x, goal_y, goal_z = box_pose
+        goal_z += 0.03
+
+        goal_rot = math.pi
+
+        # Calculate the rotation error based on the sign of the roll
+        rot_error = (
+            goal_rot - abs(self.servo_roll)
+            if self.servo_roll >= 0
+            else -goal_rot - self.servo_roll
         )
-        # cv2.imshow("Image Window", self.depth_image)
-        # cv2.waitKey(1)  # Display the image for 1 ms
 
-    def colorimagecb(self, data):
+        twist_msg = TwistStamped()
+        twist_msg.header.frame_id = "base_link"
+        while abs(rot_error) > 0.05:
+            rot_error = (
+                goal_rot - abs(self.servo_roll)
+                if self.servo_roll >= 0
+                else -goal_rot - self.servo_roll
+            )
+            twist_msg.header.stamp = self.get_clock().now().to_msg()
+            twist_msg.twist.angular.y = 15.0 * rot_error
+            self.servo_pub.publish(twist_msg)
+            time.sleep(0.05)
+
+        twist_msg = TwistStamped()
+        twist_msg.header.frame_id = "base_link"
+
+        error_x = goal_x - self.servo_x
+        error_y = goal_y - self.servo_y
+        error_z = goal_z - self.servo_z
+
+        while (abs(error_x) > 0.02) or (abs(error_y) > 0.02) or (abs(error_z) > 0.02):
+            error_x = goal_x - self.servo_x
+            error_y = goal_y - self.servo_y
+            error_z = goal_z - self.servo_z
+            twist_msg.header.stamp = self.get_clock().now().to_msg()
+
+            twist_msg.twist.linear.y = 10.0 * error_y
+            twist_msg.twist.linear.z = 10.0 * error_z
+            twist_msg.twist.linear.x = 0.0
+
+            if (abs(error_y) < 0.02) and (abs(error_z) < 0.02):
+                twist_msg.twist.linear.x = 10.0 * error_x
+
+            self.servo_pub.publish(twist_msg)
+            # print(twist_msg)
+
+            time.sleep(0.05)
+
+        self.picked = False
+        self.call_attach_box(box_number)
+        while not self.picked:
+            pass
+
+        self.current_box = box_number
+        self.pass_box(box_number)
+
+    def pass_box(self, box_number):
         """
-        Description:    Callback function for colour camera raw topic.
-                        Use this function to receive raw image data and convert to CV2 image
+        Purpose:
+        ---
+        Commands the UR5 end-effector to move towards the ebot position for passing a box
+        and detaches the specified box once the position is reached.
 
-        Args:
-            data (Image):    Input coloured raw image frame received from image_raw camera topic
+        Input Arguments:
+        ---
+        `box_number` : [ int or str ]
+            Identifier for the box to be detached and passed.
 
         Returns:
+        ---
+        None
+
+        Example call:
+        ---
+        pass_box(69)
+        """
+        while not self.ebot_pose:
+            self.process_image()
+            pass
+
+        goal_x, goal_y, goal_z = self.ebot_pose
+        twist_msg = TwistStamped()
+        twist_msg.header.frame_id = "base_link"
+
+        error_x = goal_x - self.servo_x
+        error_y = goal_y - self.servo_y
+        # error_z = goal_z - self.servo_z
+        error_z = 0.0
+
+        while (abs(error_x) > 0.02) or (abs(error_y) > 0.02) or (abs(error_z) > 0.02):
+            error_x = goal_x - self.servo_x
+            error_y = goal_y - self.servo_y
+            error_z = 0.0
+            twist_msg.header.stamp = self.get_clock().now().to_msg()
+
+            twist_msg.twist.linear.x = 10.0 * error_x
+            twist_msg.twist.linear.y = 10.0 * error_y
+            twist_msg.twist.linear.z = 10.0 * error_z
+            # if abs(error_x) < 0.02:
+            #     twist_msg.twist.linear.y = 10.0 * error_y
+            #     twist_msg.twist.linear.z = 10.0 * error_z
+
+            self.servo_pub.publish(twist_msg)
+
+            time.sleep(0.03)
+
+        self.dropped = False
+        self.call_detach_box(self.current_box)
+        # self.ebot_pose = None
+        while not self.dropped:
+            pass
+
+    def servo_lookup(self):
+        """
+        Purpose:
+        ---
+        Retrieves the transformation between the `base_link` and the end effector of the UR5 arm,
+        extracting the translation and orientation (as roll, pitch, and yaw). Updates the
+        object's attributes with the transformation values.
+
+        Input Arguments:
+        ---
+        None
+
+        Returns:
+        ---
+        None
+
+        Example call:
+        ---
+        servo_lookup()
         """
 
-        ############ ADD YOUR CODE HERE ############
-
-        # INSTRUCTIONS & HELP :
-
-        # 	->  Use data variable to convert ROS Image message to CV2 Image type
-
-        #   ->  HINT:   You may use CvBridge to do the same
-        #               Check if you need any rotation or flipping image as input data maybe different than what you expect to be.
-        #               You may use cv2 functions such as 'flip' and 'rotate' to do the same
-
-        ############################################
-        self.cv_image = self.bridge.imgmsg_to_cv2(data, desired_encoding="bgr8")
-        # cv2.imshow("Image Window", self.cv_image)
-        # cv2.waitKey(1)  # Display the image for 1 ms
-        
-    def find_aruco_transform(self, marker_id, correction):
         try:
-            # Step 1: Get transform from base_link to camera_link
-            base_to_camera = self.tf_buffer.lookup_transform('base_link', 'camera_link', rclpy.time.Time())
+            self.servo_transform = self.tf_buffer.lookup_transform(
+                "base_link", "wrist_3_link", rclpy.time.Time()
+            )
 
-            # Step 2: Get transform from camera_link to aruco_box (published by RealSense camera)
-            # camera_to_aruco = self.tf_buffer.lookup_transform('camera_link', 'aruco_box', rclpy.time.Time())
+            self.servo_x, self.servo_y, self.servo_z = (
+                self.servo_transform.transform.translation.x,
+                self.servo_transform.transform.translation.y,
+                self.servo_transform.transform.translation.z,
+            )
 
-            # Step 3: Extract translation and rotation from base to camera
+            quaternion = (
+                self.servo_transform.transform.rotation.x,
+                self.servo_transform.transform.rotation.y,
+                self.servo_transform.transform.rotation.z,
+                self.servo_transform.transform.rotation.w,
+            )
+            self.servo_roll, self.servo_pitch, self.servo_yaw = euler_from_quaternion(
+                quaternion
+            )
+
+        except tf2_ros.LookupException:
+            self.get_logger().warn(
+                "Transform between base_link and wrist_3_link not found."
+            )
+        except tf2_ros.ConnectivityException:
+            self.get_logger().warn(
+                "Connectivity issue between base_link and wrist_3_link."
+            )
+        except tf2_ros.ExtrapolationException:
+            self.get_logger().warn(
+                "Extrapolation issue between base_link and wrist_3_link."
+            )
+
+    def process_image(self):
+        """
+        Purpose:
+        ---
+        Process an input image to detect ArUco markers, broadcast transformations for each
+        detected marker, and update the ebot's pose or box dictionary. Also removes boxes that
+        have already been transferred from box dictionary
+
+        Input Arguments:
+        ---
+        None
+
+        Returns:
+        ---
+        None
+
+        Example call:
+        ---
+        Timer based call
+        """
+
+        if not self.image_received:
+            return
+
+        if self.ur5_engaged:
+            return
+
+        translation, angle, ids = detect_aruco(self.cv_image)
+
+        if not ids:
+            return  # Shouldn't be required, but for loop gave me error when translation was empty so...
+
+        for i in range(0, len(ids)):
+            self.broadcast_transform(
+                "camera_color_optical_frame",
+                "1048_cam_" + str(ids[i]),
+                translation[i],
+                quaternion_from_euler(0.0, 0.0, 0.0, "sxyz"),
+            )  # Broadcast aruco tf w.r.t camera
+            base_to_aruco_pose = self.find_transform(
+                translation[i],
+                quaternion_from_euler(angle[i][0], angle[i][1], angle[i][2], "sxyz"),
+            )  # Lookup base to camera transform and find base to box transform
+
+            self.broadcast_transform(
+                "base_link",
+                "1048_base_" + str(ids[i]),
+                base_to_aruco_pose,
+                quaternion_from_euler(
+                    0.0,
+                    math.pi,
+                    (math.pi / 2.0) - angle[i][2],
+                    "sxyz",  # The pitch, is to make z axis point toward inside the box
+                ),
+            )  # Broadcast box tf w.r.t base
+
+            if ids[i] == 12:  # 12 if simulation, 3 if remote access hardware
+                self.ebot_pose = base_to_aruco_pose
+            else:
+                self.box_dict[str(ids[i])] = base_to_aruco_pose
+
+            for done_box in self.box_done:
+                self.box_dict.pop(done_box, None)  # Safely removes the key if it exists
+
+        return
+
+    def find_transform(self, translation, angles):
+        """
+        Purpose:
+        ---
+        Calculate the transformation from the given tf to UR5 base_link frame, using the
+        translation and rotation (angles) of the ArUco marker relative to the camera.
+
+        Input Arguments:
+        ---
+        `translation` : [ list ]
+            A list of three values representing the translation (x, y, z) of the ArUco marker
+            relative to the camera.
+
+        `angles` : [ list ]
+            A list of four values representing the rotation (quaternion) of the ArUco marker
+            relative to the camera.
+
+        Returns:
+        ---
+        `aruco_translation_in_base` : [ list ]
+            The calculated translation of the ArUco marker in the base_link frame.
+
+        Example call:
+        ---
+        aruco_translation_in_base = find_transform(aruco_translation, aruco_angles)
+        """
+
+        try:
+
+            base_to_camera = self.tf_buffer.lookup_transform(
+                "base_link", "camera_color_optical_frame", rclpy.time.Time()
+            )
+
             base_translation = [
                 base_to_camera.transform.translation.x,
                 base_to_camera.transform.translation.y,
-                base_to_camera.transform.translation.z
+                base_to_camera.transform.translation.z,
             ]
             base_rotation = [
                 base_to_camera.transform.rotation.x,
                 base_to_camera.transform.rotation.y,
                 base_to_camera.transform.rotation.z,
-                base_to_camera.transform.rotation.w
+                base_to_camera.transform.rotation.w,
             ]
 
-            # Step 4: Extract translation and rotation from camera to aruco
-            aruco_translation = [
-                self.x,
-                self.y,
-                self.z
-            ]
-            aruco_rotation = [
-                self.q[0],
-                self.q[1],
-                self.q[2],
-                self.q[3]
-            ]
+            aruco_translation = translation
+            aruco_rotation = angles
 
-            # Step 5: Create transformation matrices
             base_to_camera_matrix = concatenate_matrices(
-                translation_matrix(base_translation),
-                quaternion_matrix(base_rotation)
+                translation_matrix(base_translation), quaternion_matrix(base_rotation)
             )
-            
+
             camera_to_aruco_matrix = concatenate_matrices(
-                translation_matrix(aruco_translation),
-                quaternion_matrix(aruco_rotation)
+                translation_matrix(aruco_translation), quaternion_matrix(aruco_rotation)
             )
 
-            # Step 6: Calculate full transform from base_link to aruco_box
-            base_to_aruco_matrix = concatenate_matrices(base_to_camera_matrix, camera_to_aruco_matrix)
+            base_to_aruco_matrix = concatenate_matrices(
+                base_to_camera_matrix, camera_to_aruco_matrix
+            )
 
-            # Step 7: Extract the final translation and rotation for Aruco box in base_link frame
             aruco_translation_in_base = translation_from_matrix(base_to_aruco_matrix)
-            aruco_rotation_in_base = quaternion_from_matrix(base_to_aruco_matrix)
-
-
-            marker_to_base_transform = TransformStamped()
-            marker_to_base_transform.header.stamp = self.get_clock().now().to_msg()
-            marker_to_base_transform.header.frame_id = "base_link"
-            marker_to_base_transform.child_frame_id = "obj_" + (str(marker_id))[1:-1]
-            marker_to_base_transform.transform.translation.x = (
-                aruco_translation_in_base[0]
-            )
-            marker_to_base_transform.transform.translation.y = (
-                aruco_translation_in_base[1]
-            )
-            marker_to_base_transform.transform.translation.z = (
-                aruco_translation_in_base[2] + correction
-            )
-
-            if(marker_id == 12):
-                marker_to_base_transform.transform.rotation.x = self.eq1[0]
-                marker_to_base_transform.transform.rotation.y = self.eq1[1]
-                marker_to_base_transform.transform.rotation.z = self.eq1[2] 
-                marker_to_base_transform.transform.rotation.w = self.eq1[3] 
-            elif(aruco_translation_in_base[1] > 0.0):
-                marker_to_base_transform.transform.rotation.x = self.uq1[0]
-                marker_to_base_transform.transform.rotation.y = self.uq1[1]
-                marker_to_base_transform.transform.rotation.z = self.uq1[2] 
-                marker_to_base_transform.transform.rotation.w = self.uq1[3] 
-            else:
-                marker_to_base_transform.transform.rotation.x = self.q1[0]
-                marker_to_base_transform.transform.rotation.y = self.q1[1]
-                marker_to_base_transform.transform.rotation.z = self.q1[2] 
-                marker_to_base_transform.transform.rotation.w = self.q1[3] 
-            
-            # marker_to_base_transform.transform.rotation = base_to_camera_transform.transform.rotation
-
-            # Broadcast the transform from base_link to obj_marker
-            self.tf_broadcaster.sendTransform(marker_to_base_transform)
-            if(marker_id == 12):
-                self.ebot_drop = aruco_translation_in_base
-            else:
-                self.box_dict[str(marker_id)] = [
-                    aruco_translation_in_base[0],
-                    aruco_translation_in_base[1],
-                    aruco_translation_in_base[2],
-                ]
-            # print(self.box_dict)
-                
-
-            # Log the results
-            self.get_logger().info(f"Aruco box in base_link frame: x={aruco_translation_in_base[0]}, "
-                                   f"y={aruco_translation_in_base[1]}, z={aruco_translation_in_base[2]}")
-            # self.get_logger().info(f"Rotation (quaternion): x={aruco_rotation_in_base[0]}, "
-            #                        f"y={aruco_rotation_in_base[1]}, z={aruco_rotation_in_base[2]}, "
-            #                        f"w={aruco_rotation_in_base[3]}")
-            
-        except Exception as e:
-            self.get_logger().info(f'Could not calculate transform: {e}')
-
-
-    
-    def get_coordinates(self, target_frame):
-        try:
-            source_frame = "base_link"
-            target_frame = "cam_" + str(target_frame)
-
-            transform = self.tf_buffer.lookup_transform(
-                source_frame, target_frame, rclpy.time.Time()
-            )
-
-            x = transform.transform.translation.x
-            y = transform.transform.translation.y
-            z = transform.transform.translation.z
-
-            self.get_logger().info(
-                f"Aruco box coordinates relative to base_link: x={x}, y={y}, z={z}"
-            )
-            return x, y, z
+            print(aruco_translation_in_base)
+            return (
+                aruco_translation_in_base.tolist()
+            )  # convert numpy array to python list for easier parsing
 
         except Exception as e:
-            self.get_logger().info(f"Could not get transform: {e}")
-            return None, None, None
+            self.get_logger().info(f"Could not calculate transform: {e}")
 
-    def process_image(self):
+    def broadcast_transform(self, parent_frame, child_frame, translation, rotation):
         """
-        Description:    Timer function used to detect ArUco markers and publish TF on estimated poses.
-        Args:
+        Purpose:
+        ---
+        Broadcast a transformation between two frames (parent and child) with a specified
+        translation and rotation(quaternion).
+
+        Input Arguments:
+        ---
+        `parent_frame` : [ str ]
+            The name of the parent frame in the transformation.
+
+        `child_frame` : [ str ]
+            The name of the child frame in the transformation.
+
+        `translation` : [ list ]
+            A list of three values representing the translation (x, y, z) from the parent frame
+            to the child frame.
+
+        `rotation` : [ list ]
+            A list of four values representing the rotation (quaternion) from the parent frame
+            to the child frame.
+
         Returns:
+        ---
+        None
+
+        Example call:
+        ---
+        broadcast_transform("base_link", "1048_base_69", [69.0, 42.0, 0.0], [0.0, 0.0, 0.0, 1.0])
         """
 
-        ############ Function VARIABLES ############
+        transform = TransformStamped()
+        transform.header.stamp = self.get_clock().now().to_msg()
+        transform.header.frame_id = parent_frame
+        transform.child_frame_id = child_frame
 
-        # Camera parameters
-        sizeCamX = 1280
-        sizeCamY = 720
-        centerCamX = 640
-        centerCamY = 360
-        focalX = 931.1829833984375
-        focalY = 931.1829833984375
+        transform.transform.translation.x = translation[0]
+        transform.transform.translation.y = translation[1]
+        transform.transform.translation.z = translation[2]
 
-        if self.cv_image is not None:
-            (
-                center_aruco_list,
-                distance_from_rgb_list,
-                angle_aruco_list,
-                width_aruco_list,
-                ids,
-            ) = detect_aruco(self.cv_image)
-            # print(ids)
-            # print("\n\n")
-            # print(distance_from_rgb_list)
-            if center_aruco_list:
-                for idx, marker_id in enumerate(ids):
-                    # Extract data for each marker
-                    cX, cY = center_aruco_list[idx]
-                    distance_from_rgb = distance_from_rgb_list[idx]
-                    angle_aruco = angle_aruco_list[idx]
+        transform.transform.rotation.x = rotation[0]
+        transform.transform.rotation.y = rotation[1]
+        transform.transform.rotation.z = rotation[2]
+        transform.transform.rotation.w = rotation[3]
 
-                    # Ensure angle_aruco is a single numeric value in radians
-                    if isinstance(angle_aruco, (list, tuple)):
-                        angle_aruco = angle_aruco[
-                            2
-                        ]  # Assuming the first element is the angle
-                    elif not isinstance(angle_aruco, (float, int)):
-                        self.get_logger().error(
-                            f"Unexpected type for angle_aruco: {type(angle_aruco)}"
-                        )
-                        continue
+        self.tf_broadcaster.sendTransform(transform)
 
-                    # Apply the angle correction formula (assuming angle_aruco is in radians)
-                    angle_aruco_corrected = (0.788 * angle_aruco) - (
-                        (angle_aruco**2) / 3160
-                    )
-                    # angle_aruco_corrected = math.radians(angle_aruco)
-                    #
-                    roll, pitch, yaw = 0, 0, angle_aruco_corrected
+    # def call_attach_box(self, box_number):
+    #     client = self.create_client(AttachLink, "GripperMagnetON")
+    #     while not client.wait_for_service(timeout_sec=1.0):
+    #         self.get_logger().warn("Waiting for Attach_Link Server...")
 
-                    self.q = quaternion_from_euler(roll, pitch, yaw)
-                    self.q1 = quaternion_from_euler(-math.pi, pitch, yaw - (math.pi / 2.0))
-                    self.uq1 = quaternion_from_euler(-math.pi, pitch, yaw - (math.pi / 2.0))
-                    self.eq1 = quaternion_from_euler(-math.pi, pitch, -math.pi / 2.0)
+    #     request = AttachLink.Request()
+    #     request.model1_name = "box" + box_number
+    #     request.link1_name = "link"
+    #     request.model2_name = "ur5"
+    #     request.link2_name = "wrist_3_link"
 
-                    # Calculate (x, y, z) based on focal length, center value, and image size
-                    self.y = (cX - centerCamX) * -distance_from_rgb / focalX
-                    self.z = (cY - centerCamY) * -distance_from_rgb / focalY
+    #     future = client.call_async(request)
+    #     future.add_done_callback(
+    #         partial(self.callback_call_attach_box, box_number=box_number)
+    #     )
 
-                    self.x = distance_from_rgb - 0.12
+    def call_attach_box(self, box_number):
+        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info("EEF Tool service not available, waiting again...")
 
-                    # Draw circle on the detected ArUco marker center
-                    cv2.circle(self.cv_image, (int(cX), int(cY)), 10, (0, 255, 0), -1)
+        request = SetIO.Request()
+        request.fun = 1
+        request.pin = 16
+        request.state = 1.0
 
-                    # Create a TransformStamped message
-                    transform = TransformStamped()
-                    transform.header.stamp = self.get_clock().now().to_msg()
-                    transform.header.frame_id = "camera_link"
-                    transform.child_frame_id = "cam_" + (str(marker_id))[1:-1]
-                    if(marker_id == 12):
-                        self.x = self.x - 0.3
-                        self.z = self.z + 0.1
-                    transform.transform.translation.x = self.x
-                    transform.transform.translation.y = self.y
-                    transform.transform.translation.z = self.z
+        future = client.call_async(request)
+        future.add_done_callback(
+            partial(self.callback_call_attach_box, box_number=box_number)
+        )
 
-                    # Compute quaternion from the corrected angle (yaw only)
-                    transform.transform.rotation.x = self.q[0]
-                    transform.transform.rotation.y = self.q[1]
-                    transform.transform.rotation.z = self.q[2]
-                    transform.transform.rotation.w = self.q[3]
+    def callback_call_attach_box(self, future, box_number):
+        try:
+            response = future.result()
+            if response.success:
+                self.picked = True
+                self.get_logger().info("Attached Box" + box_number)
+        except Exception as e:
+            self.get_logger().error("Attach Box Client Failed")
 
-                    # Broadcast the transform from camera_link to cam_marker
-                    self.tf_broadcaster.sendTransform(transform)
+    # def call_detach_box(self, box_number):
+    #     client = self.create_client(DetachLink, "GripperMagnetOFF")
+    #     while not client.wait_for_service(timeout_sec=1.0):
+    #         self.get_logger().warn("Waiting for Detach_Link Server...")
 
-                    # Lookup transform from base_link to camera_link
-                    # self.box_pos(marker_id)
-                    if(marker_id == 12):
-                        self.find_aruco_transform(marker_id, 0.0)
-                    else:
-                        self.find_aruco_transform(marker_id, 0.0)
+    #     request = DetachLink.Request()
+    #     request.model1_name = "box" + box_number
+    #     request.link1_name = "link"
+    #     request.model2_name = "ur5"
+    #     request.link2_name = "wrist_3_link"
 
-            # Display the image with the detected markers
-            # cv2.imshow("Detected ArUco Markers", self.cv_image)
-            cv2.waitKey(1)
+    #     future = client.call_async(request)
+    #     future.add_done_callback(
+    #         partial(self.callback_call_detach_box, box_number=box_number)
+    #     )
 
+    def call_detach_box(self, box_number):
+        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info("EEF Tool service not available, waiting...")
 
-##################### FUNCTION DEFINITION #######################
+        request = SetIO.Request()
+        request.fun = 1
+        request.pin = 16
+        request.state = 0.0
+
+        future = client.call_async(request)
+        future.add_done_callback(
+            partial(self.callback_call_detach_box, box_number=box_number)
+        )
+
+    def callback_call_detach_box(self, future, box_number):
+        try:
+            response = future.result()
+            if response.success:
+                self.dropped = True
+                self.box_done.append(box_number)
+                del self.box_dict[box_number]
+                self.get_logger().info("Detached Box" + box_number)
+                self.ur5_engaged = False
+        except Exception as e:
+            self.get_logger().error("Detach Box Client Failed")
+
+    def call_servo_trigger(self):
+        client = self.create_client(Trigger, "/servo_node/start_servo")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().warn("Waiting for Servo Trigger Server...")
+
+        request = Trigger.Request()
+
+        future = client.call_async(request)
+        future.add_done_callback(partial(self.callback_call_servo_trigger))
+
+    def callback_call_servo_trigger(self, future):
+        try:
+            response = future.result()
+            if response.success:
+                self.servo_started = True
+        except Exception as e:
+            self.get_logger().error("Servo Trigger Call Failed")
+
+    # Subscriber Callbacks
+    def colorimagecb(self, data):
+        self.cv_image = self.bridge.imgmsg_to_cv2(data, desired_encoding="bgr8")
+        self.image_received = True
+
+    def depthimagecb(self, data):
+        self.depth_image = self.bridge.imgmsg_to_cv2(
+            data, desired_encoding="passthrough"
+        )
 
 
 def main():
-    """
-    Description:    Main function which creates a ROS node and spin around for the aruco_tf class to perform it's task
-    """
+    rclpy.init(args=sys.argv)
 
-    rclpy.init(args=sys.argv)  # initialisation
+    aruco_tf_node = ArucoTF()
 
-    node = rclpy.create_node("aruco_tf_process")  # creating ROS node
+    executor = rclpy.executors.MultiThreadedExecutor()
+    executor.add_node(aruco_tf_node)
+    executor.spin()
 
-    node.get_logger().info("Node created: Aruco tf process")  # logging information
-
-    aruco_tf_class = aruco_tf()  # creating a new object for class 'aruco_tf'
-
-    rclpy.spin(aruco_tf_class)  # spining on the object to make it alive in ROS 2 DDS
-
-    aruco_tf_class.destroy_node()  # destroy node after spin ends
-
-    rclpy.shutdown()  # shutdown process
+    rclpy.shutdown()
 
 
 if __name__ == "__main__":
-    """
-    Description:    If the python interpreter is running that module (the source file) as the main program,
-                    it sets the special __name__ variable to have a value “__main__”.
-                    If this file is being imported from another module, __name__ will be set to the module’s name.
-                    You can find more on this here -> https://www.geeksforgeeks.org/what-does-the-if-__name__-__main__-do/
-    """
-
     main()
