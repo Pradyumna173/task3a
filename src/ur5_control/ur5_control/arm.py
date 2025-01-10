@@ -31,7 +31,7 @@ from functools import partial
 # from linkattacher_msgs.srv import AttachLink, DetachLink
 from ur_msgs.srv import SetIO
 from std_srvs.srv import Trigger
-#from my_robot_interfaces.srv import PassingService
+# from my_robot_interfaces.srv import PassingService
 
 
 # Aruco Processing Objects
@@ -91,8 +91,8 @@ def detect_aruco(image):
 
     if ids is not None:
         for corner, marker_id in zip(corners, ids):
-            if marker_id == 12:  # Marker ID Sim is 12. In Hardware it is 3
-                MARKER_SIZE = 0.1275  # Sim Aruco Size = 0.1275m. Hardware Aruco = 0.15
+            if marker_id == 3:  # Marker ID Sim is 12. In Hardware it is 3
+                MARKER_SIZE = 0.15  # Sim Aruco Size = 0.1275m. Hardware Aruco = 0.15
             else:
                 MARKER_SIZE = 0.15
 
@@ -540,7 +540,7 @@ class ArucoTF(Node):
                 ),
             )  # Broadcast box tf w.r.t base
 
-            if ids[i] == 12:  # 12 if simulation, 3 if remote access hardware
+            if ids[i] == 3:  # 12 if simulation, 3 if remote access hardware
                 self.ebot_pose = base_to_aruco_pose
             else:
                 self.box_dict[str(ids[i])] = base_to_aruco_pose
