@@ -31,7 +31,7 @@ from functools import partial
 # from linkattacher_msgs.srv import AttachLink, DetachLink
 from ur_msgs.srv import SetIO
 from std_srvs.srv import Trigger
-from my_robot_interfaces.srv import PassingService
+#from my_robot_interfaces.srv import PassingService
 
 
 # Aruco Processing Objects
