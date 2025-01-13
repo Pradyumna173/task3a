@@ -49,13 +49,14 @@ class EbotNav(Node):
             0.5, self.nav_manager, callback_group=self.handler_group
         )
 
-        ultra_sub = self.create_subscription(Float32MultiArray, 'ultrasonic_sensor_std_float', self.ultra_callback, 10)
+        ultra_sub = self.create_subscription(
+            Float32MultiArray, "ultrasonic_sensor_std_float", self.ultra_callback, 10
+        )
 
-# callback for ultrasonic subscription
+    # callback for ultrasonic subscription
     def orientation_sub_callback(self, msg):
         self.yaw = msg.data
         print(self.yaw)
-
 
     def create_pose_stamped(self, x, y, yaw=0.0):
         """
@@ -162,19 +163,13 @@ class EbotNav(Node):
 
         goal = self.create_pose_stamped(*self.pose_dict[self.activity_queue[0]])
         if self.go_to_goal(goal):
-            if self.activity_queue[0] == "rec":
-                self.call_dock(self.activity_queue[0])
-                while not self.docking_done:
-                    pass
-                self.docking_done = False
-                forward_msg = Twist()
-                forward_msg.linear.x = 0.5
-                self.vel_pub.publish(forward_msg)
-            else:
-                self.call_dock(self.activity_queue[0])
-                while not self.docking_done:
-                    pass
-                self.docking_done = False
+            self.call_dock(self.activity_queue[0])
+            while not self.docking_done:
+                pass
+            self.docking_done = False
+            forward_msg = Twist()
+            forward_msg.linear.x = 0.5
+            self.vel_pub.publish(forward_msg)
 
             self.activity_queue.pop(0)
 
