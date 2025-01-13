@@ -16,9 +16,7 @@ from rclpy.node import Node
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Range
-from payload_service.srv import PayloadSW
-from my_robot_interfaces.srv import DockSw
-from std_msgs.msg import Bool
+from ebot_docking.srv import DockSw
 from functools import partial
 from tf_transformations import euler_from_quaternion
 from std_msgs.msg import Float32, Float32MultiArray
@@ -93,10 +91,11 @@ class Docking(Node):
     def ultra_callback(self, msg):
         self.ultra_left = msg.data[4]
         self.ultra_right = msg.data[5]
+        print("left", self.ultra_left, "right", self.ultra_right)
 
     def orientation_sub_callback(self, msg):
-        self.current_theta = msg.data
-        print(self.yaw)
+        self.current_theta = self.normalize_angle(msg.data)
+        print("orientation", self.current_theta)
 
     def docking_server_callback(self, request, response):
         """
@@ -184,7 +183,7 @@ class Docking(Node):
                     + (self.dock_entry_y - self.current_y) ** 2
                 )
 
-                if abs(distance_to_goal) > 0.05:
+                if abs(distance_to_goal) > 0.1:
                     angle_to_goal = math.atan2(
                         self.dock_entry_y - self.current_y,
                         self.dock_entry_x - self.current_x,
@@ -249,7 +248,6 @@ class Docking(Node):
                     self.vel_pub.publish(vel_msg)
                     self.processing_dock = False
                     return
-                self.call_payload(False)  # True is receive, False is Drop
             self.vel_pub.publish(vel_msg)
             time.sleep(0.03)
 
