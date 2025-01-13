@@ -60,6 +60,10 @@ class Docking(Node):
             Twist, "/cmd_vel", 10, callback_group=self.controller_group
         )
 
+        self.ultra_sub = self.create_subscription(
+            Float32MultiArray, "ultrasonic_sensor_std_float", self.ultra_callback, 10
+        )
+
         self.vel_pub.publish(Twist())
 
         self.dock_entry_y = None
@@ -67,10 +71,12 @@ class Docking(Node):
         self.current_x = 0.0
         self.current_y = 0.0
         self.current_theta = 0.0
-        self.curr_dist = 0.0
-        self.comp_dist = 0.0
+        self.ultra_left = 0.0
+        self.ultra_right = 0.0
         self.box_on_bot = None
         self.yaw = None
+        self.ultra_left = None
+        self.ultra_right = None
 
         self.processing_dock = False
         self.payload_dropped = False
@@ -83,8 +89,13 @@ class Docking(Node):
         self.dock_dict["rec"] = [0.4, -2.42]
         self.dock_dict["con1"] = [-4.55, 3.36]
 
+    # callback for ultrasonic subscription
+    def ultra_callback(self, msg):
+        self.ultra_left = msg.data[4]
+        self.ultra_right = msg.data[5]
+
     def orientation_sub_callback(self, msg):
-        self.yaw = msg.data
+        self.current_theta = msg.data
         print(self.yaw)
 
     def docking_server_callback(self, request, response):
@@ -196,12 +207,6 @@ class Docking(Node):
                     if abs(angle_diff) > 0.1:
                         vel_msg.angular.z = 5.0 * angle_diff
                         vel_msg.linear.x = 0.0
-                        # Reduced gain for smoother rotation
-                        # vel_msg.linear.x = (
-                        #     -0.3 * distance_to_goal
-                        #     if reverse
-                        #     else 0.3 * distance_to_goal
-                        # )
                     else:
                         vel_msg.linear.x = (
                             -0.8 * distance_to_goal
@@ -212,26 +217,12 @@ class Docking(Node):
                     vel_msg = Twist()
                     self.current_activity = "align"
             elif act == "align":
-                if self.target == "rec":
-                    difference = self.current_theta
-                    if abs(difference > 0.0):
-                        vel_msg.angular.z = 5.0 * (3.0 - self.current_theta)
-                        vel_msg.linear.x = 0.0
-                    else:
-                        vel_msg.angular.z = 5.0 * (-3.0 - self.current_theta)
-                        vel_msg.linear.x = 0.0
-
-                    if abs(vel_msg.angular.z) < 0.01:
-                        vel_msg = Twist()
-                        self.current_activity = "rev"
-
+                if abs(self.current_theta + 1.57) > 0.02:
+                    vel_msg.angular.z = 5.0 * (-1.57 - self.current_theta)
+                    vel_msg.linear.x = 0.0
                 else:
-                    if abs(self.current_theta + 1.57) > 0.02:
-                        vel_msg.angular.z = 5.0 * (-1.57 - self.current_theta)
-                        vel_msg.linear.x = 0.0
-                    else:
-                        vel_msg = Twist()
-                        self.current_activity = "rev"
+                    vel_msg = Twist()
+                    self.current_activity = "rev"
 
                 if vel_msg.angular.z > 2.0:
                     vel_msg.angular.z = 2.0
@@ -242,11 +233,11 @@ class Docking(Node):
                     stop_dist = 0.05
                 else:
                     stop_dist = 0.27
-                if self.curr_dist > stop_dist:
-                    us_diff = self.curr_dist - self.comp_dist
+                if self.ultra_left > stop_dist:
+                    us_diff = self.ultra_left - self.ultra_right
                     vel_msg.angular.z = -8.0 * us_diff
                     if abs(us_diff) < 0.03:
-                        vel_msg.linear.x = -1.5 * self.curr_dist
+                        vel_msg.linear.x = -1.5 * self.ultra_left
                     else:
                         vel_msg.linear.x = 0.0
                 else:
@@ -267,43 +258,14 @@ class Docking(Node):
                 self.vel_pub.publish(vel_msg)
                 self.processing_dock = False
 
-    def call_payload(self, action):  # true is receive, false is drop
-        client = self.create_client(PayloadSW, "/payload_sw")
-        while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().warn("Waiting for Payload Server...")
-
-        request = PayloadSW.Request()
-        request.receive = action
-        request.drop = not action
-        request.box_name = self.box_on_bot
-
-        future = client.call_async(request)
-        future.add_done_callback(partial(self.callback_call_payload, action=action))
-
-    def callback_call_payload(self, future, action):
-        try:
-            response = future.result()
-            self.get_logger().info(response.message)
-            if response.message == "Payload Dropped Successfully !":
-                self.payload_dropped = True
-        except Exception as e:
-            self.get_logger().error("Payload Service Call Failed")
-
     def odom_callback(self, msg):
         # Update current position and orientation from odometry data
         self.current_x = msg.pose.pose.position.x
         self.current_y = msg.pose.pose.position.y
         orientation = msg.pose.pose.orientation
-        _, _, self.current_theta = euler_from_quaternion(
-            [orientation.x, orientation.y, orientation.z, orientation.w]
-        )
-
-    def ultrarsub_callback(self, msg):
-        self.curr_dist = msg.range
-        print(self.curr_dist, self.comp_dist)
-
-    def ultralsub_callback(self, msg):
-        self.comp_dist = msg.range
+        # _, _, self.current_theta = euler_from_quaternion(
+        #     [orientation.x, orientation.y, orientation.z, orientation.w]
+        # )
 
     def normalize_angle(self, angle):
         while angle > math.pi:
