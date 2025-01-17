@@ -7,7 +7,7 @@ from rclpy.duration import Duration
 from rclpy.node import Node
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 
-from my_robot_interfaces.srv import DockSw, PassingService
+from ebot_docking.srv import DockSw
 from tf_transformations import quaternion_from_euler
 from functools import partial
 from geometry_msgs.msg import Twist
@@ -23,12 +23,12 @@ class EbotNav(Node):
         self.yaw = None
 
         self.pose_dict = {
-            "rec": [3.48, -2.55, -1.57],
-            "con1": [3.33, 1.83, -1.57],
-            "con2": [3.21, 1.28, -1.57],
+            "rec": [6.1105, 0.6084, -1.57],
+            "con1": [4.936, 0.466, -1.57],
+            "con2": [3.33, 1.83, -1.57],
         }
 
-        self.activity_queue = ["con1", "con2", "rec"]
+        self.activity_queue = ["rec", "con1", "con2"]
         self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
 
         self.orientation_sub = self.create_subscription(
@@ -49,14 +49,10 @@ class EbotNav(Node):
             0.5, self.nav_manager, callback_group=self.handler_group
         )
 
-        ultra_sub = self.create_subscription(
-            Float32MultiArray, "ultrasonic_sensor_std_float", self.ultra_callback, 10
-        )
-
-    # callback for ultrasonic subscription
+            # callback for ultrasonic subscription
     def orientation_sub_callback(self, msg):
         self.yaw = msg.data
-        print(self.yaw)
+#        print(self.yaw)
 
     def create_pose_stamped(self, x, y, yaw=0.0):
         """
@@ -163,13 +159,14 @@ class EbotNav(Node):
 
         goal = self.create_pose_stamped(*self.pose_dict[self.activity_queue[0]])
         if self.go_to_goal(goal):
-            self.call_dock(self.activity_queue[0])
-            while not self.docking_done:
-                pass
-            self.docking_done = False
-            forward_msg = Twist()
-            forward_msg.linear.x = 0.5
-            self.vel_pub.publish(forward_msg)
+#            self.call_dock(self.activity_queue[0])
+#            while not self.docking_done:
+#                pass
+#            self.docking_done = False
+#            forward_msg = Twist()
+#            forward_msg.linear.x = 0.5
+#            self.vel_pub.publish(forward_msg)
+            print("pochlo")
 
             self.activity_queue.pop(0)
 

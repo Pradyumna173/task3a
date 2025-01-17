@@ -31,8 +31,6 @@ from functools import partial
 # from linkattacher_msgs.srv import AttachLink, DetachLink
 from ur_msgs.srv import SetIO
 from std_srvs.srv import Trigger
-# from my_robot_interfaces.srv import PassingService
-
 
 # Aruco Processing Objects
 ARUCO_DICT = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
@@ -91,7 +89,7 @@ def detect_aruco(image):
 
     if ids is not None:
         for corner, marker_id in zip(corners, ids):
-            if marker_id == 3:  # Marker ID Sim is 12. In Hardware it is 3
+            if marker_id == 6:  # Marker ID Sim is 12. In Hardware it is 6
                 MARKER_SIZE = 0.15  # Sim Aruco Size = 0.1275m. Hardware Aruco = 0.15
             else:
                 MARKER_SIZE = 0.15
@@ -193,6 +191,8 @@ class ArucoTF(Node):
         self.servo_y = None
         self.servo_z = None
 
+        self.temp_z = None
+
         self.servo_roll = None
         self.servo_pitch = None
         self.servo_yaw = None
@@ -203,9 +203,9 @@ class ArucoTF(Node):
         self.box_dict = {}  # Will hold box_name: box_pose, gotten by processing image
         self.box_done = []  # List of boxes passed by arm
         self.ebot_pose = [
-            0.57770305,
-            -0.15345971,
-            -0.26956964,
+            0.03050968,
+            0.13851294,
+            1.56192393,
         ]  # Changes when cam sees ebot aruco
 
         # Callback group declaration
@@ -219,8 +219,8 @@ class ArucoTF(Node):
         # Subscribers
         self.color_cam_sub = self.create_subscription(
             Image,
-            "/camera/color/image_raw",
-            # "/camera/camera/color/image_raw",
+            # "/camera/color/image_raw",
+            "/camera/camera/color/image_raw",
             self.colorimagecb,
             10,
             callback_group=self.sub_group,
@@ -245,7 +245,7 @@ class ArucoTF(Node):
 
         # Timers
         self.process_image_timer = self.create_timer(
-            1.0, self.process_image, callback_group=self.image_group
+            0.5, self.process_image, callback_group=self.image_group
         )
 
         self.servo_lookup_timer = self.create_timer(
@@ -316,7 +316,8 @@ class ArucoTF(Node):
         print(box_number)
 
         goal_x, goal_y, goal_z = box_pose
-        goal_z += 0.03
+        goal_z += 0.02
+        self.temp_z = goal_z
 
         goal_rot = math.pi
 
@@ -354,11 +355,14 @@ class ArucoTF(Node):
             twist_msg.header.stamp = self.get_clock().now().to_msg()
 
             twist_msg.twist.linear.y = 10.0 * error_y
-            twist_msg.twist.linear.z = 10.0 * error_z
+            #            twist_msg.twist.linear.z = 10.0 * error_z
             twist_msg.twist.linear.x = 0.0
+            twist_msg.twist.linear.z = 0.0
 
-            if (abs(error_y) < 0.02) and (abs(error_z) < 0.02):
+            if abs(error_y) < 0.02:
                 twist_msg.twist.linear.x = 10.0 * error_x
+                if abs(error_x) < 0.02:
+                    twist_msg.twist.linear.z = 10.0 * error_z
 
             self.servo_pub.publish(twist_msg)
             # print(twist_msg)
@@ -403,18 +407,23 @@ class ArucoTF(Node):
 
         error_x = goal_x - self.servo_x
         error_y = goal_y - self.servo_y
-        # error_z = goal_z - self.servo_z
-        error_z = 0.0
+        error_z = (self.temp_z + 0.2) - self.servo_z
+        # error_z = 0.0
 
         while (abs(error_x) > 0.02) or (abs(error_y) > 0.02) or (abs(error_z) > 0.02):
             error_x = goal_x - self.servo_x
             error_y = goal_y - self.servo_y
-            error_z = 0.0
+            error_z = (self.temp_z + 0.2) - self.servo_z
             twist_msg.header.stamp = self.get_clock().now().to_msg()
 
-            twist_msg.twist.linear.x = 10.0 * error_x
-            twist_msg.twist.linear.y = 10.0 * error_y
             twist_msg.twist.linear.z = 10.0 * error_z
+            twist_msg.twist.linear.x = 0.0
+            twist_msg.twist.linear.y = 0.0
+            if abs(error_z) < 0.02:
+                twist_msg.twist.linear.x = 10.0 * error_x
+                if abs(error_x) < 0.02:
+                    twist_msg.twist.linear.y = 10.0 * error_y
+
             # if abs(error_x) < 0.02:
             #     twist_msg.twist.linear.y = 10.0 * error_y
             #     twist_msg.twist.linear.z = 10.0 * error_z
@@ -517,14 +526,20 @@ class ArucoTF(Node):
             return  # Shouldn't be required, but for loop gave me error when translation was empty so...
 
         for i in range(0, len(ids)):
+            rotated_translation = [
+                translation[i][2],
+                -translation[i][0],
+                -translation[i][1],
+            ]
             self.broadcast_transform(
-                "camera_color_optical_frame",
+                # "camera_color_optical_frame",
+                "camera_link",
                 "1048_cam_" + str(ids[i]),
-                translation[i],
+                rotated_translation,
                 quaternion_from_euler(0.0, 0.0, 0.0, "sxyz"),
             )  # Broadcast aruco tf w.r.t camera
             base_to_aruco_pose = self.find_transform(
-                translation[i],
+                rotated_translation,
                 quaternion_from_euler(angle[i][0], angle[i][1], angle[i][2], "sxyz"),
             )  # Lookup base to camera transform and find base to box transform
 
@@ -540,9 +555,10 @@ class ArucoTF(Node):
                 ),
             )  # Broadcast box tf w.r.t base
 
-            if ids[i] == 3:  # 12 if simulation, 3 if remote access hardware
+            if ids[i] == 6:  # 12 if simulation, 6 if remote access hardware
                 self.ebot_pose = base_to_aruco_pose
-            else:
+                print(base_to_aruco_pose)
+            elif ids[i] < 6:
                 self.box_dict[str(ids[i])] = base_to_aruco_pose
 
             for done_box in self.box_done:
@@ -580,7 +596,7 @@ class ArucoTF(Node):
         try:
 
             base_to_camera = self.tf_buffer.lookup_transform(
-                "base_link", "camera_color_optical_frame", rclpy.time.Time()
+                "base_link", "camera_link", rclpy.time.Time()
             )
 
             base_translation = [
@@ -667,36 +683,36 @@ class ArucoTF(Node):
 
         self.tf_broadcaster.sendTransform(transform)
 
-    # def call_attach_box(self, box_number):
-    #     client = self.create_client(AttachLink, "GripperMagnetON")
-    #     while not client.wait_for_service(timeout_sec=1.0):
-    #         self.get_logger().warn("Waiting for Attach_Link Server...")
-
-    #     request = AttachLink.Request()
-    #     request.model1_name = "box" + box_number
-    #     request.link1_name = "link"
-    #     request.model2_name = "ur5"
-    #     request.link2_name = "wrist_3_link"
-
-    #     future = client.call_async(request)
-    #     future.add_done_callback(
-    #         partial(self.callback_call_attach_box, box_number=box_number)
-    #     )
-
     def call_attach_box(self, box_number):
-        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        client = self.create_client(AttachLink, "GripperMagnetON")
         while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info("EEF Tool service not available, waiting again...")
+            self.get_logger().warn("Waiting for Attach_Link Server...")
 
-        request = SetIO.Request()
-        request.fun = 1
-        request.pin = 16
-        request.state = 1.0
+        request = AttachLink.Request()
+        request.model1_name = "box" + box_number
+        request.link1_name = "link"
+        request.model2_name = "ur5"
+        request.link2_name = "wrist_3_link"
 
         future = client.call_async(request)
         future.add_done_callback(
             partial(self.callback_call_attach_box, box_number=box_number)
         )
+
+    # def call_attach_box(self, box_number):
+    #     client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+    #     while not client.wait_for_service(timeout_sec=1.0):
+    #         self.get_logger().info("EEF Tool service not available, waiting again...")
+
+    #     request = SetIO.Request()
+    #     request.fun = 1
+    #     request.pin = 16
+    #     request.state = 1.0
+
+    #     future = client.call_async(request)
+    #     future.add_done_callback(
+    #         partial(self.callback_call_attach_box, box_number=box_number)
+    #     )
 
     def callback_call_attach_box(self, future, box_number):
         try:
@@ -707,36 +723,36 @@ class ArucoTF(Node):
         except Exception as e:
             self.get_logger().error("Attach Box Client Failed")
 
-    # def call_detach_box(self, box_number):
-    #     client = self.create_client(DetachLink, "GripperMagnetOFF")
-    #     while not client.wait_for_service(timeout_sec=1.0):
-    #         self.get_logger().warn("Waiting for Detach_Link Server...")
-
-    #     request = DetachLink.Request()
-    #     request.model1_name = "box" + box_number
-    #     request.link1_name = "link"
-    #     request.model2_name = "ur5"
-    #     request.link2_name = "wrist_3_link"
-
-    #     future = client.call_async(request)
-    #     future.add_done_callback(
-    #         partial(self.callback_call_detach_box, box_number=box_number)
-    #     )
-
     def call_detach_box(self, box_number):
-        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        client = self.create_client(DetachLink, "GripperMagnetOFF")
         while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info("EEF Tool service not available, waiting...")
+            self.get_logger().warn("Waiting for Detach_Link Server...")
 
-        request = SetIO.Request()
-        request.fun = 1
-        request.pin = 16
-        request.state = 0.0
+        request = DetachLink.Request()
+        request.model1_name = "box" + box_number
+        request.link1_name = "link"
+        request.model2_name = "ur5"
+        request.link2_name = "wrist_3_link"
 
         future = client.call_async(request)
         future.add_done_callback(
             partial(self.callback_call_detach_box, box_number=box_number)
         )
+
+    # def call_detach_box(self, box_number):
+    #     client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+    #     while not client.wait_for_service(timeout_sec=1.0):
+    #         self.get_logger().info("EEF Tool service not available, waiting...")
+
+    #     request = SetIO.Request()
+    #     request.fun = 1
+    #     request.pin = 16
+    #     request.state = 0.0
+
+    #     future = client.call_async(request)
+    #     future.add_done_callback(
+    #         partial(self.callback_call_detach_box, box_number=box_number)
+    #     )
 
     def callback_call_detach_box(self, future, box_number):
         try:
@@ -772,6 +788,7 @@ class ArucoTF(Node):
     def colorimagecb(self, data):
         self.cv_image = self.bridge.imgmsg_to_cv2(data, desired_encoding="bgr8")
         self.image_received = True
+        # print("Image Received")
 
     def depthimagecb(self, data):
         self.depth_image = self.bridge.imgmsg_to_cv2(
