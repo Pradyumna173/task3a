@@ -683,36 +683,36 @@ class ArucoTF(Node):
 
         self.tf_broadcaster.sendTransform(transform)
 
-    def call_attach_box(self, box_number):
-        client = self.create_client(AttachLink, "GripperMagnetON")
-        while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().warn("Waiting for Attach_Link Server...")
-
-        request = AttachLink.Request()
-        request.model1_name = "box" + box_number
-        request.link1_name = "link"
-        request.model2_name = "ur5"
-        request.link2_name = "wrist_3_link"
-
-        future = client.call_async(request)
-        future.add_done_callback(
-            partial(self.callback_call_attach_box, box_number=box_number)
-        )
-
     # def call_attach_box(self, box_number):
-    #     client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+    #     client = self.create_client(AttachLink, "GripperMagnetON")
     #     while not client.wait_for_service(timeout_sec=1.0):
-    #         self.get_logger().info("EEF Tool service not available, waiting again...")
+    #         self.get_logger().warn("Waiting for Attach_Link Server...")
 
-    #     request = SetIO.Request()
-    #     request.fun = 1
-    #     request.pin = 16
-    #     request.state = 1.0
+    #     request = AttachLink.Request()
+    #     request.model1_name = "box" + box_number
+    #     request.link1_name = "link"
+    #     request.model2_name = "ur5"
+    #     request.link2_name = "wrist_3_link"
 
     #     future = client.call_async(request)
     #     future.add_done_callback(
     #         partial(self.callback_call_attach_box, box_number=box_number)
     #     )
+
+    def call_attach_box(self, box_number):
+        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info("EEF Tool service not available, waiting again...")
+
+        request = SetIO.Request()
+        request.fun = 1
+        request.pin = 16
+        request.state = 1.0
+
+        future = client.call_async(request)
+        future.add_done_callback(
+            partial(self.callback_call_attach_box, box_number=box_number)
+        )
 
     def callback_call_attach_box(self, future, box_number):
         try:
@@ -723,36 +723,36 @@ class ArucoTF(Node):
         except Exception as e:
             self.get_logger().error("Attach Box Client Failed")
 
-    def call_detach_box(self, box_number):
-        client = self.create_client(DetachLink, "GripperMagnetOFF")
-        while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().warn("Waiting for Detach_Link Server...")
-
-        request = DetachLink.Request()
-        request.model1_name = "box" + box_number
-        request.link1_name = "link"
-        request.model2_name = "ur5"
-        request.link2_name = "wrist_3_link"
-
-        future = client.call_async(request)
-        future.add_done_callback(
-            partial(self.callback_call_detach_box, box_number=box_number)
-        )
-
     # def call_detach_box(self, box_number):
-    #     client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+    #     client = self.create_client(DetachLink, "GripperMagnetOFF")
     #     while not client.wait_for_service(timeout_sec=1.0):
-    #         self.get_logger().info("EEF Tool service not available, waiting...")
+    #         self.get_logger().warn("Waiting for Detach_Link Server...")
 
-    #     request = SetIO.Request()
-    #     request.fun = 1
-    #     request.pin = 16
-    #     request.state = 0.0
+    #     request = DetachLink.Request()
+    #     request.model1_name = "box" + box_number
+    #     request.link1_name = "link"
+    #     request.model2_name = "ur5"
+    #     request.link2_name = "wrist_3_link"
 
     #     future = client.call_async(request)
     #     future.add_done_callback(
     #         partial(self.callback_call_detach_box, box_number=box_number)
     #     )
+
+    def call_detach_box(self, box_number):
+        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info("EEF Tool service not available, waiting...")
+
+        request = SetIO.Request()
+        request.fun = 1
+        request.pin = 16
+        request.state = 0.0
+
+        future = client.call_async(request)
+        future.add_done_callback(
+            partial(self.callback_call_detach_box, box_number=box_number)
+        )
 
     def callback_call_detach_box(self, future, box_number):
         try:
