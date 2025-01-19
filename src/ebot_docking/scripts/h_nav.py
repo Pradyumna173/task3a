@@ -3,11 +3,11 @@
 import rclpy, math, time, sys
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 from geometry_msgs.msg import PoseStamped
-from rclpy.duration import Duration
+# from rclpy.duration import Duration
 from rclpy.node import Node
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 
-from my_robot_interfaces.srv import DockSw, PassingService
+# from my_robot_interfaces.srv import DockSw, PassingService
 from tf_transformations import quaternion_from_euler
 from functools import partial
 from geometry_msgs.msg import Twist

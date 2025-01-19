@@ -10,7 +10,7 @@
 """
 
 import rclpy, math, time
-from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
+from rclpy.callback_groups import MutuallyExclusiveCallbackGroup, ReentrantCallbackGroup
 import rclpy.executors
 from rclpy.node import Node
 from nav_msgs.msg import Odometry
@@ -21,7 +21,7 @@ from my_robot_interfaces.srv import DockSw
 from std_msgs.msg import Bool
 from functools import partial
 from tf_transformations import euler_from_quaternion
-from std_msgs.msg import Float32MultiArray
+from std_msgs.msg import Float32MultiArray, Float32
 
 
 class Docking(Node):
@@ -36,12 +36,20 @@ class Docking(Node):
             callback_group=self.docking_group,
         )
 
-        self.subscriber = self.create_subscription(
-            Odometry, "/odom", self.odom_callback, 10
-        )
-
+        self.sub_group = ReentrantCallbackGroup()
         self.ultra_sub = self.create_subscription(
-            Float32MultiArray, "ultrasonic_sensor_std_float", self.ultra_callback, 10
+            Float32MultiArray,
+            "ultrasonic_sensor_std_float",
+            self.ultra_callback,
+            10,
+            callback_group=self.sub_group,
+        )
+        self.yaw_sub = self.create_subscription(
+            Float32,
+            "/orientation",
+            self.yaw_callback,
+            10,
+            callback_group=self.sub_group,
         )
 
         self.controller_group = MutuallyExclusiveCallbackGroup()
@@ -245,7 +253,7 @@ class Docking(Node):
                 self.vel_pub.publish(vel_msg)
                 self.processing_dock = False
                 return
-            
+
             self.vel_pub.publish(vel_msg)
             time.sleep(0.03)
 
@@ -274,7 +282,10 @@ class Docking(Node):
     def ultra_callback(self, msg):
         self.curr_dist = msg.data[4]
         self.comp_dist = msg.data[5]
-        print (self.comp_dist, self.curr_dist)
+        print(self.comp_dist, self.curr_dist)
+
+    def yaw_callback(self, msg):
+        self.current_theta = self.normalize_angle(msg.data)
 
     def normalize_angle(self, angle):
         while angle > math.pi:
