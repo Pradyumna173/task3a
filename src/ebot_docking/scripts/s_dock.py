@@ -21,7 +21,6 @@ from my_robot_interfaces.srv import DockSw
 from std_msgs.msg import Bool
 from functools import partial
 from tf_transformations import euler_from_quaternion
-from std_msgs.msg import Float32MultiArray
 
 
 class Docking(Node):
@@ -40,8 +39,12 @@ class Docking(Node):
             Odometry, "/odom", self.odom_callback, 10
         )
 
-        self.ultra_sub = self.create_subscription(
-            Float32MultiArray, "ultrasonic_sensor_std_float", self.ultra_callback, 10
+        self.ultrar_sub = self.create_subscription(
+            Range, "ultrasonic_rr/scan", self.ultrarsub_callback, 10
+        )
+
+        self.ultral_sub = self.create_subscription(
+            Range, "ultrasonic_rl/scan", self.ultralsub_callback, 10
         )
 
         self.controller_group = MutuallyExclusiveCallbackGroup()
@@ -123,9 +126,9 @@ class Docking(Node):
         self.target = request.target
         self.box_on_bot = request.box_number
         if self.target == "rec":
-            self.current_activity = "rev"
+            self.current_activity = "align"
         else:
-            self.current_activity = "rev"
+            self.current_activity = "align"
         self.processing_dock = True
 
         while self.processing_dock:
@@ -133,6 +136,44 @@ class Docking(Node):
 
         response.success = True
         return response
+
+    def ncontroller(self):
+        if self.processing_dock:
+            act = self.current_activity
+            vel_msg = Twist()
+            if act == "move":
+                distance_to_goal = -math.sqrt(
+                    (self.dock_entry_x - self.current_x) ** 2
+                    + (self.dock_entry_y - self.current_y) ** 2
+                )
+                if abs(distance_to_goal) > 0.05:
+                    angle_to_goal = math.atan2(
+                        self.dock_entry_y - self.current_y,
+                        self.dock_entry_x - self.current_x,
+                    )
+                    angle_diff = self.normalize_angle(
+                        angle_to_goal - (self.current_theta + math.pi)
+                    )
+
+                    if abs(angle_diff) > math.pi / 2:
+                        # Reverse motion
+                        angle_diff = self.normalize_angle(
+                            angle_diff - math.pi
+                            if angle_diff > 0
+                            else angle_diff + math.pi
+                        )
+                        reverse = True
+                    else:
+                        reverse = False
+
+                    if abs(angle_diff) > 0.1:
+                        vel_msg.angular.z = 5.0 * angle_diff
+                        # Reduced gain for smoother rotation
+                        vel_msg.linear.x = (
+                            -0.3 * distance_to_goal
+                            if reverse
+                            else 0.3 * distance_to_goal
+                        )
 
     def controller(self):
         """
@@ -226,14 +267,14 @@ class Docking(Node):
                     vel_msg.angular.z = -2.0
             elif act == "rev":
                 if self.target == "rec":
-                    stop_dist = 40
+                    stop_dist = 0.05
                 else:
-                    stop_dist = 40
+                    stop_dist = 0.27
                 if self.curr_dist > stop_dist:
                     us_diff = self.curr_dist - self.comp_dist
-                    vel_msg.angular.z = 0.8 * us_diff
-                    if abs(us_diff) < 3:
-                        vel_msg.linear.x = -0.2 * self.curr_dist
+                    vel_msg.angular.z = -8.0 * us_diff
+                    if abs(us_diff) < 0.03:
+                        vel_msg.linear.x = -1.5 * self.curr_dist
                     else:
                         vel_msg.linear.x = 0.0
                 else:
@@ -241,11 +282,11 @@ class Docking(Node):
                     self.current_activity = None
             else:
                 vel_msg = Twist()
-
-                self.vel_pub.publish(vel_msg)
+                if self.target == "rec":
+                    self.vel_pub.publish(vel_msg)
+                    self.processing_dock = False
+                    return
                 self.processing_dock = False
-                return
-            
             self.vel_pub.publish(vel_msg)
             time.sleep(0.03)
 
@@ -271,10 +312,21 @@ class Docking(Node):
         except Exception as e:
             self.get_logger().error("Payload Service Call Failed")
 
-    def ultra_callback(self, msg):
-        self.curr_dist = msg.data[4]
-        self.comp_dist = msg.data[5]
-        print (self.comp_dist, self.curr_dist)
+    def odom_callback(self, msg):
+        # Update current position and orientation from odometry data
+        self.current_x = msg.pose.pose.position.x
+        self.current_y = msg.pose.pose.position.y
+        orientation = msg.pose.pose.orientation
+        _, _, self.current_theta = euler_from_quaternion(
+            [orientation.x, orientation.y, orientation.z, orientation.w]
+        )
+
+    def ultrarsub_callback(self, msg):
+        self.curr_dist = msg.range
+        print(self.curr_dist, self.comp_dist)
+
+    def ultralsub_callback(self, msg):
+        self.comp_dist = msg.range
 
     def normalize_angle(self, angle):
         while angle > math.pi:

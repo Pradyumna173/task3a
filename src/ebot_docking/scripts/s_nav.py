@@ -21,13 +21,15 @@ class EbotNav(Node):
         self.box_on_bot = "nothing"
 
         self.pose_dict = {
-            "rec": [3.48, -2.55, -1.57],
-            "con1": [3.33, 1.83, -1.57],
-            "con2": [3.21, 1.28, -1.57],
+            "rec": [0.4, -2.4, 3.14],  # 0.6560871418583443 y: -2.36031611244136   1.13, -2.40, 3.14
+            "con1": [-4.0, 2.89, -1.57],
+            "con2": [2.32, 2.55, -1.57],
         }
 
         self.activity_queue = ["rec", "con1", "con2"]
-        self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
+        self.vel_pub = self.create_publisher(
+            Twist, "/cmd_vel", 10
+        )
 
         self.handler_group = MutuallyExclusiveCallbackGroup()
         self.client_group = MutuallyExclusiveCallbackGroup()
@@ -82,8 +84,8 @@ class EbotNav(Node):
         # goal_pose.pose.position.z = 0.0
         # goal_pose.pose.orientation.x = 0.0#q_x
         # goal_pose.pose.orientation.y = 0.0#q_y
-        goal_pose.pose.orientation.z = 0.0  # q_z
-        goal_pose.pose.orientation.w = 1.0  # q_w
+        goal_pose.pose.orientation.z = 0.0#q_z
+        goal_pose.pose.orientation.w = 1.0#q_w
         return goal_pose
 
     def go_to_goal(self, pose_stamped):
@@ -153,17 +155,20 @@ class EbotNav(Node):
                 while not self.docking_done:
                     pass
                 self.docking_done = False
+                forward_msg = Twist()
+                forward_msg.linear.x = 0.5
+                self.vel_pub.publish(forward_msg)
             else:
                 self.call_dock(self.activity_queue[0])
                 while not self.docking_done:
                     pass
                 self.docking_done = False
-
-            self.activity_queue.pop(0)
-            if self.activity_queue:
                 forward_msg = Twist()
                 forward_msg.linear.x = 0.5
                 self.vel_pub.publish(forward_msg)
+
+            self.activity_queue.pop(0)
+            
 
     def call_dock(self, target):
         client = self.create_client(
