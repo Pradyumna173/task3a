@@ -8,6 +8,7 @@ from rclpy.node import Node
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 
 # from my_robot_interfaces.srv import DockSw, PassingService
+from ebot_docking.srv import DockSw
 from tf_transformations import quaternion_from_euler
 from functools import partial
 from geometry_msgs.msg import Twist
@@ -21,12 +22,12 @@ class EbotNav(Node):
         self.box_on_bot = "nothing"
 
         self.pose_dict = {
-            "rec": [3.48, -2.55, -1.57],
-            "con1": [3.33, 1.83, -1.57],
-            "con2": [3.21, 1.28, -1.57],
+            "rec": [2.75, -2.8, -1.57],
+            "con1": [2.85, 1.83, -1.57],
+            "con2": [2.75, -1.28, -1.57],
         }
 
-        self.activity_queue = ["rec", "con1", "con2"]
+        self.activity_queue = ["rec", "con1","rec"]
         self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
 
         self.handler_group = MutuallyExclusiveCallbackGroup()
@@ -82,8 +83,8 @@ class EbotNav(Node):
         # goal_pose.pose.position.z = 0.0
         # goal_pose.pose.orientation.x = 0.0#q_x
         # goal_pose.pose.orientation.y = 0.0#q_y
-        goal_pose.pose.orientation.z = 0.0  # q_z
-        goal_pose.pose.orientation.w = 1.0  # q_w
+        goal_pose.pose.orientation.z = q_z
+        goal_pose.pose.orientation.w = q_w
         return goal_pose
 
     def go_to_goal(self, pose_stamped):

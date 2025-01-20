@@ -16,8 +16,9 @@ from rclpy.node import Node
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Range
-from payload_service.srv import PayloadSW
-from my_robot_interfaces.srv import DockSw
+
+# from payload_service.srv import PayloadSW
+from ebot_docking.srv import DockSw
 from std_msgs.msg import Bool
 from functools import partial
 from tf_transformations import euler_from_quaternion
@@ -75,7 +76,7 @@ class Docking(Node):
         self.payload_dropped = False
         self.payload_called = False
 
-        self.current_activity = None
+        self.current_activity = "rev"
 
         self.dock_dict = {}
         self.dock_dict["con2"] = [2.35, 3.47]
@@ -143,6 +144,28 @@ class Docking(Node):
         return response
 
     def controller(self):
+        vel_msg = Twist()
+        vel_msg.angular.z = 0.2 * (-1.57 - self.current_theta)
+        self.vel_pub.publish(vel_msg)
+
+        """
+        vel_msg = Twist()
+        stop_dist = 22
+        if self.curr_dist > stop_dist:
+            us_diff = self.curr_dist - self.comp_dist
+            vel_msg.angular.z = -0.2 * us_diff
+            if abs(us_diff) < 2:
+                vel_msg.linear.x = -0.5
+            else:
+                vel_msg.linear.x = 0.0
+                print("reached")
+        else:
+            vel_msg.linear.x = 0.0
+            vel_msg.angular.z = 0.0
+        self.vel_pub.publish(vel_msg)
+        return
+        """
+
         """
         Purpose:
         ---
@@ -234,16 +257,18 @@ class Docking(Node):
                     vel_msg.angular.z = -2.0
             elif act == "rev":
                 if self.target == "rec":
-                    stop_dist = 40
+                    stop_dist = 22
                 else:
-                    stop_dist = 40
+                    stop_dist = 22
                 if self.curr_dist > stop_dist:
                     us_diff = self.curr_dist - self.comp_dist
-                    vel_msg.angular.z = 0.8 * us_diff
+                    vel_msg.angular.z = -0.2 * us_diff
                     if abs(us_diff) < 3:
-                        vel_msg.linear.x = -0.2 * self.curr_dist
+                        vel_msg.linear.x = -0.5
+                        pass
                     else:
                         vel_msg.linear.x = 0.0
+                        print("reached")
                 else:
                     vel_msg = Twist()
                     self.current_activity = None
