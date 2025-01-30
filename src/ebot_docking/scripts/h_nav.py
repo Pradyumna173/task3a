@@ -83,8 +83,8 @@ class EbotNav(Node):
         # goal_pose.pose.position.z = 0.0
         # goal_pose.pose.orientation.x = 0.0#q_x
         # goal_pose.pose.orientation.y = 0.0#q_y
-        goal_pose.pose.orientation.z = q_z
-        goal_pose.pose.orientation.w = q_w
+        goal_pose.pose.orientation.z = 0.0#q_z
+        goal_pose.pose.orientation.w = 1.0#q_w
         return goal_pose
 
     def go_to_goal(self, pose_stamped):

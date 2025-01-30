@@ -57,6 +57,8 @@ install(PROGRAMS
 	scripts/ebot_docking_boilerplate.py
   scripts/h_nav.py
   scripts/h_dock.py
+  scripts/hard_dock.py
+  scripts/hard_nav.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

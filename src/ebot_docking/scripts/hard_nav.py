@@ -11,8 +11,8 @@ from my_robot_interfaces.srv import DockSw
 from tf_transformations import quaternion_from_euler
 from functools import partial
 from geometry_msgs.msg import Twist
-from nav_msgs.msg import Odometry
 from tf_transformations import euler_from_quaternion
+from std_msgs.msg import Float32MultiArray, Float32
 
 
 class EbotNav(Node):
@@ -23,13 +23,9 @@ class EbotNav(Node):
         self.box_on_bot = "nothing"
 
         self.pose_dict = {
-            "rec": [
-                0.4,
-                -2.4,
-                3.14,
-            ],  # 0.6560871418583443 y: -2.36031611244136   1.13, -2.40, 3.14
-            "con1": [-4.0, 2.89, -1.57],
-            "con2": [2.32, 2.55, -1.57],
+            "rec": [2.75, -2.8, -1.57],
+            "con1": [2.85, 1.83, -1.57],
+            "con2": [2.75, -1.28, -1.57],
         }
 
         self.activity_queue = ["rec", "con1", "con2"]
@@ -39,8 +35,8 @@ class EbotNav(Node):
         self.client_group = MutuallyExclusiveCallbackGroup()
         self.sub_group = MutuallyExclusiveCallbackGroup()
 
-        self.odom_sub = self.create_subscription(
-            Odometry, "/odom", self.odom_callback, 10, callback_group=self.sub_group
+        self.orient_sub = self.create_subscription(
+            Float32, "/orientation", self.odom_callback, 10, callback_group=self.sub_group
         )
 
         self.nav = BasicNavigator()
@@ -55,35 +51,8 @@ class EbotNav(Node):
         )
 
     def create_pose_stamped(self, x, y, yaw=0.0):
-        """
-        Purpose:
-        ---
-        Create a `PoseStamped` message representing a goal pose in the "map" frame, with a
-        specified position and orientation.
 
-        Input Arguments:
-        ---
-        `x` : [ float ]
-            X-coordinate of the goal position in the "map" frame.
-
-        `y` : [ float ]
-            Y-coordinate of the goal position in the "map" frame.
-
-        `yaw` : [ float, optional, default=0.0 ]
-            Yaw angle (rotation around the z-axis) of the goal pose in radians.
-
-        Returns:
-        ---
-        `goal_pose` : [ PoseStamped ]
-            A `PoseStamped` message containing the goal pose with the specified position and
-            orientation.
-
-        Example call:
-        ---
-        stamped_pose = create_pose_stamped(1.5, 2.0, yaw=1.57)
-        """
-
-        q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, 0.0)
+        q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, 0.0) # ikde badal yaw
 
         goal_pose = PoseStamped()
         goal_pose.header.frame_id = "map"
@@ -92,32 +61,11 @@ class EbotNav(Node):
         goal_pose.pose.position.y = y
         # goal_pose.pose.orientation.x = 0.0#q_x
         # goal_pose.pose.orientation.y = 0.0#q_y
-        goal_pose.pose.orientation.z =  q_z
-        goal_pose.pose.orientation.w =  q_w
+        goal_pose.pose.orientation.z = q_z
+        goal_pose.pose.orientation.w = q_w
         return goal_pose
 
     def go_to_goal(self, pose_stamped):
-        """
-        Purpose:
-        ---
-        Sends a `PoseStamped` goal to the navigation stack and waits for the ebot to reach
-        the target position. Returns whether the navigation task succeeded.
-
-        Input Arguments:
-        ---
-        `pose_stamped` : [ PoseStamped ]
-            The goal pose for the ebot, represented as a `PoseStamped` message.
-
-        Returns:
-        ---
-        `success` : [ bool ]
-            `True` if the ebot successfully reached the goal, `False` otherwise.
-
-        Example call:
-        ---
-        goal_pose = create_pose_stamped(1.0, 2.0, yaw=1.57)
-        success = go_to_goal(goal_pose)
-        """
 
         self.nav.goToPose(pose_stamped)
 
@@ -132,26 +80,6 @@ class EbotNav(Node):
             return False
 
     def nav_manager(self):
-        """
-        Purpose:
-        ---
-        Manages navigation tasks by processing an activity queue. Sends the ebot to
-        specified goals, performs docking or passing operations based on the activity,
-        and ensures completion before moving to the next activity in the queue.
-
-        Input Arguments:
-        ---
-        None
-
-        Returns:
-        ---
-        None
-
-        Example call:
-        ---
-        nav_manager()
-        Timer based call made here. Not necessarily timer based function
-        """
 
         if not self.activity_queue:
             forward_msg = Twist()
@@ -206,13 +134,14 @@ class EbotNav(Node):
             self.get_logger().error("Docking Call Failed")
 
     def odom_callback(self, msg):
-        # Update current position and orientation from odometry data
-        self.current_x = msg.pose.pose.position.x
-        self.current_y = msg.pose.pose.position.y
-        orientation = msg.pose.pose.orientation
-        _, _, self.current_theta = euler_from_quaternion(
-            [orientation.x, orientation.y, orientation.z, orientation.w]
-        )
+        self.current_theta = self.normalize_angle(msg)
+
+    def normalize_angle(self, angle):
+        while angle > math.pi:
+            angle -= 2 * math.pi
+        while angle < -math.pi:
+            angle += 2 * math.pi
+        return angle
 
 
 def main():
