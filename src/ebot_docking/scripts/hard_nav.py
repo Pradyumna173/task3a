@@ -36,7 +36,11 @@ class EbotNav(Node):
         self.sub_group = MutuallyExclusiveCallbackGroup()
 
         self.orient_sub = self.create_subscription(
-            Float32, "/orientation", self.odom_callback, 10, callback_group=self.sub_group
+            Float32,
+            "/orientation",
+            self.odom_callback,
+            10,
+            callback_group=self.sub_group,
         )
 
         self.nav = BasicNavigator()
@@ -52,7 +56,7 @@ class EbotNav(Node):
 
     def create_pose_stamped(self, x, y, yaw=0.0):
 
-        q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, 0.0) # ikde badal yaw
+        q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, 0.0)  # ikde badal yaw
 
         goal_pose = PoseStamped()
         goal_pose.header.frame_id = "map"
@@ -80,6 +84,17 @@ class EbotNav(Node):
             return False
 
     def nav_manager(self):
+        """
+        goal_theta = -1.57
+        while abs(goal_theta - self.current_theta) > 0.12:
+            vel_msg = Twist()
+            vel_msg.angular.z = (goal_theta - self.current_theta) * 5.0
+            self.vel_pub.publish(vel_msg)
+            time.sleep(0.05)
+        vel_msg = Twist()
+        self.vel_pub.publish(vel_msg)
+        return
+        """
 
         if not self.activity_queue:
             forward_msg = Twist()
