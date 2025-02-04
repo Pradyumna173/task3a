@@ -37,7 +37,7 @@ from std_srvs.srv import Trigger
 ARUCO_DICT = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 ARUCO_PARAMS = cv2.aruco.DetectorParameters()
 detector = cv2.aruco.ArucoDetector(ARUCO_DICT, ARUCO_PARAMS)
-DISTANCE_CORRECTION = 0.0#0.15
+DISTANCE_CORRECTION = 0.15#0.15
 
 
 def detect_aruco(image):
@@ -120,7 +120,7 @@ def detect_aruco(image):
             translation_aruco_list.append(translation_aruco)
             angle_aruco_list.append(angle_aruco)
 
-            print(f"Marker ID: {marker_id[0]}")
+            # print(f"Marker ID: {marker_id[0]}")
             # print(f"Translation (x, y, z): {tvec[0][0]}")
             # print(
             #     f"Rotation (roll, pitch, yaw): {roll:.2f}, {pitch:.2f}, {yaw:.2f}\n"
@@ -221,8 +221,8 @@ class ArucoTF(Node):
         # Subscribers
         self.color_cam_sub = self.create_subscription(
             Image,
-            "/camera/color/image_raw",
-            # "/camera/camera/color/image_raw",
+            # "/camera/color/image_raw",
+            "/camera/camera/color/image_raw",
             self.colorimagecb,
             10,
             callback_group=self.sub_group,
@@ -245,13 +245,13 @@ class ArucoTF(Node):
         )  # Not in use right now
 
         # Publishers
-        self.servo_pub = self.create_publisher(
-            TwistStamped, "/servo_node/delta_twist_cmds", 10
-        )
-
         # self.servo_pub = self.create_publisher(
-        #     TwistStamped, "/ServoCmdVel", 10
+        #     TwistStamped, "/servo_node/delta_twist_cmds", 10
         # )
+
+        self.servo_pub = self.create_publisher(
+            TwistStamped, "/ServoCmdVel", 10
+        )
 
         # Timers
         self.process_image_timer = self.create_timer(
@@ -265,6 +265,7 @@ class ArucoTF(Node):
         self.pick_check_timer = self.create_timer(
             1.0, self.pick_box, callback_group=self.passing_group
         )
+        
 
         # Lookup and Broadcast TF
         self.tf_buffer = tf2_ros.buffer.Buffer()
@@ -277,13 +278,28 @@ class ArucoTF(Node):
         # Cv2 Objects
         self.bridge = CvBridge()
         self.force = 0.0
+        self.last_force = 0.0
+        self.start_time = None
+        self.box_pressed = False
+        self.check_pressed = True
 
         self.call_servo_trigger()
 
     # ---------------------------------------- CLASS END ------------------------------------------
     def force_sub_callback(self, msg):
         self.force = msg.data
-        #print("wrench", self.force)
+        if self.check_pressed is True:
+            current_time = time.time()
+            if self.force > self.last_force:
+                if self.start_time is None:
+                    self.start_time = current_time
+                elif current_time - self.start_time > 1.0:
+                    self.box_pressed = True
+            else:
+                self.start_time = None
+        
+        self.last_force = self.force
+    
 
 
     def pick_box(self):
@@ -356,6 +372,8 @@ class ArucoTF(Node):
             twist_msg.twist.angular.y = 15.0 * rot_error
             self.servo_pub.publish(twist_msg)
             time.sleep(0.05)
+        
+        print("Rotation Corrected")
 
         twist_msg = TwistStamped()
         twist_msg.header.frame_id = "base_link"
@@ -368,10 +386,6 @@ class ArucoTF(Node):
             error_x = goal_x - self.servo_x
             error_y = goal_y - self.servo_y
             error_z = goal_z - self.servo_z
-            if self.force > 90.0:
-                error_x = 0.0
-                error_y = 0.0
-                error_z = 0.0
                 
             twist_msg.header.stamp = self.get_clock().now().to_msg()
 
@@ -387,13 +401,27 @@ class ArucoTF(Node):
             self.servo_pub.publish(twist_msg)
 
             time.sleep(0.05)
+
+        print("Goal_reached")
         
 
         twist_msg.twist.linear.z = -1.0
-        while self.force < 90.0:
+
+        self.check_pressed = True
+
+        while self.box_pressed is False:
             twist_msg.header.stamp = self.get_clock().now().to_msg()
             self.servo_pub.publish(twist_msg)
             time.sleep(0.05)
+        
+        self.check_pressed = False
+
+        print("Gripping Now")
+
+        # while self.force < 90.0:
+        #     twist_msg.header.stamp = self.get_clock().now().to_msg()
+        #     self.servo_pub.publish(twist_msg)
+        #     time.sleep(0.05)
             
         twist_msg.twist.linear.z = 0.0
         twist_msg.header.stamp = self.get_clock().now().to_msg()
@@ -404,6 +432,8 @@ class ArucoTF(Node):
         self.call_attach_box(box_number)
         while not self.picked:
             pass
+
+        print("Box Gripped")
 
         self.current_box = box_number
         self.pass_box(box_number)
@@ -428,9 +458,12 @@ class ArucoTF(Node):
         ---
         pass_box(69)
         """
+
         while not self.ebot_pose:
             self.process_image()
             pass
+
+        print("Passing Now")
 
         goal_x, goal_y, goal_z = self.ebot_pose
         twist_msg = TwistStamped()
@@ -438,13 +471,13 @@ class ArucoTF(Node):
 
         error_x = goal_x - self.servo_x
         error_y = goal_y - self.servo_y
-        error_z = (self.temp_z + 0.2) - self.servo_z
+        error_z = (self.temp_z) - self.servo_z
         # error_z = 0.0
 
         while (abs(error_x) > 0.02) or (abs(error_y) > 0.02) or (abs(error_z) > 0.02):
             error_x = goal_x - self.servo_x
             error_y = goal_y - self.servo_y
-            error_z = (self.temp_z + 0.2) - self.servo_z
+            error_z = (self.temp_z) - self.servo_z
             twist_msg.header.stamp = self.get_clock().now().to_msg()
 
             twist_msg.twist.linear.z = 10.0 * error_z
@@ -455,19 +488,19 @@ class ArucoTF(Node):
                 if abs(error_x) < 0.02:
                     twist_msg.twist.linear.y = 10.0 * error_y
 
-            # if abs(error_x) < 0.02:
-            #     twist_msg.twist.linear.y = 10.0 * error_y
-            #     twist_msg.twist.linear.z = 10.0 * error_z
-
             self.servo_pub.publish(twist_msg)
 
             time.sleep(0.03)
+
+        print("Pass Goal Reached")
 
         self.dropped = False
         self.call_detach_box(self.current_box)
         # self.ebot_pose = None
         while not self.dropped:
             pass
+
+        print("Detached Box")
 
     def servo_lookup(self):
         """
@@ -556,8 +589,8 @@ class ArucoTF(Node):
         for i in range(0, len(ids)):
             translation[i][2] -= DISTANCE_CORRECTION
             self.broadcast_transform(
-                # "camera_color_optical_frame",
-                "camera_link",
+                "camera_color_optical_frame",
+                # "camera_link",
                 "1048_cam_" + str(ids[i]),
                 translation[i],
                 quaternion_from_euler(0.0, 0.0, 0.0, "sxyz"),

@@ -7,12 +7,12 @@ from rclpy.duration import Duration
 from rclpy.node import Node
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 
-from my_robot_interfaces.srv import DockSw
+from ebot_docking.srv import DockSw
 from tf_transformations import quaternion_from_euler
 from functools import partial
 from geometry_msgs.msg import Twist
 from tf_transformations import euler_from_quaternion
-from std_msgs.msg import Float32MultiArray, Float32
+from std_msgs.msg import Float32MultiArray, Float32, Trigger
 
 
 class EbotNav(Node):
@@ -25,15 +25,22 @@ class EbotNav(Node):
         self.pose_dict = {
             "rec": [2.75, -2.8, -1.57],
             "con1": [2.85, 1.83, -1.57],
-            "con2": [2.75, -1.28, -1.57],
+            "con2": [2.3, -1.25, -1.57],
         }
 
-        self.activity_queue = ["rec", "con1", "con2"]
+        self.activity_queue = ["con2", "con1", "rec"]
         self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
 
         self.handler_group = MutuallyExclusiveCallbackGroup()
         self.client_group = MutuallyExclusiveCallbackGroup()
         self.sub_group = MutuallyExclusiveCallbackGroup()
+
+        client = self.create_client(Trigger, "/reset_imu")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().warn("Waiting for IMU Server...")
+        
+        request = Trigger.Request()
+        
 
         self.orient_sub = self.create_subscription(
             Float32,
@@ -56,7 +63,7 @@ class EbotNav(Node):
 
     def create_pose_stamped(self, x, y, yaw=0.0):
 
-        q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, 0.0)  # ikde badal yaw
+        q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, -1.57)  # ikde badal yaw
 
         goal_pose = PoseStamped()
         goal_pose.header.frame_id = "map"
@@ -84,17 +91,19 @@ class EbotNav(Node):
             return False
 
     def nav_manager(self):
-        """
-        goal_theta = -1.57
-        while abs(goal_theta - self.current_theta) > 0.12:
+        #"""
+        goal_theta = 0.0
+        while abs(goal_theta - self.current_theta) > 0.25:
             vel_msg = Twist()
-            vel_msg.angular.z = (goal_theta - self.current_theta) * 5.0
+            error = goal_theta - self.current_theta
+            vel_msg.angular.z = (error) * 0.2
             self.vel_pub.publish(vel_msg)
-            time.sleep(0.05)
+            time.sleep(0.03)
         vel_msg = Twist()
         self.vel_pub.publish(vel_msg)
         return
-        """
+        #"""
+        
 
         if not self.activity_queue:
             forward_msg = Twist()
@@ -105,12 +114,16 @@ class EbotNav(Node):
         goal = self.pose_dict[self.activity_queue[0]]
         stamped_goal = self.create_pose_stamped(*self.pose_dict[self.activity_queue[0]])
         if self.go_to_goal(stamped_goal):
-            goal_theta = goal[2]
-            while abs(goal_theta - self.current_theta) > 0.1:
+            print("GOAL REACHED")
+            goal_theta = 0.0
+            
+            while abs(goal_theta - self.current_theta) > 0.3:
                 vel_msg = Twist()
-                vel_msg.angular.z = (goal_theta - self.current_theta) * 5.0
+                vel_msg.angular.z = (goal_theta - self.current_theta) * 2.0
                 self.vel_pub.publish(vel_msg)
-                time.sleep(0.05)
+                time.sleep(0.07)
+            
+            print("Angle corrected")
             vel_msg = Twist()
             self.vel_pub.publish(vel_msg)
             time.sleep(1.0)
@@ -149,7 +162,8 @@ class EbotNav(Node):
             self.get_logger().error("Docking Call Failed")
 
     def odom_callback(self, msg):
-        self.current_theta = self.normalize_angle(msg)
+        self.current_theta = self.normalize_angle(msg.data)
+        print(self.current_theta)
 
     def normalize_angle(self, angle):
         while angle > math.pi:
@@ -157,6 +171,9 @@ class EbotNav(Node):
         while angle < -math.pi:
             angle += 2 * math.pi
         return angle
+    
+    def angle_wrap(self, angle):
+        return (angle + math.pi) % (2 * math.pi) - math.pi
 
 
 def main():
