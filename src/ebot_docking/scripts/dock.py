@@ -61,8 +61,6 @@ class Docking(Node):
 
         self.current_activity = None
 
-        self.call_imu_trigger()
-
     def docking_server_callback(self, request, response):
 
         self.get_logger().info("Request Received")
@@ -108,24 +106,7 @@ class Docking(Node):
         self.curr_dist = msg.data[4]
         self.comp_dist = msg.data[5]
 
-    def call_imu_trigger(self):
-        client = self.create_client(Trigger, "/reset_imu")
-        while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().warn("Waiting for IMU Trigger Server...")
-
-        request = Trigger.Request()
-
-        future = client.call_async(request)
-        future.add_done_callback(partial(self.callback_call_imu_trigger))
-
-    def callback_call_imu_trigger(self, future):
-        try:
-            response = future.result()
-            if response.success:
-                self.imu_reset = True
-                self.get_logger().info("IMU set to Zero")
-        except Exception as e:
-            self.get_logger().error("IMU Trigger Call Failed")
+    
 
 
 def main(args=None):
