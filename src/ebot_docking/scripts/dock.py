@@ -14,12 +14,10 @@ from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 import rclpy.executors
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-from sensor_msgs.msg import Range
-#from payload_service.srv import PayloadSW
 from ebot_docking.srv import DockSw
-from std_msgs.msg import Bool
 from functools import partial
 from std_msgs.msg import Float32MultiArray
+from std_srvs.srv import Trigger
 
 
 class Docking(Node):
@@ -43,21 +41,15 @@ class Docking(Node):
         )
 
         self.controller_group = MutuallyExclusiveCallbackGroup()
-        
 
         self.controller_timer = self.create_timer(
             0.1, self.controller, callback_group=self.controller_group
         )
-        self.vel_pub = self.create_publisher(
-            Twist, "/cmd_vel", 10, callback_group=self.controller_group
-        )
+        self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
 
         self.vel_pub.publish(Twist())
 
-        self.dock_entry_y = None
-        self.dock_entry_x = None
-        self.current_x = 0.0
-        self.current_y = 0.0
+
         self.current_theta = 0.0
         self.curr_dist = 0.0
         self.comp_dist = 0.0
@@ -69,22 +61,13 @@ class Docking(Node):
 
         self.current_activity = None
 
-        self.dock_dict = {}
-        self.dock_dict["con2"] = [2.35, 3.47]
-        self.dock_dict["rec"] = [0.4, -2.42]
-        self.dock_dict["con1"] = [-4.55, 3.36]
+        self.call_imu_trigger()
 
     def docking_server_callback(self, request, response):
 
         self.get_logger().info("Request Received")
         print(request)
 
-        self.payload_dropped = False
-        self.payload_called = False
-
-        self.dock_entry_x, self.dock_entry_y = self.dock_dict[request.target]
-        self.target = request.target
-        self.box_on_bot = request.box_number
         self.current_activity = "rev"
         self.processing_dock = True
 
@@ -104,7 +87,7 @@ class Docking(Node):
                     us_diff = self.curr_dist - self.comp_dist
                     vel_msg.angular.z = -0.2 * us_diff
                     if abs(us_diff) < 3:
-                        vel_msg.linear.x = -0.5
+                        vel_msg.linear.x = -0.03 * self.curr_dist
                     else:
                         vel_msg.linear.x = 0.0
                 else:
@@ -117,6 +100,7 @@ class Docking(Node):
                     self.processing_dock = False
                     return
                 self.processing_dock = False
+
             self.vel_pub.publish(vel_msg)
             time.sleep(0.05)
 
@@ -124,12 +108,24 @@ class Docking(Node):
         self.curr_dist = msg.data[4]
         self.comp_dist = msg.data[5]
 
-    def normalize_angle(self, angle):
-        while angle > math.pi:
-            angle -= 2 * math.pi
-        while angle < -math.pi:
-            angle += 2 * math.pi
-        return angle
+    def call_imu_trigger(self):
+        client = self.create_client(Trigger, "/reset_imu")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().warn("Waiting for IMU Trigger Server...")
+
+        request = Trigger.Request()
+
+        future = client.call_async(request)
+        future.add_done_callback(partial(self.callback_call_imu_trigger))
+
+    def callback_call_imu_trigger(self, future):
+        try:
+            response = future.result()
+            if response.success:
+                self.imu_reset = True
+                self.get_logger().info("IMU set to Zero")
+        except Exception as e:
+            self.get_logger().error("IMU Trigger Call Failed")
 
 
 def main(args=None):

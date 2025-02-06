@@ -27,12 +27,12 @@ class EbotNav(Node):
                 0.4,
                 -2.4,
                 3.14,
-            ],  # 0.6560871418583443 y: -2.36031611244136   1.13, -2.40, 3.14
+            ],
             "con1": [-4.0, 2.89, -1.57],
             "con2": [2.32, 2.55, -1.57],
         }
 
-        self.activity_queue = ["rec", "con1", "con2"]
+        self.activity_queue = ["rec"]
         self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
 
         self.handler_group = MutuallyExclusiveCallbackGroup()
@@ -152,6 +152,7 @@ class EbotNav(Node):
         nav_manager()
         Timer based call made here. Not necessarily timer based function
         """
+        
 
         if not self.activity_queue:
             forward_msg = Twist()
@@ -162,10 +163,21 @@ class EbotNav(Node):
         goal = self.pose_dict[self.activity_queue[0]]
         stamped_goal = self.create_pose_stamped(*self.pose_dict[self.activity_queue[0]])
         if self.go_to_goal(stamped_goal):
-            goal_theta = goal[2]
+            if self.current_theta > 0.0:
+                goal_theta = math.pi
+            else:
+                goal_theta = -math.pi
+
             while abs(goal_theta - self.current_theta) > 0.1:
+                print(self.current_theta)
+                if self.current_theta > 1.0:
+                    goal_theta = math.pi
+                else:
+                    goal_theta = -math.pi
+
                 vel_msg = Twist()
-                vel_msg.angular.z = (goal_theta - self.current_theta) * 5.0
+                vel_msg.angular.z = (goal_theta - self.current_theta) * 0.8
+
                 self.vel_pub.publish(vel_msg)
                 time.sleep(0.05)
             vel_msg = Twist()

@@ -3,7 +3,6 @@
 import rclpy, math, time, sys
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 from geometry_msgs.msg import PoseStamped
-from rclpy.duration import Duration
 from rclpy.node import Node
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 
@@ -11,8 +10,8 @@ from ebot_docking.srv import DockSw
 from tf_transformations import quaternion_from_euler
 from functools import partial
 from geometry_msgs.msg import Twist
-from tf_transformations import euler_from_quaternion
-from std_msgs.msg import Float32MultiArray, Float32, Trigger
+from std_msgs.msg import Float32
+from std_srvs.srv import Trigger
 
 
 class EbotNav(Node):
@@ -24,8 +23,8 @@ class EbotNav(Node):
 
         self.pose_dict = {
             "rec": [2.75, -2.8, -1.57],
-            "con1": [2.85, 1.83, -1.57],
-            "con2": [2.3, -1.25, -1.57],
+            "con1": [2.85, 1.83, 1.57],
+            "con2": [2.3, -1.25, 1.57],
         }
 
         self.activity_queue = ["con2", "con1", "rec"]
@@ -35,12 +34,7 @@ class EbotNav(Node):
         self.client_group = MutuallyExclusiveCallbackGroup()
         self.sub_group = MutuallyExclusiveCallbackGroup()
 
-        client = self.create_client(Trigger, "/reset_imu")
-        while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().warn("Waiting for IMU Server...")
-        
-        request = Trigger.Request()
-        
+        # self.call_imu_trigger()
 
         self.orient_sub = self.create_subscription(
             Float32,
@@ -63,7 +57,7 @@ class EbotNav(Node):
 
     def create_pose_stamped(self, x, y, yaw=0.0):
 
-        q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, -1.57)  # ikde badal yaw
+        q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, yaw)  # ikde badal yaw
 
         goal_pose = PoseStamped()
         goal_pose.header.frame_id = "map"
@@ -91,19 +85,22 @@ class EbotNav(Node):
             return False
 
     def nav_manager(self):
-        #"""
-        goal_theta = 0.0
-        while abs(goal_theta - self.current_theta) > 0.25:
+        """
+        goal_theta = math.pi if self.current_theta > 0 else -math.pi
+
+        while abs(goal_theta - self.current_theta) > 0.15:
+            goal_theta = math.pi if self.current_theta > 0 else -math.pi
+
             vel_msg = Twist()
-            error = goal_theta - self.current_theta
-            vel_msg.angular.z = (error) * 0.2
+            vel_msg.angular.z = (goal_theta - self.current_theta) * 0.8
             self.vel_pub.publish(vel_msg)
-            time.sleep(0.03)
+            time.sleep(0.05)
+
+        print("Angle corrected")
         vel_msg = Twist()
         self.vel_pub.publish(vel_msg)
         return
-        #"""
-        
+        """
 
         if not self.activity_queue:
             forward_msg = Twist()
@@ -115,14 +112,16 @@ class EbotNav(Node):
         stamped_goal = self.create_pose_stamped(*self.pose_dict[self.activity_queue[0]])
         if self.go_to_goal(stamped_goal):
             print("GOAL REACHED")
-            goal_theta = 0.0
-            
-            while abs(goal_theta - self.current_theta) > 0.3:
+            goal_theta = math.pi if self.current_theta > 0 else -math.pi
+
+            while abs(goal_theta - self.current_theta) > 0.1:
+                goal_theta = math.pi if self.current_theta > 0 else -math.pi
+
                 vel_msg = Twist()
-                vel_msg.angular.z = (goal_theta - self.current_theta) * 2.0
+                vel_msg.angular.z = (goal_theta - self.current_theta) * 1.0
                 self.vel_pub.publish(vel_msg)
-                time.sleep(0.07)
-            
+                time.sleep(0.05)
+
             print("Angle corrected")
             vel_msg = Twist()
             self.vel_pub.publish(vel_msg)
@@ -171,9 +170,25 @@ class EbotNav(Node):
         while angle < -math.pi:
             angle += 2 * math.pi
         return angle
-    
-    def angle_wrap(self, angle):
-        return (angle + math.pi) % (2 * math.pi) - math.pi
+
+    def call_imu_trigger(self):
+        client = self.create_client(Trigger, "/reset_imu")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().warn("Waiting for IMU Trigger Server...")
+
+        request = Trigger.Request()
+
+        future = client.call_async(request)
+        future.add_done_callback(partial(self.callback_call_imu_trigger))
+
+    def callback_call_imu_trigger(self, future):
+        try:
+            response = future.result()
+            if response.success:
+                self.imu_reset = True
+                self.get_logger().info("IMU set to Zero")
+        except Exception as e:
+            self.get_logger().error("IMU Trigger Call Failed")
 
 
 def main():
