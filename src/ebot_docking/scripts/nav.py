@@ -22,12 +22,12 @@ class EbotNav(Node):
         self.box_on_bot = "nothing"
 
         self.pose_dict = {
-            "rec": [2.75, -2.8, -1.57],
-            "con1": [2.85, 1.83, 1.57],
-            "con2": [2.3, -1.25, 1.57],
+            "rec": [2.95, -2.7, 2.84],
+            "con1": [2.8, 1.98, 3.14],
+            "con2": [2.6, -1.2, 3.14],
         }
 
-        self.activity_queue = ["con2", "con1", "rec"]
+        self.activity_queue = ["rec", "con1", "con2"]
         self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
 
         self.handler_group = MutuallyExclusiveCallbackGroup()
@@ -86,10 +86,10 @@ class EbotNav(Node):
 
     def nav_manager(self):
         """
-        goal_theta = math.pi if self.current_theta > 0 else -math.pi
+        goal_theta = math.pi if self.current_theta > 1.0 else -math.pi
 
         while abs(goal_theta - self.current_theta) > 0.15:
-            goal_theta = math.pi if self.current_theta > 0 else -math.pi
+            goal_theta = math.pi if self.current_theta > 1.0 else -math.pi
 
             vel_msg = Twist()
             vel_msg.angular.z = (goal_theta - self.current_theta) * 0.8
@@ -105,17 +105,18 @@ class EbotNav(Node):
         if not self.activity_queue:
             forward_msg = Twist()
             self.vel_pub.publish(forward_msg)
-            time.sleep(0.05)
+            time.sleep(0.03)
             return
 
         goal = self.pose_dict[self.activity_queue[0]]
         stamped_goal = self.create_pose_stamped(*self.pose_dict[self.activity_queue[0]])
         if self.go_to_goal(stamped_goal):
             print("GOAL REACHED")
-            goal_theta = math.pi if self.current_theta > 0 else -math.pi
+            '''
+            goal_theta = math.pi if self.current_theta > 1.0 else -math.pi
 
             while abs(goal_theta - self.current_theta) > 0.1:
-                goal_theta = math.pi if self.current_theta > 0 else -math.pi
+                goal_theta = math.pi if self.current_theta > 1.0 else -math.pi
 
                 vel_msg = Twist()
                 vel_msg.angular.z = (goal_theta - self.current_theta) * 1.0
@@ -123,11 +124,12 @@ class EbotNav(Node):
                 time.sleep(0.05)
 
             print("Angle corrected")
+            '''
             vel_msg = Twist()
             self.vel_pub.publish(vel_msg)
             time.sleep(1.0)
 
-            self.call_dock(self.activity_queue[0])
+            self.call_dock()
             while not self.docking_done:
                 pass
             self.docking_done = False
@@ -137,7 +139,7 @@ class EbotNav(Node):
 
             self.activity_queue.pop(0)
 
-    def call_dock(self, target):
+    def call_dock(self):
         client = self.create_client(
             DockSw, "/docking", callback_group=self.client_group
         )
@@ -145,13 +147,11 @@ class EbotNav(Node):
             self.get_logger().warn("Waiting for Docking Server...")
 
         request = DockSw.Request()
-        request.target = target
-        request.box_number = self.box_on_bot
-
+        
         future = client.call_async(request)
-        future.add_done_callback(partial(self.callback_call_dock, target=target))
+        future.add_done_callback(partial(self.callback_call_dock))
 
-    def callback_call_dock(self, future, target):
+    def callback_call_dock(self, future):
         try:
             response = future.result()
             if response:
@@ -162,7 +162,6 @@ class EbotNav(Node):
 
     def odom_callback(self, msg):
         self.current_theta = self.normalize_angle(msg.data)
-        print(self.current_theta)
 
     def normalize_angle(self, angle):
         while angle > math.pi:

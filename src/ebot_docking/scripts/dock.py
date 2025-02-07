@@ -80,12 +80,12 @@ class Docking(Node):
             act = self.current_activity
             vel_msg = Twist()
             if act == "rev":
-                stop_dist = 22
+                stop_dist = 28
                 if self.curr_dist > stop_dist:
                     us_diff = self.curr_dist - self.comp_dist
                     vel_msg.angular.z = -0.2 * us_diff
                     if abs(us_diff) < 3:
-                        vel_msg.linear.x = -0.03 * self.curr_dist
+                        vel_msg.linear.x = -0.02 * self.curr_dist
                     else:
                         vel_msg.linear.x = 0.0
                 else:
@@ -93,10 +93,7 @@ class Docking(Node):
                     self.current_activity = None
             else:
                 vel_msg = Twist()
-                if self.target == "rec":
-                    self.vel_pub.publish(vel_msg)
-                    self.processing_dock = False
-                    return
+                             
                 self.processing_dock = False
 
             self.vel_pub.publish(vel_msg)
