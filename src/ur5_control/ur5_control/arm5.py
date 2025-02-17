@@ -32,12 +32,13 @@ from std_msgs.msg import Float64
 # from linkattacher_msgs.srv import AttachLink, DetachLink
 from ur_msgs.srv import SetIO
 from std_srvs.srv import Trigger
+from ebot_docking.srv import PassingService
 
 # Aruco Processing Objects
 ARUCO_DICT = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 ARUCO_PARAMS = cv2.aruco.DetectorParameters()
 detector = cv2.aruco.ArucoDetector(ARUCO_DICT, ARUCO_PARAMS)
-DISTANCE_CORRECTION = 0.18#0.15
+DISTANCE_CORRECTION = 0.18  # 0.15
 
 
 def detect_aruco(image):
@@ -193,7 +194,14 @@ class ArucoTF(Node):
         self.servo_y = None
         self.servo_z = None
 
+        self.force = 0.0
+        self.last_force = 0.0
+
         self.temp_z = None
+
+        self.start_time = None
+        self.box_pressed = False
+        self.check_pressed = True
 
         self.servo_roll = None
         self.servo_pitch = None
@@ -233,7 +241,7 @@ class ArucoTF(Node):
             "/net_wrench",
             self.force_sub_callback,
             10,
-            callback_group=self.sub_group
+            callback_group=self.sub_group,
         )
 
         self.depth_cam_sub = self.create_subscription(
@@ -249,9 +257,7 @@ class ArucoTF(Node):
         #     TwistStamped, "/servo_node/delta_twist_cmds", 10
         # )
 
-        self.servo_pub = self.create_publisher(
-            TwistStamped, "/ServoCmdVel", 10
-        )
+        self.servo_pub = self.create_publisher(TwistStamped, "/ServoCmdVel", 10)
 
         # Timers
         self.process_image_timer = self.create_timer(
@@ -265,7 +271,6 @@ class ArucoTF(Node):
         self.pick_check_timer = self.create_timer(
             1.0, self.pick_box, callback_group=self.passing_group
         )
-        
 
         # Lookup and Broadcast TF
         self.tf_buffer = tf2_ros.buffer.Buffer()
@@ -277,56 +282,28 @@ class ArucoTF(Node):
 
         # Cv2 Objects
         self.bridge = CvBridge()
-        self.force = 0.0
-        self.last_force = 0.0
-        self.start_time = None
-        self.box_pressed = False
-        self.check_pressed = True
+
+        # Servers
+        self.passing_server = self.create_service(
+            PassingService,
+            "/passing_service",
+            self.passing_server_callback,
+            callback_group=self.passing_group,
+        )
 
         self.call_servo_trigger()
 
     # ---------------------------------------- CLASS END ------------------------------------------
-    def force_sub_callback(self, msg):
-        self.force = msg.data
-        if self.check_pressed is True:
-            current_time = time.time()
-            if self.force > self.last_force:
-                if self.start_time is None:
-                    self.start_time = current_time
-                elif current_time - self.start_time > 1.0:
-                    self.box_pressed = True
-            else:
-                self.start_time = None
-        
-        self.last_force = self.force
-    
-
+    def passing_server_callback(self, request, response):
+        box_number = self.current_box
+        self.process_image()
+        self.pass_box(box_number)
+        response.success = True
+        response.box_number = box_number
+        return response
 
     def pick_box(self):
-        """
-        Purpose:
-        ---
-        Guides the UR5 end-effector to pick up a specified box or the first available box
-        in the `box_dict` as added by process_image function. The function aligns the
-        end-effector's orientation and position with the box's coordinates, attaches the box,
-        and confirms the pick operation.
 
-        Input Arguments:
-        ---
-        `box_number` : [ int or str | optional | default=None ]
-            Identifier for the box to be picked. If not provided, the first box in `box_dict` is
-            chosen.
-
-        Returns:
-        ---
-        `box_number` : [ int or str ]
-            Identifier of the box that was successfully picked.
-
-        Example call:
-        ---
-        pick_box(69)  # Pick the box with ID 69.
-        picked_box = pick_box()  # Pick the first available box.
-        """
         if self.ur5_engaged:
             return
 
@@ -374,7 +351,7 @@ class ArucoTF(Node):
             twist_msg.twist.angular.y = 15.0 * rot_error
             self.servo_pub.publish(twist_msg)
             time.sleep(0.05)
-        
+
         print("Rotation Corrected")
 
         twist_msg = TwistStamped()
@@ -388,7 +365,7 @@ class ArucoTF(Node):
             error_x = goal_x - self.servo_x
             error_y = goal_y - self.servo_y
             error_z = goal_z - self.servo_z
-                
+
             twist_msg.header.stamp = self.get_clock().now().to_msg()
 
             twist_msg.twist.linear.y = 10.0 * error_y
@@ -398,7 +375,6 @@ class ArucoTF(Node):
             if abs(error_y) < 0.25:
                 twist_msg.twist.linear.x = 10.0 * error_x
                 twist_msg.twist.linear.z = 10.0 * error_z
-                    
 
             self.servo_pub.publish(twist_msg)
 
@@ -407,11 +383,10 @@ class ArucoTF(Node):
         print("Goal_reached")
         twist_msg.twist.linear.x = 0.0
         twist_msg.twist.linear.y = 0.0
-        
 
         twist_msg.twist.linear.z = -1.0
 
-        '''
+        """
         self.check_pressed = True
 
         while self.box_pressed is False:
@@ -420,9 +395,7 @@ class ArucoTF(Node):
             time.sleep(0.05)
         
         self.check_pressed = False
-        '''
-
-        
+        """
 
         while self.force < 80.0:
             twist_msg.header.stamp = self.get_clock().now().to_msg()
@@ -430,11 +403,10 @@ class ArucoTF(Node):
             time.sleep(0.05)
 
         print("Gripping Now")
-            
+
         twist_msg.twist.linear.z = 0.0
         twist_msg.header.stamp = self.get_clock().now().to_msg()
         self.servo_pub.publish(twist_msg)
-
 
         self.picked = False
         self.call_attach_box(box_number)
@@ -444,29 +416,8 @@ class ArucoTF(Node):
         print("Box Gripped")
 
         self.current_box = box_number
-        self.pass_box(box_number)
 
     def pass_box(self, box_number):
-        """
-        Purpose:
-        ---
-        Commands the UR5 end-effector to move towards the ebot position for passing a box
-        and detaches the specified box once the position is reached.
-
-        Input Arguments:
-        ---
-        `box_number` : [ int or str ]
-            Identifier for the box to be detached and passed.
-
-        Returns:
-        ---
-        None
-
-        Example call:
-        ---
-        pass_box(69)
-        """
-
         while not self.ebot_pose:
             self.process_image()
             pass
@@ -493,7 +444,7 @@ class ArucoTF(Node):
             twist_msg.twist.linear.y = 0.0
             if abs(error_z) < 0.02:
                 twist_msg.twist.linear.x = 10.0 * error_x
-                if abs(error_x) < 0.02:
+                if abs(error_x) < 0.3:
                     twist_msg.twist.linear.y = 10.0 * error_y
 
             self.servo_pub.publish(twist_msg)
@@ -511,26 +462,6 @@ class ArucoTF(Node):
         print("Detached Box")
 
     def servo_lookup(self):
-        """
-        Purpose:
-        ---
-        Retrieves the transformation between the `base_link` and the end effector of the UR5 arm,
-        extracting the translation and orientation (as roll, pitch, and yaw). Updates the
-        object's attributes with the transformation values.
-
-        Input Arguments:
-        ---
-        None
-
-        Returns:
-        ---
-        None
-
-        Example call:
-        ---
-        servo_lookup()
-        """
-
         try:
             self.servo_transform = self.tf_buffer.lookup_transform(
                 "base_link", "wrist_3_link", rclpy.time.Time()
@@ -566,25 +497,6 @@ class ArucoTF(Node):
             )
 
     def process_image(self):
-        """
-        Purpose:
-        ---
-        Process an input image to detect ArUco markers, broadcast transformations for each
-        detected marker, and update the ebot's pose or box dictionary. Also removes boxes that
-        have already been transferred from box dictionary
-
-        Input Arguments:
-        ---
-        None
-
-        Returns:
-        ---
-        None
-
-        Example call:
-        ---
-        Timer based call
-        """
 
         if not self.image_received:
             return
@@ -631,32 +543,6 @@ class ArucoTF(Node):
         return
 
     def find_transform(self, translation, angles):
-        """
-        Purpose:
-        ---
-        Calculate the transformation from the given tf to UR5 base_link frame, using the
-        translation and rotation (angles) of the ArUco marker relative to the camera.
-
-        Input Arguments:
-        ---
-        `translation` : [ list ]
-            A list of three values representing the translation (x, y, z) of the ArUco marker
-            relative to the camera.
-
-        `angles` : [ list ]
-            A list of four values representing the rotation (quaternion) of the ArUco marker
-            relative to the camera.
-
-        Returns:
-        ---
-        `aruco_translation_in_base` : [ list ]
-            The calculated translation of the ArUco marker in the base_link frame.
-
-        Example call:
-        ---
-        aruco_translation_in_base = find_transform(aruco_translation, aruco_angles)
-        """
-
         try:
 
             base_to_camera = self.tf_buffer.lookup_transform(
@@ -699,37 +585,6 @@ class ArucoTF(Node):
             self.get_logger().info(f"Could not calculate transform: {e}")
 
     def broadcast_transform(self, parent_frame, child_frame, translation, rotation):
-        """
-        Purpose:
-        ---
-        Broadcast a transformation between two frames (parent and child) with a specified
-        translation and rotation(quaternion).
-
-        Input Arguments:
-        ---
-        `parent_frame` : [ str ]
-            The name of the parent frame in the transformation.
-
-        `child_frame` : [ str ]
-            The name of the child frame in the transformation.
-
-        `translation` : [ list ]
-            A list of three values representing the translation (x, y, z) from the parent frame
-            to the child frame.
-
-        `rotation` : [ list ]
-            A list of four values representing the rotation (quaternion) from the parent frame
-            to the child frame.
-
-        Returns:
-        ---
-        None
-
-        Example call:
-        ---
-        broadcast_transform("base_link", "1048_base_69", [69.0, 42.0, 0.0], [0.0, 0.0, 0.0, 1.0])
-        """
-
         transform = TransformStamped()
         transform.header.stamp = self.get_clock().now().to_msg()
         transform.header.frame_id = parent_frame
@@ -857,6 +712,9 @@ class ArucoTF(Node):
         self.depth_image = self.bridge.imgmsg_to_cv2(
             data, desired_encoding="passthrough"
         )
+
+    def force_sub_callback(self, msg):
+        self.force = msg.data
 
 
 def main():

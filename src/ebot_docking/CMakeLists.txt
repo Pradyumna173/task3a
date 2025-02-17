@@ -25,7 +25,7 @@ find_package(rclpy REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/DockSw.srv"
-  #DEPENDENCIES geometry_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
+  "srv/PassingService.srv"
 )
 
 if(BUILD_TESTING)
@@ -54,11 +54,8 @@ install(
 )
 
 install(PROGRAMS
-	scripts/ebot_docking_boilerplate.py
-  scripts/h_nav.py
-  scripts/h_dock.py
-  scripts/hard_dock.py
-  scripts/hard_nav.py
+	scripts/nav.py
+  scripts/dock.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
