@@ -55,6 +55,7 @@ install(
 
 install(PROGRAMS
 	scripts/nav.py
+  scripts/nav5.py
   scripts/dock.py
   DESTINATION lib/${PROJECT_NAME}
 )

@@ -23,6 +23,7 @@ setup(
     entry_points={
         'console_scripts': [
         "arm = ur5_control.arm:main",
+        "arm5 = ur5_control.arm5:main",
         "working = ur5_control.working:main",
         "3a = ur5_control.3a:main"
         ],
