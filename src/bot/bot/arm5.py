@@ -42,33 +42,6 @@ DISTANCE_CORRECTION = 0.00  # 0.15
 
 
 def detect_aruco(image):
-    """
-    Purpose:
-    ---
-    Detect ArUco markers in an input image and estimate their pose (translation and rotation)
-    using a predefined dictionary.
-
-    Input Arguments:
-    ---
-    `image` : [ numpy.ndarray ]
-        The input image, gotten from aruco_tf.color_cam_sub in which ArUco markers are to be
-        detected.
-
-    Returns:
-    ---
-    `translation_aruco_list` : [ list ]
-        A list of translations (x, y, z) for each detected ArUco marker.
-
-    `angle_aruco_list` : [ list ]
-        A list of angles (roll, pitch, yaw) for each detected ArUco marker, in radians.
-
-    `marker_ids` : [ list ]
-        A list of IDs corresponding to the detected ArUco markers.
-
-    Example call:
-    ---
-    translation_aruco_list, angle_aruco_list, marker_ids = detect_aruco(input_image)
-    """
 
     # Empty Arrays made, to fill return at end of function with meaningful values
     translation_aruco_list = []
@@ -121,45 +94,10 @@ def detect_aruco(image):
             translation_aruco_list.append(translation_aruco)
             angle_aruco_list.append(angle_aruco)
 
-            # print(f"Marker ID: {marker_id[0]}")
-            # print(f"Translation (x, y, z): {tvec[0][0]}")
-            # print(
-            #     f"Rotation (roll, pitch, yaw): {roll:.2f}, {pitch:.2f}, {yaw:.2f}\n"
-            # )  # Printing in degrees for debugging
-
-    # cv2.imshow("ArUco Marker Detection", image)
-    # cv2.waitKey(1)
-
     return translation_aruco_list, angle_aruco_list, marker_ids
 
 
 def rotation_matrix_to_euler_angles(R):
-    """
-    Purpose:
-    ---
-    Convert a rotation matrix to Euler angles (roll, pitch, yaw).
-
-    Input Arguments:
-    ---
-    `R` : [ numpy.ndarray ]
-        A 3x3 rotation matrix representing the rotation.
-
-    Returns:
-    ---
-    `roll` : [ float ]
-        The roll angle in degrees.
-
-    `pitch` : [ float ]
-        The pitch angle in degrees.
-
-    `yaw` : [ float ]
-        The yaw angle in degrees.
-
-    Example call:
-    ---
-    roll, pitch, yaw = rotation_matrix_to_euler_angles(rotation_matrix)
-    """
-
     sy = math.sqrt(
         R[0, 0] ** 2 + R[1, 0] ** 2
     )  # Calculate the magnitude of the first two elements in the first column of R
@@ -195,29 +133,19 @@ class ArucoTF(Node):
         self.servo_z = None
 
         self.force = 0.0
-        self.last_force = 0.0
 
         self.temp_z = None
-
-        self.start_time = None
-        self.box_pressed = False
-        self.check_pressed = True
 
         self.servo_roll = None
         self.servo_pitch = None
         self.servo_yaw = None
-        self.place_now = False
 
         self.image_received = False
         self.cv_image = None
         self.depth_image = None
         self.box_dict = {}  # Will hold box_name: box_pose, gotten by processing image
         self.box_done = []  # List of boxes passed by arm
-        self.ebot_pose = [
-            # 0.03050968,
-            # 0.13851294,
-            # 1.56192393,
-        ]  # Changes when cam sees ebot aruco
+        self.ebot_pose = []  # Changes when cam sees ebot aruco
 
         # Callback group declaration
         self.sub_group = ReentrantCallbackGroup()
@@ -300,8 +228,6 @@ class ArucoTF(Node):
     def passing_server_callback(self, request, response):
         box_number = self.current_box
         self.process_image()
-        while not self.place_now:
-            pass
         self.pass_box(box_number)
         self.get_logger().info("Passing Service CAlled")
         response.success = True
@@ -332,8 +258,8 @@ class ArucoTF(Node):
 
         goal_x, goal_y, goal_z = box_pose
         goal_z += 0.15
-        #goal_y += 0.05
-        #goal_x += 0.02
+        # goal_y += 0.05
+        # goal_x += 0.02
         self.temp_z = goal_z
 
         goal_rot = math.pi

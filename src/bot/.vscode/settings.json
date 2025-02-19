@@ -1,0 +1,22 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/northee/eyrc_ws/install/ur5_control/lib/python3.10/site-packages",
+        "/home/northee/eyrc_ws/install/servo_msgs/lib/python3.10/site-packages",
+        "/home/northee/eyrc_ws/install/pymoveit2/lib/python3.10/site-packages",
+        "/home/northee/eyrc_ws/install/payload_service/lib/python3.10/site-packages",
+        "/home/northee/eyrc_ws/install/linkattacher_msgs/lib/python3.10/site-packages",
+        "/home/northee/eyrc_ws/install/ebot_docking/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/northee/eyrc_ws/install/ur5_control/lib/python3.10/site-packages",
+        "/home/northee/eyrc_ws/install/servo_msgs/lib/python3.10/site-packages",
+        "/home/northee/eyrc_ws/install/pymoveit2/lib/python3.10/site-packages",
+        "/home/northee/eyrc_ws/install/payload_service/lib/python3.10/site-packages",
+        "/home/northee/eyrc_ws/install/linkattacher_msgs/lib/python3.10/site-packages",
+        "/home/northee/eyrc_ws/install/ebot_docking/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

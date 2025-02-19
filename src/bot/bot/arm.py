@@ -29,7 +29,7 @@ from tf_transformations import (
 from functools import partial
 from std_msgs.msg import Float64
 
-# from linkattacher_msgs.srv import AttachLink, DetachLink
+from linkattacher_msgs.srv import AttachLink, DetachLink
 from ur_msgs.srv import SetIO
 from std_srvs.srv import Trigger
 from ebot_docking.srv import PassingService
@@ -42,33 +42,6 @@ DISTANCE_CORRECTION = 0.00  # 0.15
 
 
 def detect_aruco(image):
-    """
-    Purpose:
-    ---
-    Detect ArUco markers in an input image and estimate their pose (translation and rotation)
-    using a predefined dictionary.
-
-    Input Arguments:
-    ---
-    `image` : [ numpy.ndarray ]
-        The input image, gotten from aruco_tf.color_cam_sub in which ArUco markers are to be
-        detected.
-
-    Returns:
-    ---
-    `translation_aruco_list` : [ list ]
-        A list of translations (x, y, z) for each detected ArUco marker.
-
-    `angle_aruco_list` : [ list ]
-        A list of angles (roll, pitch, yaw) for each detected ArUco marker, in radians.
-
-    `marker_ids` : [ list ]
-        A list of IDs corresponding to the detected ArUco markers.
-
-    Example call:
-    ---
-    translation_aruco_list, angle_aruco_list, marker_ids = detect_aruco(input_image)
-    """
 
     # Empty Arrays made, to fill return at end of function with meaningful values
     translation_aruco_list = []
@@ -121,44 +94,10 @@ def detect_aruco(image):
             translation_aruco_list.append(translation_aruco)
             angle_aruco_list.append(angle_aruco)
 
-            # print(f"Marker ID: {marker_id[0]}")
-            # print(f"Translation (x, y, z): {tvec[0][0]}")
-            # print(
-            #     f"Rotation (roll, pitch, yaw): {roll:.2f}, {pitch:.2f}, {yaw:.2f}\n"
-            # )  # Printing in degrees for debugging
-
-    # cv2.imshow("ArUco Marker Detection", image)
-    # cv2.waitKey(1)
-
     return translation_aruco_list, angle_aruco_list, marker_ids
 
 
 def rotation_matrix_to_euler_angles(R):
-    """
-    Purpose:
-    ---
-    Convert a rotation matrix to Euler angles (roll, pitch, yaw).
-
-    Input Arguments:
-    ---
-    `R` : [ numpy.ndarray ]
-        A 3x3 rotation matrix representing the rotation.
-
-    Returns:
-    ---
-    `roll` : [ float ]
-        The roll angle in degrees.
-
-    `pitch` : [ float ]
-        The pitch angle in degrees.
-
-    `yaw` : [ float ]
-        The yaw angle in degrees.
-
-    Example call:
-    ---
-    roll, pitch, yaw = rotation_matrix_to_euler_angles(rotation_matrix)
-    """
 
     sy = math.sqrt(
         R[0, 0] ** 2 + R[1, 0] ** 2
@@ -213,11 +152,7 @@ class ArucoTF(Node):
         self.depth_image = None
         self.box_dict = {}  # Will hold box_name: box_pose, gotten by processing image
         self.box_done = []  # List of boxes passed by arm
-        self.ebot_pose = [
-            # 0.03050968,
-            # 0.13851294,
-            # 1.56192393,
-        ]  # Changes when cam sees ebot aruco
+        self.ebot_pose = []  # Changes when cam sees ebot aruco
 
         # Callback group declaration
         self.sub_group = ReentrantCallbackGroup()
@@ -226,6 +161,8 @@ class ArucoTF(Node):
         self.image_group = MutuallyExclusiveCallbackGroup()
         # Server groups
         self.passing_group = MutuallyExclusiveCallbackGroup()
+        self.lavda_group = MutuallyExclusiveCallbackGroup()
+        self.pick_group = MutuallyExclusiveCallbackGroup()
 
         # Subscribers
         self.color_cam_sub = self.create_subscription(
@@ -271,7 +208,7 @@ class ArucoTF(Node):
 
         #'''
         self.pick_check_timer = self.create_timer(
-            1.0, self.pick_box, callback_group=self.passing_group
+            1.0, self.pick_box, callback_group=self.pick_group
         )
         #'''
 
@@ -291,7 +228,7 @@ class ArucoTF(Node):
             PassingService,
             "/passing_service",
             self.passing_server_callback,
-            callback_group=self.passing_group,
+            callback_group=self.lavda_group,
         )
 
         self.call_servo_trigger()
@@ -300,17 +237,22 @@ class ArucoTF(Node):
     def passing_server_callback(self, request, response):
         box_number = self.current_box
         self.process_image()
+        print("REQUEST RECEIVED")
         while not self.place_now:
+            time.sleep(0.5)
             pass
+
+        self.place_now = False
         self.pass_box(box_number)
-        self.get_logger().info("Passing Service CAlled")
+        time.sleep(1.0)
         response.success = True
-        response.box_number = box_number
+        response.box_number = str(box_number)
         return response
 
     def pick_box(self):
 
         if self.ur5_engaged:
+            self.place_now = True
             return
 
         if self.image_received:
@@ -332,8 +274,8 @@ class ArucoTF(Node):
 
         goal_x, goal_y, goal_z = box_pose
         goal_z += 0.15
-        #goal_y += 0.05
-        #goal_x += 0.02
+        # goal_y += 0.05
+        # goal_x += 0.02
         self.temp_z = goal_z
 
         goal_rot = math.pi
@@ -354,7 +296,7 @@ class ArucoTF(Node):
                 else -goal_rot - self.servo_roll
             )
             twist_msg.header.stamp = self.get_clock().now().to_msg()
-            twist_msg.twist.angular.y = 15.0 * rot_error
+            twist_msg.twist.angular.y = 45.0 * rot_error
             self.servo_pub.publish(twist_msg)
             time.sleep(0.05)
 
@@ -374,13 +316,13 @@ class ArucoTF(Node):
 
             twist_msg.header.stamp = self.get_clock().now().to_msg()
 
-            twist_msg.twist.linear.y = 10.0 * error_y
+            twist_msg.twist.linear.y = 30.0 * error_y
             twist_msg.twist.linear.x = 0.0
             twist_msg.twist.linear.z = 0.0
 
             if abs(error_y) < 0.25:
-                twist_msg.twist.linear.x = 10.0 * error_x
-                twist_msg.twist.linear.z = 10.0 * error_z
+                twist_msg.twist.linear.x = 30.0 * error_x
+                twist_msg.twist.linear.z = 30.0 * error_z
 
             self.servo_pub.publish(twist_msg)
 
@@ -391,17 +333,6 @@ class ArucoTF(Node):
         twist_msg.twist.linear.y = 0.0
 
         twist_msg.twist.linear.z = -1.0
-
-        """
-        self.check_pressed = True
-
-        while self.box_pressed is False:
-            twist_msg.header.stamp = self.get_clock().now().to_msg()
-            self.servo_pub.publish(twist_msg)
-            time.sleep(0.05)
-        
-        self.check_pressed = False
-        """
 
         while self.force < 50.0:
             twist_msg.header.stamp = self.get_clock().now().to_msg()
@@ -422,12 +353,7 @@ class ArucoTF(Node):
         print("Box Gripped")
 
         self.current_box = box_number
-        self.place_now = True
-        while not self.ebot_pose:
-            self.process_image()
-            pass
-        self.pass_box(box_number)
-        self.ebot_pose = []
+        
 
     def pass_box(self, box_number):
         while not self.ebot_pose:
@@ -442,22 +368,22 @@ class ArucoTF(Node):
 
         error_x = goal_x - self.servo_x
         error_y = goal_y - self.servo_y
-        error_z = (self.temp_z) - self.servo_z
+        error_z = (self.temp_z + 0.05) - self.servo_z
         # error_z = 0.0
 
         while (abs(error_x) > 0.02) or (abs(error_y) > 0.02) or (abs(error_z) > 0.02):
             error_x = goal_x - self.servo_x
             error_y = goal_y - self.servo_y
-            error_z = (self.temp_z) - self.servo_z
+            error_z = (self.temp_z + 0.05) - self.servo_z
             twist_msg.header.stamp = self.get_clock().now().to_msg()
 
-            twist_msg.twist.linear.z = 10.0 * error_z
+            twist_msg.twist.linear.z = 30.0 * error_z
             twist_msg.twist.linear.x = 0.0
             twist_msg.twist.linear.y = 0.0
             if abs(error_z) < 0.02:
-                twist_msg.twist.linear.x = 10.0 * error_x
+                twist_msg.twist.linear.x = 30.0 * error_x
                 if abs(error_x) < 0.3:
-                    twist_msg.twist.linear.y = 10.0 * error_y
+                    twist_msg.twist.linear.y = 30.0 * error_y
 
             self.servo_pub.publish(twist_msg)
 
@@ -467,7 +393,7 @@ class ArucoTF(Node):
 
         self.dropped = False
         self.call_detach_box(self.current_box)
-        # self.ebot_pose = None
+        self.ebot_pose = None
         while not self.dropped:
             pass
 
@@ -693,6 +619,7 @@ class ArucoTF(Node):
                 del self.box_dict[box_number]
                 self.get_logger().info("Detached Box" + box_number)
                 self.ur5_engaged = False
+                self.place_now = False
         except Exception as e:
             self.get_logger().error("Detach Box Client Failed")
 
