@@ -38,7 +38,7 @@ from ebot_docking.srv import PassingService
 ARUCO_DICT = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 ARUCO_PARAMS = cv2.aruco.DetectorParameters()
 detector = cv2.aruco.ArucoDetector(ARUCO_DICT, ARUCO_PARAMS)
-DISTANCE_CORRECTION = 0.18  # 0.15
+DISTANCE_CORRECTION = 0.00  # 0.15
 
 
 def detect_aruco(image):
@@ -268,9 +268,11 @@ class ArucoTF(Node):
             0.05, self.servo_lookup, callback_group=self.controller_group
         )
 
+        #'''
         self.pick_check_timer = self.create_timer(
             1.0, self.pick_box, callback_group=self.passing_group
         )
+        #'''
 
         # Lookup and Broadcast TF
         self.tf_buffer = tf2_ros.buffer.Buffer()
@@ -326,8 +328,8 @@ class ArucoTF(Node):
 
         goal_x, goal_y, goal_z = box_pose
         goal_z += 0.15
-        goal_y += 0.05
-        goal_x += 0.02
+        #goal_y += 0.05
+        #goal_x += 0.02
         self.temp_z = goal_z
 
         goal_rot = math.pi
@@ -397,7 +399,7 @@ class ArucoTF(Node):
         self.check_pressed = False
         """
 
-        while self.force < 80.0:
+        while self.force < 60.0:
             twist_msg.header.stamp = self.get_clock().now().to_msg()
             self.servo_pub.publish(twist_msg)
             time.sleep(0.05)

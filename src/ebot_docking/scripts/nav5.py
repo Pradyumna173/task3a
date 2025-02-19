@@ -25,7 +25,7 @@ class EbotNav(Node):
         self.payload_done = False
 
         self.pose_dict = {
-            "rec": [2.95, -2.7, 2.84],
+            "rec": [2.95, -2.7, 2.90],
             "con1": [2.8, 1.98, 3.14],
             "con2": [2.6, -1.2, 3.14],
         }
@@ -37,7 +37,6 @@ class EbotNav(Node):
         self.client_group = MutuallyExclusiveCallbackGroup()
         self.sub_group = MutuallyExclusiveCallbackGroup()
 
-        # self.call_imu_trigger()
 
         self.orient_sub = self.create_subscription(
             Float32,
@@ -50,7 +49,7 @@ class EbotNav(Node):
         self.nav = BasicNavigator()
 
         initial_pose = self.create_pose_stamped(0.0, 0.0, 0.0)
-        self.nav.setInitialPose(initial_pose)
+        #self.nav.setInitialPose(initial_pose)
 
         self.nav.waitUntilNav2Active()
 
@@ -109,11 +108,18 @@ class EbotNav(Node):
             self.docking_done = False
 
             if self.activity_queue[0] == "rec":
+                self.call_servo_toggle(False)
+                while not self.payload_done:
+                    pass
+              
+                self.payload_done = False
+
                 self.call_passing_service()
                 while self.box_on_bot == "nothing":
                     pass
+                time.sleep(1.5)
             else:
-                self.call_servo_toggle()
+                self.call_servo_toggle(True)
                 while not self.payload_done:
                     pass
                 self.box_on_bot = "nothing"
@@ -126,7 +132,7 @@ class EbotNav(Node):
 
             self.activity_queue.pop(0)
     
-    def call_servo_toggle(self):
+    def call_servo_toggle(self, state):
         client = self.create_client(
             ServoSw, "/toggle_usb_servo", callback_group=self.client_group
         )
@@ -134,7 +140,7 @@ class EbotNav(Node):
             self.get_logger().warn("Waiting for Servo Toggle Server...")
 
         request = ServoSw.Request()
-        request.servostate = True
+        request.servostate = state
 
         future = client.call_async(request)
         future.add_done_callback(partial(self.callback_call_dock))
@@ -183,7 +189,7 @@ class EbotNav(Node):
     def call_passing_service(self):
         client = self.create_client(PassingService, "/passing_service")
         while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().warn("Waiting for IMU Trigger Server...")
+            self.get_logger().warn("Waiting for Passing Service...")
         self.box_on_bot = "nothing"
 
         request = PassingService.Request()
@@ -201,6 +207,7 @@ class EbotNav(Node):
                 else:
                     self.activity_queue.append("con1")
 
+                self.box_on_bot = str(box_number)
                 self.activity_queue.append("rec")
         except Exception as e:
             self.get_logger().error("Passing Service Call Failed")

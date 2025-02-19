@@ -49,7 +49,6 @@ class Docking(Node):
 
         self.vel_pub.publish(Twist())
 
-
         self.current_theta = 0.0
         self.curr_dist = 0.0
         self.comp_dist = 0.0
@@ -80,10 +79,17 @@ class Docking(Node):
             act = self.current_activity
             vel_msg = Twist()
             if act == "rev":
+                while self.curr_dist > 100 and self.comp_dist > 100:
+                    vel_msg.linear.x = -0.3
+                    self.vel_pub.publish(vel_msg)
+                    time.sleep(0.05)
+                    self.get_logger().info("Maage ghetoy")
+                
+
                 stop_dist = 28
                 if self.curr_dist > stop_dist:
                     us_diff = self.curr_dist - self.comp_dist
-                    vel_msg.angular.z = -0.2 * us_diff
+                    vel_msg.angular.z = -0.1 * us_diff
                     if abs(us_diff) < 3:
                         vel_msg.linear.x = -0.02 * self.curr_dist
                     else:
@@ -93,7 +99,7 @@ class Docking(Node):
                     self.current_activity = None
             else:
                 vel_msg = Twist()
-                             
+
                 self.processing_dock = False
 
             self.vel_pub.publish(vel_msg)
@@ -102,8 +108,6 @@ class Docking(Node):
     def ultra_callback(self, msg):
         self.curr_dist = msg.data[4]
         self.comp_dist = msg.data[5]
-
-    
 
 
 def main(args=None):
