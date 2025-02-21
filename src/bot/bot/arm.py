@@ -29,7 +29,7 @@ from tf_transformations import (
 from functools import partial
 from std_msgs.msg import Float64
 
-from linkattacher_msgs.srv import AttachLink, DetachLink
+# from linkattacher_msgs.srv import AttachLink, DetachLink
 from ur_msgs.srv import SetIO
 from std_srvs.srv import Trigger
 from ebot_docking.srv import PassingService
