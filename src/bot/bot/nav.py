@@ -55,39 +55,36 @@ class Nav(Node):
 
         goal = self.create_pose_stamped(*self.pose_dict[self.activity_queue[0]])
         if self.go_to_goal(goal):
+
+            vel_msg = Twist()
+            self.vel_pub.publish(vel_msg)
             self.call_dock(self.activity_queue[0])
 
             while not self.docking_done:
-                time.sleep(0.5)
                 pass
 
             self.docking_done = False
 
             if self.activity_queue[0] == "rec":
-                # while abs(self.servo_angle - 90) > 10:
-                #     self.call_servo_toggle(True)
-                #     while not self.toggle_done:
-                #         pass
-                #     self.toggle_done = False
                 if not self.first_time:
                     self.call_servo_toggle(True)
-                    self.first_time = False
+                    
                     while not self.toggle_done:
                         pass
                     self.toggle_done = False
+                self.first_time = False
 
                 self.call_passing_service()
                 while self.box_on_bot == "nothing":
-                    time.sleep(0.5)
                     pass
             else:
-                # while abs(self.servo_angle - 0) > 10:
                 self.call_servo_toggle(True)
                 while not self.toggle_done:
                     pass
                 self.toggle_done = False
+                self.box_on_bot = "nothing"
 
-            time.sleep(1.0)
+            time.sleep(2.0)
 
             forward_msg = Twist()
             forward_msg.linear.x = 0.5
@@ -144,7 +141,7 @@ class Nav(Node):
             response = future.result()
             if response:
                 self.toggle_done = True
-                self.servo_angle = response.data
+                self.servo_angle = response.num
         except Exception as e:
             self.get_logger().error("Servo Toggle Failed")
 

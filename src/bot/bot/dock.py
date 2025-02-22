@@ -60,6 +60,7 @@ class Docking(Node):
         self.curr_dist = 0.0
         self.comp_dist = 0.0
         self.box_on_bot = None
+        self.us_on = False
 
         self.processing_dock = False
         self.payload_dropped = False
@@ -70,13 +71,15 @@ class Docking(Node):
     def docking_server_callback(self, request, response):
 
         self.get_logger().info("Request Received")
+        
+        while not self.us_on:
+            self.get_logger().info("USonic Band")
+            pass
 
         self.current_activity = "rev"
         self.processing_dock = True
 
         while self.processing_dock:
-            print("still docking")
-            time.sleep(0.5)
             pass
 
         print("DOCKING DONE")
@@ -117,6 +120,7 @@ class Docking(Node):
     def ultra_callback(self, msg):
         self.curr_dist = msg.data[4]
         self.comp_dist = msg.data[5]
+        self.us_on = True
 
     def ultrarsub_callback(self, msg):
         self.curr_dist = msg.range

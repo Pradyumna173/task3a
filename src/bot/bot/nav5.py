@@ -37,7 +37,6 @@ class EbotNav(Node):
         self.client_group = MutuallyExclusiveCallbackGroup()
         self.sub_group = MutuallyExclusiveCallbackGroup()
 
-
         self.orient_sub = self.create_subscription(
             Float32,
             "/orientation",
@@ -49,7 +48,7 @@ class EbotNav(Node):
         self.nav = BasicNavigator()
 
         initial_pose = self.create_pose_stamped(0.0, 0.0, 0.0)
-        #self.nav.setInitialPose(initial_pose)
+        # self.nav.setInitialPose(initial_pose)
 
         self.nav.waitUntilNav2Active()
 
@@ -111,22 +110,22 @@ class EbotNav(Node):
                 self.call_servo_toggle(False)
                 while not self.payload_done:
                     pass
-              
+
                 self.payload_done = False
                 self.get_logger().info("Passing Service Called")
-                '''
+                """
                 self.call_passing_service()
 
                 while self.box_on_bot == "nothing":
                     pass
-                '''
+                """
                 time.sleep(30.0)
             else:
                 self.call_servo_toggle(True)
                 while not self.payload_done:
                     pass
                 self.box_on_bot = "nothing"
-                
+
                 self.payload_done = False
 
             forward_msg = Twist()
@@ -134,7 +133,7 @@ class EbotNav(Node):
             self.vel_pub.publish(forward_msg)
 
             self.activity_queue.pop(0)
-    
+
     def call_servo_toggle(self, state):
         client = self.create_client(
             ServoSw, "/toggle_usb_servo", callback_group=self.client_group
