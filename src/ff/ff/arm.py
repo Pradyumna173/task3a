@@ -265,13 +265,13 @@ class Arm(Node):
     #     client = self.create_client(AttachLink, "GripperMagnetON")
     #     while not client.wait_for_service(timeout_sec=1.0):
     #         self.get_logger().warn("Waiting for Attach_Link Server...")
-    #
+    
     #     request = AttachLink.Request()
     #     request.model1_name = "box" + box_number
     #     request.link1_name = "link"
     #     request.model2_name = "ur5"
     #     request.link2_name = "wrist_3_link"
-    #
+    
     #     future = client.call_async(request)
     #     future.add_done_callback(
     #         partial(self.callback_call_attach_box, box_number=box_number)
@@ -305,7 +305,7 @@ class Arm(Node):
     #     client = self.create_client(DetachLink, "GripperMagnetOFF")
     #     while not client.wait_for_service(timeout_sec=1.0):
     #         self.get_logger().warn("Waiting for Detach_Link Server...")
-    #
+    
     #     request = DetachLink.Request()
     #     request.model1_name = "box" + box_number
     #     request.link1_name = "link"

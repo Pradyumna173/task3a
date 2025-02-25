@@ -23,6 +23,8 @@ class Docking(Node):
         self.toggle_ongoing = False
         self.current_activity = None
 
+        self.us_on = False
+
         self.docking_group = MutuallyExclusiveCallbackGroup()
 
         self.server = self.create_service(
@@ -39,19 +41,19 @@ class Docking(Node):
             10,
         )
 
-        self.ultrar_sub = self.create_subscription(
-            Range,
-            "ultrasonic_rr/scan",
-            self.ultrarsub_callback,
-            10,
-        )
+        # self.ultrar_sub = self.create_subscription(
+        #     Range,
+        #     "ultrasonic_rr/scan",
+        #     self.ultrarsub_callback,
+        #     10,
+        # )
 
-        self.ultral_sub = self.create_subscription(
-            Range,
-            "ultrasonic_rl/scan",
-            self.ultralsub_callback,
-            10,
-        )
+        # self.ultral_sub = self.create_subscription(
+        #     Range,
+        #     "ultrasonic_rl/scan",
+        #     self.ultralsub_callback,
+        #     10,
+        # )
 
         self.controller_group = MutuallyExclusiveCallbackGroup()
 
@@ -91,10 +93,10 @@ class Docking(Node):
                 self.get_logger().info("Maage ghetoy")
                 return
 
-        stop_dist = 28
+        stop_dist = 35
         if self.curr_dist > stop_dist:
             us_diff = self.curr_dist - self.comp_dist
-            vel_msg.angular.z = -0.1 * us_diff
+            vel_msg.angular.z = -0.02 * us_diff
             if abs(us_diff) < 3:
                 vel_msg.linear.x = -0.008 * self.curr_dist
             else:

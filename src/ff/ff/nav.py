@@ -133,7 +133,7 @@ class Nav(Node):
 
     def create_pose_stamped(self, x, y, yaw=0.0):
 
-        q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, yaw)  # ikde badal yaw
+        q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, yaw)
 
         goal_pose = PoseStamped()
         goal_pose.header.frame_id = "map"
