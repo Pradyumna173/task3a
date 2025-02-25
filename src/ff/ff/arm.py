@@ -48,6 +48,8 @@ class Arm(Node):
         self.attach_done = False
         self.allow_pick = True
 
+        self.force = 0.0
+
         self.box_dict = {}
         self.box_done = []
         self.ebot_pose = []
