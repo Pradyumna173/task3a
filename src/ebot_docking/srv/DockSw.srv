@@ -1,4 +1,3 @@
 string target 
-string box_number
 ---
 bool success   # indicate successful run of triggered service
