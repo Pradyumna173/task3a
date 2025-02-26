@@ -87,18 +87,19 @@ class Docking(Node):
         vel_msg = Twist()
 
         if act == "rec":
-            if self.curr_dist > 100 and self.comp_dist > 100:
+            if self.curr_dist > 70 and self.comp_dist > 70:
                 vel_msg.linear.x = -0.3
                 self.vel_pub.publish(vel_msg)
                 self.get_logger().info("Maage ghetoy")
                 return
 
         stop_dist = 35
-        if self.curr_dist > stop_dist:
+        if (self.curr_dist > stop_dist) and (self.comp_dist > stop_dist):
             us_diff = self.curr_dist - self.comp_dist
             vel_msg.angular.z = -0.02 * us_diff
             if abs(us_diff) < 3:
                 vel_msg.linear.x = -0.008 * self.curr_dist
+                vel_msg.angular.z = 0.0
             else:
                 vel_msg.linear.x = 0.0
         else:

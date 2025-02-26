@@ -187,8 +187,8 @@ class Arm(Node):
             self.arm_rate.sleep()
         print("Translation Corrected")
 
-        twist_msg.twist.linear.z = -0.4
-        while self.force < 50.0:  # only for hardware
+        twist_msg.twist.linear.z = 0.4
+        while self.force < 85.0:  # only for hardware
             twist_msg.header.stamp = self.get_clock().now().to_msg()
             self.servo_pub.publish(twist_msg)
             self.arm_rate.sleep()
@@ -213,7 +213,7 @@ class Arm(Node):
 
             twist_msg.header.stamp = self.get_clock().now().to_msg()
 
-            twist_msg.twist.linear.z = 30.0 * error_z
+            twist_msg.twist.linear.z = -30.0 * error_z
             self.servo_pub.publish(twist_msg)
 
             self.arm_rate.sleep()
@@ -398,7 +398,7 @@ class Arm(Node):
     def servo_lookup(self):
         try:
             self.servo_transform = self.tf_buffer.lookup_transform(
-                "base_link", "wrist_3_link", rclpy.time.Time()
+                "base_link", "tool0", rclpy.time.Time()
             )
 
             self.servo_x, self.servo_y, self.servo_z = (

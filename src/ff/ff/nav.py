@@ -18,7 +18,7 @@ class Nav(Node):
         super().__init__("nav_started")
 
         self.pose_dict = {
-            "rec": [2.95, -2.7, 2.90],
+            "rec": [2.95, -2.72, 2.95],
             "con1": [2.8, 1.98, 3.14],
             "con2": [2.6, -1.2, 3.14],
         }  # only for hardware
