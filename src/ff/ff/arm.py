@@ -136,7 +136,7 @@ class Arm(Node):
         print(self.box_conveyer)
 
         goal_x, goal_y, goal_z = box_pose
-        goal_z += 0.15  # only for hardware
+        goal_z += 0.1  # only for hardware
         self.saved_z = goal_z + 0.05
 
         twist_msg = TwistStamped()

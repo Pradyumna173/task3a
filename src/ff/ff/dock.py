@@ -86,7 +86,7 @@ class Docking(Node):
         act = self.current_activity
         vel_msg = Twist()
 
-        if act == "rec":
+        if (act == "rec") or (act == "con2"):
             if self.curr_dist > 70 and self.comp_dist > 70:
                 vel_msg.linear.x = -0.3
                 self.vel_pub.publish(vel_msg)
