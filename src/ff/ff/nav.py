@@ -19,7 +19,7 @@ class Nav(Node):
 
         self.pose_dict = {
             "rec": [2.95, -2.72, 2.95],
-            "con1": [2.8, 1.98, 3.14],
+            "con1": [2.8, 1.96, 3.14],
             "con2": [2.6, -1.2, 3.14],
         }  # only for hardware
 
@@ -27,7 +27,7 @@ class Nav(Node):
         #     "rec": [0.4, -2.4, 3.14],
         #     "con1": [-4.0, 2.89, -1.57],
         #     "con2": [2.32, 2.55, -1.57],
-        # }
+        # } # only for sim
 
         self.activity_queue = ["rec"]
 
@@ -51,6 +51,11 @@ class Nav(Node):
         )
 
     def nav_manager(self):
+        """
+        Output: null | Timer based function call
+        ---
+        Logic: Latches a thread till pre-dock pose is reached by Simple_Commander, then ensure docking is done, then send ebot forward and give next pose.
+        """
         if not self.activity_queue:
             return
 
@@ -76,7 +81,7 @@ class Nav(Node):
                 time.sleep(3.0)
 
             forward_msg = Twist()
-            forward_msg.linear.x = 0.3
+            forward_msg.linear.x = 0.6
             self.vel_pub.publish(forward_msg)
 
             self.activity_queue.pop(0)
@@ -118,6 +123,11 @@ class Nav(Node):
             self.get_logger().info("Docking Done")
 
     def go_to_goal(self, pose_stamped):
+        """
+        Output: boolean | Whether nav2 goal was reached or not
+        ---
+        Logic: Just give nav2 goal to Simple_Commander API
+        """
 
         self.nav.goToPose(pose_stamped)
 

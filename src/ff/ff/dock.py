@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import rclpy
+import rclpy, time
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
@@ -18,12 +18,15 @@ class Docking(Node):
     def __init__(self):
         super().__init__("move_to_goal")
 
-        self.process_dock = False
-        self.toggle_done = 0
-        self.toggle_ongoing = False
-        self.current_activity = None
+        self.process_dock = False  # Toggled by docking_server_callback
+        self.toggle_done = 0  # Unused right now
+        self.toggle_ongoing = False  # Unused right now
+        self.current_activity = (
+            None  # To understand whether ebot is at rec_pose to conveyer
+        )
+        self.first_time = True  # docking virginity check
 
-        self.us_on = False
+        self.us_on = False  # ultrasonic on check
 
         self.docking_group = MutuallyExclusiveCallbackGroup()
 
@@ -63,6 +66,11 @@ class Docking(Node):
         self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
 
     def docking_server_callback(self, request, response):
+        """
+        Output: srv.DockSw | success boolean
+        ---
+        Logic: waits for docking to be done, spins thread till docking is done by seperate thread, then returns success
+        """
         self.get_logger().info("Docking Request Received")
 
         while not self.us_on:
@@ -80,6 +88,11 @@ class Docking(Node):
         return response
 
     def controller(self):
+        """
+        Output: null | Timer based function call
+        ---
+        Logic: The actual P Controller for docking, ultrasonics used to align ebot perpendicular, and stop at a threshold away from docking pose
+        """
         if not self.process_dock:
             return
 
@@ -93,7 +106,7 @@ class Docking(Node):
                 self.get_logger().info("Maage ghetoy")
                 return
 
-        stop_dist = 35
+        stop_dist = 32
         if (self.curr_dist > stop_dist) and (self.comp_dist > stop_dist):
             us_diff = self.curr_dist - self.comp_dist
             vel_msg.angular.z = -0.02 * us_diff
@@ -105,12 +118,11 @@ class Docking(Node):
         else:
             vel_msg = Twist()
             self.vel_pub.publish(vel_msg)
-            if act != "rec":
-                if self.toggle_done != 2:
-                    if not self.toggle_ongoing:
-                        self.call_servo_toggle(True)
 
-                    return
+            if not self.first_time:
+                self.call_servo_toggle(True)
+                time.sleep(2.0)
+            self.first_time = False
 
             self.process_dock = False
             self.current_activity = None

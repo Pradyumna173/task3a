@@ -1,6 +1,16 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+"""
+* Team Id : LB#1048
+* Author List : Pradyumna Ponkshe
+* Filename: arm.py
+* Theme: Logistic Cobot
+* Functions: Arm{passingServerCB, pick_box, place_box, call_attach_box, callback_call_attach_box,
+    call_detach_box, callback_call_detach_box, process_image, servo_lookup, find_transform, broadcast_transform, detect_aruco, rotation_matrix_to_euler_angles, call_servo_trigger, callback_call_servo_trigger, colorImageCB, netWrenchCB}
+* Global Variables: ARUCO_DICT, ARUCO_PARAMS, detector, EBOT_ID
+"""
+
 import math, rclpy, sys, tf2_ros
 import numpy as np
 from cv2 import aruco, Rodrigues
@@ -22,8 +32,8 @@ from tf_transformations import (
 )
 from functools import partial
 
-# from linkattacher_msgs.srv import AttachLink, DetachLink
-from ur_msgs.srv import SetIO
+# from linkattacher_msgs.srv import AttachLink, DetachLink # uncomment for sim
+from ur_msgs.srv import SetIO  # uncomment for hardware
 from ebot_docking.srv import PassingService
 
 # Aruco Processing Objects
@@ -32,7 +42,7 @@ ARUCO_PARAMS = aruco.DetectorParameters()
 detector = aruco.ArucoDetector(ARUCO_DICT, ARUCO_PARAMS)
 
 # Ebot ID
-EBOT_ID = 6  # only for hardware
+EBOT_ID = 6  # only for hardware, 12 for sim
 
 
 class Arm(Node):
@@ -40,14 +50,16 @@ class Arm(Node):
 
         super().__init__("aruco_tf_node")
         # Variables
-        self.arm_started = False
-        self.arm_rate = self.create_rate(20, self.get_clock())
+        self.arm_started = False  # toggled after servo trigger
+        self.arm_rate = self.create_rate(
+            20, self.get_clock()
+        )  # sampling rate at which all my controller threads run
 
         self.cv_image = None
         self.bridge = CvBridge()
 
-        self.attach_done = False
-        self.allow_pick = True
+        self.attach_done = False  # Flag for attach service
+        self.allow_pick = True  # Flag for passing control from picking timer to passing service request
 
         self.force = 0.0
 
@@ -114,6 +126,11 @@ class Arm(Node):
         self.call_servo_trigger()
 
     def passingServerCB(self, request, response):
+        """
+        Output: srv.PassingService | Tells ebot which conveyer box is supposed to be dropped at
+        ---
+        Logic: Box request flag tells arm controller to drop the box onto ebot_aruco, and send conveyer number based on box number
+        """
         self.box_request = True
         while self.box_conveyer is None:
             pass
@@ -122,6 +139,11 @@ class Arm(Node):
         return response
 
     def pick_box(self):
+        """
+        Output: null | Timer based function call
+        ---
+        Logic : Continuously latches one thread to control the arm. Destructs the thread only when no boxes remain to be passed
+        """
         self.process_image()
         if not (self.arm_started and self.allow_pick and self.box_dict):
             return
@@ -138,6 +160,7 @@ class Arm(Node):
         goal_x, goal_y, goal_z = box_pose
         goal_z += 0.1  # only for hardware
         self.saved_z = goal_z + 0.05
+        goal_y += 0.02
 
         twist_msg = TwistStamped()
         twist_msg.header.frame_id = "base_link"
@@ -223,6 +246,11 @@ class Arm(Node):
         self.place_box(box_number)
 
     def place_box(self, box_number):
+        """
+        Output: null | Timer based function call
+        ---
+        Logic: Called by pick_box function. Latches the same thread to drop the box onto ebot, if aruco is visible and box has been requested by ebot via PassingService
+        """
         while not self.box_request:
             pass
 
@@ -279,6 +307,11 @@ class Arm(Node):
     #     )
 
     def call_attach_box(self, box_number):
+        """
+        Output: future | Does not return the variable, just attaches a callback at service completion
+        ---
+        Logic: Calls the set_io service. Attaches a callback to address attach completion
+        """
         client = self.create_client(SetIO, "/io_and_status_controller/set_io")
         while not client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info("EEF Tool service not available, waiting again...")
@@ -294,6 +327,11 @@ class Arm(Node):
         )
 
     def callback_call_attach_box(self, future, box_number):
+        """
+        Output: null | toggles the attach_done flag
+        ---
+        Logic: notifies main controller that attach has been done.
+        """
         try:
             response = future.result()
             if response.success:
@@ -318,6 +356,11 @@ class Arm(Node):
     #     )
 
     def call_detach_box(self, box_number):
+        """
+        Output: future | Does not return the variable, just attaches a callback at service completion
+        ---
+        Logic: Calls the set_io service. Attaches a callback to address detach completion
+        """
         client = self.create_client(SetIO, "/io_and_status_controller/set_io")
         while not client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info("EEF Tool service not available, waiting...")
@@ -333,6 +376,11 @@ class Arm(Node):
         )
 
     def callback_call_detach_box(self, future, box_number):
+        """
+        Output: null | toggles the attach_done flag, resets ebot_aruco_pose
+        ---
+        Logic: notifies main controller that detach has been done, removes dropped box from box_pick list, sends pass_done to ebot
+        """
         try:
             response = future.result()
             if response.success:
@@ -349,6 +397,11 @@ class Arm(Node):
             self.get_logger().error(f"Detach Box Client Failed: {e}")
 
     def process_image(self):
+        """
+        Output: null | Makes changes to class variables, Can be timer called function
+        ---
+        Logic: Detects aruco in camera frame, broadcasts it's tf w.r.t. base_link, and appends box number and pose to a dictionary. Removes boxes that have already been passed to ebot from the said dictionary, as an extra measure
+        """
 
         if self.cv_image is None:
             return
@@ -397,6 +450,11 @@ class Arm(Node):
         return
 
     def servo_lookup(self):
+        """
+        Output: null | Makes changes to class servo_* variables
+        ---
+        Logic: Lookup transform between end effector and base_link.
+        """
         try:
             self.servo_transform = self.tf_buffer.lookup_transform(
                 "base_link", "tool0", rclpy.time.Time()
@@ -434,6 +492,11 @@ class Arm(Node):
             )
 
     def find_transform(self, translation, angles):
+        """
+        Output: List | Aruco pose w.r.t base link for all detected aruco
+        ---
+        Logic: Lookup transform between base_link and camera frame to estimate aruco pose of box w.r.t base_link
+        """
         try:
 
             base_to_camera = self.tf_buffer.lookup_transform(
@@ -476,6 +539,11 @@ class Arm(Node):
             self.get_logger().info(f"Could not calculate transform: {e}")
 
     def broadcast_transform(self, parent_frame, child_frame, translation, rotation):
+        """
+        Output: null
+        ---
+        Logic: Used to broadcast given tf. Allowing aruco estimation in rviz, and lookup by other scripts
+        """
         transform = TransformStamped()
         transform.header.stamp = self.get_clock().now().to_msg()
         transform.header.frame_id = parent_frame
@@ -493,6 +561,11 @@ class Arm(Node):
         self.tf_broadcaster.sendTransform(transform)
 
     def detect_aruco(self):
+        """
+        Output: 3 Lists | translation, orientation, marker_id of detected aruco
+        ---
+        Logic: Detect and estimate aruco pose w.r.t. camera frame. Add the same to lists and return for all such detected markers.
+        """
         frame = self.cv_image
 
         translation_aruco_list = []
@@ -532,6 +605,11 @@ class Arm(Node):
         return None
 
     def rotation_matrix_to_euler_angles(self, R):
+        """
+        Output: List | roll, pitch, yaw for given rotation matrix
+        ---
+        Logic: Converts rotation matrix to legible roll, pitch, yaw
+        """
         sy = math.sqrt(
             R[0, 0] ** 2 + R[1, 0] ** 2
         )  # Calculate the magnitude of the first two elements in the first column of R
