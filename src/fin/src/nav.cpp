@@ -40,14 +40,12 @@ class Nav : public rclcpp::Node {
     size_t waypoint_index_;
     rclcpp::TimerBase::SharedPtr timer_;
 
-    std::vector<std::thread> threads_;
+    std::vector<std::thread> threads_, threads_2;
 
     void send_goal() {
         static size_t current_index = 10;
 
-        if (waypoint_index_ >= waypoints_.size()) {
-            RCLCPP_INFO(this->get_logger(), "All waypoints reached");
-            rclcpp::shutdown();
+        if (waypoint_index_ >= (waypoints_.size() - 1)) {
             return;
         }
 
@@ -65,9 +63,10 @@ class Nav : public rclcpp::Node {
         auto goal_msg = NavigateToPose::Goal();
         goal_msg.pose.header.frame_id = "map";
         goal_msg.pose.header.stamp = this->now();
-        goal_msg.pose.pose.position.x = waypoints_[waypoint_index_][0];
-        goal_msg.pose.pose.position.y = waypoints_[waypoint_index_][1];
-        goal_msg.pose.pose.orientation = to_quaternion(0.0, 0.0, waypoints_[waypoint_index_][2]);
+        goal_msg.pose.pose.position.x = waypoints_[waypoints_queue[waypoint_index_]][0];
+        goal_msg.pose.pose.position.y = waypoints_[waypoints_queue[waypoint_index_]][1];
+        goal_msg.pose.pose.orientation =
+            to_quaternion(0.0, 0.0, waypoints_[waypoints_queue[waypoint_index_]][2]);
 
         auto send_goal_options = rclcpp_action::Client<NavigateToPose>::SendGoalOptions();
         send_goal_options.result_callback =
@@ -86,25 +85,32 @@ class Nav : public rclcpp::Node {
     }
 
     inline void call_passing_service() {
-        threads_.push_back(std::thread(std::bind(&Nav::callback_call_passing_service, this)));
+        threads_2.push_back(std::thread(std::bind(&Nav::callback_call_passing_service, this)));
+        RCLCPP_WARN(this->get_logger(), "Fault check 1");
     }
 
     void callback_call_passing_service() {
         auto passClient =
             this->create_client<ebot_docking::srv::PassingService>("/passing_service");
 
+        RCLCPP_WARN(this->get_logger(), "Fault check 2");
+
         while (!passClient->wait_for_service(std::chrono::milliseconds(1000))) {
             RCLCPP_WARN(this->get_logger(), "Waiting for passing_service...");
         }
 
+        RCLCPP_WARN(this->get_logger(), "Fault check 3");
+
         auto request = std::make_shared<ebot_docking::srv::PassingService::Request>();
 
         auto future = passClient->async_send_request(request);
-
+        RCLCPP_WARN(this->get_logger(), "Fault check 4");
         try {
+            RCLCPP_WARN(this->get_logger(), "Fault check 5");
             auto result = future.get();
             RCLCPP_INFO(this->get_logger(), "Drop at : %d", result->conveyer);
             waypoints_queue.push_back(result->conveyer);
+            RCLCPP_WARN(this->get_logger(), "Fault check 6");
             waypoints_queue.push_back(0);
             waypoint_index_++;
 
@@ -121,7 +127,7 @@ class Nav : public rclcpp::Node {
         }
 
         auto request = std::make_shared<ebot_docking::srv::DockSw::Request>();
-        request->target = waypoints_queue[0];
+        request->target = waypoints_queue[waypoint_index_];
 
         auto future = dockClient->async_send_request(request);
 
@@ -129,7 +135,6 @@ class Nav : public rclcpp::Node {
             auto result = future.get();
             RCLCPP_INFO(this->get_logger(), "Docking %d", result->success);
             call_passing_service();
-            waypoint_index_++;
 
         } catch (const std::exception &e) {
             RCLCPP_ERROR(this->get_logger(), "Docking Service Call Failed: %s", e.what());

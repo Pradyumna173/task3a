@@ -699,20 +699,12 @@ CMakeFiles/dock.dir/src/dock.cpp.o
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/float32_multi_array.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__struct.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_layout__struct.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_dimension__struct.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__builder.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__traits.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_layout__traits.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_dimension__traits.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__type_support.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
- /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/servo_sw.hpp
- /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__struct.hpp
- /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__builder.hpp
- /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__traits.hpp
- /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.hpp
- /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_generator_cpp__visibility_control.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/range.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/range__struct.hpp
+ /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/range__builder.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/range__traits.hpp
+ /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/range__type_support.hpp
+ /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 
