@@ -1,0 +1,3 @@
+bool servostate
+---
+int16 num

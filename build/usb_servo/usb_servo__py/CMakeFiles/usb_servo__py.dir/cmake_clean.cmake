@@ -1,0 +1,14 @@
+file(REMOVE_RECURSE
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_c.c"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_introspection_c.c"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/srv/__init__.py"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/srv/_servo_sw.py"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/srv/_servo_sw_s.c"
+  "CMakeFiles/usb_servo__py"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/usb_servo__py.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

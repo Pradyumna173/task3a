@@ -1,0 +1,251 @@
+[0.000000] (-) TimerEvent: {}
+[0.000141] (-) JobUnselected: {'identifier': 'bot'}
+[0.000249] (-) JobUnselected: {'identifier': 'ebot_docking'}
+[0.000264] (-) JobUnselected: {'identifier': 'ebot_nav2'}
+[0.000277] (-) JobUnselected: {'identifier': 'ff'}
+[0.000290] (-) JobUnselected: {'identifier': 'fin'}
+[0.000303] (-) JobUnselected: {'identifier': 'pymoveit2'}
+[0.000315] (-) JobUnselected: {'identifier': 'ur5_control'}
+[0.000327] (-) JobUnselected: {'identifier': 'ur_moveit_config'}
+[0.000341] (usb_servo) JobQueued: {'identifier': 'usb_servo', 'dependencies': OrderedDict()}
+[0.000417] (usb_servo) JobStarted: {'identifier': 'usb_servo'}
+[0.003875] (usb_servo) JobProgress: {'identifier': 'usb_servo', 'progress': 'cmake'}
+[0.004029] (usb_servo) Command: {'cmd': ['/usr/bin/cmake', '/home/northee/git/task3a/src/usb_servo', '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON', '--no-warn-unused-cli', '-DCMAKE_INSTALL_PREFIX=/home/northee/git/task3a/install/usb_servo'], 'cwd': '/home/northee/git/task3a/build/usb_servo', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'northee'), ('XDG_SEAT', 'seat0'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/northee'), ('OLDPWD', '/home/northee/git/task3a/src'), ('TERM_PROGRAM_VERSION', '20240203-110809-5046fc22'), ('DESKTOP_SESSION', 'i3'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('SYSTEMD_EXEC_PID', '2027'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WEZTERM_EXECUTABLE', '/usr/bin/wezterm-gui'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'northee'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'northee'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('WEZTERM_CONFIG_FILE', '/home/northee/.wezterm.lua'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignoredups:'), ('WINDOWPATH', '2'), ('WEZTERM_EXECUTABLE_DIR', '/usr/bin'), ('PATH', '/home/northee/.local/bin:/opt/ros/humble/bin:/home/northee/.local/opt/nvim/bin:/home/northee/.local/bin:/home/northee/.cargo/bin:/home/northee/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', ':0'), ('DESKTOP_STARTUP_ID', 'i3/i3-sensible-terminal/2161-1-northee_TIME14908860'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'i3'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'i3'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'WezTerm'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'i3'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('WEZTERM_CONFIG_DIR', '/home/northee'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '2'), ('PWD', '/home/northee/git/task3a/build/usb_servo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-i3:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/i3:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('WEZTERM_UNIX_SOCKET', '/run/user/1000/wezterm/gui-sock-16941'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('I3SOCK', '/run/user/1000/i3/ipc-socket.2161'), ('WEZTERM_PANE', '3'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.006572] (usb_servo) StdoutLine: {'line': b'Not searching for unused variables given on the command line.\n'}
+[0.010381] (usb_servo) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.068414] (usb_servo) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[0.069083] (usb_servo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.070283] (usb_servo) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.084284] (usb_servo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.099818] (-) TimerEvent: {}
+[0.196735] (usb_servo) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[0.199913] (-) TimerEvent: {}
+[0.292030] (usb_servo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.300093] (-) TimerEvent: {}
+[0.378986] (usb_servo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.389875] (usb_servo) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[0.391164] (usb_servo) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[0.400208] (-) TimerEvent: {}
+[0.404764] (usb_servo) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[0.404877] (usb_servo) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.404929] (usb_servo) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[0.404976] (usb_servo) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[0.414761] (usb_servo) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[0.429851] (usb_servo) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[0.445679] (usb_servo) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[0.446387] (usb_servo) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[0.447531] (usb_servo) StdoutLine: {'line': b'-- Configuring done\n'}
+[0.459247] (usb_servo) StdoutLine: {'line': b'-- Generating done\n'}
+[0.463679] (usb_servo) StdoutLine: {'line': b'-- Build files have been written to: /home/northee/git/task3a/build/usb_servo\n'}
+[0.466238] (usb_servo) CommandEnded: {'returncode': 0}
+[0.467519] (usb_servo) JobProgress: {'identifier': 'usb_servo', 'progress': 'build'}
+[0.467696] (usb_servo) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/northee/git/task3a/build/usb_servo', '--', '-j24', '-l24'], 'cwd': '/home/northee/git/task3a/build/usb_servo', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'northee'), ('XDG_SEAT', 'seat0'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/northee'), ('OLDPWD', '/home/northee/git/task3a/src'), ('TERM_PROGRAM_VERSION', '20240203-110809-5046fc22'), ('DESKTOP_SESSION', 'i3'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('SYSTEMD_EXEC_PID', '2027'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WEZTERM_EXECUTABLE', '/usr/bin/wezterm-gui'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'northee'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'northee'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('WEZTERM_CONFIG_FILE', '/home/northee/.wezterm.lua'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignoredups:'), ('WINDOWPATH', '2'), ('WEZTERM_EXECUTABLE_DIR', '/usr/bin'), ('PATH', '/home/northee/.local/bin:/opt/ros/humble/bin:/home/northee/.local/opt/nvim/bin:/home/northee/.local/bin:/home/northee/.cargo/bin:/home/northee/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', ':0'), ('DESKTOP_STARTUP_ID', 'i3/i3-sensible-terminal/2161-1-northee_TIME14908860'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'i3'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'i3'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'WezTerm'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'i3'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('WEZTERM_CONFIG_DIR', '/home/northee'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '2'), ('PWD', '/home/northee/git/task3a/build/usb_servo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-i3:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/i3:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('WEZTERM_UNIX_SOCKET', '/run/user/1000/wezterm/gui-sock-16941'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('I3SOCK', '/run/user/1000/i3/ipc-socket.2161'), ('WEZTERM_PANE', '3'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.479849] (usb_servo) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[0.483100] (usb_servo) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[0.485080] (usb_servo) StdoutLine: {'line': b'[  6%] Built target ament_cmake_python_copy_usb_servo\n'}
+[0.500270] (-) TimerEvent: {}
+[0.583388] (usb_servo) StdoutLine: {'line': b'running egg_info\n'}
+[0.583676] (usb_servo) StdoutLine: {'line': b'creating usb_servo.egg-info\n'}
+[0.583843] (usb_servo) StdoutLine: {'line': b'writing usb_servo.egg-info/PKG-INFO\n'}
+[0.583974] (usb_servo) StdoutLine: {'line': b'writing dependency_links to usb_servo.egg-info/dependency_links.txt\n'}
+[0.584029] (usb_servo) StdoutLine: {'line': b'writing top-level names to usb_servo.egg-info/top_level.txt\n'}
+[0.584077] (usb_servo) StdoutLine: {'line': b"writing manifest file 'usb_servo.egg-info/SOURCES.txt'\n"}
+[0.584701] (usb_servo) StdoutLine: {'line': b"reading manifest file 'usb_servo.egg-info/SOURCES.txt'\n"}
+[0.584911] (usb_servo) StdoutLine: {'line': b"writing manifest file 'usb_servo.egg-info/SOURCES.txt'\n"}
+[0.595274] (usb_servo) StdoutLine: {'line': b'[  6%] Built target ament_cmake_python_build_usb_servo_egg\n'}
+[0.600357] (-) TimerEvent: {}
+[0.608080] (usb_servo) StdoutLine: {'line': b'[  6%] Built target usb_servo__cpp\n'}
+[0.611006] (usb_servo) StdoutLine: {'line': b'[  9%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[0.611104] (usb_servo) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[0.611201] (usb_servo) StdoutLine: {'line': b'[ 16%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[0.611869] (usb_servo) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding C object CMakeFiles/usb_servo__rosidl_generator_c.dir/rosidl_generator_c/usb_servo/srv/detail/servo_sw__functions.c.o\x1b[0m\n'}
+[0.637382] (usb_servo) StdoutLine: {'line': b'[ 22%] \x1b[32m\x1b[1mLinking C shared library libusb_servo__rosidl_generator_c.so\x1b[0m\n'}
+[0.654620] (usb_servo) StdoutLine: {'line': b'[ 22%] Built target usb_servo__rosidl_generator_c\n'}
+[0.657595] (usb_servo) StdoutLine: {'line': b'[ 25%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[0.657705] (usb_servo) StdoutLine: {'line': b'[ 29%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[0.657785] (usb_servo) StdoutLine: {'line': b'[ 32%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[0.700467] (-) TimerEvent: {}
+[0.707701] (usb_servo) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/usb_servo__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/usb_servo/srv/servo_sw__type_support.cpp.o\x1b[0m\n'}
+[0.714636] (usb_servo) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/usb_servo__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/usb_servo/srv/detail/servo_sw__type_support.cpp.o\x1b[0m\n'}
+[0.722789] (usb_servo) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/usb_servo__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/usb_servo/srv/detail/dds_fastrtps/servo_sw__type_support.cpp.o\x1b[0m\n'}
+[0.755294] (usb_servo) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/usb_servo__rosidl_typesupport_c.dir/rosidl_typesupport_c/usb_servo/srv/servo_sw__type_support.cpp.o\x1b[0m\n'}
+[0.765841] (usb_servo) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/usb_servo__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/usb_servo/srv/detail/servo_sw__type_support_c.cpp.o\x1b[0m\n'}
+[0.767772] (usb_servo) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding C object CMakeFiles/usb_servo__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/usb_servo/srv/detail/servo_sw__type_support.c.o\x1b[0m\n'}
+[0.772968] (usb_servo) StdoutLine: {'line': b'[ 54%] \x1b[32m\x1b[1mLinking CXX shared library libusb_servo__rosidl_typesupport_c.so\x1b[0m\n'}
+[0.783002] (usb_servo) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking C shared library libusb_servo__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[0.790528] (usb_servo) StdoutLine: {'line': b'[ 58%] Built target usb_servo__rosidl_typesupport_c\n'}
+[0.795841] (usb_servo) StdoutLine: {'line': b'[ 58%] Built target usb_servo__rosidl_typesupport_introspection_c\n'}
+[0.800586] (-) TimerEvent: {}
+[0.820555] (usb_servo) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libusb_servo__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[0.839633] (usb_servo) StdoutLine: {'line': b'[ 61%] Built target usb_servo__rosidl_typesupport_cpp\n'}
+[0.872253] (usb_servo) StdoutLine: {'line': b'[ 64%] \x1b[32m\x1b[1mLinking CXX shared library libusb_servo__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[0.886718] (usb_servo) StdoutLine: {'line': b'[ 67%] \x1b[32m\x1b[1mLinking CXX shared library libusb_servo__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[0.888653] (usb_servo) StdoutLine: {'line': b'[ 67%] Built target usb_servo__rosidl_typesupport_introspection_cpp\n'}
+[0.900650] (-) TimerEvent: {}
+[0.911599] (usb_servo) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX shared library libusb_servo__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[0.919953] (usb_servo) StdoutLine: {'line': b'[ 70%] Built target usb_servo__rosidl_typesupport_fastrtps_cpp\n'}
+[0.944102] (usb_servo) StdoutLine: {'line': b'[ 70%] Built target usb_servo__rosidl_typesupport_fastrtps_c\n'}
+[0.949765] (usb_servo) StdoutLine: {'line': b'[ 70%] Built target usb_servo\n'}
+[0.957459] (usb_servo) StdoutLine: {'line': b'[ 74%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[1.000763] (-) TimerEvent: {}
+[1.100966] (-) TimerEvent: {}
+[1.104817] (usb_servo) StdoutLine: {'line': b'[ 74%] Built target usb_servo__py\n'}
+[1.110828] (usb_servo) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding C object CMakeFiles/usb_servo__rosidl_generator_py.dir/rosidl_generator_py/usb_servo/srv/_servo_sw_s.c.o\x1b[0m\n'}
+[1.177603] (usb_servo) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/usb_servo/libusb_servo__rosidl_generator_py.so\x1b[0m\n'}
+[1.198668] (usb_servo) StdoutLine: {'line': b'[ 80%] Built target usb_servo__rosidl_generator_py\n'}
+[1.201069] (-) TimerEvent: {}
+[1.215082] (usb_servo) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding C object CMakeFiles/usb_servo__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[1.215528] (usb_servo) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/usb_servo__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[1.215789] (usb_servo) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/usb_servo__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[1.263448] (usb_servo) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/usb_servo/usb_servo_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[1.263588] (usb_servo) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/usb_servo/usb_servo_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[1.264061] (usb_servo) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/usb_servo/usb_servo_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[1.276954] (usb_servo) StdoutLine: {'line': b'[100%] Built target usb_servo__rosidl_typesupport_fastrtps_c__pyext\n'}
+[1.277300] (usb_servo) StdoutLine: {'line': b'[100%] Built target usb_servo__rosidl_typesupport_c__pyext\n'}
+[1.277866] (usb_servo) StdoutLine: {'line': b'[100%] Built target usb_servo__rosidl_typesupport_introspection_c__pyext\n'}
+[1.281204] (usb_servo) CommandEnded: {'returncode': 0}
+[1.281610] (usb_servo) JobProgress: {'identifier': 'usb_servo', 'progress': 'install'}
+[1.284274] (usb_servo) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/northee/git/task3a/build/usb_servo'], 'cwd': '/home/northee/git/task3a/build/usb_servo', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'northee'), ('XDG_SEAT', 'seat0'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/northee'), ('OLDPWD', '/home/northee/git/task3a/src'), ('TERM_PROGRAM_VERSION', '20240203-110809-5046fc22'), ('DESKTOP_SESSION', 'i3'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('SYSTEMD_EXEC_PID', '2027'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WEZTERM_EXECUTABLE', '/usr/bin/wezterm-gui'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'northee'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'northee'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('WEZTERM_CONFIG_FILE', '/home/northee/.wezterm.lua'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignoredups:'), ('WINDOWPATH', '2'), ('WEZTERM_EXECUTABLE_DIR', '/usr/bin'), ('PATH', '/home/northee/.local/bin:/opt/ros/humble/bin:/home/northee/.local/opt/nvim/bin:/home/northee/.local/bin:/home/northee/.cargo/bin:/home/northee/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', ':0'), ('DESKTOP_STARTUP_ID', 'i3/i3-sensible-terminal/2161-1-northee_TIME14908860'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'i3'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'i3'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'WezTerm'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'i3'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('WEZTERM_CONFIG_DIR', '/home/northee'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '2'), ('PWD', '/home/northee/git/task3a/build/usb_servo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-i3:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/i3:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('WEZTERM_UNIX_SOCKET', '/run/user/1000/wezterm/gui-sock-16941'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('I3SOCK', '/run/user/1000/i3/ipc-socket.2161'), ('WEZTERM_PANE', '3'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[1.286484] (usb_servo) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.286613] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/ament_index/resource_index/rosidl_interfaces/usb_servo\n'}
+[1.286697] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo\n'}
+[1.286772] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[1.286856] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/servo_sw.h\n'}
+[1.286894] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[1.286963] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.h\n'}
+[1.287017] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__functions.c\n'}
+[1.287054] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__functions.h\n'}
+[1.287116] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__struct.h\n'}
+[1.287169] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg\n'}
+[1.287206] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_generator_c__visibility_control.h\n'}
+[1.287262] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/library_path.sh\n'}
+[1.287300] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/library_path.dsv\n'}
+[1.287350] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_generator_c.so\n'}
+[1.287450] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_generator_c.so" to ""\n'}
+[1.287512] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo\n'}
+[1.287574] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[1.287610] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[1.287647] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_fastrtps_c.h\n'}
+[1.287708] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg\n'}
+[1.287744] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[1.287780] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_fastrtps_c.so\n'}
+[1.287856] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[1.287915] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo\n'}
+[1.287953] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[1.287989] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[1.288047] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_introspection_c.h\n'}
+[1.288086] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.c\n'}
+[1.288122] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg\n'}
+[1.288176] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[1.288211] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_introspection_c.so\n'}
+[1.288275] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_introspection_c.so" to ""\n'}
+[1.288325] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_c.so\n'}
+[1.288448] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_c.so" to ""\n'}
+[1.288502] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo\n'}
+[1.288572] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[1.288613] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/servo_sw.hpp\n'}
+[1.288652] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[1.288714] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__struct.hpp\n'}
+[1.288752] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__traits.hpp\n'}
+[1.288789] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__builder.hpp\n'}
+[1.288847] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.hpp\n'}
+[1.288884] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg\n'}
+[1.288921] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[1.288984] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo\n'}
+[1.289021] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[1.289074] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[1.289107] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/dds_fastrtps\n'}
+[1.289143] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[1.289178] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg\n'}
+[1.289213] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[1.289264] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_fastrtps_cpp.so\n'}
+[1.289326] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[1.289382] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo\n'}
+[1.289416] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[1.289453] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[1.289488] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_introspection_cpp.hpp\n'}
+[1.289550] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.cpp\n'}
+[1.289588] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_introspection_cpp.so\n'}
+[1.289656] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[1.289707] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_cpp.so\n'}
+[1.289834] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_cpp.so" to ""\n'}
+[1.289885] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/pythonpath.sh\n'}
+[1.289936] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/pythonpath.dsv\n'}
+[1.289987] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info\n'}
+[1.290066] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[1.290116] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[1.290166] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[1.290206] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[1.290263] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo\n'}
+[1.290305] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv\n'}
+[1.290349] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/__init__.py\n'}
+[1.290392] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/_servo_sw_s.c\n'}
+[1.290434] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/_servo_sw.py\n'}
+[1.290476] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/_usb_servo_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[1.290522] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/__init__.py\n'}
+[1.290569] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.290613] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/_usb_servo_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[1.290660] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.290703] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/_usb_servo_s.ep.rosidl_typesupport_c.c\n'}
+[1.290746] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/libusb_servo__rosidl_generator_py.so\n'}
+[1.290789] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.301118] (-) TimerEvent: {}
+[1.318324] (usb_servo) StdoutLine: {'line': b"Listing '/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo'...\n"}
+[1.318357] (usb_servo) StdoutLine: {'line': b"Compiling '/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/__init__.py'...\n"}
+[1.318379] (usb_servo) StdoutLine: {'line': b"Listing '/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv'...\n"}
+[1.318398] (usb_servo) StdoutLine: {'line': b"Compiling '/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/__init__.py'...\n"}
+[1.318419] (usb_servo) StdoutLine: {'line': b"Compiling '/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/_servo_sw.py'...\n"}
+[1.320585] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.320740] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[1.320799] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.320918] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[1.320983] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.321023] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[1.321044] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_generator_py.so\n'}
+[1.321088] (usb_servo) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_generator_py.so" to ""\n'}
+[1.321109] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/srv/ServoSw.idl\n'}
+[1.321144] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/srv/ServoSw.srv\n'}
+[1.321164] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/srv/ServoSw_Request.msg\n'}
+[1.321185] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/srv/ServoSw_Response.msg\n'}
+[1.321216] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/ament_index/resource_index/package_run_dependencies/usb_servo\n'}
+[1.321236] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/ament_index/resource_index/parent_prefix_path/usb_servo\n'}
+[1.321264] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/ament_prefix_path.sh\n'}
+[1.321293] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/ament_prefix_path.dsv\n'}
+[1.321321] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/path.sh\n'}
+[1.321348] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/path.dsv\n'}
+[1.321377] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/local_setup.bash\n'}
+[1.321408] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/local_setup.sh\n'}
+[1.321441] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/local_setup.zsh\n'}
+[1.321472] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/local_setup.dsv\n'}
+[1.321503] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/package.dsv\n'}
+[1.321552] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/ament_index/resource_index/packages/usb_servo\n'}
+[1.321602] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_cExport.cmake\n'}
+[1.321642] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_cExport-noconfig.cmake\n'}
+[1.321682] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[1.321718] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[1.321756] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cExport.cmake\n'}
+[1.321790] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[1.321827] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cExport.cmake\n'}
+[1.321860] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[1.321898] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_cppExport.cmake\n'}
+[1.321937] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[1.321973] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[1.322010] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[1.322045] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[1.322081] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cppExport.cmake\n'}
+[1.322115] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[1.322158] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_pyExport.cmake\n'}
+[1.322192] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_pyExport-noconfig.cmake\n'}
+[1.322224] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/rosidl_cmake-extras.cmake\n'}
+[1.322257] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[1.322290] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[1.322324] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[1.322356] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[1.322389] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[1.322423] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[1.322456] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servoConfig.cmake\n'}
+[1.322483] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servoConfig-version.cmake\n'}
+[1.322520] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/package.xml\n'}
+[1.323109] (usb_servo) CommandEnded: {'returncode': 0}
+[1.334363] (usb_servo) JobEnded: {'identifier': 'usb_servo', 'rc': 0}
+[1.334612] (-) EventReactorShutdown: {}

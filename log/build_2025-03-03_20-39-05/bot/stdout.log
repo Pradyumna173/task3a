@@ -1,0 +1,52 @@
+running egg_info
+creating ../../build/bot/bot.egg-info
+writing ../../build/bot/bot.egg-info/PKG-INFO
+writing dependency_links to ../../build/bot/bot.egg-info/dependency_links.txt
+writing entry points to ../../build/bot/bot.egg-info/entry_points.txt
+writing requirements to ../../build/bot/bot.egg-info/requires.txt
+writing top-level names to ../../build/bot/bot.egg-info/top_level.txt
+writing manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+reading manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+writing manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/northee/git/task3a/build/bot/build
+creating /home/northee/git/task3a/build/bot/build/lib
+creating /home/northee/git/task3a/build/bot/build/lib/bot
+copying bot/__init__.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+copying bot/dock.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+copying bot/nav5.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+copying bot/dock5.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+copying bot/arm5.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+copying bot/arm.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+copying bot/nav.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+running install
+running install_lib
+creating /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+copying /home/northee/git/task3a/build/bot/build/lib/bot/__init__.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+copying /home/northee/git/task3a/build/bot/build/lib/bot/dock.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+copying /home/northee/git/task3a/build/bot/build/lib/bot/nav5.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+copying /home/northee/git/task3a/build/bot/build/lib/bot/dock5.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+copying /home/northee/git/task3a/build/bot/build/lib/bot/arm5.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+copying /home/northee/git/task3a/build/bot/build/lib/bot/arm.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+copying /home/northee/git/task3a/build/bot/build/lib/bot/nav.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/dock.py to dock.cpython-310.pyc
+byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/nav5.py to nav5.cpython-310.pyc
+byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/dock5.py to dock5.cpython-310.pyc
+byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/arm5.py to arm5.cpython-310.pyc
+byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/arm.py to arm.cpython-310.pyc
+byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/nav.py to nav.cpython-310.pyc
+running install_data
+creating /home/northee/git/task3a/install/bot/share/ament_index
+creating /home/northee/git/task3a/install/bot/share/ament_index/resource_index
+creating /home/northee/git/task3a/install/bot/share/ament_index/resource_index/packages
+copying resource/bot -> /home/northee/git/task3a/install/bot/share/ament_index/resource_index/packages
+copying package.xml -> /home/northee/git/task3a/install/bot/share/bot
+running install_egg_info
+Copying ../../build/bot/bot.egg-info to /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot-0.0.0-py3.10.egg-info
+running install_scripts
+Installing arm script to /home/northee/git/task3a/install/bot/lib/bot
+Installing dock script to /home/northee/git/task3a/install/bot/lib/bot
+Installing nav script to /home/northee/git/task3a/install/bot/lib/bot
+writing list of installed files to '/home/northee/git/task3a/build/bot/install.log'

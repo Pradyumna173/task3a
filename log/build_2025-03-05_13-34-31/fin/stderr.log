@@ -1,0 +1,18 @@
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/home/northee/git/task3a/src/fin/src/dock.cpp:4[m[K:
+[01m[K/home/northee/git/task3a/src/fin/src/dock.cpp:[m[K In member function ‘[01m[Kvoid Dock::callback_docking_server(ebot_docking::srv::DockSw_Request_<std::allocator<void> >::SharedPtr, ebot_docking::srv::DockSw_Response_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/northee/git/task3a/src/fin/src/dock.cpp:100:49:[m[K [01;35m[Kwarning: [m[Kunknown conversion type character ‘[01m[Kb[m[K’ in format [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+  100 |                 RCLCPP_INFO(this->get_logger(), [01;35m[K"Stopped, %b"[m[K, b_isFirstDock);
+      |                                                 [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/northee/git/task3a/src/fin/src/dock.cpp:100:60:[m[K [01;36m[Knote: [m[Kformat string is defined here
+  100 |                 RCLCPP_INFO(this->get_logger(), "Stopped, %[01;36m[Kb[m[K", b_isFirstDock);
+      |                                                            [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/home/northee/git/task3a/src/fin/src/dock.cpp:4[m[K:
+[01m[K/home/northee/git/task3a/src/fin/src/dock.cpp:100:49:[m[K [01;35m[Kwarning: [m[Ktoo many arguments for format [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-extra-args-Wformat-extra-args]8;;[m[K]
+  100 |                 RCLCPP_INFO(this->get_logger(), [01;35m[K"Stopped, %b"[m[K, b_isFirstDock);
+      |                                                 [01;35m[K^~~~~~~~~~~~~[m[K

@@ -1,0 +1,91 @@
+[0.000000] (-) TimerEvent: {}
+[0.000318] (-) JobUnselected: {'identifier': 'bot'}
+[0.000356] (-) JobUnselected: {'identifier': 'ebot_docking'}
+[0.000382] (-) JobUnselected: {'identifier': 'ebot_nav2'}
+[0.000389] (-) JobUnselected: {'identifier': 'ff'}
+[0.000395] (-) JobUnselected: {'identifier': 'pymoveit2'}
+[0.000400] (-) JobUnselected: {'identifier': 'ur5_control'}
+[0.000406] (-) JobUnselected: {'identifier': 'ur_moveit_config'}
+[0.000412] (fin) JobQueued: {'identifier': 'fin', 'dependencies': OrderedDict([('ebot_docking', '/home/northee/git/task3a/install/ebot_docking')])}
+[0.000421] (fin) JobStarted: {'identifier': 'fin'}
+[0.005226] (fin) JobProgress: {'identifier': 'fin', 'progress': 'cmake'}
+[0.005459] (fin) JobProgress: {'identifier': 'fin', 'progress': 'build'}
+[0.005777] (fin) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/northee/git/task3a/build/fin', '--', '-j24', '-l24'], 'cwd': '/home/northee/git/task3a/build/fin', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('NVIM', '/run/user/1000/nvim.3403.0'), ('LANGUAGE', 'en_IN:en'), ('USER', 'northee'), ('XDG_SEAT', 'seat0'), ('NVIM_LOG_FILE', '/home/northee/.local/state/nvim/log'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '3'), ('LD_LIBRARY_PATH', '/home/northee/git/task3a/install/ebot_docking/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/northee'), ('OLDPWD', '/home/northee'), ('TERM_PROGRAM_VERSION', '20240203-110809-5046fc22'), ('DESKTOP_SESSION', 'i3'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2041'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WEZTERM_EXECUTABLE', '/usr/bin/wezterm-gui'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('MASON', '/home/northee/.local/share/nvim/mason'), ('LOGNAME', 'northee'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'northee'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('WEZTERM_CONFIG_FILE', '/home/northee/.wezterm.lua'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignoreboth'), ('WINDOWPATH', '2'), ('WEZTERM_EXECUTABLE_DIR', '/usr/bin'), ('PATH', '/home/northee/.local/opt/nvim/bin:/home/northee/.local/bin:/home/northee/.local/share/nvim/mason/bin:/home/northee/.local/share/nvim/mason/bin:/home/northee/.local/bin:/opt/ros/humble/bin:/home/northee/.local/opt/nvim/bin:/home/northee/.local/bin:/home/northee/.cargo/bin:/home/northee/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('DESKTOP_STARTUP_ID', 'i3/i3-sensible-terminal/2178-1-northee_TIME279195'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'i3'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'i3'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'WezTerm'), ('AMENT_PREFIX_PATH', '/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('MYVIMRC', '/home/northee/.config/nvim/init.lua'), ('GDMSESSION', 'i3'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('WEZTERM_CONFIG_DIR', '/home/northee'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '2'), ('PWD', '/home/northee/git/task3a/build/fin'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-i3:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/i3:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('WEZTERM_UNIX_SOCKET', '/run/user/1000/wezterm/gui-sock-2737'), ('PYTHONPATH', '/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('I3SOCK', '/run/user/1000/i3/ipc-socket.2178'), ('WEZTERM_PANE', '1'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble')]), 'shell': False}
+[0.025447] (fin) StdoutLine: {'line': b'[ 33%] Built target arm\n'}
+[0.025613] (fin) StdoutLine: {'line': b'[ 66%] Built target nav\n'}
+[0.027899] (fin) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/dock.dir/src/dock.cpp.o\x1b[0m\n'}
+[0.099953] (-) TimerEvent: {}
+[0.200133] (-) TimerEvent: {}
+[0.300318] (-) TimerEvent: {}
+[0.400498] (-) TimerEvent: {}
+[0.500678] (-) TimerEvent: {}
+[0.600853] (-) TimerEvent: {}
+[0.701022] (-) TimerEvent: {}
+[0.801190] (-) TimerEvent: {}
+[0.901362] (-) TimerEvent: {}
+[1.001537] (-) TimerEvent: {}
+[1.003131] (fin) StderrLine: {'line': b'\x1b[01m\x1b[K/home/northee/git/task3a/src/fin/src/dock.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid Dock::callback_docking_server(ebot_docking::srv::DockSw_Request_<std::allocator<void> >::SharedPtr, ebot_docking::srv::DockSw_Response_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.003207] (fin) StderrLine: {'line': b'\x1b[01m\x1b[K/home/northee/git/task3a/src/fin/src/dock.cpp:72:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[Kb_isFirstDock\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable\x07-Wunused-but-set-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[1.003237] (fin) StderrLine: {'line': b'   72 |         static bool \x1b[01;35m\x1b[Kb_isFirstDock\x1b[m\x1b[K{true};\n'}
+[1.003260] (fin) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.101613] (-) TimerEvent: {}
+[1.201790] (-) TimerEvent: {}
+[1.301963] (-) TimerEvent: {}
+[1.402156] (-) TimerEvent: {}
+[1.502337] (-) TimerEvent: {}
+[1.602515] (-) TimerEvent: {}
+[1.702696] (-) TimerEvent: {}
+[1.802883] (-) TimerEvent: {}
+[1.903077] (-) TimerEvent: {}
+[2.003244] (-) TimerEvent: {}
+[2.103419] (-) TimerEvent: {}
+[2.203588] (-) TimerEvent: {}
+[2.303755] (-) TimerEvent: {}
+[2.403914] (-) TimerEvent: {}
+[2.504074] (-) TimerEvent: {}
+[2.604232] (-) TimerEvent: {}
+[2.704400] (-) TimerEvent: {}
+[2.804563] (-) TimerEvent: {}
+[2.904709] (-) TimerEvent: {}
+[3.004853] (-) TimerEvent: {}
+[3.105020] (-) TimerEvent: {}
+[3.205177] (-) TimerEvent: {}
+[3.305349] (-) TimerEvent: {}
+[3.405510] (-) TimerEvent: {}
+[3.505686] (-) TimerEvent: {}
+[3.605879] (-) TimerEvent: {}
+[3.706158] (-) TimerEvent: {}
+[3.806541] (-) TimerEvent: {}
+[3.906813] (-) TimerEvent: {}
+[4.006966] (-) TimerEvent: {}
+[4.107151] (-) TimerEvent: {}
+[4.151421] (fin) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable dock\x1b[0m\n'}
+[4.207235] (-) TimerEvent: {}
+[4.307431] (-) TimerEvent: {}
+[4.342646] (fin) StdoutLine: {'line': b'[100%] Built target dock\n'}
+[4.346156] (fin) CommandEnded: {'returncode': 0}
+[4.346531] (fin) JobProgress: {'identifier': 'fin', 'progress': 'install'}
+[4.349516] (fin) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/northee/git/task3a/build/fin'], 'cwd': '/home/northee/git/task3a/build/fin', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('NVIM', '/run/user/1000/nvim.3403.0'), ('LANGUAGE', 'en_IN:en'), ('USER', 'northee'), ('XDG_SEAT', 'seat0'), ('NVIM_LOG_FILE', '/home/northee/.local/state/nvim/log'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '3'), ('LD_LIBRARY_PATH', '/home/northee/git/task3a/install/ebot_docking/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/northee'), ('OLDPWD', '/home/northee'), ('TERM_PROGRAM_VERSION', '20240203-110809-5046fc22'), ('DESKTOP_SESSION', 'i3'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2041'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WEZTERM_EXECUTABLE', '/usr/bin/wezterm-gui'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('MASON', '/home/northee/.local/share/nvim/mason'), ('LOGNAME', 'northee'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'northee'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('WEZTERM_CONFIG_FILE', '/home/northee/.wezterm.lua'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignoreboth'), ('WINDOWPATH', '2'), ('WEZTERM_EXECUTABLE_DIR', '/usr/bin'), ('PATH', '/home/northee/.local/opt/nvim/bin:/home/northee/.local/bin:/home/northee/.local/share/nvim/mason/bin:/home/northee/.local/share/nvim/mason/bin:/home/northee/.local/bin:/opt/ros/humble/bin:/home/northee/.local/opt/nvim/bin:/home/northee/.local/bin:/home/northee/.cargo/bin:/home/northee/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('DESKTOP_STARTUP_ID', 'i3/i3-sensible-terminal/2178-1-northee_TIME279195'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'i3'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'i3'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('TERM_PROGRAM', 'WezTerm'), ('AMENT_PREFIX_PATH', '/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('MYVIMRC', '/home/northee/.config/nvim/init.lua'), ('GDMSESSION', 'i3'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('WEZTERM_CONFIG_DIR', '/home/northee'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '2'), ('PWD', '/home/northee/git/task3a/build/fin'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-i3:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/i3:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('WEZTERM_UNIX_SOCKET', '/run/user/1000/wezterm/gui-sock-2737'), ('PYTHONPATH', '/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('I3SOCK', '/run/user/1000/i3/ipc-socket.2178'), ('WEZTERM_PANE', '1'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble')]), 'shell': False}
+[4.353499] (fin) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[4.353843] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/lib/fin/arm\n'}
+[4.354156] (fin) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/fin/lib/fin/dock\n'}
+[4.357375] (fin) StdoutLine: {'line': b'-- Set runtime path of "/home/northee/git/task3a/install/fin/lib/fin/dock" to ""\n'}
+[4.357490] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/lib/fin/nav\n'}
+[4.357618] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/ament_index/resource_index/package_run_dependencies/fin\n'}
+[4.357701] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/ament_index/resource_index/parent_prefix_path/fin\n'}
+[4.357816] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/environment/ament_prefix_path.sh\n'}
+[4.357874] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/environment/ament_prefix_path.dsv\n'}
+[4.357922] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/environment/path.sh\n'}
+[4.357968] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/environment/path.dsv\n'}
+[4.358021] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/local_setup.bash\n'}
+[4.358071] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/local_setup.sh\n'}
+[4.358146] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/local_setup.zsh\n'}
+[4.358241] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/local_setup.dsv\n'}
+[4.358283] (fin) StdoutLine: {'line': b'-- Installing: /home/northee/git/task3a/install/fin/share/fin/package.dsv\n'}
+[4.358324] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/ament_index/resource_index/packages/fin\n'}
+[4.358385] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/cmake/finConfig.cmake\n'}
+[4.358426] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/cmake/finConfig-version.cmake\n'}
+[4.358471] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/package.xml\n'}
+[4.359094] (fin) CommandEnded: {'returncode': 0}
+[4.367636] (fin) JobEnded: {'identifier': 'fin', 'rc': 0}
+[4.367870] (-) EventReactorShutdown: {}
