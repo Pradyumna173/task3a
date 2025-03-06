@@ -1,2 +1,0 @@
-Invoking command in '/home/northee/git/task3a/build/usb_servo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/northee/git/task3a/src/usb_servo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=/home/northee/git/task3a/install/usb_servo
-Invoked command in '/home/northee/git/task3a/build/usb_servo' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/northee/git/task3a/src/usb_servo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=/home/northee/git/task3a/install/usb_servo

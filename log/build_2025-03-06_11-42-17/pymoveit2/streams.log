@@ -1,0 +1,85 @@
+[0.245s] Invoking command in '/home/northee/git/task3a/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/northee/git/task3a/src/pymoveit2 -DCMAKE_INSTALL_PREFIX=/home/northee/git/task3a/install/pymoveit2
+[0.360s] -- The C compiler identification is GNU 11.4.0
+[0.361s] -- The CXX compiler identification is GNU 11.4.0
+[0.361s] -- Detecting C compiler ABI info
+[0.361s] -- Detecting C compiler ABI info - done
+[0.361s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.361s] -- Detecting C compile features
+[0.361s] -- Detecting C compile features - done
+[0.361s] -- Detecting CXX compiler ABI info
+[0.384s] -- Detecting CXX compiler ABI info - done
+[0.389s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.389s] -- Detecting CXX compile features
+[0.389s] -- Detecting CXX compile features - done
+[0.391s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.456s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.591s] -- Configuring done
+[0.592s] -- Generating done
+[0.594s] -- Build files have been written to: /home/northee/git/task3a/build/pymoveit2
+[0.596s] Invoked command in '/home/northee/git/task3a/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/northee/git/task3a/src/pymoveit2 -DCMAKE_INSTALL_PREFIX=/home/northee/git/task3a/install/pymoveit2
+[0.597s] Invoking command in '/home/northee/git/task3a/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/northee/git/task3a/build/pymoveit2 -- -j24 -l24
+[0.612s] Built target ament_cmake_python_copy_pymoveit2
+[0.711s] running egg_info
+[0.711s] creating pymoveit2.egg-info
+[0.711s] writing pymoveit2.egg-info/PKG-INFO
+[0.711s] writing dependency_links to pymoveit2.egg-info/dependency_links.txt
+[0.711s] writing top-level names to pymoveit2.egg-info/top_level.txt
+[0.711s] writing manifest file 'pymoveit2.egg-info/SOURCES.txt'
+[0.712s] reading manifest file 'pymoveit2.egg-info/SOURCES.txt'
+[0.712s] writing manifest file 'pymoveit2.egg-info/SOURCES.txt'
+[0.722s] Built target ament_cmake_python_build_pymoveit2_egg
+[0.725s] Invoked command in '/home/northee/git/task3a/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/northee/git/task3a/build/pymoveit2 -- -j24 -l24
+[0.726s] Invoking command in '/home/northee/git/task3a/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/northee/git/task3a/build/pymoveit2
+[0.727s] -- Install configuration: ""
+[0.727s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/environment/pythonpath.sh
+[0.727s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/environment/pythonpath.dsv
+[0.727s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info
+[0.727s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/SOURCES.txt
+[0.727s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/top_level.txt
+[0.728s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/PKG-INFO
+[0.728s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/dependency_links.txt
+[0.728s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2
+[0.728s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/moveit2_servo.py
+[0.728s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/moveit2.py
+[0.728s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/__init__.py
+[0.728s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots
+[0.728s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/__init__.py
+[0.728s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/ur5.py
+[0.728s] -- Installing: /home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/kinova.py
+[0.750s] Listing '/home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2'...
+[0.750s] Compiling '/home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/__init__.py'...
+[0.750s] Compiling '/home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/moveit2.py'...
+[0.750s] Compiling '/home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/moveit2_servo.py'...
+[0.750s] Listing '/home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots'...
+[0.750s] Compiling '/home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/__init__.py'...
+[0.750s] Compiling '/home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/kinova.py'...
+[0.750s] Compiling '/home/northee/git/task3a/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/ur5.py'...
+[0.752s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/ex_collision_object.py
+[0.753s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/ex_joint_goal.py
+[0.753s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/ex_pose_goal.py
+[0.754s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/ex_servo.py
+[0.754s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/assets
+[0.754s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/assets/rack_box_again.stl
+[0.754s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/assets/box.stl
+[0.755s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/assets/box1.stl
+[0.755s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/assets/box2.stl
+[0.755s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/assets/rack_box.stl
+[0.756s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/assets/box3.stl
+[0.756s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/assets/suzanne.stl
+[0.757s] -- Installing: /home/northee/git/task3a/install/pymoveit2/lib/pymoveit2/assets/rack.stl
+[0.772s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/ament_index/resource_index/package_run_dependencies/pymoveit2
+[0.772s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/ament_index/resource_index/parent_prefix_path/pymoveit2
+[0.772s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/environment/ament_prefix_path.sh
+[0.772s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/environment/ament_prefix_path.dsv
+[0.772s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/environment/path.sh
+[0.772s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/environment/path.dsv
+[0.772s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/local_setup.bash
+[0.773s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/local_setup.sh
+[0.773s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/local_setup.zsh
+[0.773s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/local_setup.dsv
+[0.773s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/package.dsv
+[0.773s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/ament_index/resource_index/packages/pymoveit2
+[0.773s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/cmake/pymoveit2Config.cmake
+[0.773s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/cmake/pymoveit2Config-version.cmake
+[0.773s] -- Installing: /home/northee/git/task3a/install/pymoveit2/share/pymoveit2/package.xml
+[0.774s] Invoked command in '/home/northee/git/task3a/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/northee/git/task3a/build/pymoveit2

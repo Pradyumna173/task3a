@@ -1,7 +1,0 @@
-[01m[K/home/northee/git/task3a/src/fin/src/dock.cpp:23:10:[m[K [01;31m[Kfatal error: [m[Kusb_servo/srv/servo_sw.hpp: No such file or directory
-   23 | #include [01;31m[K<usb_servo/srv/servo_sw.hpp>[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/dock.dir/build.make:76: CMakeFiles/dock.dir/src/dock.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/dock.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

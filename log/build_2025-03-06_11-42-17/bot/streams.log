@@ -1,0 +1,54 @@
+[0.658s] Invoking command in '/home/northee/git/task3a/src/bot': PYTHONPATH=/home/northee/git/task3a/build/bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/northee/git/task3a/install/bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/bot build --build-base /home/northee/git/task3a/build/bot/build install --record /home/northee/git/task3a/build/bot/install.log --single-version-externally-managed install_data
+[0.757s] running egg_info
+[0.757s] creating ../../build/bot/bot.egg-info
+[0.757s] writing ../../build/bot/bot.egg-info/PKG-INFO
+[0.757s] writing dependency_links to ../../build/bot/bot.egg-info/dependency_links.txt
+[0.757s] writing entry points to ../../build/bot/bot.egg-info/entry_points.txt
+[0.757s] writing requirements to ../../build/bot/bot.egg-info/requires.txt
+[0.758s] writing top-level names to ../../build/bot/bot.egg-info/top_level.txt
+[0.758s] writing manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+[0.758s] reading manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+[0.758s] writing manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+[0.759s] running build
+[0.759s] running build_py
+[0.759s] creating /home/northee/git/task3a/build/bot/build
+[0.759s] creating /home/northee/git/task3a/build/bot/build/lib
+[0.759s] creating /home/northee/git/task3a/build/bot/build/lib/bot
+[0.759s] copying bot/__init__.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+[0.759s] copying bot/dock.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+[0.760s] copying bot/nav5.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+[0.760s] copying bot/dock5.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+[0.760s] copying bot/arm5.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+[0.761s] copying bot/arm.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+[0.761s] copying bot/nav.py -> /home/northee/git/task3a/build/bot/build/lib/bot
+[0.761s] running install
+[0.761s] running install_lib
+[0.762s] creating /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+[0.762s] copying /home/northee/git/task3a/build/bot/build/lib/bot/__init__.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+[0.762s] copying /home/northee/git/task3a/build/bot/build/lib/bot/dock.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+[0.762s] copying /home/northee/git/task3a/build/bot/build/lib/bot/nav5.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+[0.762s] copying /home/northee/git/task3a/build/bot/build/lib/bot/dock5.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+[0.762s] copying /home/northee/git/task3a/build/bot/build/lib/bot/arm5.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+[0.762s] copying /home/northee/git/task3a/build/bot/build/lib/bot/arm.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+[0.762s] copying /home/northee/git/task3a/build/bot/build/lib/bot/nav.py -> /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot
+[0.762s] byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/__init__.py to __init__.cpython-310.pyc
+[0.762s] byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/dock.py to dock.cpython-310.pyc
+[0.763s] byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/nav5.py to nav5.cpython-310.pyc
+[0.763s] byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/dock5.py to dock5.cpython-310.pyc
+[0.764s] byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/arm5.py to arm5.cpython-310.pyc
+[0.765s] byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/arm.py to arm.cpython-310.pyc
+[0.766s] byte-compiling /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot/nav.py to nav.cpython-310.pyc
+[0.767s] running install_data
+[0.767s] creating /home/northee/git/task3a/install/bot/share/ament_index
+[0.767s] creating /home/northee/git/task3a/install/bot/share/ament_index/resource_index
+[0.767s] creating /home/northee/git/task3a/install/bot/share/ament_index/resource_index/packages
+[0.767s] copying resource/bot -> /home/northee/git/task3a/install/bot/share/ament_index/resource_index/packages
+[0.767s] copying package.xml -> /home/northee/git/task3a/install/bot/share/bot
+[0.767s] running install_egg_info
+[0.768s] Copying ../../build/bot/bot.egg-info to /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot-0.0.0-py3.10.egg-info
+[0.769s] running install_scripts
+[0.778s] Installing arm script to /home/northee/git/task3a/install/bot/lib/bot
+[0.778s] Installing dock script to /home/northee/git/task3a/install/bot/lib/bot
+[0.778s] Installing nav script to /home/northee/git/task3a/install/bot/lib/bot
+[0.778s] writing list of installed files to '/home/northee/git/task3a/build/bot/install.log'
+[0.792s] Invoked command in '/home/northee/git/task3a/src/bot' returned '0': PYTHONPATH=/home/northee/git/task3a/build/bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/northee/git/task3a/install/bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/bot build --build-base /home/northee/git/task3a/build/bot/build install --record /home/northee/git/task3a/build/bot/install.log --single-version-externally-managed install_data
