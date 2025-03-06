@@ -1,0 +1,8 @@
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:5:10:[m[K [01;31m[Kfatal error: [m[Kebot_docking/src/passing_service.hpp: No such file or directory
+    5 | #include [01;31m[K<ebot_docking/src/passing_service.hpp>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/nav.dir/build.make:76: CMakeFiles/nav.dir/src/nav.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/nav.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

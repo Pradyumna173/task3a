@@ -1,0 +1,4 @@
+Invoking command in '/home/northee/git/task3a/build/usb_servo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/northee/git/task3a/build/usb_servo -- -j24 -l24
+Invoked command in '/home/northee/git/task3a/build/usb_servo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/northee/git/task3a/build/usb_servo -- -j24 -l24
+Invoking command in '/home/northee/git/task3a/build/usb_servo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/northee/git/task3a/build/usb_servo
+Invoked command in '/home/northee/git/task3a/build/usb_servo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/northee/git/task3a/build/usb_servo

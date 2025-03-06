@@ -7,7 +7,7 @@
 #include <rclcpp/logging.hpp>
 #include <thread>
 
-/*#define SIM*/
+#define SIM
 
 #include <ebot_docking/srv/dock_sw.hpp>
 #include <geometry_msgs/msg/twist.hpp>
@@ -94,7 +94,7 @@ class Dock : public rclcpp::Node {
                 vel_msg.angular.z = 0.0;
                 vel_pub->publish(vel_msg);
 #ifndef SIM
-                if (!b_isFirstDock) call_servo_service(true);
+                if (!b_isFirstDock) call_servo(true);
 
 #endif
                 std::this_thread::sleep_for(std::chrono::seconds(2));
@@ -126,8 +126,9 @@ class Dock : public rclcpp::Node {
         // RCLCPP_INFO(this->get_logger(), "%f", f_usonicRight);
     }
 #else
-	
-	
+
+    std::vector<std::thread> threads_;
+
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr usonic_sub;
     void callback_usonic_sub(std_msgs::msg::Float32MultiArray::SharedPtr msg) {
         f_usonicLeft = msg->data[4];
@@ -136,7 +137,11 @@ class Dock : public rclcpp::Node {
         b_usonicOn = true;
     }
 
-    void call_servo_service(bool state) {
+    inline void call_servo(bool state) {
+        threads_.push_back(std::thread(std::bind(&Dock::callback_call_servo, this, state)));
+    }
+
+    void callback_call_servo(bool state) {
         auto servoClient = this->create_client<usb_servo::srv::ServoSw>("toggle_usb_servo");
 
         while (!servoClient->wait_for_service(std::chrono::milliseconds(1000))) {
@@ -147,6 +152,7 @@ class Dock : public rclcpp::Node {
         request->servostate = state;
 
         auto future = servoClient->async_send_request(request);
+        future.wait();
 
         try {
             auto response = future.get();

@@ -8,11 +8,13 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(ebot_docking REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(usb_servo REQUIRED)
+find_package(nav2_msgs REQUIRED)
 # find_package(usb_servo REQUIRED)
 
 add_executable(arm src/arm.cpp)
@@ -29,7 +31,8 @@ ament_target_dependencies(
   usb_servo)
 
 add_executable(nav src/nav.cpp)
-ament_target_dependencies(nav rclcpp)
+ament_target_dependencies(nav rclcpp nav2_msgs rclcpp_action geometry_msgs
+                          ebot_docking)
 
 install(TARGETS arm dock nav DESTINATION lib/${PROJECT_NAME})
 
