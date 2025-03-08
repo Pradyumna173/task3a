@@ -134,7 +134,11 @@ class Nav : public rclcpp::Node {
         try {
             auto result = future.get();
             RCLCPP_INFO(this->get_logger(), "Docking %d", result->success);
-            call_passing_service();
+            if (waypoints_queue[waypoint_index_] == 0) {
+                call_passing_service();
+            } else {
+                waypoint_index_++;
+            }
 
         } catch (const std::exception &e) {
             RCLCPP_ERROR(this->get_logger(), "Docking Service Call Failed: %s", e.what());
