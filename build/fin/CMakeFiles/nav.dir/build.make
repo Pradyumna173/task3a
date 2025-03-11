@@ -124,12 +124,12 @@ nav: /opt/ros/humble/lib/libnav2_msgs__rosidl_typesupport_c.so
 nav: /opt/ros/humble/lib/libnav2_msgs__rosidl_generator_c.so
 nav: /opt/ros/humble/lib/libnav_msgs__rosidl_generator_py.so
 nav: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_py.so
+nav: /opt/ros/humble/lib/libstd_msgs__rosidl_generator_py.so
 nav: /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_c.so
 nav: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_c.so
+nav: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_c.so
 nav: /opt/ros/humble/lib/libnav_msgs__rosidl_generator_c.so
 nav: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_c.so
-nav: /opt/ros/humble/lib/libstd_msgs__rosidl_generator_py.so
-nav: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_c.so
 nav: /opt/ros/humble/lib/libstd_msgs__rosidl_generator_c.so
 nav: /opt/ros/humble/lib/librclcpp.so
 nav: /opt/ros/humble/lib/liblibstatistics_collector.so

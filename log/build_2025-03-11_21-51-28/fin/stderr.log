@@ -1,0 +1,6 @@
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:108:[m[K [01;31m[Kerror: [m[Knarrowing conversion of ‘[01m[K4.0000000000000002e-1[m[K’ from ‘[01m[Kdouble[m[K’ to ‘[01m[Kint[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing-Wnarrowing]8;;[m[K]
+   38 |     std::vector<std::vector<int>> waypoints_ = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}[01;31m[K}[m[K;
+      |                                                                                                            [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/nav.dir/build.make:76: CMakeFiles/nav.dir/src/nav.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/nav.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

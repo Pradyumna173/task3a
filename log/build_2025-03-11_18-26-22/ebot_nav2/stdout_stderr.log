@@ -1,0 +1,100 @@
+-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rclpy: 3.3.15 (/opt/ros/humble/share/rclpy/cmake)
+-- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+-- Found xacro: 2.0.8 (/opt/ros/humble/share/xacro/cmake)
+-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/northee/git/task3a/build/ebot_nav2
+-- Install configuration: ""
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//launch
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//launch/ebot_nav2_brinup.launch.py
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ebot
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ebot/agri_bot.xacro
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ebot/ebot_trolley_ur5.xacro
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ebot/ebot_trolley.xacro
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ebot/ebot.gazebo
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model.config
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model-1_2.sdf
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model-1_4.sdf
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model.sdf
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model-1_3.sdf
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/LANT.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FUS1.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/trolley.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FUS3.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RWR.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RUS6.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/LHUS10.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/NAVRS.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RRS.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RHUS9.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FUS2.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FWL.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RUS5.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FWR.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FUS4.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/chassis.dae
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/basket.dae
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/robot_base.stl
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/basket_collision.stl
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/LHUS9.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FRS.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/LIDAR.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RWL.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RHUS7.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RANT.STL
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//config
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//config/ekf.yaml
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//config/config.yaml
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//config/mapper_params_online_async.yaml
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//plugins
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//plugins/libgazebo_collision_sensor.so
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//plugins/libgazebo_ros_vacuum_gripper.so
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//maps
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//maps/map.pgm
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//maps/map.data
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//maps/map.yaml
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//maps/map.posegraph
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//params
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//params/nav2_params_filtered.yaml
+-- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//params/nav2_params.yaml
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//rviz
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//rviz/nav2_default_view.rviz
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/pyarmor_runtime_000000
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/pyarmor_runtime_000000/__init__.py
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/pyarmor_runtime_000000/pyarmor_runtime.so
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/pose_detector.py
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/pf_pose_saver.py
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/duplicate_imu.py
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ament_index/resource_index/package_run_dependencies/ebot_nav2
+-- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ament_index/resource_index/parent_prefix_path/ebot_nav2
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/environment/ament_prefix_path.sh
+-- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/environment/path.sh
+-- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/environment/path.dsv
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/local_setup.bash
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/local_setup.sh
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/local_setup.zsh
+-- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/local_setup.dsv
+-- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/package.dsv
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ament_index/resource_index/packages/ebot_nav2
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/cmake/ebot_nav2Config.cmake
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/cmake/ebot_nav2Config-version.cmake
+-- Up-to-date: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/package.xml

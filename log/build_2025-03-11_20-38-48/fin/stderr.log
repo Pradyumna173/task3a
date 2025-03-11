@@ -1,0 +1,4 @@
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:[m[K In member function ‘[01m[Kvoid Nav::callback_pass_done_sub(std_msgs::msg::Bool_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:179:64:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  179 |     void callback_pass_done_sub([01;35m[Kstd_msgs::msg::Bool::SharedPtr msg[m[K) {
+      |                                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K

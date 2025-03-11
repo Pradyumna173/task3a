@@ -1,0 +1,30 @@
+[0.008s] Invoking command in '/home/northee/git/task3a/build/fin': AMENT_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/northee/git/task3a/install/usb_servo/lib:/home/northee/git/task3a/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages:/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/northee/git/task3a/build/fin -- -j24 -l24
+[0.027s] [ 33%] Built target arm
+[0.029s] [ 66%] Built target dock
+[0.032s] [ 83%] [32mBuilding CXX object CMakeFiles/nav.dir/src/nav.cpp.o[0m
+[4.622s] [100%] [32m[1mLinking CXX executable nav[0m
+[4.865s] [100%] Built target nav
+[4.868s] Invoked command in '/home/northee/git/task3a/build/fin' returned '0': AMENT_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/northee/git/task3a/install/usb_servo/lib:/home/northee/git/task3a/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages:/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/northee/git/task3a/build/fin -- -j24 -l24
+[4.868s] Invoking command in '/home/northee/git/task3a/build/fin': AMENT_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/northee/git/task3a/install/usb_servo/lib:/home/northee/git/task3a/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages:/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/northee/git/task3a/build/fin
+[4.870s] -- Install configuration: ""
+[4.870s] -- Up-to-date: /home/northee/git/task3a/install/fin/lib/fin/arm
+[4.871s] -- Up-to-date: /home/northee/git/task3a/install/fin/lib/fin/dock
+[4.871s] -- Installing: /home/northee/git/task3a/install/fin/lib/fin/nav
+[4.873s] -- Set runtime path of "/home/northee/git/task3a/install/fin/lib/fin/nav" to ""
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/lib/fin/arm.py
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/ament_index/resource_index/package_run_dependencies/fin
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/ament_index/resource_index/parent_prefix_path/fin
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/environment/ament_prefix_path.sh
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/environment/ament_prefix_path.dsv
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/environment/path.sh
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/environment/path.dsv
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/local_setup.bash
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/local_setup.sh
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/local_setup.zsh
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/local_setup.dsv
+[4.873s] -- Installing: /home/northee/git/task3a/install/fin/share/fin/package.dsv
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/ament_index/resource_index/packages/fin
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/cmake/finConfig.cmake
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/cmake/finConfig-version.cmake
+[4.873s] -- Up-to-date: /home/northee/git/task3a/install/fin/share/fin/package.xml
+[4.873s] Invoked command in '/home/northee/git/task3a/build/fin' returned '0': AMENT_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/northee/git/task3a/install/usb_servo/lib:/home/northee/git/task3a/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages:/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/northee/git/task3a/build/fin

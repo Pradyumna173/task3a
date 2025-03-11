@@ -1,0 +1,13 @@
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:[m[K In constructor ‘[01m[KNav::Nav()[m[K’:
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:28:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kwaypoints_[m[K’ was not declared in this scope; did you mean ‘[01m[Kwaypoints_queue[m[K’?
+   28 |         [01;31m[Kwaypoints_[m[K = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
+      |         [01;31m[K^~~~~~~~~~[m[K
+      |         [32m[Kwaypoints_queue[m[K
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:[m[K In member function ‘[01m[Kvoid Nav::send_goal()[m[K’:
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:62:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kwaypoints_[m[K’ was not declared in this scope; did you mean ‘[01m[Kwaypoints_queue[m[K’?
+   62 |         goal_msg.pose.pose.position.x = [01;31m[Kwaypoints_[m[K[waypoint_index_][0];
+      |                                         [01;31m[K^~~~~~~~~~[m[K
+      |                                         [32m[Kwaypoints_queue[m[K
+gmake[2]: *** [CMakeFiles/nav.dir/build.make:76: CMakeFiles/nav.dir/src/nav.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/nav.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

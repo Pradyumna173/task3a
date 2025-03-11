@@ -783,8 +783,22 @@ CMakeFiles/nav.dir/src/nav.cpp.o: /home/northee/git/task3a/src/fin/src/nav.cpp \
   /opt/ros/humble/include/rcl_action/rcl_action/goal_handle.h \
   /opt/ros/humble/include/rcl_action/rcl_action/goal_state_machine.h \
   /opt/ros/humble/include/rclcpp_action/rclcpp_action/server.hpp \
-  /opt/ros/humble/include/rclcpp_action/rclcpp_action/server_goal_handle.hpp
+  /opt/ros/humble/include/rclcpp_action/rclcpp_action/server_goal_handle.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/bool.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__type_support.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__type_support.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/bool.hpp:
 
 /opt/ros/humble/include/rclcpp_action/rclcpp_action/server.hpp:
 
@@ -956,6 +970,8 @@ CMakeFiles/nav.dir/src/nav.cpp.o: /home/northee/git/task3a/src/fin/src/nav.cpp \
 
 /opt/ros/humble/include/rclcpp/rclcpp/create_timer.hpp:
 
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__type_support.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/get_node_timers_interface.hpp:
@@ -1097,6 +1113,8 @@ CMakeFiles/nav.dir/src/nav.cpp.o: /home/northee/git/task3a/src/fin/src/nav.cpp \
 /usr/include/c++/11/tr1/legendre_function.tcc:
 
 /usr/include/c++/11/tr1/hypergeometric.tcc:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__builder.hpp:
 
 /usr/include/c++/11/tr1/beta_function.tcc:
 

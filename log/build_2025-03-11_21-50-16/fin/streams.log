@@ -1,0 +1,11 @@
+[0.011s] Invoking command in '/home/northee/git/task3a/build/fin': AMENT_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/northee/git/task3a/install/usb_servo/lib:/home/northee/git/task3a/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages:/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/northee/git/task3a/build/fin -- -j24 -l24
+[0.030s] [ 66%] Built target dock
+[0.030s] [ 66%] Built target arm
+[0.031s] [ 83%] [32mBuilding CXX object CMakeFiles/nav.dir/src/nav.cpp.o[0m
+[1.013s] [01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:5:[m[K [01;31m[Kerror: [m[Kinvalid use of template-name ‘[01m[Kstd::vector[m[K’ without an argument list
+[1.013s]    38 |     [01;31m[Kstd[m[K::vector waypoints_ = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
+[1.013s]       |     [01;31m[K^~~[m[K
+[2.345s] gmake[2]: *** [CMakeFiles/nav.dir/build.make:76: CMakeFiles/nav.dir/src/nav.cpp.o] Error 1
+[2.346s] gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/nav.dir/all] Error 2
+[2.346s] gmake: *** [Makefile:146: all] Error 2
+[2.347s] Invoked command in '/home/northee/git/task3a/build/fin' returned '2': AMENT_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/northee/git/task3a/install/usb_servo/lib:/home/northee/git/task3a/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages:/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/northee/git/task3a/build/fin -- -j24 -l24

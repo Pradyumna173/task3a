@@ -1,0 +1,14 @@
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:29:[m[K [01;31m[Kerror: [m[Kexpected identifier before ‘[01m[K[[m[K’ token
+   38 |     int waypoints_[3][3] = [[01;31m[K[[m[K0.4, -2.4, 3.14], [-4.0, 2.89, -1.57], [2.32, 2.55, -1.57]];
+      |                             [01;31m[K^[m[K
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:46:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K][m[K’ before ‘[01m[K,[m[K’ token
+   38 |     int waypoints_[3][3] = [[0.4, -2.4, 3.14][01;31m[K,[m[K [-4.0, 2.89, -1.57], [2.32, 2.55, -1.57]];
+      |                                              [01;31m[K^[m[K
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:[m[K In lambda function:
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:46:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K{[m[K’ before ‘[01m[K,[m[K’ token
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:[m[K At global scope:
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:46:[m[K [01;31m[Kerror: [m[Karray must be initialized with a brace-enclosed initializer
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:46:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K,[m[K’ token
+gmake[2]: *** [CMakeFiles/nav.dir/build.make:76: CMakeFiles/nav.dir/src/nav.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/nav.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

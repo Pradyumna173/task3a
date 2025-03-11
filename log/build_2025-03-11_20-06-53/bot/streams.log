@@ -1,0 +1,23 @@
+[0.614s] Invoking command in '/home/northee/git/task3a/src/bot': PYTHONPATH=/home/northee/git/task3a/build/bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/northee/git/task3a/install/bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/bot build --build-base /home/northee/git/task3a/build/bot/build install --record /home/northee/git/task3a/build/bot/install.log --single-version-externally-managed install_data
+[0.732s] running egg_info
+[0.733s] writing ../../build/bot/bot.egg-info/PKG-INFO
+[0.733s] writing dependency_links to ../../build/bot/bot.egg-info/dependency_links.txt
+[0.733s] writing entry points to ../../build/bot/bot.egg-info/entry_points.txt
+[0.733s] writing requirements to ../../build/bot/bot.egg-info/requires.txt
+[0.733s] writing top-level names to ../../build/bot/bot.egg-info/top_level.txt
+[0.734s] reading manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+[0.734s] writing manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+[0.734s] running build
+[0.734s] running build_py
+[0.734s] running install
+[0.734s] running install_lib
+[0.735s] running install_data
+[0.735s] running install_egg_info
+[0.736s] removing '/home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot-0.0.0-py3.10.egg-info' (and everything under it)
+[0.736s] Copying ../../build/bot/bot.egg-info to /home/northee/git/task3a/install/bot/lib/python3.10/site-packages/bot-0.0.0-py3.10.egg-info
+[0.737s] running install_scripts
+[0.747s] Installing arm script to /home/northee/git/task3a/install/bot/lib/bot
+[0.747s] Installing dock script to /home/northee/git/task3a/install/bot/lib/bot
+[0.747s] Installing nav script to /home/northee/git/task3a/install/bot/lib/bot
+[0.747s] writing list of installed files to '/home/northee/git/task3a/build/bot/install.log'
+[0.761s] Invoked command in '/home/northee/git/task3a/src/bot' returned '0': PYTHONPATH=/home/northee/git/task3a/build/bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/northee/git/task3a/install/bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/bot build --build-base /home/northee/git/task3a/build/bot/build install --record /home/northee/git/task3a/build/bot/install.log --single-version-externally-managed install_data

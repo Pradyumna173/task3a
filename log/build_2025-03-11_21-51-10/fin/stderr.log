@@ -1,0 +1,18 @@
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:95:[m[K [01;31m[Kerror: [m[Kcould not convert ‘[01m[K{{4.0000000000000002e-1, -2.3999999999999999e+0, 3.1400000000000001e+0}, {-4.0e+0, 2.8900000000000001e+0, -1.5700000000000001e+0}, {2.3199999999999998e+0, 2.5499999999999998e+0, -1.5700000000000001e+0}}[m[K’ from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kstd::vector<int>[m[K’
+   38 |     std::vector<int> waypoints_ = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}[01;31m[K}[m[K;
+      |                                                                                               [01;31m[K^[m[K
+      |                                                                                               [01;31m[K|[m[K
+      |                                                                                               [01;31m[K<brace-enclosed initializer list>[m[K
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:[m[K In member function ‘[01m[Kvoid Nav::send_goal()[m[K’:
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:62:68:[m[K [01;31m[Kerror: [m[Kinvalid types ‘[01m[K__gnu_cxx::__alloc_traits<std::allocator<int>, int>::value_type {aka int}[int][m[K’ for array subscript
+   62 |         goal_msg.pose.pose.position.x = waypoints_[waypoint_index_][01;31m[K[[m[K0];
+      |                                                                    [01;31m[K^[m[K
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:63:68:[m[K [01;31m[Kerror: [m[Kinvalid types ‘[01m[K__gnu_cxx::__alloc_traits<std::allocator<int>, int>::value_type {aka int}[int][m[K’ for array subscript
+   63 |         goal_msg.pose.pose.position.y = waypoints_[waypoint_index_][01;31m[K[[m[K1];
+      |                                                                    [01;31m[K^[m[K
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:65:64:[m[K [01;31m[Kerror: [m[Kinvalid types ‘[01m[K__gnu_cxx::__alloc_traits<std::allocator<int>, int>::value_type {aka int}[int][m[K’ for array subscript
+   65 |             to_quaternion(0.0, 0.0, waypoints_[waypoint_index_][01;31m[K[[m[K2]);
+      |                                                                [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/nav.dir/build.make:76: CMakeFiles/nav.dir/src/nav.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/nav.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

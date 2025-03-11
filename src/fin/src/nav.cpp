@@ -10,7 +10,10 @@
 #include <rclcpp/executors/single_threaded_executor.hpp>
 #include <rclcpp/logging.hpp>
 #include <rclcpp/rclcpp.hpp>
+#include <rclcpp/subscription.hpp>
 #include <rclcpp_action/rclcpp_action.hpp>
+#include <std_msgs/msg/bool.hpp>
+#include <std_msgs/msg/detail/bool__struct.hpp>
 #include <system_error>
 #include <vector>
 
@@ -22,7 +25,7 @@ class Nav : public rclcpp::Node {
     Nav() : Node("waypoint_follower"), waypoint_index_(0) {
         nav_client = rclcpp_action::create_client<NavigateToPose>(this, "navigate_to_pose");
 
-        waypoints_ = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
+        
 
         timer_ = this->create_wall_timer(std::chrono::seconds(1), std::bind(&Nav::send_goal, this));
     }
@@ -32,28 +35,20 @@ class Nav : public rclcpp::Node {
         double w, x, y, z;
     };
 
-    std::vector<int> waypoints_queue = {0};
+    float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
     rclcpp::Client<ebot_docking::srv::DockSw>::SharedPtr dockClient;
-    std::vector<std::array<double, 3>> waypoints_;
-    size_t waypoint_index_;
+    int waypoint_index_ = 0;
+    int current_goal = 10;
     rclcpp::TimerBase::SharedPtr timer_;
 
     std::vector<std::thread> threads_, threads_2;
 
     void send_goal() {
-        static size_t current_index = 10;
-
-        if (waypoint_index_ >= (waypoints_.size() - 1)) {
+        if (current_goal == waypoint_index_) {
             return;
         }
-
-        if (current_index == waypoint_index_) {
-            return;
-        }
-
-        current_index = waypoint_index_;
 
         if (!nav_client->wait_for_action_server(std::chrono::seconds(5))) {
             RCLCPP_ERROR(this->get_logger(), "Action server not available");
@@ -63,56 +58,49 @@ class Nav : public rclcpp::Node {
         auto goal_msg = NavigateToPose::Goal();
         goal_msg.pose.header.frame_id = "map";
         goal_msg.pose.header.stamp = this->now();
-        goal_msg.pose.pose.position.x = waypoints_[waypoints_queue[waypoint_index_]][0];
-        goal_msg.pose.pose.position.y = waypoints_[waypoints_queue[waypoint_index_]][1];
+        goal_msg.pose.pose.position.x = waypoints_[waypoint_index_][0];
+        goal_msg.pose.pose.position.y = waypoints_[waypoint_index_][1];
         goal_msg.pose.pose.orientation =
-            to_quaternion(0.0, 0.0, waypoints_[waypoints_queue[waypoint_index_]][2]);
+            to_quaternion(0.0, 0.0, waypoints_[waypoint_index_][2]);
 
         auto send_goal_options = rclcpp_action::Client<NavigateToPose>::SendGoalOptions();
         send_goal_options.result_callback =
             std::bind(&Nav::goal_result_callback, this, std::placeholders::_1);
+
+        current_goal = waypoint_index_;
 
         nav_client->async_send_goal(goal_msg, send_goal_options);
     }
 
     void goal_result_callback(const GoalHandleNavigate::WrappedResult &result) {
         if (result.code == rclcpp_action::ResultCode::SUCCEEDED) {
-            RCLCPP_INFO(this->get_logger(), "Reached waypoint %ld", waypoint_index_);
+            RCLCPP_INFO(this->get_logger(), "Reached waypoint %d", waypoint_index_);
             call_dock();
         } else {
-            RCLCPP_ERROR(this->get_logger(), "Failed to reach waypoint %ld", waypoint_index_);
+            RCLCPP_ERROR(this->get_logger(), "Failed to reach waypoint %d", waypoint_index_);
+            current_goal = 10;
         }
     }
 
     inline void call_passing_service() {
         threads_2.push_back(std::thread(std::bind(&Nav::callback_call_passing_service, this)));
-        RCLCPP_WARN(this->get_logger(), "Fault check 1");
     }
 
     void callback_call_passing_service() {
         auto passClient =
             this->create_client<ebot_docking::srv::PassingService>("/passing_service");
 
-        RCLCPP_WARN(this->get_logger(), "Fault check 2");
-
         while (!passClient->wait_for_service(std::chrono::milliseconds(1000))) {
             RCLCPP_WARN(this->get_logger(), "Waiting for passing_service...");
         }
 
-        RCLCPP_WARN(this->get_logger(), "Fault check 3");
-
         auto request = std::make_shared<ebot_docking::srv::PassingService::Request>();
 
         auto future = passClient->async_send_request(request);
-        RCLCPP_WARN(this->get_logger(), "Fault check 4");
         try {
-            RCLCPP_WARN(this->get_logger(), "Fault check 5");
             auto result = future.get();
             RCLCPP_INFO(this->get_logger(), "Drop at : %d", result->conveyer);
-            waypoints_queue.push_back(result->conveyer);
-            RCLCPP_WARN(this->get_logger(), "Fault check 6");
-            waypoints_queue.push_back(0);
-            waypoint_index_++;
+            keep_safe = result->conveyer;
 
         } catch (const std::exception &e) {
             RCLCPP_ERROR(this->get_logger(), "Passing Service call failed: %s", e.what());
@@ -127,17 +115,19 @@ class Nav : public rclcpp::Node {
         }
 
         auto request = std::make_shared<ebot_docking::srv::DockSw::Request>();
-        request->target = waypoints_queue[waypoint_index_];
+        request->target = waypoint_index_;
 
         auto future = dockClient->async_send_request(request);
 
         try {
             auto result = future.get();
             RCLCPP_INFO(this->get_logger(), "Docking %d", result->success);
-            if (waypoints_queue[waypoint_index_] == 0) {
+            if (waypoint_index_ == 0) {
                 call_passing_service();
             } else {
-                waypoint_index_++;
+                waypoint_index_ = 0;
+                RCLCPP_INFO(this->get_logger(), "current_index %d",
+                            waypoint_index_);
             }
 
         } catch (const std::exception &e) {
@@ -176,6 +166,21 @@ class Nav : public rclcpp::Node {
         q.z = cr * cp * sy - sr * sp * cy;
 
         return q;
+    }
+
+    rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr pass_done_sub =
+        this->create_subscription<std_msgs::msg::Bool>(
+            "/pass_done", 10, std::bind(&Nav::callback_pass_done_sub, this, std::placeholders::_1));
+
+    bool pass_done = false;
+    int keep_safe = 0;
+    void callback_pass_done_sub(std_msgs::msg::Bool::SharedPtr msg) {
+        pass_done = msg->data; 
+        if (pass_done) {
+            waypoint_index_= keep_safe;
+            RCLCPP_INFO(this->get_logger(), "current_index %d",waypoint_index_);
+        }
+        
     }
 };
 

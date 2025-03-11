@@ -31,10 +31,18 @@ ament_target_dependencies(
   usb_servo)
 
 add_executable(nav src/nav.cpp)
-ament_target_dependencies(nav rclcpp nav2_msgs rclcpp_action geometry_msgs
-                          ebot_docking)
+ament_target_dependencies(
+  nav
+  rclcpp
+  nav2_msgs
+  rclcpp_action
+  geometry_msgs
+  ebot_docking
+  std_msgs)
 
 install(TARGETS arm dock nav DESTINATION lib/${PROJECT_NAME})
+
+install(PROGRAMS src/arm.py DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

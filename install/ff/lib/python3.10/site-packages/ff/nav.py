@@ -1,16 +1,20 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import rclpy, time, sys
-from rclpy.executors import MultiThreadedExecutor
+import sys
+import time
+from functools import partial
+
+import rclpy
+from geometry_msgs.msg import PoseStamped, Twist
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
-from rclpy.node import Node
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
-from geometry_msgs.msg import Twist, PoseStamped
+from rclpy.executors import MultiThreadedExecutor
+from rclpy.node import Node
 from std_msgs.msg import Bool
 from tf_transformations import quaternion_from_euler
+
 from ebot_docking.srv import DockSw, PassingService
-from functools import partial
 
 
 class Nav(Node):
@@ -142,7 +146,6 @@ class Nav(Node):
             return False
 
     def create_pose_stamped(self, x, y, yaw=0.0):
-
         q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, yaw)
 
         goal_pose = PoseStamped()

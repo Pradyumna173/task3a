@@ -1,0 +1,147 @@
+[  3%] Built target usb_servo__cpp
+[ 12%] Built target usb_servo__rosidl_generator_c
+[ 12%] Built target ament_cmake_python_copy_usb_servo
+[ 22%] Built target usb_servo__rosidl_typesupport_introspection_cpp
+[ 32%] Built target usb_servo__rosidl_typesupport_cpp
+[ 41%] Built target usb_servo__rosidl_typesupport_c
+[ 61%] Built target usb_servo__rosidl_typesupport_fastrtps_c
+[ 61%] Built target usb_servo__rosidl_typesupport_fastrtps_cpp
+[ 70%] Built target usb_servo__rosidl_typesupport_introspection_c
+[ 70%] Built target usb_servo
+[ 74%] Built target usb_servo__py
+[ 80%] Built target usb_servo__rosidl_generator_py
+[ 87%] Built target usb_servo__rosidl_typesupport_c__pyext
+[ 93%] Built target usb_servo__rosidl_typesupport_introspection_c__pyext
+[100%] Built target usb_servo__rosidl_typesupport_fastrtps_c__pyext
+running egg_info
+writing usb_servo.egg-info/PKG-INFO
+writing dependency_links to usb_servo.egg-info/dependency_links.txt
+writing top-level names to usb_servo.egg-info/top_level.txt
+reading manifest file 'usb_servo.egg-info/SOURCES.txt'
+writing manifest file 'usb_servo.egg-info/SOURCES.txt'
+[100%] Built target ament_cmake_python_build_usb_servo_egg
+-- Install configuration: ""
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/ament_index/resource_index/rosidl_interfaces/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/servo_sw.h
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.h
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__functions.c
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__functions.h
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__struct.h
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_generator_c__visibility_control.h
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/library_path.sh
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/library_path.dsv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_generator_c.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.c
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_introspection_c.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_c.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/servo_sw.hpp
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__struct.hpp
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__traits.hpp
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__builder.hpp
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.hpp
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/dds_fastrtps
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_fastrtps_cpp.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.cpp
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_introspection_cpp.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_typesupport_cpp.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/pythonpath.sh
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/pythonpath.dsv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info
+-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/top_level.txt
+-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/PKG-INFO
+-- Installing: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/__init__.py
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/_servo_sw_s.c
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/_servo_sw.py
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/_usb_servo_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/__init__.py
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/_usb_servo_s.ep.rosidl_typesupport_introspection_c.c
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/_usb_servo_s.ep.rosidl_typesupport_c.c
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/libusb_servo__rosidl_generator_py.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+Listing '/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo'...
+Listing '/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv'...
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/lib/libusb_servo__rosidl_generator_py.so
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/srv/ServoSw.idl
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/srv/ServoSw.srv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/srv/ServoSw_Request.msg
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/srv/ServoSw_Response.msg
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/ament_index/resource_index/package_run_dependencies/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/ament_index/resource_index/parent_prefix_path/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/ament_prefix_path.sh
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/path.sh
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/environment/path.dsv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/local_setup.bash
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/local_setup.sh
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/local_setup.zsh
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/local_setup.dsv
+-- Installing: /home/northee/git/task3a/install/usb_servo/share/usb_servo/package.dsv
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/ament_index/resource_index/packages/usb_servo
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_cExport.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_cExport-noconfig.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cExport.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cExport.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cExport.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cExport-noconfig.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_cppExport.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cppExport.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cppExport.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cppExport-noconfig.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_pyExport.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_pyExport-noconfig.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/rosidl_cmake-extras.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servoConfig.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/cmake/usb_servoConfig-version.cmake
+-- Up-to-date: /home/northee/git/task3a/install/usb_servo/share/usb_servo/package.xml

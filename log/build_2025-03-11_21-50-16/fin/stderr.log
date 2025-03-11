@@ -1,0 +1,6 @@
+[01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:5:[m[K [01;31m[Kerror: [m[Kinvalid use of template-name ‘[01m[Kstd::vector[m[K’ without an argument list
+   38 |     [01;31m[Kstd[m[K::vector waypoints_ = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
+      |     [01;31m[K^~~[m[K
+gmake[2]: *** [CMakeFiles/nav.dir/build.make:76: CMakeFiles/nav.dir/src/nav.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/nav.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

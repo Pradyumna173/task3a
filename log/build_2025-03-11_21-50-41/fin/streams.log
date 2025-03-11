@@ -1,0 +1,19 @@
+[0.008s] Invoking command in '/home/northee/git/task3a/build/fin': AMENT_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/northee/git/task3a/install/usb_servo/lib:/home/northee/git/task3a/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages:/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/northee/git/task3a/build/fin -- -j24 -l24
+[0.026s] [ 33%] Built target arm
+[0.027s] [ 66%] Built target dock
+[0.031s] [ 83%] [32mBuilding CXX object CMakeFiles/nav.dir/src/nav.cpp.o[0m
+[1.019s] [01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kwaypoints_[m[K’ does not name a type
+[1.019s]    38 |     [01;31m[Kwaypoints_[m[K = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
+[1.019s]       |     [01;31m[K^~~~~~~~~~[m[K
+[1.019s] [01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:38:79:[m[K [01;35m[Kwarning: [m[Kextra ‘[01m[K;[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wpedantic-Wpedantic]8;;[m[K]
+[1.019s]    38 |     waypoints_ = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}}[01;35m[K;[m[K
+[1.019s]       |                                                                               [01;35m[K^[m[K
+[1.019s]       |                                                                               [31m[K-[m[K
+[1.079s] [01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:[m[K In member function ‘[01m[Kvoid Nav::send_goal()[m[K’:
+[1.079s] [01m[K/home/northee/git/task3a/src/fin/src/nav.cpp:62:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kwaypoints_[m[K’ was not declared in this scope
+[1.079s]    62 |         goal_msg.pose.pose.position.x = [01;31m[Kwaypoints_[m[K[waypoint_index_][0];
+[1.079s]       |                                         [01;31m[K^~~~~~~~~~[m[K
+[2.354s] gmake[2]: *** [CMakeFiles/nav.dir/build.make:76: CMakeFiles/nav.dir/src/nav.cpp.o] Error 1
+[2.355s] gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/nav.dir/all] Error 2
+[2.355s] gmake: *** [Makefile:146: all] Error 2
+[2.356s] Invoked command in '/home/northee/git/task3a/build/fin' returned '2': AMENT_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/northee/git/task3a/install/usb_servo:/home/northee/git/task3a/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/northee/git/task3a/install/usb_servo/lib:/home/northee/git/task3a/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/northee/git/task3a/install/usb_servo/local/lib/python3.10/dist-packages:/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/northee/git/task3a/build/fin -- -j24 -l24

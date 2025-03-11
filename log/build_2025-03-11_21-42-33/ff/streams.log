@@ -1,0 +1,23 @@
+[0.513s] Invoking command in '/home/northee/git/task3a/src/ff': PYTHONPATH=/home/northee/git/task3a/build/ff/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/northee/git/task3a/install/ff/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ff build --build-base /home/northee/git/task3a/build/ff/build install --record /home/northee/git/task3a/build/ff/install.log --single-version-externally-managed install_data
+[0.615s] running egg_info
+[0.615s] writing ../../build/ff/ff.egg-info/PKG-INFO
+[0.615s] writing dependency_links to ../../build/ff/ff.egg-info/dependency_links.txt
+[0.615s] writing entry points to ../../build/ff/ff.egg-info/entry_points.txt
+[0.615s] writing requirements to ../../build/ff/ff.egg-info/requires.txt
+[0.615s] writing top-level names to ../../build/ff/ff.egg-info/top_level.txt
+[0.616s] reading manifest file '../../build/ff/ff.egg-info/SOURCES.txt'
+[0.616s] writing manifest file '../../build/ff/ff.egg-info/SOURCES.txt'
+[0.616s] running build
+[0.616s] running build_py
+[0.616s] running install
+[0.616s] running install_lib
+[0.617s] running install_data
+[0.617s] running install_egg_info
+[0.618s] removing '/home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff-0.0.0-py3.10.egg-info' (and everything under it)
+[0.618s] Copying ../../build/ff/ff.egg-info to /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff-0.0.0-py3.10.egg-info
+[0.618s] running install_scripts
+[0.628s] Installing arm script to /home/northee/git/task3a/install/ff/lib/ff
+[0.628s] Installing dock script to /home/northee/git/task3a/install/ff/lib/ff
+[0.628s] Installing nav script to /home/northee/git/task3a/install/ff/lib/ff
+[0.628s] writing list of installed files to '/home/northee/git/task3a/build/ff/install.log'
+[0.639s] Invoked command in '/home/northee/git/task3a/src/ff' returned '0': PYTHONPATH=/home/northee/git/task3a/build/ff/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/northee/git/task3a/install/ff/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ff build --build-base /home/northee/git/task3a/build/ff/build install --record /home/northee/git/task3a/build/ff/install.log --single-version-externally-managed install_data

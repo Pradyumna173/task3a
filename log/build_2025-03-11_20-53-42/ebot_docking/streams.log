@@ -1,0 +1,186 @@
+[0.031s] Invoking command in '/home/northee/git/task3a/build/ebot_docking': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/northee/eyrc/eyrc_ws/install/ur5_control:/home/northee/eyrc/eyrc_ws/install/bot:/home/northee/git/task3a/install/ur5_control:/home/northee/git/task3a/install/ff:/home/northee/git/task3a/install/bot:/home/northee/ROS2/turtle_ws/install/turtle_final:/home/northee/ROS2/turtle_ws/install/service_tut:/home/northee/ROS2/turtle_ws/install/first_pkg:/home/northee/ROS2/turtle_ws/install/exercise_1:/home/northee/ROS2/turtle_ws/install/arena_25:/home/northee/ROS2/urdf_ws/install/py_pubsub:/home/northee/ROS2/urdf_ws/install/ros2_control_demo_testing:/opt/ros/humble /usr/bin/cmake --build /home/northee/git/task3a/build/ebot_docking -- -j24 -l24
+[0.444s] [  2%] Built target ebot_docking__cpp
+[0.444s] [ 12%] Built target ebot_docking__rosidl_generator_c
+[0.444s] [ 12%] Built target ament_cmake_python_copy_ebot_docking
+[0.444s] [ 23%] Built target ebot_docking__rosidl_typesupport_cpp
+[0.444s] [ 33%] Built target ebot_docking__rosidl_typesupport_introspection_cpp
+[0.445s] [ 43%] Built target ebot_docking__rosidl_typesupport_introspection_c
+[0.445s] [ 53%] Built target ebot_docking__rosidl_typesupport_c
+[0.445s] [ 74%] Built target ebot_docking__rosidl_typesupport_fastrtps_cpp
+[0.445s] [ 74%] Built target ebot_docking__rosidl_typesupport_fastrtps_c
+[0.445s] [ 74%] Built target ebot_docking
+[0.445s] [ 76%] Built target ebot_docking__py
+[0.445s] [ 84%] Built target ebot_docking__rosidl_generator_py
+[0.445s] [ 92%] Built target ebot_docking__rosidl_typesupport_introspection_c__pyext
+[0.445s] [ 94%] Built target ebot_docking__rosidl_typesupport_c__pyext
+[0.445s] [100%] Built target ebot_docking__rosidl_typesupport_fastrtps_c__pyext
+[0.445s] running egg_info
+[0.445s] writing ebot_docking.egg-info/PKG-INFO
+[0.445s] writing dependency_links to ebot_docking.egg-info/dependency_links.txt
+[0.445s] writing top-level names to ebot_docking.egg-info/top_level.txt
+[0.445s] reading manifest file 'ebot_docking.egg-info/SOURCES.txt'
+[0.445s] writing manifest file 'ebot_docking.egg-info/SOURCES.txt'
+[0.445s] [100%] Built target ament_cmake_python_build_ebot_docking_egg
+[0.447s] Invoked command in '/home/northee/git/task3a/build/ebot_docking' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/northee/eyrc/eyrc_ws/install/ur5_control:/home/northee/eyrc/eyrc_ws/install/bot:/home/northee/git/task3a/install/ur5_control:/home/northee/git/task3a/install/ff:/home/northee/git/task3a/install/bot:/home/northee/ROS2/turtle_ws/install/turtle_final:/home/northee/ROS2/turtle_ws/install/service_tut:/home/northee/ROS2/turtle_ws/install/first_pkg:/home/northee/ROS2/turtle_ws/install/exercise_1:/home/northee/ROS2/turtle_ws/install/arena_25:/home/northee/ROS2/urdf_ws/install/py_pubsub:/home/northee/ROS2/urdf_ws/install/ros2_control_demo_testing:/opt/ros/humble /usr/bin/cmake --build /home/northee/git/task3a/build/ebot_docking -- -j24 -l24
+[0.450s] Invoking command in '/home/northee/git/task3a/build/ebot_docking': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/northee/eyrc/eyrc_ws/install/ur5_control:/home/northee/eyrc/eyrc_ws/install/bot:/home/northee/git/task3a/install/ur5_control:/home/northee/git/task3a/install/ff:/home/northee/git/task3a/install/bot:/home/northee/ROS2/turtle_ws/install/turtle_final:/home/northee/ROS2/turtle_ws/install/service_tut:/home/northee/ROS2/turtle_ws/install/first_pkg:/home/northee/ROS2/turtle_ws/install/exercise_1:/home/northee/ROS2/turtle_ws/install/arena_25:/home/northee/ROS2/urdf_ws/install/py_pubsub:/home/northee/ROS2/urdf_ws/install/ros2_control_demo_testing:/opt/ros/humble /usr/bin/cmake --install /home/northee/git/task3a/build/ebot_docking
+[0.457s] -- Install configuration: ""
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ament_index/resource_index/rosidl_interfaces/ebot_docking
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/passing_service.h
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__struct.h
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.h
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__functions.c
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__struct.h
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__functions.h
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.h
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__functions.h
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__functions.c
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/dock_sw.h
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/msg
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_generator_c__visibility_control.h
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/environment/library_path.sh
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/environment/library_path.dsv
+[0.457s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/libebot_docking__rosidl_generator_c.so
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_fastrtps_c.h
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_fastrtps_c.h
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/msg
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_fastrtps_c.so
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.c
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_introspection_c.h
+[0.458s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_introspection_c.h
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.c
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/msg
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_introspection_c.so
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_c.so
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/passing_service.hpp
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/dock_sw.hpp
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__struct.hpp
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__traits.hpp
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.hpp
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__builder.hpp
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__traits.hpp
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__builder.hpp
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.hpp
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__struct.hpp
+[0.460s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/msg
+[0.461s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_generator_cpp__visibility_control.hpp
+[0.461s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking
+[0.461s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[0.461s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[0.461s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_fastrtps_cpp.hpp
+[0.461s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dds_fastrtps
+[0.461s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_fastrtps_cpp.hpp
+[0.461s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/msg
+[0.461s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.462s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_fastrtps_cpp.so
+[0.462s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking
+[0.462s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[0.462s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[0.462s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.cpp
+[0.462s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_introspection_cpp.hpp
+[0.462s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_introspection_cpp.hpp
+[0.462s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.cpp
+[0.462s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_introspection_cpp.so
+[0.465s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_cpp.so
+[0.465s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/environment/pythonpath.sh
+[0.465s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/environment/pythonpath.dsv
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info
+[0.467s] -- Installing: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/SOURCES.txt
+[0.467s] -- Installing: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/top_level.txt
+[0.467s] -- Installing: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/PKG-INFO
+[0.467s] -- Installing: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/dependency_links.txt
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_passing_service.py
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/__init__.py
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_passing_service_s.c
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_dock_sw_s.c
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_dock_sw.py
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/libebot_docking__rosidl_generator_py.so
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/__init__.py
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.467s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.468s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_c.c
+[0.468s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.468s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_introspection_c.c
+[0.468s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.483s] Listing '/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking'...
+[0.483s] Listing '/home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv'...
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/libebot_docking__rosidl_generator_py.so
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/srv/DockSw.idl
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/srv/PassingService.idl
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/srv/DockSw.srv
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/srv/DockSw_Request.msg
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/srv/DockSw_Response.msg
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/srv/PassingService.srv
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/srv/PassingService_Request.msg
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/srv/PassingService_Response.msg
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking//srv
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking//srv/PassingService.srv
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking//srv/DockSw.srv
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking//scripts
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking//scripts/s_dock.py
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking//scripts/dock.py
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking//scripts/s_nav.py
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking//scripts/nav5.py
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking//scripts/ebot_docking_boilerplate.py
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking//scripts/nav.py
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/ebot_docking/nav.py
+[0.490s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/ebot_docking/nav5.py
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/lib/ebot_docking/dock.py
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ament_index/resource_index/package_run_dependencies/ebot_docking
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ament_index/resource_index/parent_prefix_path/ebot_docking
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/environment/ament_prefix_path.sh
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/environment/ament_prefix_path.dsv
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/environment/path.sh
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/environment/path.dsv
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/local_setup.bash
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/local_setup.sh
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/local_setup.zsh
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/local_setup.dsv
+[0.491s] -- Installing: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/package.dsv
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ament_index/resource_index/packages/ebot_docking
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_cExport.cmake
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_cExport-noconfig.cmake
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cExport.cmake
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cExport.cmake
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cExport.cmake
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cExport-noconfig.cmake
+[0.491s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_cppExport.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cppExport.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cppExport.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cppExport-noconfig.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_pyExport.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_pyExport-noconfig.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/rosidl_cmake-extras.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_libraries-extras.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_targets-extras.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ebot_dockingConfig.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/cmake/ebot_dockingConfig-version.cmake
+[0.492s] -- Up-to-date: /home/northee/git/task3a/install/ebot_docking/share/ebot_docking/package.xml
+[0.499s] Invoked command in '/home/northee/git/task3a/build/ebot_docking' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/northee/eyrc/eyrc_ws/install/ur5_control:/home/northee/eyrc/eyrc_ws/install/bot:/home/northee/git/task3a/install/ur5_control:/home/northee/git/task3a/install/ff:/home/northee/git/task3a/install/bot:/home/northee/ROS2/turtle_ws/install/turtle_final:/home/northee/ROS2/turtle_ws/install/service_tut:/home/northee/ROS2/turtle_ws/install/first_pkg:/home/northee/ROS2/turtle_ws/install/exercise_1:/home/northee/ROS2/turtle_ws/install/arena_25:/home/northee/ROS2/urdf_ws/install/py_pubsub:/home/northee/ROS2/urdf_ws/install/ros2_control_demo_testing:/opt/ros/humble /usr/bin/cmake --install /home/northee/git/task3a/build/ebot_docking
