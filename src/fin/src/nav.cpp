@@ -8,6 +8,7 @@
 #include <geometry_msgs/msg/twist.hpp>
 #include <memory>
 #include <nav2_msgs/action/navigate_to_pose.hpp>
+#include <ratio>
 #include <rclcpp/client.hpp>
 #include <rclcpp/executors/single_threaded_executor.hpp>
 #include <rclcpp/logging.hpp>
@@ -43,6 +44,7 @@ class Nav : public rclcpp::Node {
     rclcpp::Client<ebot_docking::srv::DockSw>::SharedPtr dockClient;
     int waypoint_index_ = 0;
     int current_goal = 10;
+    bool inside_dock = false;
     rclcpp::TimerBase::SharedPtr timer_;
 
     std::vector<std::thread> threads_, threads_2;
@@ -52,6 +54,16 @@ class Nav : public rclcpp::Node {
     void send_goal() {
         if (current_goal == waypoint_index_) {
             return;
+        }
+
+        if (inside_dock) {
+            auto vel_msg = geometry_msgs::msg::Twist();
+            vel_msg.linear.x = 0.5;
+            vel_pub->publish(vel_msg);
+            std::this_thread::sleep_for(std::chrono::milliseconds(2500));
+            inside_dock = false;
+            vel_msg.linear.x = 0.0;
+            vel_pub->publish(vel_msg);
         }
 
         if (!nav_client->wait_for_action_server(std::chrono::seconds(5))) {
@@ -128,10 +140,7 @@ class Nav : public rclcpp::Node {
             if (waypoint_index_ == 0) {
                 call_passing_service();
             } else {
-                auto vel_msg = geometry_msgs::msg::Twist();
-                vel_msg.linear.x = 0.5;
-                vel_pub->publish(vel_msg);
-
+                inside_dock = true;
                 waypoint_index_ = 0;
                 RCLCPP_INFO(this->get_logger(), "current_index %d", waypoint_index_);
             }
@@ -183,11 +192,8 @@ class Nav : public rclcpp::Node {
     void callback_pass_done_sub(std_msgs::msg::Bool::SharedPtr msg) {
         pass_done = msg->data;
         if (pass_done) {
-            std::this_thread::sleep_for(std::chrono::milliseconds(1500));
-            auto vel_msg = geometry_msgs::msg::Twist();
-            vel_msg.linear.x = 0.5;
-            vel_pub->publish(vel_msg);
-
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            inside_dock = true;
             waypoint_index_ = keep_safe;
             RCLCPP_INFO(this->get_logger(), "current_index %d", waypoint_index_);
         }
