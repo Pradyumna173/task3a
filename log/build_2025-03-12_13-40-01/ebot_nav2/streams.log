@@ -1,0 +1,125 @@
+[0.142s] Invoking command in '/home/northee/git/task3a/build/ebot_nav2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/northee/eyrc/eyrc_ws/install/ur5_control:/home/northee/eyrc/eyrc_ws/install/bot:/home/northee/git/task3a/install/ur5_control:/home/northee/git/task3a/install/ff:/home/northee/git/task3a/install/bot:/home/northee/ROS2/turtle_ws/install/turtle_final:/home/northee/ROS2/turtle_ws/install/service_tut:/home/northee/ROS2/turtle_ws/install/first_pkg:/home/northee/ROS2/turtle_ws/install/exercise_1:/home/northee/ROS2/turtle_ws/install/arena_25:/home/northee/ROS2/urdf_ws/install/py_pubsub:/home/northee/ROS2/urdf_ws/install/ros2_control_demo_testing:/opt/ros/humble /usr/bin/cmake /home/northee/git/task3a/src/ebot_nav2 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=/home/northee/git/task3a/install/ebot_nav2
+[0.393s] Not searching for unused variables given on the command line.
+[0.393s] -- The C compiler identification is GNU 11.4.0
+[0.393s] -- The CXX compiler identification is GNU 11.4.0
+[0.393s] -- Detecting C compiler ABI info
+[0.393s] -- Detecting C compiler ABI info - done
+[0.394s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.394s] -- Detecting C compile features
+[0.394s] -- Detecting C compile features - done
+[0.394s] -- Detecting CXX compiler ABI info
+[0.394s] -- Detecting CXX compiler ABI info - done
+[0.394s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.394s] -- Detecting CXX compile features
+[0.394s] -- Detecting CXX compile features - done
+[0.394s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.408s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.504s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[0.562s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.566s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.577s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.599s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.614s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.681s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.689s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.791s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.814s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.849s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.862s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.902s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.903s] -- Found Threads: TRUE  
+[0.956s] -- Found rclpy: 3.3.15 (/opt/ros/humble/share/rclpy/cmake)
+[0.962s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[1.009s] -- Found xacro: 2.0.8 (/opt/ros/humble/share/xacro/cmake)
+[1.014s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.067s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.068s] -- Added test 'lint_cmake' to check CMake code style
+[1.069s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.070s] -- Added test 'xmllint' to check XML markup files
+[1.072s] -- Configuring done
+[1.073s] -- Generating done
+[1.074s] -- Build files have been written to: /home/northee/git/task3a/build/ebot_nav2
+[1.079s] Invoked command in '/home/northee/git/task3a/build/ebot_nav2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/northee/eyrc/eyrc_ws/install/ur5_control:/home/northee/eyrc/eyrc_ws/install/bot:/home/northee/git/task3a/install/ur5_control:/home/northee/git/task3a/install/ff:/home/northee/git/task3a/install/bot:/home/northee/ROS2/turtle_ws/install/turtle_final:/home/northee/ROS2/turtle_ws/install/service_tut:/home/northee/ROS2/turtle_ws/install/first_pkg:/home/northee/ROS2/turtle_ws/install/exercise_1:/home/northee/ROS2/turtle_ws/install/arena_25:/home/northee/ROS2/urdf_ws/install/py_pubsub:/home/northee/ROS2/urdf_ws/install/ros2_control_demo_testing:/opt/ros/humble /usr/bin/cmake /home/northee/git/task3a/src/ebot_nav2 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=/home/northee/git/task3a/install/ebot_nav2
+[1.080s] Invoking command in '/home/northee/git/task3a/build/ebot_nav2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/northee/eyrc/eyrc_ws/install/ur5_control:/home/northee/eyrc/eyrc_ws/install/bot:/home/northee/git/task3a/install/ur5_control:/home/northee/git/task3a/install/ff:/home/northee/git/task3a/install/bot:/home/northee/ROS2/turtle_ws/install/turtle_final:/home/northee/ROS2/turtle_ws/install/service_tut:/home/northee/ROS2/turtle_ws/install/first_pkg:/home/northee/ROS2/turtle_ws/install/exercise_1:/home/northee/ROS2/turtle_ws/install/arena_25:/home/northee/ROS2/urdf_ws/install/py_pubsub:/home/northee/ROS2/urdf_ws/install/ros2_control_demo_testing:/opt/ros/humble /usr/bin/cmake --build /home/northee/git/task3a/build/ebot_nav2 -- -j24 -l24
+[1.095s] Invoked command in '/home/northee/git/task3a/build/ebot_nav2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/northee/eyrc/eyrc_ws/install/ur5_control:/home/northee/eyrc/eyrc_ws/install/bot:/home/northee/git/task3a/install/ur5_control:/home/northee/git/task3a/install/ff:/home/northee/git/task3a/install/bot:/home/northee/ROS2/turtle_ws/install/turtle_final:/home/northee/ROS2/turtle_ws/install/service_tut:/home/northee/ROS2/turtle_ws/install/first_pkg:/home/northee/ROS2/turtle_ws/install/exercise_1:/home/northee/ROS2/turtle_ws/install/arena_25:/home/northee/ROS2/urdf_ws/install/py_pubsub:/home/northee/ROS2/urdf_ws/install/ros2_control_demo_testing:/opt/ros/humble /usr/bin/cmake --build /home/northee/git/task3a/build/ebot_nav2 -- -j24 -l24
+[1.095s] Invoking command in '/home/northee/git/task3a/build/ebot_nav2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/northee/eyrc/eyrc_ws/install/ur5_control:/home/northee/eyrc/eyrc_ws/install/bot:/home/northee/git/task3a/install/ur5_control:/home/northee/git/task3a/install/ff:/home/northee/git/task3a/install/bot:/home/northee/ROS2/turtle_ws/install/turtle_final:/home/northee/ROS2/turtle_ws/install/service_tut:/home/northee/ROS2/turtle_ws/install/first_pkg:/home/northee/ROS2/turtle_ws/install/exercise_1:/home/northee/ROS2/turtle_ws/install/arena_25:/home/northee/ROS2/urdf_ws/install/py_pubsub:/home/northee/ROS2/urdf_ws/install/ros2_control_demo_testing:/opt/ros/humble /usr/bin/cmake --install /home/northee/git/task3a/build/ebot_nav2
+[1.098s] -- Install configuration: ""
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//launch
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//launch/ebot_nav2_brinup.launch.py
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ebot
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ebot/agri_bot.xacro
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ebot/ebot_trolley_ur5.xacro
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ebot/ebot_trolley.xacro
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ebot/ebot.gazebo
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model.config
+[1.098s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model-1_2.sdf
+[1.099s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model-1_4.sdf
+[1.099s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model.sdf
+[1.099s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model-1_3.sdf
+[1.099s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes
+[1.099s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/LANT.STL
+[1.099s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FUS1.STL
+[1.099s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/trolley.STL
+[1.099s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FUS3.STL
+[1.099s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RWR.STL
+[1.100s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RUS6.STL
+[1.100s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/LHUS10.STL
+[1.100s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/NAVRS.STL
+[1.104s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RRS.STL
+[1.106s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RHUS9.STL
+[1.106s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FUS2.STL
+[1.106s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FWL.STL
+[1.106s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RUS5.STL
+[1.106s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FWR.STL
+[1.106s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FUS4.STL
+[1.107s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/chassis.dae
+[1.117s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/basket.dae
+[1.117s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/robot_base.stl
+[1.117s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/basket_collision.stl
+[1.117s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/LHUS9.STL
+[1.117s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/FRS.STL
+[1.119s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/LIDAR.STL
+[1.119s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RWL.STL
+[1.119s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RHUS7.STL
+[1.119s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//meshes/RANT.STL
+[1.119s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//config
+[1.119s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//config/ekf.yaml
+[1.120s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//config/config.yaml
+[1.120s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//config/mapper_params_online_async.yaml
+[1.120s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//plugins
+[1.120s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//plugins/libgazebo_collision_sensor.so
+[1.120s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//plugins/libgazebo_ros_vacuum_gripper.so
+[1.121s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//maps
+[1.121s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//maps/map.pgm
+[1.121s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//maps/map.data
+[1.122s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//maps/map.yaml
+[1.122s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//maps/map.posegraph
+[1.125s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//params
+[1.125s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//params/nav2_params_filtered.yaml
+[1.125s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//params/nav2_params.yaml
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//rviz
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2//rviz/nav2_default_view.rviz
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/pyarmor_runtime_000000
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/pyarmor_runtime_000000/__init__.py
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/pyarmor_runtime_000000/pyarmor_runtime.so
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/pose_detector.py
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/pf_pose_saver.py
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/lib/ebot_nav2/duplicate_imu.py
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ament_index/resource_index/package_run_dependencies/ebot_nav2
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ament_index/resource_index/parent_prefix_path/ebot_nav2
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/environment/ament_prefix_path.sh
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/environment/ament_prefix_path.dsv
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/environment/path.sh
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/environment/path.dsv
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/local_setup.bash
+[1.126s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/local_setup.sh
+[1.127s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/local_setup.zsh
+[1.127s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/local_setup.dsv
+[1.127s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/package.dsv
+[1.127s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ament_index/resource_index/packages/ebot_nav2
+[1.127s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/cmake/ebot_nav2Config.cmake
+[1.127s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/cmake/ebot_nav2Config-version.cmake
+[1.127s] -- Installing: /home/northee/git/task3a/install/ebot_nav2/share/ebot_nav2/package.xml
+[1.128s] Invoked command in '/home/northee/git/task3a/build/ebot_nav2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/northee/eyrc/eyrc_ws/install/ur5_control:/home/northee/eyrc/eyrc_ws/install/bot:/home/northee/git/task3a/install/ur5_control:/home/northee/git/task3a/install/ff:/home/northee/git/task3a/install/bot:/home/northee/ROS2/turtle_ws/install/turtle_final:/home/northee/ROS2/turtle_ws/install/service_tut:/home/northee/ROS2/turtle_ws/install/first_pkg:/home/northee/ROS2/turtle_ws/install/exercise_1:/home/northee/ROS2/turtle_ws/install/arena_25:/home/northee/ROS2/urdf_ws/install/py_pubsub:/home/northee/ROS2/urdf_ws/install/ros2_control_demo_testing:/opt/ros/humble /usr/bin/cmake --install /home/northee/git/task3a/build/ebot_nav2

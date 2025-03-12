@@ -7,7 +7,7 @@
 #include <rclcpp/logging.hpp>
 #include <thread>
 
-#define SIM
+/*#define SIM*/
 
 #include <ebot_docking/srv/dock_sw.hpp>
 #include <geometry_msgs/msg/twist.hpp>
@@ -152,7 +152,6 @@ class Dock : public rclcpp::Node {
         request->servostate = state;
 
         auto future = servoClient->async_send_request(request);
-        future.wait();
 
         try {
             auto response = future.get();
