@@ -1,0 +1,54 @@
+[3.519s] Invoking command in '/home/eyantra/LB24/Student/1048/src/bot': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/bot build --build-base /home/eyantra/LB24/Student/1048/build/bot/build install --record /home/eyantra/LB24/Student/1048/build/bot/install.log --single-version-externally-managed install_data
+[4.361s] running egg_info
+[4.365s] creating ../../build/bot/bot.egg-info
+[4.365s] writing ../../build/bot/bot.egg-info/PKG-INFO
+[4.369s] writing dependency_links to ../../build/bot/bot.egg-info/dependency_links.txt
+[4.369s] writing entry points to ../../build/bot/bot.egg-info/entry_points.txt
+[4.369s] writing requirements to ../../build/bot/bot.egg-info/requires.txt
+[4.370s] writing top-level names to ../../build/bot/bot.egg-info/top_level.txt
+[4.370s] writing manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+[4.370s] reading manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+[4.371s] writing manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+[4.372s] running build
+[4.372s] running build_py
+[4.372s] creating /home/eyantra/LB24/Student/1048/build/bot/build
+[4.372s] creating /home/eyantra/LB24/Student/1048/build/bot/build/lib
+[4.372s] creating /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot
+[4.372s] copying bot/nav.py -> /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot
+[4.373s] copying bot/dock5.py -> /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot
+[4.373s] copying bot/nav5.py -> /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot
+[4.374s] copying bot/dock.py -> /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot
+[4.380s] copying bot/arm.py -> /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot
+[4.382s] copying bot/arm5.py -> /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot
+[4.383s] copying bot/__init__.py -> /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot
+[4.383s] running install
+[4.383s] running install_lib
+[4.385s] creating /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot
+[4.385s] copying /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot/nav.py -> /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot
+[4.385s] copying /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot/dock5.py -> /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot
+[4.385s] copying /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot/nav5.py -> /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot
+[4.386s] copying /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot/dock.py -> /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot
+[4.389s] copying /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot/arm.py -> /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot
+[4.389s] copying /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot/arm5.py -> /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot
+[4.389s] copying /home/eyantra/LB24/Student/1048/build/bot/build/lib/bot/__init__.py -> /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot
+[4.389s] byte-compiling /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot/nav.py to nav.cpython-310.pyc
+[4.400s] byte-compiling /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot/dock5.py to dock5.cpython-310.pyc
+[4.419s] byte-compiling /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot/nav5.py to nav5.cpython-310.pyc
+[4.419s] byte-compiling /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot/dock.py to dock.cpython-310.pyc
+[4.419s] byte-compiling /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot/arm.py to arm.cpython-310.pyc
+[4.422s] byte-compiling /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot/arm5.py to arm5.cpython-310.pyc
+[4.423s] byte-compiling /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot/__init__.py to __init__.cpython-310.pyc
+[4.423s] running install_data
+[4.423s] creating /home/eyantra/LB24/Student/1048/install/bot/share/ament_index
+[4.423s] creating /home/eyantra/LB24/Student/1048/install/bot/share/ament_index/resource_index
+[4.423s] creating /home/eyantra/LB24/Student/1048/install/bot/share/ament_index/resource_index/packages
+[4.423s] copying resource/bot -> /home/eyantra/LB24/Student/1048/install/bot/share/ament_index/resource_index/packages
+[4.424s] copying package.xml -> /home/eyantra/LB24/Student/1048/install/bot/share/bot
+[4.424s] running install_egg_info
+[4.426s] Copying ../../build/bot/bot.egg-info to /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot-0.0.0-py3.10.egg-info
+[4.428s] running install_scripts
+[4.538s] Installing arm script to /home/eyantra/LB24/Student/1048/install/bot/lib/bot
+[4.539s] Installing dock script to /home/eyantra/LB24/Student/1048/install/bot/lib/bot
+[4.539s] Installing nav script to /home/eyantra/LB24/Student/1048/install/bot/lib/bot
+[4.539s] writing list of installed files to '/home/eyantra/LB24/Student/1048/build/bot/install.log'
+[4.650s] Invoked command in '/home/eyantra/LB24/Student/1048/src/bot' returned '0': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/bot build --build-base /home/eyantra/LB24/Student/1048/build/bot/build install --record /home/eyantra/LB24/Student/1048/build/bot/install.log --single-version-externally-managed install_data

@@ -164,8 +164,10 @@ class Arm(Node):
 
         goal_x, goal_y, goal_z = box_pose
         goal_z += 0.1  # only for hardware
-        self.saved_z = goal_z + 0.05
-        goal_y += 0.02
+        self.saved_z = goal_z + 0.08
+        if box_number == '1':
+            goal_x -= 0.05
+        goal_y += 0.014
 
         error_x = 0.0
         error_y = 0.0
@@ -200,8 +202,8 @@ class Arm(Node):
                 error_y = 0.0
                 error_z = 0.0
         elif state == 2:
-            error_z = 0.01
-            if self.force > 85.0:  # only for hardware
+            error_z = -0.01
+            if self.force > 75.0:  # only for hardware
                 error_z = 0.0
                 self.state = 3
             # self.state = 3  # only for software
@@ -225,7 +227,7 @@ class Arm(Node):
                 self.process_image()
                 return
 
-            error_x = self.ebot_pose[0] - self.servo_x
+            error_x = (self.ebot_pose[0] + 0.025) - self.servo_x
             error_y = self.ebot_pose[1] - self.servo_y
             error_z = self.saved_z - self.servo_z
 
@@ -240,6 +242,10 @@ class Arm(Node):
                 if abs(error_z) > 0.02:
                     error_x = 0.0
         elif state == 6:
+            error_z = (self.saved_z - 0.05) - self.servo_z
+            if abs(error_z) < 0.02:
+                self.state = 7
+        elif state == 7:
             if self.attach_called:
                 self.call_detach_box(box_number)
                 self.attach_called = False

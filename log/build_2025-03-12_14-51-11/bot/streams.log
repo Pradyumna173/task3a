@@ -1,0 +1,23 @@
+[3.327s] Invoking command in '/home/eyantra/LB24/Student/1048/src/bot': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/bot build --build-base /home/eyantra/LB24/Student/1048/build/bot/build install --record /home/eyantra/LB24/Student/1048/build/bot/install.log --single-version-externally-managed install_data
+[4.052s] running egg_info
+[4.054s] writing ../../build/bot/bot.egg-info/PKG-INFO
+[4.054s] writing dependency_links to ../../build/bot/bot.egg-info/dependency_links.txt
+[4.054s] writing entry points to ../../build/bot/bot.egg-info/entry_points.txt
+[4.054s] writing requirements to ../../build/bot/bot.egg-info/requires.txt
+[4.055s] writing top-level names to ../../build/bot/bot.egg-info/top_level.txt
+[4.057s] reading manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+[4.061s] writing manifest file '../../build/bot/bot.egg-info/SOURCES.txt'
+[4.062s] running build
+[4.062s] running build_py
+[4.062s] running install
+[4.062s] running install_lib
+[4.064s] running install_data
+[4.064s] running install_egg_info
+[4.068s] removing '/home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot-0.0.0-py3.10.egg-info' (and everything under it)
+[4.079s] Copying ../../build/bot/bot.egg-info to /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot-0.0.0-py3.10.egg-info
+[4.080s] running install_scripts
+[4.134s] Installing arm script to /home/eyantra/LB24/Student/1048/install/bot/lib/bot
+[4.135s] Installing dock script to /home/eyantra/LB24/Student/1048/install/bot/lib/bot
+[4.135s] Installing nav script to /home/eyantra/LB24/Student/1048/install/bot/lib/bot
+[4.136s] writing list of installed files to '/home/eyantra/LB24/Student/1048/build/bot/install.log'
+[4.251s] Invoked command in '/home/eyantra/LB24/Student/1048/src/bot' returned '0': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/bot build --build-base /home/eyantra/LB24/Student/1048/build/bot/build install --record /home/eyantra/LB24/Student/1048/build/bot/install.log --single-version-externally-managed install_data

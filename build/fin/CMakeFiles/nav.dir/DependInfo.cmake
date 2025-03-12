@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/northee/git/task3a/src/fin/src/nav.cpp" "CMakeFiles/nav.dir/src/nav.cpp.o" "gcc" "CMakeFiles/nav.dir/src/nav.cpp.o.d"
+  "/home/eyantra/LB24/Student/1048/src/fin/src/nav.cpp" "CMakeFiles/nav.dir/src/nav.cpp.o" "gcc" "CMakeFiles/nav.dir/src/nav.cpp.o.d"
   )
 
 # Targets to which this target links.

@@ -1,9 +1,9 @@
 {
   "package_name": "usb_servo",
-  "output_dir": "/home/northee/git/task3a/build/usb_servo/rosidl_generator_cpp/usb_servo",
+  "output_dir": "/home/eyantra/LB24/Student/1048/build/usb_servo/rosidl_generator_cpp/usb_servo",
   "template_dir": "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource",
   "idl_tuples": [
-    "/home/northee/git/task3a/build/usb_servo/rosidl_adapter/usb_servo:srv/ServoSw.idl"
+    "/home/eyantra/LB24/Student/1048/build/usb_servo/rosidl_adapter/usb_servo:srv/ServoSw.idl"
   ],
   "target_dependencies": [
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp",
@@ -21,6 +21,6 @@
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__builder.hpp.em",
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__struct.hpp.em",
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__traits.hpp.em",
-    "/home/northee/git/task3a/build/usb_servo/rosidl_adapter/usb_servo/srv/ServoSw.idl"
+    "/home/eyantra/LB24/Student/1048/build/usb_servo/rosidl_adapter/usb_servo/srv/ServoSw.idl"
   ]
 }

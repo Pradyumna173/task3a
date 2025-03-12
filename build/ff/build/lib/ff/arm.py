@@ -11,32 +11,29 @@
 * Global Variables: ARUCO_DICT, ARUCO_PARAMS, detector, EBOT_ID
 """
 
-import math
-import sys
-from functools import partial
-
+import math, rclpy, sys, tf2_ros
 import numpy as np
-import rclpy
-import tf2_ros
-from cv2 import Rodrigues, aruco
+from cv2 import aruco, Rodrigues
 from cv_bridge import CvBridge
-from geometry_msgs.msg import TransformStamped, TwistStamped
-from linkattacher_msgs.srv import AttachLink, DetachLink  # uncomment for sim
+from rclpy.node import Node
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
-from rclpy.node import Node
 from sensor_msgs.msg import Image
-from std_msgs.msg import Bool, Float64
+from std_msgs.msg import Float64, Bool
 from std_srvs.srv import Trigger
+from geometry_msgs.msg import TransformStamped, TwistStamped
 from tf_transformations import (
-    concatenate_matrices,
-    euler_from_quaternion,
     quaternion_from_euler,
+    euler_from_quaternion,
     quaternion_matrix,
-    translation_from_matrix,
     translation_matrix,
+    concatenate_matrices,
+    translation_from_matrix,
 )
+from functools import partial
 
+# from linkattacher_msgs.srv import AttachLink, DetachLink # uncomment for sim
+from ur_msgs.srv import SetIO  # uncomment for hardware
 from ebot_docking.srv import PassingService
 
 # Aruco Processing Objects
@@ -45,11 +42,12 @@ ARUCO_PARAMS = aruco.DetectorParameters()
 detector = aruco.ArucoDetector(ARUCO_DICT, ARUCO_PARAMS)
 
 # Ebot ID
-EBOT_ID = 12  # only for hardware, 12 for sim
+EBOT_ID = 6  # only for hardware, 12 for sim
 
 
 class Arm(Node):
     def __init__(self):
+
         super().__init__("aruco_tf_node")
         # Variables
         self.arm_started = False  # toggled after servo trigger
@@ -90,8 +88,8 @@ class Arm(Node):
         # Subscribers
         self.color_cam_sub = self.create_subscription(
             Image,
-            "/camera/color/image_raw",  # only for software
-            # "/camera/camera/color/image_raw",
+            # "/camera/color/image_raw",  # only for software
+            "/camera/camera/color/image_raw",
             self.colorImageCB,
             10,
         )
@@ -106,8 +104,8 @@ class Arm(Node):
         # Publishers
         self.servo_pub = self.create_publisher(
             TwistStamped,
-            "/servo_node/delta_twist_cmds",  # only for software
-            # "/ServoCmdVel",
+            # "/servo_node/delta_twist_cmds",  # only for software
+            "/ServoCmdVel",
             10,
         )
 
@@ -160,7 +158,7 @@ class Arm(Node):
         print(self.box_conveyer)
 
         goal_x, goal_y, goal_z = box_pose
-        # goal_z += 0.1  # only for hardware
+        goal_z += 0.1  # only for hardware
         self.saved_z = goal_z + 0.05
         goal_y += 0.02
 
@@ -214,10 +212,10 @@ class Arm(Node):
         print("Translation Corrected")
 
         twist_msg.twist.linear.z = 0.4
-        # while self.force < 85.0:  # only for hardware
-        #     twist_msg.header.stamp = self.get_clock().now().to_msg()
-        #     self.servo_pub.publish(twist_msg)
-        #     self.arm_rate.sleep()
+        while self.force < 85.0:  # only for hardware
+            twist_msg.header.stamp = self.get_clock().now().to_msg()
+            self.servo_pub.publish(twist_msg)
+            self.arm_rate.sleep()
 
         twist_msg.twist.linear.z = 0.0
         twist_msg.header.stamp = self.get_clock().now().to_msg()
@@ -292,90 +290,90 @@ class Arm(Node):
             pass
         self.box_request = False
 
-    def call_attach_box(self, box_number):
-        client = self.create_client(AttachLink, "GripperMagnetON")
-        while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().warn("Waiting for Attach_Link Server...")
+    # def call_attach_box(self, box_number):
+    #     client = self.create_client(AttachLink, "GripperMagnetON")
+    #     while not client.wait_for_service(timeout_sec=1.0):
+    #         self.get_logger().warn("Waiting for Attach_Link Server...")
 
-        request = AttachLink.Request()
-        request.model1_name = "box" + box_number
-        request.link1_name = "link"
-        request.model2_name = "ur5"
-        request.link2_name = "wrist_3_link"
+    #     request = AttachLink.Request()
+    #     request.model1_name = "box" + box_number
+    #     request.link1_name = "link"
+    #     request.model2_name = "ur5"
+    #     request.link2_name = "wrist_3_link"
+
+    #     future = client.call_async(request)
+    #     future.add_done_callback(
+    #         partial(self.callback_call_attach_box, box_number=box_number)
+    #     )
+
+    def call_attach_box(self, box_number):
+        """
+        Output: future | Does not return the variable, just attaches a callback at service completion
+        ---
+        Logic: Calls the set_io service. Attaches a callback to address attach completion
+        """
+        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info("EEF Tool service not available, waiting again...")
+
+        request = SetIO.Request()
+        request.fun = 1
+        request.pin = 16
+        request.state = 1.0
 
         future = client.call_async(request)
         future.add_done_callback(
             partial(self.callback_call_attach_box, box_number=box_number)
         )
 
-    # def call_attach_box(self, box_number):
-    #     """
-    #     Output: future | Does not return the variable, just attaches a callback at service completion
-    #     ---
-    #     Logic: Calls the set_io service. Attaches a callback to address attach completion
-    #     """
-    #     client = self.create_client(SetIO, "/io_and_status_controller/set_io")
-    #     while not client.wait_for_service(timeout_sec=1.0):
-    #         self.get_logger().info("EEF Tool service not available, waiting again...")
-    #
-    #     request = SetIO.Request()
-    #     request.fun = 1
-    #     request.pin = 16
-    #     request.state = 1.0
-    #
-    #     future = client.call_async(request)
-    #     future.add_done_callback(
-    #         partial(self.callback_call_attach_box, box_number=box_number)
-    #     )
-
-    # def callback_call_attach_box(self, future, box_number):
-    #     """
-    #     Output: null | toggles the attach_done flag
-    #     ---
-    #     Logic: notifies main controller that attach has been done.
-    #     """
-    #     try:
-    #         response = future.result()
-    #         if response.success:
-    #             self.attach_done = True
-    #             self.get_logger().info("Attached Box" + box_number)
-    #     except Exception as e:
-    #         self.get_logger().error(f"Attach Box Client Failed: {e}")
-
-    def call_detach_box(self, box_number):
-        client = self.create_client(DetachLink, "GripperMagnetOFF")
-        while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().warn("Waiting for Detach_Link Server...")
-
-        request = DetachLink.Request()
-        request.model1_name = "box" + box_number
-        request.link1_name = "link"
-        request.model2_name = "ur5"
-        request.link2_name = "wrist_3_link"
-        future = client.call_async(request)
-        future.add_done_callback(
-            partial(self.callback_call_detach_box, box_number=box_number)
-        )
+    def callback_call_attach_box(self, future, box_number):
+        """
+        Output: null | toggles the attach_done flag
+        ---
+        Logic: notifies main controller that attach has been done.
+        """
+        try:
+            response = future.result()
+            if response.success:
+                self.attach_done = True
+                self.get_logger().info("Attached Box" + box_number)
+        except Exception as e:
+            self.get_logger().error(f"Attach Box Client Failed: {e}")
 
     # def call_detach_box(self, box_number):
-    #     """
-    #     Output: future | Does not return the variable, just attaches a callback at service completion
-    #     ---
-    #     Logic: Calls the set_io service. Attaches a callback to address detach completion
-    #     """
-    #     client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+    #     client = self.create_client(DetachLink, "GripperMagnetOFF")
     #     while not client.wait_for_service(timeout_sec=1.0):
-    #         self.get_logger().info("EEF Tool service not available, waiting...")
-    #
-    #     request = SetIO.Request()
-    #     request.fun = 1
-    #     request.pin = 16
-    #     request.state = 0.0
-    #
+    #         self.get_logger().warn("Waiting for Detach_Link Server...")
+
+    #     request = DetachLink.Request()
+    #     request.model1_name = "box" + box_number
+    #     request.link1_name = "link"
+    #     request.model2_name = "ur5"
+    #     request.link2_name = "wrist_3_link"
     #     future = client.call_async(request)
     #     future.add_done_callback(
     #         partial(self.callback_call_detach_box, box_number=box_number)
     #     )
+
+    def call_detach_box(self, box_number):
+        """
+        Output: future | Does not return the variable, just attaches a callback at service completion
+        ---
+        Logic: Calls the set_io service. Attaches a callback to address detach completion
+        """
+        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info("EEF Tool service not available, waiting...")
+
+        request = SetIO.Request()
+        request.fun = 1
+        request.pin = 16
+        request.state = 0.0
+
+        future = client.call_async(request)
+        future.add_done_callback(
+            partial(self.callback_call_detach_box, box_number=box_number)
+        )
 
     def callback_call_detach_box(self, future, box_number):
         """
@@ -500,6 +498,7 @@ class Arm(Node):
         Logic: Lookup transform between base_link and camera frame to estimate aruco pose of box w.r.t base_link
         """
         try:
+
             base_to_camera = self.tf_buffer.lookup_transform(
                 "base_link", "camera_color_optical_frame", rclpy.time.Time()
             )
@@ -588,10 +587,7 @@ class Arm(Node):
         if ids is not None:
             for corner, marker_id in zip(corners, ids):
                 rvec, tvec, _ = aruco.estimatePoseSingleMarkers(
-                    corner,
-                    0.15,
-                    camera_matrix,
-                    dist_coeffs,  # 0.15 is marker_size
+                    corner, 0.15, camera_matrix, dist_coeffs  # 0.15 is marker_size
                 )
 
                 R, _ = Rodrigues(rvec[0])
