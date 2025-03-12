@@ -3,7 +3,9 @@
 #include <ebot_docking/srv/detail/passing_service__struct.hpp>
 #include <ebot_docking/srv/passing_service.hpp>
 #include <functional>
+#include <geometry_msgs/msg/detail/twist__struct.hpp>
 #include <geometry_msgs/msg/quaternion.hpp>
+#include <geometry_msgs/msg/twist.hpp>
 #include <memory>
 #include <nav2_msgs/action/navigate_to_pose.hpp>
 #include <rclcpp/client.hpp>
@@ -14,7 +16,7 @@
 #include <rclcpp_action/rclcpp_action.hpp>
 #include <std_msgs/msg/bool.hpp>
 #include <std_msgs/msg/detail/bool__struct.hpp>
-#include <system_error>
+#include <thread>
 #include <vector>
 
 class Nav : public rclcpp::Node {
@@ -25,7 +27,7 @@ class Nav : public rclcpp::Node {
     Nav() : Node("waypoint_follower"), waypoint_index_(0) {
         nav_client = rclcpp_action::create_client<NavigateToPose>(this, "navigate_to_pose");
 
-        
+        vel_pub = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
 
         timer_ = this->create_wall_timer(std::chrono::seconds(1), std::bind(&Nav::send_goal, this));
     }
@@ -45,6 +47,8 @@ class Nav : public rclcpp::Node {
 
     std::vector<std::thread> threads_, threads_2;
 
+    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr vel_pub;
+
     void send_goal() {
         if (current_goal == waypoint_index_) {
             return;
@@ -60,8 +64,7 @@ class Nav : public rclcpp::Node {
         goal_msg.pose.header.stamp = this->now();
         goal_msg.pose.pose.position.x = waypoints_[waypoint_index_][0];
         goal_msg.pose.pose.position.y = waypoints_[waypoint_index_][1];
-        goal_msg.pose.pose.orientation =
-            to_quaternion(0.0, 0.0, waypoints_[waypoint_index_][2]);
+        goal_msg.pose.pose.orientation = to_quaternion(0.0, 0.0, waypoints_[waypoint_index_][2]);
 
         auto send_goal_options = rclcpp_action::Client<NavigateToPose>::SendGoalOptions();
         send_goal_options.result_callback =
@@ -125,9 +128,12 @@ class Nav : public rclcpp::Node {
             if (waypoint_index_ == 0) {
                 call_passing_service();
             } else {
+                auto vel_msg = geometry_msgs::msg::Twist();
+                vel_msg.linear.x = 0.5;
+                vel_pub->publish(vel_msg);
+
                 waypoint_index_ = 0;
-                RCLCPP_INFO(this->get_logger(), "current_index %d",
-                            waypoint_index_);
+                RCLCPP_INFO(this->get_logger(), "current_index %d", waypoint_index_);
             }
 
         } catch (const std::exception &e) {
@@ -175,12 +181,16 @@ class Nav : public rclcpp::Node {
     bool pass_done = false;
     int keep_safe = 0;
     void callback_pass_done_sub(std_msgs::msg::Bool::SharedPtr msg) {
-        pass_done = msg->data; 
+        pass_done = msg->data;
         if (pass_done) {
-            waypoint_index_= keep_safe;
-            RCLCPP_INFO(this->get_logger(), "current_index %d",waypoint_index_);
+            std::this_thread::sleep_for(std::chrono::milliseconds(1500));
+            auto vel_msg = geometry_msgs::msg::Twist();
+            vel_msg.linear.x = 0.5;
+            vel_pub->publish(vel_msg);
+
+            waypoint_index_ = keep_safe;
+            RCLCPP_INFO(this->get_logger(), "current_index %d", waypoint_index_);
         }
-        
     }
 };
 
