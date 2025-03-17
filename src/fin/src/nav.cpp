@@ -39,7 +39,7 @@ class Nav : public rclcpp::Node {
     };
 
     //float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
-    float waypoints_[3][3] = {{2.65, -2.82, 2.95}, {2.65, 1.96, 3.14}, {2.6, -1.2, 3.14}};
+    float waypoints_[3][3] = {{2.65, -2.825, 2.95}, {2.65, 1.96, 3.14}, {2.6, -1.2, 3.14}};
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
     rclcpp::Client<ebot_docking::srv::DockSw>::SharedPtr dockClient;

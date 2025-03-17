@@ -70,7 +70,7 @@ class Dock : public rclcpp::Node {
             std::this_thread::sleep_for(std::chrono::milliseconds(500));
         }  // Waiting for ultrasonic node to start publishing
 
-        static float f_stopDist = 32.0f;
+        static float f_stopDist = 28.0f;
         static bool b_isFirstDock{true};
         float f_rangeDiff{};
 
@@ -80,7 +80,7 @@ class Dock : public rclcpp::Node {
                 RCLCPP_INFO(this->get_logger(), "Getting in Range");
             } else if ((f_usonicLeft > f_stopDist) && (f_usonicRight > f_stopDist)) {
                 f_rangeDiff = f_usonicLeft - f_usonicRight;
-                vel_msg.angular.z = -0.04 * f_rangeDiff;
+                vel_msg.angular.z = -0.02 * f_rangeDiff;
 
                 if (abs(f_rangeDiff) < 10.0f) {
                     vel_msg.linear.x = -0.003 * f_usonicLeft;

@@ -1,0 +1,33 @@
+[0.157s] Invoking command in '/home/eyantra/LB24/Student/1048/build/fin': AMENT_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/fin -- -j8 -l8
+[0.352s] [ 33%] Built target arm
+[0.430s] [ 50%] [32mBuilding CXX object CMakeFiles/nav.dir/src/nav.cpp.o[0m
+[23.742s] [ 66%] [32m[1mLinking CXX executable nav[0m
+[25.843s] [ 66%] Built target nav
+[25.903s] [ 83%] [32mBuilding CXX object CMakeFiles/dock.dir/src/dock.cpp.o[0m
+[45.994s] [100%] [32m[1mLinking CXX executable dock[0m
+[47.654s] [100%] Built target dock
+[47.680s] Invoked command in '/home/eyantra/LB24/Student/1048/build/fin' returned '0': AMENT_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/fin -- -j8 -l8
+[47.682s] Invoking command in '/home/eyantra/LB24/Student/1048/build/fin': AMENT_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/fin
+[47.699s] -- Install configuration: ""
+[47.701s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/lib/fin/arm
+[47.702s] -- Installing: /home/eyantra/LB24/Student/1048/install/fin/lib/fin/dock
+[47.716s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/fin/lib/fin/dock" to ""
+[47.716s] -- Installing: /home/eyantra/LB24/Student/1048/install/fin/lib/fin/nav
+[47.727s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/fin/lib/fin/nav" to ""
+[47.728s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/lib/fin/arm.py
+[47.728s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/ament_index/resource_index/package_run_dependencies/fin
+[47.729s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/ament_index/resource_index/parent_prefix_path/fin
+[47.729s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/environment/ament_prefix_path.sh
+[47.729s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/environment/ament_prefix_path.dsv
+[47.729s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/environment/path.sh
+[47.729s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/environment/path.dsv
+[47.729s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/local_setup.bash
+[47.729s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/local_setup.sh
+[47.729s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/local_setup.zsh
+[47.730s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/local_setup.dsv
+[47.730s] -- Installing: /home/eyantra/LB24/Student/1048/install/fin/share/fin/package.dsv
+[47.730s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/ament_index/resource_index/packages/fin
+[47.730s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/cmake/finConfig.cmake
+[47.730s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/cmake/finConfig-version.cmake
+[47.730s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/package.xml
+[47.734s] Invoked command in '/home/eyantra/LB24/Student/1048/build/fin' returned '0': AMENT_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/fin
