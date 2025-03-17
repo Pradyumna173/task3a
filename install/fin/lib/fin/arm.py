@@ -15,6 +15,7 @@ import math
 import sys
 import time
 from functools import partial
+import cv2
 
 import numpy as np
 import rclpy
@@ -27,7 +28,7 @@ from geometry_msgs.msg import TransformStamped, TwistStamped
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image, CompressedImage
 from std_msgs.msg import Bool, Float64
 from std_srvs.srv import Trigger
 from tf_transformations import (
@@ -110,12 +111,17 @@ class Arm(Node):
         )
 
         # Publishers
+        self.image_pub = self.create_publisher(CompressedImage, "/camera/image1048", 10)
+
         self.servo_pub = self.create_publisher(
             TwistStamped,
             # "/servo_node/delta_twist_cmds",  # only for software
             "/ServoCmdVel",
             10,
         )
+
+        self.image_group = MutuallyExclusiveCallbackGroup()
+        self.image_timer = self.create_timer(1.0, self.process_image, callback_group=self.image_group)
 
         self.passing_group = MutuallyExclusiveCallbackGroup()
         self.passing_server = self.create_service(
@@ -164,10 +170,10 @@ class Arm(Node):
 
         goal_x, goal_y, goal_z = box_pose
         goal_z += 0.1  # only for hardware
-        self.saved_z = goal_z + 0.08
-        if box_number == '1':
-            goal_x -= 0.05
-        goal_y += 0.014
+        self.saved_z = goal_z + 0.13
+        # if box_number == '1':
+        goal_x -= 0.06
+        goal_y += 0.03
 
         error_x = 0.0
         error_y = 0.0
@@ -203,7 +209,7 @@ class Arm(Node):
                 error_z = 0.0
         elif state == 2:
             error_z = -0.01
-            if self.force > 85.0:  # only for hardware
+            if self.force > 75.0:  # only for hardware
                 error_z = 0.0
                 self.state = 3
             # self.state = 3  # only for software
@@ -242,7 +248,7 @@ class Arm(Node):
                 if abs(error_z) > 0.02:
                     error_x = 0.0
         elif state == 6:
-            error_z = (self.saved_z - 0.05) - self.servo_z
+            error_z = (self.saved_z - 0.1) - self.servo_z
             if abs(error_z) < 0.02:
                 self.state = 7
         elif state == 7:
@@ -722,6 +728,16 @@ class Arm(Node):
                     camera_matrix,
                     dist_coeffs,  # 0.15 is marker_size
                 )
+
+                cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, rvec, tvec, 0.1)
+
+                _, buffer = cv2.imencode(".jpg", frame)
+                msg = CompressedImage()
+                msg.header.stamp = self.get_clock().now().to_msg()
+                msg.format = "jpeg"
+                msg.data = np.array(buffer).tobytes()
+                self.image_pub.publish(msg)
+                self.get_logger().info("Published ArUco detected image")
 
                 R, _ = Rodrigues(rvec[0])
 
