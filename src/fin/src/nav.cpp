@@ -6,9 +6,9 @@
 #include <ebot_docking/srv/passing_service.hpp>
 #include <functional>
 #include <geometry_msgs/msg/detail/twist__struct.hpp>
+#include <geometry_msgs/msg/pose_with_covariance_stamped.hpp>
 #include <geometry_msgs/msg/quaternion.hpp>
 #include <geometry_msgs/msg/twist.hpp>
-#include <geometry_msgs/msg/pose_with_covariance_stamped.hpp>
 #include <memory>
 #include <nav2_msgs/action/navigate_to_pose.hpp>
 #include <nav_msgs/msg/detail/odometry__struct.hpp>
@@ -40,7 +40,8 @@ class Nav : public rclcpp::Node {
 
         timer_ = this->create_wall_timer(std::chrono::seconds(1), std::bind(&Nav::send_goal, this));
 
-        init_pose_pub = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/set_initial_pose", 10);
+        init_pose_pub = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
+            "/initialpose", 10);
     }
 
   private:
@@ -49,7 +50,7 @@ class Nav : public rclcpp::Node {
     };
 
     /*float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};*/
-    //float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.45, 2.16, -2.95}, {2.5, -1.2, -3.0}};
+    // float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.45, 2.16, -2.95}, {2.5, -1.2, -3.0}};
     float waypoints_[3][3] = {{2.45, 2.1, -3.0}, {2.45, 2.1, -2.95}, {2.5, -1.2, -3.0}};
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
@@ -64,7 +65,7 @@ class Nav : public rclcpp::Node {
         odom_update[1] = msg->pose.pose.position.y;
     }
 
-    int waypoint_index_ = 0;
+    int waypoint_index_{}, last_waypoint{};
     int current_goal = 10;
     bool inside_dock = false;
     rclcpp::TimerBase::SharedPtr timer_;
@@ -88,6 +89,8 @@ class Nav : public rclcpp::Node {
             inside_dock = false;
             vel_msg.linear.x = 0.0;
             vel_pub->publish(vel_msg);
+            setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
+                           waypoints_[last_waypoint][2]);
         }
 
         if (current_goal == waypoint_index_) {
@@ -171,6 +174,7 @@ class Nav : public rclcpp::Node {
                 call_passing_service();
             } else {
                 inside_dock = true;
+                last_waypoint = waypoint_index_;
                 waypoint_index_ = 0;
                 RCLCPP_INFO(this->get_logger(), "current_index %d", waypoint_index_);
             }
@@ -182,6 +186,20 @@ class Nav : public rclcpp::Node {
 
     inline void call_dock() {
         threads_.push_back(std::thread(std::bind(&Nav::callback_call_dock, this)));
+    }
+
+    void setInitialPose(float x, float y, float yaw) {
+        geometry_msgs::msg::PoseWithCovarianceStamped pose_msg;
+        pose_msg.header.stamp = this->now();
+        pose_msg.header.frame_id = "map";
+
+        pose_msg.pose.pose.position.x = x;
+        pose_msg.pose.pose.position.y = y;
+        pose_msg.pose.pose.position.z = 0.0;
+        pose_msg.pose.pose.orientation = to_quaternion(0.0, 0.0, yaw);
+
+        RCLCPP_INFO(this->get_logger(), "Publishing initial pose...");
+        init_pose_pub->publish(pose_msg);
     }
 
     geometry_msgs::msg::Quaternion to_quaternion(double roll, double pitch, double yaw) {
@@ -224,6 +242,7 @@ class Nav : public rclcpp::Node {
         if (pass_done) {
             std::this_thread::sleep_for(std::chrono::milliseconds(1000));
             inside_dock = true;
+            last_waypoint = waypoint_index_;
             waypoint_index_ = keep_safe;
             RCLCPP_INFO(this->get_logger(), "current_index %d", waypoint_index_);
         }

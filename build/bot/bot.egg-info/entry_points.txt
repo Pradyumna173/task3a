@@ -1,5 +1,0 @@
-[console_scripts]
-arm = bot.arm:main
-dock = bot.dock:main
-nav = bot.nav:main
-

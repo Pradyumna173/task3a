@@ -1,4 +1,0 @@
-source;share/usb_servo/local_setup.bash
-source;share/usb_servo/local_setup.dsv
-source;share/usb_servo/local_setup.sh
-source;share/usb_servo/local_setup.zsh
