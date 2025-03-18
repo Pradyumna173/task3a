@@ -1,0 +1,97 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-7148a0f2b4fd2d550e91.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "fin",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "arm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm-9ef723fea9f5c78923d6.json",
+					"name" : "arm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dock::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dock-7a42ad828006496bcd6e.json",
+					"name" : "dock",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fin_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fin_uninstall-8aaed2f6a66eef85d20c.json",
+					"name" : "fin_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav-2baf66f4767f1d38436d.json",
+					"name" : "nav",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-0b213c95da1c47951904.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/eyantra/LB24/Student/1048/build/fin",
+		"source" : "/home/eyantra/LB24/Student/1048/src/fin"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
