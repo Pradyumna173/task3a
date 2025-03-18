@@ -8,6 +8,7 @@
 #include <geometry_msgs/msg/detail/twist__struct.hpp>
 #include <geometry_msgs/msg/quaternion.hpp>
 #include <geometry_msgs/msg/twist.hpp>
+#include <geometry_msgs/msg/pose_with_covariance_stamped.hpp>
 #include <memory>
 #include <nav2_msgs/action/navigate_to_pose.hpp>
 #include <nav_msgs/msg/detail/odometry__struct.hpp>
@@ -38,6 +39,8 @@ class Nav : public rclcpp::Node {
             "/odom", 10, std::bind(&Nav::callback_odom_sub, this, std::placeholders::_1));
 
         timer_ = this->create_wall_timer(std::chrono::seconds(1), std::bind(&Nav::send_goal, this));
+
+        init_pose_pub = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/set_initial_pose", 10);
     }
 
   private:
@@ -46,7 +49,8 @@ class Nav : public rclcpp::Node {
     };
 
     /*float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};*/
-    float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.45, 2.16, -2.95}, {2.5, -1.2, -3.0}};
+    //float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.45, 2.16, -2.95}, {2.5, -1.2, -3.0}};
+    float waypoints_[3][3] = {{2.45, 2.1, -3.0}, {2.45, 2.1, -2.95}, {2.5, -1.2, -3.0}};
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
     rclcpp::Client<ebot_docking::srv::DockSw>::SharedPtr dockClient;
@@ -68,6 +72,7 @@ class Nav : public rclcpp::Node {
     std::vector<std::thread> threads_, threads_2;
 
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr vel_pub;
+    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr init_pose_pub;
 
     void send_goal() {
         if (inside_dock) {

@@ -1,0 +1,18 @@
+[0.070s] Invoking command in '/home/eyantra/LB24/Student/1048/build/fin': AMENT_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/fin -- -j8 -l8
+[0.217s] [ 33%] Built target arm
+[0.290s] [ 50%] [32mBuilding CXX object CMakeFiles/nav.dir/src/nav.cpp.o[0m
+[5.541s] [01m[K/home/eyantra/LB24/Student/1048/src/fin/src/nav.cpp:[m[K In constructor ‘[01m[KNav::Nav()[m[K’:
+[5.541s] [01m[K/home/eyantra/LB24/Student/1048/src/fin/src/nav.cpp:41:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kset_init_pose[m[K’ was not declared in this scope
+[5.543s]    41 |         [01;31m[Kset_init_pose[m[K = this->create_publisher<geometry_msgs::msg::pose
+[5.543s]       |         [01;31m[K^~~~~~~~~~~~~[m[K
+[5.544s] [01m[K/home/eyantra/LB24/Student/1048/src/fin/src/nav.cpp:41:68:[m[K [01;31m[Kerror: [m[K‘[01m[Kpose[m[K’ is not a member of ‘[01m[Kgeometry_msgs::msg[m[K’; did you mean ‘[01m[KPose[m[K’?
+[5.544s]    41 |         set_init_pose = this->create_publisher<geometry_msgs::msg::[01;31m[Kpose[m[K
+[5.545s]       |                                                                    [01;31m[K^~~~[m[K
+[5.545s]       |                                                                    [32m[KPose[m[K
+[5.546s] [01m[K/home/eyantra/LB24/Student/1048/src/fin/src/nav.cpp:41:31:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+[5.546s]    41 |         set_init_pose = this->[01;31m[Kcreate_publisher<geometry_msgs::msg::pose[m[K
+[5.547s]       |                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[13.387s] gmake[2]: *** [CMakeFiles/nav.dir/build.make:76: CMakeFiles/nav.dir/src/nav.cpp.o] Error 1
+[13.387s] gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/nav.dir/all] Error 2
+[13.387s] gmake: *** [Makefile:146: all] Error 2
+[13.390s] Invoked command in '/home/eyantra/LB24/Student/1048/build/fin' returned '2': AMENT_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/fin -- -j8 -l8

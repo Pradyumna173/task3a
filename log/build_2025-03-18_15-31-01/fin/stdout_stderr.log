@@ -1,0 +1,16 @@
+[ 33%] Built target arm
+[ 50%] [32mBuilding CXX object CMakeFiles/nav.dir/src/nav.cpp.o[0m
+[01m[K/home/eyantra/LB24/Student/1048/src/fin/src/nav.cpp:[m[K In constructor ‘[01m[KNav::Nav()[m[K’:
+[01m[K/home/eyantra/LB24/Student/1048/src/fin/src/nav.cpp:41:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kset_init_pose[m[K’ was not declared in this scope
+   41 |         [01;31m[Kset_init_pose[m[K = this->create_publisher<geometry_msgs::msg::pose
+      |         [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/eyantra/LB24/Student/1048/src/fin/src/nav.cpp:41:68:[m[K [01;31m[Kerror: [m[K‘[01m[Kpose[m[K’ is not a member of ‘[01m[Kgeometry_msgs::msg[m[K’; did you mean ‘[01m[KPose[m[K’?
+   41 |         set_init_pose = this->create_publisher<geometry_msgs::msg::[01;31m[Kpose[m[K
+      |                                                                    [01;31m[K^~~~[m[K
+      |                                                                    [32m[KPose[m[K
+[01m[K/home/eyantra/LB24/Student/1048/src/fin/src/nav.cpp:41:31:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+   41 |         set_init_pose = this->[01;31m[Kcreate_publisher<geometry_msgs::msg::pose[m[K
+      |                               [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/nav.dir/build.make:76: CMakeFiles/nav.dir/src/nav.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/nav.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
