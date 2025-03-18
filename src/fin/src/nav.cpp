@@ -49,8 +49,8 @@ class Nav : public rclcpp::Node {
         double w, x, y, z;
     };
 
-    float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
-    // float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.45, 2.1, -2.95}, {2.5, -1.2, -3.0}};
+    //float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
+    float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.45, 2.1, -2.95}, {2.5, -1.2, -3.0}};
     /*float waypoints_[3][3] = {{2.45, 2.1, -3.0}, {2.45, 2.1, -2.95}, {2.5, -1.2, -3.0}};*/
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
