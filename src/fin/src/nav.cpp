@@ -1,4 +1,6 @@
 #include <chrono>
+#include <cmath>
+#include <cstdint>
 #include <ebot_docking/srv/detail/dock_sw__struct.hpp>
 #include <ebot_docking/srv/detail/passing_service__struct.hpp>
 #include <ebot_docking/srv/passing_service.hpp>
@@ -8,6 +10,8 @@
 #include <geometry_msgs/msg/twist.hpp>
 #include <memory>
 #include <nav2_msgs/action/navigate_to_pose.hpp>
+#include <nav_msgs/msg/detail/odometry__struct.hpp>
+#include <nav_msgs/msg/odometry.hpp>
 #include <ratio>
 #include <rclcpp/client.hpp>
 #include <rclcpp/executors/single_threaded_executor.hpp>
@@ -30,6 +34,9 @@ class Nav : public rclcpp::Node {
 
         vel_pub = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
 
+        odom_sub = this->create_subscription<nav_msgs::msg::Odometry>(
+            "/odom", 10, std::bind(&Nav::callback_odom_sub, this, std::placeholders::_1));
+
         timer_ = this->create_wall_timer(std::chrono::seconds(1), std::bind(&Nav::send_goal, this));
     }
 
@@ -38,11 +45,21 @@ class Nav : public rclcpp::Node {
         double w, x, y, z;
     };
 
-    //float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
+    /*float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};*/
     float waypoints_[3][3] = {{2.65, -2.825, 2.95}, {2.65, 1.96, 3.14}, {2.6, -1.2, 3.14}};
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
     rclcpp::Client<ebot_docking::srv::DockSw>::SharedPtr dockClient;
+
+    float odom_update[2] = {0.0, 0.0}, odom_stored[2] = {0.0, 0.0};
+
+    rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_sub;
+
+    void callback_odom_sub(nav_msgs::msg::Odometry::SharedPtr msg) {
+        odom_update[0] = msg->pose.pose.position.x;
+        odom_update[1] = msg->pose.pose.position.y;
+    }
+
     int waypoint_index_ = 0;
     int current_goal = 10;
     bool inside_dock = false;
@@ -53,18 +70,23 @@ class Nav : public rclcpp::Node {
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr vel_pub;
 
     void send_goal() {
-        if (current_goal == waypoint_index_) {
-            return;
-        }
-
         if (inside_dock) {
             auto vel_msg = geometry_msgs::msg::Twist();
+            float dist = sqrt(pow(odom_update[0] - odom_stored[0], 2) +
+                              pow(odom_update[1] - odom_stored[1], 2));
+
             vel_msg.linear.x = 0.5;
             vel_pub->publish(vel_msg);
-            std::this_thread::sleep_for(std::chrono::milliseconds(2500));
+            int64_t time_to_stop = std::round(dist / vel_msg.linear.x) * 1000;
+            std::this_thread::sleep_for(std::chrono::milliseconds(time_to_stop));
+            RCLCPP_INFO(this->get_logger(), "dist: %f", dist);
             inside_dock = false;
             vel_msg.linear.x = 0.0;
             vel_pub->publish(vel_msg);
+        }
+
+        if (current_goal == waypoint_index_) {
+            return;
         }
 
         if (!nav_client->wait_for_action_server(std::chrono::seconds(5))) {
@@ -91,6 +113,8 @@ class Nav : public rclcpp::Node {
     void goal_result_callback(const GoalHandleNavigate::WrappedResult &result) {
         if (result.code == rclcpp_action::ResultCode::SUCCEEDED) {
             RCLCPP_INFO(this->get_logger(), "Reached waypoint %d", waypoint_index_);
+            odom_stored[0] = odom_update[0];
+            odom_stored[1] = odom_update[1];
             call_dock();
         } else {
             RCLCPP_ERROR(this->get_logger(), "Failed to reach waypoint %d", waypoint_index_);

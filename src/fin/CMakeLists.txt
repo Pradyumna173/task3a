@@ -15,6 +15,7 @@ find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(usb_servo REQUIRED)
 find_package(nav2_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 # find_package(usb_servo REQUIRED)
 
 add_executable(arm src/arm.cpp)
@@ -38,7 +39,8 @@ ament_target_dependencies(
   rclcpp_action
   geometry_msgs
   ebot_docking
-  std_msgs)
+  std_msgs
+  nav_msgs)
 
 install(TARGETS arm dock nav DESTINATION lib/${PROJECT_NAME})
 

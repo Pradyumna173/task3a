@@ -80,9 +80,9 @@ class Dock : public rclcpp::Node {
                 RCLCPP_INFO(this->get_logger(), "Getting in Range");
             } else if ((f_usonicLeft > f_stopDist) && (f_usonicRight > f_stopDist)) {
                 f_rangeDiff = f_usonicLeft - f_usonicRight;
-                vel_msg.angular.z = -0.02 * f_rangeDiff;
+                vel_msg.angular.z = -0.03 * f_rangeDiff;
 
-                if (abs(f_rangeDiff) < 10.0f) {
+                if (abs(f_rangeDiff) < 5.0f) {
                     vel_msg.linear.x = -0.003 * f_usonicLeft;
                     vel_msg.angular.z = 0.0;
                 } else {
