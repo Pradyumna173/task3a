@@ -49,9 +49,9 @@ class Nav : public rclcpp::Node {
         double w, x, y, z;
     };
 
-    /*float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};*/
-    // float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.45, 2.16, -2.95}, {2.5, -1.2, -3.0}};
-    float waypoints_[3][3] = {{2.45, 2.1, -3.0}, {2.45, 2.1, -2.95}, {2.5, -1.2, -3.0}};
+    float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
+    // float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.45, 2.1, -2.95}, {2.5, -1.2, -3.0}};
+    /*float waypoints_[3][3] = {{2.45, 2.1, -3.0}, {2.45, 2.1, -2.95}, {2.5, -1.2, -3.0}};*/
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
     rclcpp::Client<ebot_docking::srv::DockSw>::SharedPtr dockClient;
@@ -91,6 +91,7 @@ class Nav : public rclcpp::Node {
             vel_pub->publish(vel_msg);
             setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
                            waypoints_[last_waypoint][2]);
+			std::this_thread::sleep_for(std::chrono::milliseconds(2000));
         }
 
         if (current_goal == waypoint_index_) {
