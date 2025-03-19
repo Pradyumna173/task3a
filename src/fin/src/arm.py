@@ -15,8 +15,8 @@ import math
 import sys
 import time
 from functools import partial
-import cv2
 
+import cv2
 import numpy as np
 import rclpy
 import tf2_ros
@@ -28,7 +28,7 @@ from geometry_msgs.msg import TransformStamped, TwistStamped
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
-from sensor_msgs.msg import Image, CompressedImage
+from sensor_msgs.msg import CompressedImage, Image
 from std_msgs.msg import Bool, Float64
 from std_srvs.srv import Trigger
 from tf_transformations import (
@@ -121,7 +121,9 @@ class Arm(Node):
         )
 
         self.image_group = MutuallyExclusiveCallbackGroup()
-        self.image_timer = self.create_timer(1.0, self.process_image, callback_group=self.image_group)
+        self.image_timer = self.create_timer(
+            1.0, self.process_image, callback_group=self.image_group
+        )
 
         self.passing_group = MutuallyExclusiveCallbackGroup()
         self.passing_server = self.create_service(

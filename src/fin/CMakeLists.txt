@@ -18,9 +18,6 @@ find_package(nav2_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 # find_package(usb_servo REQUIRED)
 
-add_executable(arm src/arm.cpp)
-ament_target_dependencies(arm rclcpp)
-
 add_executable(dock src/dock.cpp)
 ament_target_dependencies(
   dock
