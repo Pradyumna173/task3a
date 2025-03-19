@@ -1,0 +1,1097 @@
+[0.000000] (-) TimerEvent: {}
+[0.000238] (bot) JobQueued: {'identifier': 'bot', 'dependencies': OrderedDict()}
+[0.000287] (ebot_docking) JobQueued: {'identifier': 'ebot_docking', 'dependencies': OrderedDict()}
+[0.000317] (ebot_nav2) JobQueued: {'identifier': 'ebot_nav2', 'dependencies': OrderedDict()}
+[0.000343] (ff) JobQueued: {'identifier': 'ff', 'dependencies': OrderedDict()}
+[0.000370] (pymoveit2) JobQueued: {'identifier': 'pymoveit2', 'dependencies': OrderedDict()}
+[0.000398] (ur5_control) JobQueued: {'identifier': 'ur5_control', 'dependencies': OrderedDict()}
+[0.000424] (ur_moveit_config) JobQueued: {'identifier': 'ur_moveit_config', 'dependencies': OrderedDict()}
+[0.000456] (usb_servo) JobQueued: {'identifier': 'usb_servo', 'dependencies': OrderedDict()}
+[0.000477] (fin) JobQueued: {'identifier': 'fin', 'dependencies': OrderedDict([('ebot_docking', '/home/eyantra/LB24/Student/1048/install/ebot_docking'), ('usb_servo', '/home/eyantra/LB24/Student/1048/install/usb_servo')])}
+[0.002902] (ebot_docking) JobStarted: {'identifier': 'ebot_docking'}
+[0.013716] (usb_servo) JobStarted: {'identifier': 'usb_servo'}
+[0.036116] (bot) JobStarted: {'identifier': 'bot'}
+[0.049648] (ebot_nav2) JobStarted: {'identifier': 'ebot_nav2'}
+[0.056843] (ff) JobStarted: {'identifier': 'ff'}
+[0.072425] (pymoveit2) JobStarted: {'identifier': 'pymoveit2'}
+[0.087714] (ur5_control) JobStarted: {'identifier': 'ur5_control'}
+[0.099504] (-) TimerEvent: {}
+[0.102538] (ur_moveit_config) JobStarted: {'identifier': 'ur_moveit_config'}
+[0.133725] (ebot_docking) JobProgress: {'identifier': 'ebot_docking', 'progress': 'cmake'}
+[0.134127] (ebot_docking) JobProgress: {'identifier': 'ebot_docking', 'progress': 'build'}
+[0.147545] (ebot_docking) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/eyantra/LB24/Student/1048/build/ebot_docking', '--', '-j8', '-l8'], 'cwd': '/home/eyantra/LB24/Student/1048/build/ebot_docking', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/ebot_docking'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.159708] (usb_servo) JobProgress: {'identifier': 'usb_servo', 'progress': 'cmake'}
+[0.159970] (usb_servo) JobProgress: {'identifier': 'usb_servo', 'progress': 'build'}
+[0.160055] (usb_servo) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/eyantra/LB24/Student/1048/build/usb_servo', '--', '-j8', '-l8'], 'cwd': '/home/eyantra/LB24/Student/1048/build/usb_servo', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/usb_servo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.208066] (-) TimerEvent: {}
+[0.310559] (-) TimerEvent: {}
+[0.411125] (-) TimerEvent: {}
+[0.512919] (-) TimerEvent: {}
+[0.617789] (-) TimerEvent: {}
+[0.718421] (-) TimerEvent: {}
+[0.818924] (-) TimerEvent: {}
+[0.919339] (-) TimerEvent: {}
+[1.021479] (-) TimerEvent: {}
+[1.122534] (-) TimerEvent: {}
+[1.223107] (-) TimerEvent: {}
+[1.325283] (-) TimerEvent: {}
+[1.368323] (ebot_nav2) JobProgress: {'identifier': 'ebot_nav2', 'progress': 'cmake'}
+[1.369646] (ebot_nav2) JobProgress: {'identifier': 'ebot_nav2', 'progress': 'build'}
+[1.370167] (ebot_nav2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/eyantra/LB24/Student/1048/build/ebot_nav2', '--', '-j8', '-l8'], 'cwd': '/home/eyantra/LB24/Student/1048/build/ebot_nav2', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/ebot_nav2'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[1.425413] (-) TimerEvent: {}
+[1.526151] (-) TimerEvent: {}
+[1.627177] (-) TimerEvent: {}
+[1.728656] (-) TimerEvent: {}
+[1.829484] (-) TimerEvent: {}
+[1.930230] (-) TimerEvent: {}
+[2.035011] (-) TimerEvent: {}
+[2.135504] (-) TimerEvent: {}
+[2.243349] (-) TimerEvent: {}
+[2.289735] (pymoveit2) JobProgress: {'identifier': 'pymoveit2', 'progress': 'cmake'}
+[2.290122] (pymoveit2) JobProgress: {'identifier': 'pymoveit2', 'progress': 'build'}
+[2.300425] (pymoveit2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/eyantra/LB24/Student/1048/build/pymoveit2', '--', '-j8', '-l8'], 'cwd': '/home/eyantra/LB24/Student/1048/build/pymoveit2', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/pymoveit2'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[2.345547] (-) TimerEvent: {}
+[2.446072] (-) TimerEvent: {}
+[2.548571] (-) TimerEvent: {}
+[2.649183] (-) TimerEvent: {}
+[2.751725] (-) TimerEvent: {}
+[2.854629] (-) TimerEvent: {}
+[2.958475] (-) TimerEvent: {}
+[3.058904] (-) TimerEvent: {}
+[3.160613] (-) TimerEvent: {}
+[3.261734] (-) TimerEvent: {}
+[3.362158] (-) TimerEvent: {}
+[3.462683] (-) TimerEvent: {}
+[3.544791] (ur_moveit_config) JobProgress: {'identifier': 'ur_moveit_config', 'progress': 'cmake'}
+[3.544979] (ur_moveit_config) JobProgress: {'identifier': 'ur_moveit_config', 'progress': 'build'}
+[3.545039] (ur_moveit_config) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/eyantra/LB24/Student/1048/build/ur_moveit_config', '--', '-j8', '-l8'], 'cwd': '/home/eyantra/LB24/Student/1048/build/ur_moveit_config', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/ur_moveit_config'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[3.563739] (ebot_docking) StdoutLine: {'line': b'[  2%] Built target ebot_docking__cpp\n'}
+[3.564152] (-) TimerEvent: {}
+[3.564441] (ebot_docking) StdoutLine: {'line': b'[  2%] Built target ament_cmake_python_copy_ebot_docking\n'}
+[3.564608] (ebot_docking) StdoutLine: {'line': b'[ 12%] Built target ebot_docking__rosidl_typesupport_introspection_cpp\n'}
+[3.564727] (ebot_docking) StdoutLine: {'line': b'running egg_info\n'}
+[3.564838] (ebot_docking) StdoutLine: {'line': b'writing ebot_docking.egg-info/PKG-INFO\n'}
+[3.564945] (ebot_docking) StdoutLine: {'line': b'writing dependency_links to ebot_docking.egg-info/dependency_links.txt\n'}
+[3.565053] (ebot_docking) StdoutLine: {'line': b'writing top-level names to ebot_docking.egg-info/top_level.txt\n'}
+[3.565159] (ebot_docking) StdoutLine: {'line': b"reading manifest file 'ebot_docking.egg-info/SOURCES.txt'\n"}
+[3.565266] (ebot_docking) StdoutLine: {'line': b"writing manifest file 'ebot_docking.egg-info/SOURCES.txt'\n"}
+[3.565374] (ebot_docking) StdoutLine: {'line': b'[ 74%] Built target ament_cmake_python_build_ebot_docking_egg\n'}
+[3.565493] (ebot_docking) StdoutLine: {'line': b'[ 76%] Built target ebot_docking__rosidl_typesupport_fastrtps_cpp\n'}
+[3.565613] (ebot_docking) StdoutLine: {'line': b'[ 84%] Built target ebot_docking__rosidl_typesupport_cpp\n'}
+[3.565724] (ebot_docking) StdoutLine: {'line': b'[ 89%] Built target ebot_docking__rosidl_generator_c\n'}
+[3.565834] (ebot_docking) StdoutLine: {'line': b'[100%] Built target ebot_docking__rosidl_typesupport_fastrtps_c\n'}
+[3.565944] (ebot_docking) StdoutLine: {'line': b'Built target ebot_docking__rosidl_typesupport_c\n'}
+[3.566052] (ebot_docking) StdoutLine: {'line': b'Built target ebot_docking__rosidl_typesupport_introspection_c\n'}
+[3.566156] (ebot_docking) StdoutLine: {'line': b'Built target ebot_docking\n'}
+[3.566262] (ebot_docking) StdoutLine: {'line': b'Built target ebot_docking__py\n'}
+[3.566369] (ebot_docking) StdoutLine: {'line': b'Built target ebot_docking__rosidl_generator_py\n'}
+[3.566479] (ebot_docking) StdoutLine: {'line': b'Built target ebot_docking__rosidl_typesupport_fastrtps_c__pyext\n'}
+[3.586561] (usb_servo) StdoutLine: {'line': b'[  3%] Built target usb_servo__cpp\n'}
+[3.586972] (usb_servo) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_usb_servo\n'}
+[3.587120] (usb_servo) StdoutLine: {'line': b'[ 12%] Built target usb_servo__rosidl_typesupport_cpp\n'}
+[3.587236] (usb_servo) StdoutLine: {'line': b'running egg_info\n'}
+[3.587346] (usb_servo) StdoutLine: {'line': b'writing usb_servo.egg-info/PKG-INFO\n'}
+[3.587466] (usb_servo) StdoutLine: {'line': b'writing dependency_links to usb_servo.egg-info/dependency_links.txt\n'}
+[3.587580] (usb_servo) StdoutLine: {'line': b'writing top-level names to usb_servo.egg-info/top_level.txt\n'}
+[3.587674] (usb_servo) StdoutLine: {'line': b"reading manifest file 'usb_servo.egg-info/SOURCES.txt'\n"}
+[3.587754] (usb_servo) StdoutLine: {'line': b"writing manifest file 'usb_servo.egg-info/SOURCES.txt'\n"}
+[3.587855] (usb_servo) StdoutLine: {'line': b'[ 32%] Built target ament_cmake_python_build_usb_servo_egg\n'}
+[3.587954] (usb_servo) StdoutLine: {'line': b'[ 51%] Built target usb_servo__rosidl_typesupport_introspection_cpp\n'}
+[3.588066] (usb_servo) StdoutLine: {'line': b'[ 61%] Built target usb_servo__rosidl_typesupport_fastrtps_cpp\n'}
+[3.588182] (usb_servo) StdoutLine: {'line': b'[ 70%] Built target usb_servo__rosidl_generator_c\n'}
+[3.588284] (usb_servo) StdoutLine: {'line': b'[ 70%] Built target usb_servo__rosidl_typesupport_fastrtps_c\n'}
+[3.588371] (usb_servo) StdoutLine: {'line': b'[ 74%] Built target usb_servo__rosidl_typesupport_c\n'}
+[3.588489] (usb_servo) StdoutLine: {'line': b'[ 74%] Built target usb_servo__rosidl_typesupport_introspection_c\n'}
+[3.588587] (usb_servo) StdoutLine: {'line': b'[ 80%] Built target usb_servo\n'}
+[3.588681] (usb_servo) StdoutLine: {'line': b'[ 87%] Built target usb_servo__py\n'}
+[3.588770] (usb_servo) StdoutLine: {'line': b'[ 93%] Built target usb_servo__rosidl_generator_py\n'}
+[3.588893] (usb_servo) StdoutLine: {'line': b'[100%] Built target usb_servo__rosidl_typesupport_fastrtps_c__pyext\n'}
+[3.589006] (usb_servo) StdoutLine: {'line': b'Built target usb_servo__rosidl_typesupport_c__pyext\n'}
+[3.589104] (usb_servo) StdoutLine: {'line': b'Built target usb_servo__rosidl_typesupport_introspection_c__pyext\n'}
+[3.603549] (pymoveit2) StdoutLine: {'line': b'Built target ament_cmake_python_copy_pymoveit2\n'}
+[3.637691] (ebot_nav2) CommandEnded: {'returncode': 0}
+[3.638404] (ebot_nav2) JobProgress: {'identifier': 'ebot_nav2', 'progress': 'install'}
+[3.639297] (ebot_docking) StdoutLine: {'line': b'Built target ebot_docking__rosidl_typesupport_c__pyext\n'}
+[3.670423] (-) TimerEvent: {}
+[3.705404] (ebot_nav2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/eyantra/LB24/Student/1048/build/ebot_nav2'], 'cwd': '/home/eyantra/LB24/Student/1048/build/ebot_nav2', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/ebot_nav2'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[3.747938] (ebot_nav2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.781240] (-) TimerEvent: {}
+[3.781847] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//launch\n'}
+[3.782028] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//launch/ebot_nav2_brinup.launch.py\n'}
+[3.782146] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models\n'}
+[3.782237] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ground_plane\n'}
+[3.782322] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model-1_4.sdf\n'}
+[3.782402] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model.config\n'}
+[3.782498] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model-1_3.sdf\n'}
+[3.782587] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model-1_2.sdf\n'}
+[3.782667] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ground_plane/model.sdf\n'}
+[3.782763] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ebot\n'}
+[3.782926] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ebot/agri_bot.xacro\n'}
+[3.783037] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ebot/ebot_trolley.xacro\n'}
+[3.783138] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ebot/ebot_trolley_ur5.xacro\n'}
+[3.783236] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//models/ebot/ebot.gazebo\n'}
+[3.783336] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes\n'}
+[3.783435] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/LIDAR.STL\n'}
+[3.783562] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/FUS3.STL\n'}
+[3.783665] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/NAVRS.STL\n'}
+[3.783764] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/FWL.STL\n'}
+[3.783862] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/FUS1.STL\n'}
+[3.783960] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/basket_collision.stl\n'}
+[3.784060] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/LHUS10.STL\n'}
+[3.784158] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/LANT.STL\n'}
+[3.784255] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/basket.dae\n'}
+[3.784353] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/FWR.STL\n'}
+[3.784459] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/RRS.STL\n'}
+[3.784568] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/robot_base.stl\n'}
+[3.784668] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/RWL.STL\n'}
+[3.784778] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/RANT.STL\n'}
+[3.784864] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/RUS5.STL\n'}
+[3.784942] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/RWR.STL\n'}
+[3.785023] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/LHUS9.STL\n'}
+[3.785117] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/chassis.dae\n'}
+[3.785206] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/RHUS9.STL\n'}
+[3.785294] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/RUS6.STL\n'}
+[3.785383] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/FUS4.STL\n'}
+[3.817955] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/FRS.STL\n'}
+[3.818274] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/FUS2.STL\n'}
+[3.818415] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/RHUS7.STL\n'}
+[3.818523] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//meshes/trolley.STL\n'}
+[3.818642] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//config\n'}
+[3.818726] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//config/config.yaml\n'}
+[3.818813] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//config/ekf.yaml\n'}
+[3.818892] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//config/mapper_params_online_async.yaml\n'}
+[3.818968] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//plugins\n'}
+[3.819047] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//plugins/libgazebo_ros_vacuum_gripper.so\n'}
+[3.819128] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//plugins/libgazebo_collision_sensor.so\n'}
+[3.819207] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//maps\n'}
+[3.819288] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//maps/map.pgm\n'}
+[3.819362] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//maps/map.posegraph\n'}
+[3.819441] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//maps/map.yaml\n'}
+[3.819541] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//maps/map.data\n'}
+[3.819622] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//params\n'}
+[3.819700] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//params/nav2_params.yaml\n'}
+[3.819780] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//params/nav2_params_filtered.yaml\n'}
+[3.819859] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//rviz\n'}
+[3.819950] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2//rviz/nav2_default_view.rviz\n'}
+[3.820027] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/lib/ebot_nav2/pyarmor_runtime_000000\n'}
+[3.820106] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/lib/ebot_nav2/pyarmor_runtime_000000/__init__.py\n'}
+[3.820185] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/lib/ebot_nav2/pyarmor_runtime_000000/pyarmor_runtime.so\n'}
+[3.820263] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/lib/ebot_nav2/pose_detector.py\n'}
+[3.820341] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/lib/ebot_nav2/pf_pose_saver.py\n'}
+[3.820418] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/lib/ebot_nav2/duplicate_imu.py\n'}
+[3.820514] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ament_index/resource_index/package_run_dependencies/ebot_nav2\n'}
+[3.820598] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ament_index/resource_index/parent_prefix_path/ebot_nav2\n'}
+[3.820680] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/environment/ament_prefix_path.sh\n'}
+[3.820764] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/environment/ament_prefix_path.dsv\n'}
+[3.820850] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/environment/path.sh\n'}
+[3.820946] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/environment/path.dsv\n'}
+[3.821036] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/local_setup.bash\n'}
+[3.821127] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/local_setup.sh\n'}
+[3.821214] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/local_setup.zsh\n'}
+[3.821301] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/local_setup.dsv\n'}
+[3.821388] (ebot_nav2) StdoutLine: {'line': b'-- Installing: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.dsv\n'}
+[3.854538] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ament_index/resource_index/packages/ebot_nav2\n'}
+[3.854872] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/cmake/ebot_nav2Config.cmake\n'}
+[3.854992] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/cmake/ebot_nav2Config-version.cmake\n'}
+[3.855086] (ebot_nav2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.xml\n'}
+[3.855182] (ebot_docking) StdoutLine: {'line': b'Built target ebot_docking__rosidl_typesupport_introspection_c__pyext\n'}
+[3.855300] (usb_servo) CommandEnded: {'returncode': 0}
+[3.855868] (usb_servo) JobProgress: {'identifier': 'usb_servo', 'progress': 'install'}
+[3.855919] (usb_servo) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/eyantra/LB24/Student/1048/build/usb_servo'], 'cwd': '/home/eyantra/LB24/Student/1048/build/usb_servo', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/usb_servo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[3.856549] (ur_moveit_config) CommandEnded: {'returncode': 0}
+[3.857091] (ur_moveit_config) JobProgress: {'identifier': 'ur_moveit_config', 'progress': 'install'}
+[3.857140] (ur_moveit_config) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/eyantra/LB24/Student/1048/build/ur_moveit_config'], 'cwd': '/home/eyantra/LB24/Student/1048/build/ur_moveit_config', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/ur_moveit_config'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[3.883471] (-) TimerEvent: {}
+[3.883753] (usb_servo) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.883962] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/ament_index/resource_index/rosidl_interfaces/usb_servo\n'}
+[3.884067] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo\n'}
+[3.884162] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/msg\n'}
+[3.884257] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_generator_c__visibility_control.h\n'}
+[3.884344] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[3.884425] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/servo_sw.h\n'}
+[3.884536] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[3.884633] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__functions.c\n'}
+[3.884721] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__struct.h\n'}
+[3.884806] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.h\n'}
+[3.884916] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__functions.h\n'}
+[3.884997] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/environment/library_path.sh\n'}
+[3.885107] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/environment/library_path.dsv\n'}
+[3.885194] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/lib/libusb_servo__rosidl_generator_c.so\n'}
+[3.885282] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo\n'}
+[3.885390] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/msg\n'}
+[3.885498] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[3.885600] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[3.885715] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[3.885802] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_fastrtps_c.h\n'}
+[3.885907] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/lib/libusb_servo__rosidl_typesupport_fastrtps_c.so\n'}
+[3.885987] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo\n'}
+[3.886084] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/msg\n'}
+[3.886189] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[3.886299] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[3.886393] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[3.909934] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_introspection_c.h\n'}
+[3.910168] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.c\n'}
+[3.910293] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/lib/libusb_servo__rosidl_typesupport_introspection_c.so\n'}
+[3.910390] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/lib/libusb_servo__rosidl_typesupport_c.so\n'}
+[3.910526] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo\n'}
+[3.910630] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/msg\n'}
+[3.910722] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[3.910817] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[3.910908] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[3.911025] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__struct.hpp\n'}
+[3.911112] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__builder.hpp\n'}
+[3.911197] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.hpp\n'}
+[3.911302] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__traits.hpp\n'}
+[3.911414] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/servo_sw.hpp\n'}
+[3.911545] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo\n'}
+[3.911664] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/msg\n'}
+[3.911773] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[3.911883] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[3.911992] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[3.912095] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/dds_fastrtps\n'}
+[3.912195] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[3.912282] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/lib/libusb_servo__rosidl_typesupport_fastrtps_cpp.so\n'}
+[3.912396] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo\n'}
+[3.912505] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv\n'}
+[3.912594] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail\n'}
+[3.912690] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__type_support.cpp\n'}
+[3.912768] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/include/usb_servo/usb_servo/srv/detail/servo_sw__rosidl_typesupport_introspection_cpp.hpp\n'}
+[3.912861] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/lib/libusb_servo__rosidl_typesupport_introspection_cpp.so\n'}
+[3.912948] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/lib/libusb_servo__rosidl_typesupport_cpp.so\n'}
+[3.913025] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/environment/pythonpath.sh\n'}
+[3.913102] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/environment/pythonpath.dsv\n'}
+[3.913194] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info\n'}
+[3.913270] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[3.913365] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[3.941149] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[3.941406] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[3.941545] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo\n'}
+[3.941644] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/_usb_servo_s.ep.rosidl_typesupport_c.c\n'}
+[3.941747] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.941841] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.941932] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/__init__.py\n'}
+[3.942030] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv\n'}
+[3.942139] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/_servo_sw_s.c\n'}
+[3.942253] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/__init__.py\n'}
+[3.942365] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv/_servo_sw.py\n'}
+[3.942476] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.942589] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/_usb_servo_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[3.942680] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/_usb_servo_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[3.942783] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/libusb_servo__rosidl_generator_py.so\n'}
+[3.942883] (ebot_nav2) CommandEnded: {'returncode': 0}
+[3.950472] (ur_moveit_config) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.950752] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/config\n'}
+[3.950865] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/config/kinematics.yaml\n'}
+[3.950978] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/launch\n'}
+[3.951088] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/launch/ur_moveit.launch.py\n'}
+[3.951215] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/rviz\n'}
+[3.951318] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/rviz/view_robot.rviz\n'}
+[3.951409] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/srdf\n'}
+[3.951516] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/srdf/ur_macro.srdf.xacro\n'}
+[3.951665] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/srdf/ur.srdf.xacro\n'}
+[3.951757] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ament_index/resource_index/package_run_dependencies/ur_moveit_config\n'}
+[3.951848] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ament_index/resource_index/parent_prefix_path/ur_moveit_config\n'}
+[3.951938] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/ament_prefix_path.sh\n'}
+[3.952030] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/ament_prefix_path.dsv\n'}
+[3.952119] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/path.sh\n'}
+[3.952208] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/path.dsv\n'}
+[3.952299] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.bash\n'}
+[3.952401] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.sh\n'}
+[3.952505] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.zsh\n'}
+[3.952608] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.dsv\n'}
+[3.952698] (ur_moveit_config) StdoutLine: {'line': b'-- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.dsv\n'}
+[3.952787] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ament_index/resource_index/packages/ur_moveit_config\n'}
+[3.952876] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/cmake/ur_moveit_configConfig.cmake\n'}
+[3.952965] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/cmake/ur_moveit_configConfig-version.cmake\n'}
+[3.953070] (ur_moveit_config) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.xml\n'}
+[3.953162] (pymoveit2) StdoutLine: {'line': b'running egg_info\n'}
+[3.959992] (pymoveit2) StdoutLine: {'line': b'writing pymoveit2.egg-info/PKG-INFO\n'}
+[3.960146] (pymoveit2) StdoutLine: {'line': b'writing dependency_links to pymoveit2.egg-info/dependency_links.txt\n'}
+[3.960266] (pymoveit2) StdoutLine: {'line': b'writing top-level names to pymoveit2.egg-info/top_level.txt\n'}
+[3.972589] (pymoveit2) StdoutLine: {'line': b"reading manifest file 'pymoveit2.egg-info/SOURCES.txt'\n"}
+[3.972912] (pymoveit2) StdoutLine: {'line': b"writing manifest file 'pymoveit2.egg-info/SOURCES.txt'\n"}
+[3.994583] (-) TimerEvent: {}
+[4.023679] (ebot_nav2) JobEnded: {'identifier': 'ebot_nav2', 'rc': 0}
+[4.036627] (ur_moveit_config) CommandEnded: {'returncode': 0}
+[4.037397] (usb_servo) StdoutLine: {'line': b"Listing '/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo'...\n"}
+[4.037600] (usb_servo) StdoutLine: {'line': b"Listing '/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/srv'...\n"}
+[4.092745] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[4.092938] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[4.093061] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages/usb_servo/usb_servo_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[4.093178] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/lib/libusb_servo__rosidl_generator_py.so\n'}
+[4.093295] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/srv/ServoSw.idl\n'}
+[4.093406] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/srv/ServoSw.srv\n'}
+[4.093527] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/srv/ServoSw_Request.msg\n'}
+[4.093640] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/srv/ServoSw_Response.msg\n'}
+[4.093733] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/ament_index/resource_index/package_run_dependencies/usb_servo\n'}
+[4.093839] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/ament_index/resource_index/parent_prefix_path/usb_servo\n'}
+[4.093942] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/environment/ament_prefix_path.sh\n'}
+[4.094053] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/environment/ament_prefix_path.dsv\n'}
+[4.094164] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/environment/path.sh\n'}
+[4.094264] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/environment/path.dsv\n'}
+[4.094390] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/local_setup.bash\n'}
+[4.094513] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/local_setup.sh\n'}
+[4.094700] (-) TimerEvent: {}
+[4.094911] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/local_setup.zsh\n'}
+[4.095022] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/local_setup.dsv\n'}
+[4.095125] (usb_servo) StdoutLine: {'line': b'-- Installing: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.dsv\n'}
+[4.095220] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/ament_index/resource_index/packages/usb_servo\n'}
+[4.095325] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_cExport.cmake\n'}
+[4.095425] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_cExport-noconfig.cmake\n'}
+[4.095559] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[4.095663] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[4.103810] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cExport.cmake\n'}
+[4.104045] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[4.104188] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cExport.cmake\n'}
+[4.104311] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[4.104429] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_cppExport.cmake\n'}
+[4.104560] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[4.104676] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[4.104789] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[4.104911] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[4.105028] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cppExport.cmake\n'}
+[4.105139] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/usb_servo__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[4.105249] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_pyExport.cmake\n'}
+[4.105361] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/export_usb_servo__rosidl_generator_pyExport-noconfig.cmake\n'}
+[4.105487] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/rosidl_cmake-extras.cmake\n'}
+[4.105604] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[4.105711] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[4.105818] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[4.105930] (ur_moveit_config) JobEnded: {'identifier': 'ur_moveit_config', 'rc': 0}
+[4.114251] (ebot_docking) CommandEnded: {'returncode': 0}
+[4.116307] (ebot_docking) JobProgress: {'identifier': 'ebot_docking', 'progress': 'install'}
+[4.116491] (ebot_docking) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/eyantra/LB24/Student/1048/build/ebot_docking'], 'cwd': '/home/eyantra/LB24/Student/1048/build/ebot_docking', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/ebot_docking'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[4.117152] (pymoveit2) StdoutLine: {'line': b'Built target ament_cmake_python_build_pymoveit2_egg\n'}
+[4.117294] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[4.117422] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[4.117552] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[4.117665] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/usb_servoConfig.cmake\n'}
+[4.117792] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/cmake/usb_servoConfig-version.cmake\n'}
+[4.117901] (usb_servo) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.xml\n'}
+[4.145527] (usb_servo) CommandEnded: {'returncode': 0}
+[4.180562] (ebot_docking) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[4.180927] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ament_index/resource_index/rosidl_interfaces/ebot_docking\n'}
+[4.181094] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking\n'}
+[4.181224] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg\n'}
+[4.181339] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_generator_c__visibility_control.h\n'}
+[4.181470] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv\n'}
+[4.181610] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/passing_service.h\n'}
+[4.181737] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/dock_sw.h\n'}
+[4.181871] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail\n'}
+[4.182016] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__functions.h\n'}
+[4.182138] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__struct.h\n'}
+[4.182243] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__functions.h\n'}
+[4.182333] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__functions.c\n'}
+[4.182421] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.h\n'}
+[4.182553] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.h\n'}
+[4.182651] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__struct.h\n'}
+[4.182735] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__functions.c\n'}
+[4.182834] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/library_path.sh\n'}
+[4.182928] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/library_path.dsv\n'}
+[4.183017] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_generator_c.so\n'}
+[4.183109] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking\n'}
+[4.183197] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg\n'}
+[4.183291] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[4.183392] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv\n'}
+[4.183508] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail\n'}
+[4.183627] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_fastrtps_c.h\n'}
+[4.183722] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_fastrtps_c.h\n'}
+[4.183808] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_fastrtps_c.so\n'}
+[4.183893] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking\n'}
+[4.183981] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg\n'}
+[4.184073] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[4.184160] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv\n'}
+[4.184276] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail\n'}
+[4.184368] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_introspection_c.h\n'}
+[4.204982] (-) TimerEvent: {}
+[4.205262] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_introspection_c.h\n'}
+[4.205462] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.c\n'}
+[4.205597] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.c\n'}
+[4.205723] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_introspection_c.so\n'}
+[4.205874] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_c.so\n'}
+[4.206005] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking\n'}
+[4.206127] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg\n'}
+[4.206246] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[4.206365] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv\n'}
+[4.206494] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/dock_sw.hpp\n'}
+[4.206627] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/passing_service.hpp\n'}
+[4.208832] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail\n'}
+[4.208992] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__traits.hpp\n'}
+[4.209106] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__traits.hpp\n'}
+[4.209199] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__builder.hpp\n'}
+[4.209293] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__struct.hpp\n'}
+[4.209382] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.hpp\n'}
+[4.209488] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.hpp\n'}
+[4.209584] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__builder.hpp\n'}
+[4.209676] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__struct.hpp\n'}
+[4.209774] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking\n'}
+[4.209873] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg\n'}
+[4.209995] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[4.210094] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv\n'}
+[4.210192] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail\n'}
+[4.210288] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[4.220811] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dds_fastrtps\n'}
+[4.220960] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[4.221071] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_fastrtps_cpp.so\n'}
+[4.221154] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking\n'}
+[4.221259] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv\n'}
+[4.221348] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail\n'}
+[4.221437] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.cpp\n'}
+[4.221559] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_introspection_cpp.hpp\n'}
+[4.221657] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.cpp\n'}
+[4.221748] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_introspection_cpp.hpp\n'}
+[4.221847] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_introspection_cpp.so\n'}
+[4.221944] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_cpp.so\n'}
+[4.222039] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/pythonpath.sh\n'}
+[4.222126] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/pythonpath.dsv\n'}
+[4.222221] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info\n'}
+[4.222316] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[4.222453] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[4.222577] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[4.222699] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[4.222809] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking\n'}
+[4.222919] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_c.c\n'}
+[4.223032] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/libebot_docking__rosidl_generator_py.so\n'}
+[4.223140] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[4.223249] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[4.223355] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[4.223493] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[4.223592] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[4.223702] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/__init__.py\n'}
+[4.223802] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv\n'}
+[4.223898] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_passing_service_s.c\n'}
+[4.242359] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_passing_service.py\n'}
+[4.242547] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_dock_sw_s.c\n'}
+[4.242696] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_dock_sw.py\n'}
+[4.242833] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/__init__.py\n'}
+[4.268530] (usb_servo) JobEnded: {'identifier': 'usb_servo', 'rc': 0}
+[4.282779] (pymoveit2) CommandEnded: {'returncode': 0}
+[4.283469] (pymoveit2) JobProgress: {'identifier': 'pymoveit2', 'progress': 'install'}
+[4.283515] (pymoveit2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/eyantra/LB24/Student/1048/build/pymoveit2'], 'cwd': '/home/eyantra/LB24/Student/1048/build/pymoveit2', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/pymoveit2'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[4.311547] (-) TimerEvent: {}
+[4.344999] (pymoveit2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[4.345383] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/pythonpath.sh\n'}
+[4.345556] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/pythonpath.dsv\n'}
+[4.345667] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info\n'}
+[4.345776] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/dependency_links.txt\n'}
+[4.345872] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/SOURCES.txt\n'}
+[4.345969] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/top_level.txt\n'}
+[4.353565] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/PKG-INFO\n'}
+[4.353906] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2\n'}
+[4.354034] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/moveit2_servo.py\n'}
+[4.354145] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots\n'}
+[4.354245] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/ur5.py\n'}
+[4.354330] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/kinova.py\n'}
+[4.354423] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/__init__.py\n'}
+[4.354546] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/moveit2.py\n'}
+[4.354637] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/__init__.py\n'}
+[4.417376] (-) TimerEvent: {}
+[4.521562] (-) TimerEvent: {}
+[4.551685] (ebot_docking) StdoutLine: {'line': b"Listing '/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking'...\n"}
+[4.551902] (ebot_docking) StdoutLine: {'line': b"Listing '/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv'...\n"}
+[4.621672] (-) TimerEvent: {}
+[4.639573] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[4.639976] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[4.640105] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[4.640201] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_generator_py.so\n'}
+[4.640298] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/DockSw.idl\n'}
+[4.640399] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/PassingService.idl\n'}
+[4.640532] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/DockSw.srv\n'}
+[4.640647] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/DockSw_Request.msg\n'}
+[4.640752] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/DockSw_Response.msg\n'}
+[4.640860] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/PassingService.srv\n'}
+[4.640969] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/PassingService_Request.msg\n'}
+[4.641081] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/PassingService_Response.msg\n'}
+[4.641191] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//srv\n'}
+[4.641298] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//srv/DockSw.srv\n'}
+[4.641407] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//srv/PassingService.srv\n'}
+[4.641539] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts\n'}
+[4.641662] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/nav.py\n'}
+[4.641755] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/s_dock.py\n'}
+[4.641843] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/s_nav.py\n'}
+[4.641929] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/nav5.py\n'}
+[4.642016] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/dock.py\n'}
+[4.642101] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/ebot_docking_boilerplate.py\n'}
+[4.642215] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/ebot_docking/nav.py\n'}
+[4.665799] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/ebot_docking/nav5.py\n'}
+[4.666140] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/ebot_docking/dock.py\n'}
+[4.666308] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ament_index/resource_index/package_run_dependencies/ebot_docking\n'}
+[4.666412] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ament_index/resource_index/parent_prefix_path/ebot_docking\n'}
+[4.666531] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/ament_prefix_path.sh\n'}
+[4.666641] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/ament_prefix_path.dsv\n'}
+[4.666739] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/path.sh\n'}
+[4.666836] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/path.dsv\n'}
+[4.666932] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/local_setup.bash\n'}
+[4.667025] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/local_setup.sh\n'}
+[4.667128] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/local_setup.zsh\n'}
+[4.667226] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/local_setup.dsv\n'}
+[4.667322] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.dsv\n'}
+[4.667410] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ament_index/resource_index/packages/ebot_docking\n'}
+[4.667532] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_cExport.cmake\n'}
+[4.667636] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_cExport-noconfig.cmake\n'}
+[4.667725] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[4.667852] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[4.667962] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cExport.cmake\n'}
+[4.668072] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[4.668184] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cExport.cmake\n'}
+[4.668298] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[4.668407] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_cppExport.cmake\n'}
+[4.668538] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[4.668662] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[4.668773] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[4.668876] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[4.668984] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cppExport.cmake\n'}
+[4.669087] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[4.669194] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_pyExport.cmake\n'}
+[4.669313] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_pyExport-noconfig.cmake\n'}
+[4.669416] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/rosidl_cmake-extras.cmake\n'}
+[4.689717] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[4.689883] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[4.689990] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[4.690090] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[4.690190] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[4.690286] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[4.690383] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_dockingConfig.cmake\n'}
+[4.690473] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_dockingConfig-version.cmake\n'}
+[4.690566] (ebot_docking) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.xml\n'}
+[4.690663] (pymoveit2) StdoutLine: {'line': b"Listing '/home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2'...\n"}
+[4.690761] (pymoveit2) StdoutLine: {'line': b"Listing '/home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots'...\n"}
+[4.698963] (ebot_docking) CommandEnded: {'returncode': 0}
+[4.721882] (-) TimerEvent: {}
+[4.738358] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/ex_collision_object.py\n'}
+[4.738669] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/ex_joint_goal.py\n'}
+[4.738827] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/ex_pose_goal.py\n'}
+[4.739009] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/ex_servo.py\n'}
+[4.739163] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets\n'}
+[4.739305] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/rack.stl\n'}
+[4.739403] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/box2.stl\n'}
+[4.739553] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/box3.stl\n'}
+[4.739655] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/rack_box.stl\n'}
+[4.739755] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/box.stl\n'}
+[4.739850] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/rack_box_again.stl\n'}
+[4.739938] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/box1.stl\n'}
+[4.740022] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/suzanne.stl\n'}
+[4.740108] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/ament_index/resource_index/package_run_dependencies/pymoveit2\n'}
+[4.740197] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/ament_index/resource_index/parent_prefix_path/pymoveit2\n'}
+[4.740286] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/ament_prefix_path.sh\n'}
+[4.740394] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/ament_prefix_path.dsv\n'}
+[4.740488] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/path.sh\n'}
+[4.740572] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/path.dsv\n'}
+[4.740649] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/local_setup.bash\n'}
+[4.740730] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/local_setup.sh\n'}
+[4.740812] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/local_setup.zsh\n'}
+[4.740895] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/local_setup.dsv\n'}
+[4.740985] (pymoveit2) StdoutLine: {'line': b'-- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.dsv\n'}
+[4.741065] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/ament_index/resource_index/packages/pymoveit2\n'}
+[4.741144] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/cmake/pymoveit2Config.cmake\n'}
+[4.741222] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/cmake/pymoveit2Config-version.cmake\n'}
+[4.741302] (pymoveit2) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.xml\n'}
+[4.838196] (ebot_docking) JobEnded: {'identifier': 'ebot_docking', 'rc': 0}
+[4.865829] (-) TimerEvent: {}
+[4.866128] (fin) JobStarted: {'identifier': 'fin'}
+[4.906539] (bot) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/bot', 'build', '--build-base', '/home/eyantra/LB24/Student/1048/build/bot/build', 'install', '--record', '/home/eyantra/LB24/Student/1048/build/bot/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/eyantra/LB24/Student/1048/src/bot', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_IN:en', 'USER': 'eyantra', 'evalpwd2': '/home/eyantra/LB24/Eval/', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/eyantra', 'OLDPWD': '/home/eyantra', 'server': 'http://3.111.147.97:15001/', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/eyantra/.nvm/versions/node/v22.12.0/bin', 'NVM_INC': '/home/eyantra/.nvm/versions/node/v22.12.0/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '1959', 'startVNcPWD': '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src', 'SYSTEMD_EXEC_PID': '2206', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3276', 'NVM_DIR': '/home/eyantra/.nvm', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'eyantra', 'JOURNAL_STREAM': '8:14841', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'pwd': '/home/e-yantra/LB24/Student', 'XDG_SESSION_CLASS': 'user', 'server2': 'http://3.111.147.97:6080/vnc/api/', 'vncPwd': '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC', 'USERNAME': 'eyantra', 'TERM': 'xterm-color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179', 'INVOCATION_ID': '2f1a63cd45b9424c92e171f0d25b86c1', 'startVNcPWD2': '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '2', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01', 'QT_ACCESSIBILITY': '1', 'pwd2': '/home/eyantra/LB24/Student', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'vncPwd2': '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'evalpwd': '/home/e-yantra/LB24/task3AEVAL/', 'GJS_DEBUG_OUTPUT': 'stderr', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/eyantra/LB24/Student/1048/build/bot', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/eyantra/LB24/Student/1048/build/bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[4.935778] (pymoveit2) CommandEnded: {'returncode': 0}
+[4.969935] (-) TimerEvent: {}
+[4.993667] (pymoveit2) JobEnded: {'identifier': 'pymoveit2', 'rc': 0}
+[4.999398] (fin) JobProgress: {'identifier': 'fin', 'progress': 'cmake'}
+[5.003410] (fin) JobProgress: {'identifier': 'fin', 'progress': 'build'}
+[5.004025] (fin) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/eyantra/LB24/Student/1048/build/fin', '--', '-j8', '-l8'], 'cwd': '/home/eyantra/LB24/Student/1048/build/fin', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/fin'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble')]), 'shell': False}
+[5.072539] (-) TimerEvent: {}
+[5.172996] (-) TimerEvent: {}
+[5.276985] (-) TimerEvent: {}
+[5.324525] (fin) StdoutLine: {'line': b'[ 33%] Built target arm\n'}
+[5.380564] (-) TimerEvent: {}
+[5.463091] (fin) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/nav.dir/src/nav.cpp.o\x1b[0m\n'}
+[5.484522] (-) TimerEvent: {}
+[5.587575] (-) TimerEvent: {}
+[5.621629] (ff) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/ff', 'build', '--build-base', '/home/eyantra/LB24/Student/1048/build/ff/build', 'install', '--record', '/home/eyantra/LB24/Student/1048/build/ff/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/eyantra/LB24/Student/1048/src/ff', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_IN:en', 'USER': 'eyantra', 'evalpwd2': '/home/eyantra/LB24/Eval/', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/eyantra', 'OLDPWD': '/home/eyantra', 'server': 'http://3.111.147.97:15001/', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/eyantra/.nvm/versions/node/v22.12.0/bin', 'NVM_INC': '/home/eyantra/.nvm/versions/node/v22.12.0/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '1959', 'startVNcPWD': '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src', 'SYSTEMD_EXEC_PID': '2206', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3276', 'NVM_DIR': '/home/eyantra/.nvm', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'eyantra', 'JOURNAL_STREAM': '8:14841', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'pwd': '/home/e-yantra/LB24/Student', 'XDG_SESSION_CLASS': 'user', 'server2': 'http://3.111.147.97:6080/vnc/api/', 'vncPwd': '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC', 'USERNAME': 'eyantra', 'TERM': 'xterm-color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179', 'INVOCATION_ID': '2f1a63cd45b9424c92e171f0d25b86c1', 'startVNcPWD2': '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '2', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01', 'QT_ACCESSIBILITY': '1', 'pwd2': '/home/eyantra/LB24/Student', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'vncPwd2': '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'evalpwd': '/home/e-yantra/LB24/task3AEVAL/', 'GJS_DEBUG_OUTPUT': 'stderr', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/eyantra/LB24/Student/1048/build/ff', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/eyantra/LB24/Student/1048/build/ff/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/ff/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[5.692527] (-) TimerEvent: {}
+[5.793015] (-) TimerEvent: {}
+[5.899412] (-) TimerEvent: {}
+[5.999830] (-) TimerEvent: {}
+[6.107534] (-) TimerEvent: {}
+[6.213570] (-) TimerEvent: {}
+[6.279050] (ur5_control) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/ur5_control', 'build', '--build-base', '/home/eyantra/LB24/Student/1048/build/ur5_control/build', 'install', '--record', '/home/eyantra/LB24/Student/1048/build/ur5_control/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/eyantra/LB24/Student/1048/src/ur5_control', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_IN:en', 'USER': 'eyantra', 'evalpwd2': '/home/eyantra/LB24/Eval/', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/eyantra', 'OLDPWD': '/home/eyantra', 'server': 'http://3.111.147.97:15001/', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/eyantra/.nvm/versions/node/v22.12.0/bin', 'NVM_INC': '/home/eyantra/.nvm/versions/node/v22.12.0/include/node', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '1959', 'startVNcPWD': '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src', 'SYSTEMD_EXEC_PID': '2206', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3276', 'NVM_DIR': '/home/eyantra/.nvm', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'eyantra', 'JOURNAL_STREAM': '8:14841', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'pwd': '/home/e-yantra/LB24/Student', 'XDG_SESSION_CLASS': 'user', 'server2': 'http://3.111.147.97:6080/vnc/api/', 'vncPwd': '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC', 'USERNAME': 'eyantra', 'TERM': 'xterm-color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179', 'INVOCATION_ID': '2f1a63cd45b9424c92e171f0d25b86c1', 'startVNcPWD2': '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '2', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01', 'QT_ACCESSIBILITY': '1', 'pwd2': '/home/eyantra/LB24/Student', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'vncPwd2': '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'evalpwd': '/home/e-yantra/LB24/task3AEVAL/', 'GJS_DEBUG_OUTPUT': 'stderr', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/eyantra/LB24/Student/1048/build/ur5_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/eyantra/LB24/Student/1048/build/ur5_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/ur5_control/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[6.313677] (-) TimerEvent: {}
+[6.424580] (-) TimerEvent: {}
+[6.502761] (bot) StdoutLine: {'line': b'running egg_info\n'}
+[6.508603] (bot) StdoutLine: {'line': b'writing ../../build/bot/bot.egg-info/PKG-INFO\n'}
+[6.511436] (bot) StdoutLine: {'line': b'writing dependency_links to ../../build/bot/bot.egg-info/dependency_links.txt\n'}
+[6.511782] (bot) StdoutLine: {'line': b'writing entry points to ../../build/bot/bot.egg-info/entry_points.txt\n'}
+[6.516314] (bot) StdoutLine: {'line': b'writing requirements to ../../build/bot/bot.egg-info/requires.txt\n'}
+[6.516612] (bot) StdoutLine: {'line': b'writing top-level names to ../../build/bot/bot.egg-info/top_level.txt\n'}
+[6.530689] (-) TimerEvent: {}
+[6.549307] (bot) StdoutLine: {'line': b"reading manifest file '../../build/bot/bot.egg-info/SOURCES.txt'\n"}
+[6.551805] (bot) StdoutLine: {'line': b"writing manifest file '../../build/bot/bot.egg-info/SOURCES.txt'\n"}
+[6.552143] (bot) StdoutLine: {'line': b'running build\n'}
+[6.552280] (bot) StdoutLine: {'line': b'running build_py\n'}
+[6.563127] (bot) StdoutLine: {'line': b'running install\n'}
+[6.573274] (bot) StdoutLine: {'line': b'running install_lib\n'}
+[6.583940] (bot) StdoutLine: {'line': b'running install_data\n'}
+[6.594804] (bot) StdoutLine: {'line': b'running install_egg_info\n'}
+[6.614543] (bot) StdoutLine: {'line': b"removing '/home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[6.614888] (bot) StdoutLine: {'line': b'Copying ../../build/bot/bot.egg-info to /home/eyantra/LB24/Student/1048/install/bot/lib/python3.10/site-packages/bot-0.0.0-py3.10.egg-info\n'}
+[6.617918] (bot) StdoutLine: {'line': b'running install_scripts\n'}
+[6.633247] (-) TimerEvent: {}
+[6.733803] (-) TimerEvent: {}
+[6.805748] (bot) StdoutLine: {'line': b'Installing arm script to /home/eyantra/LB24/Student/1048/install/bot/lib/bot\n'}
+[6.807186] (bot) StdoutLine: {'line': b'Installing dock script to /home/eyantra/LB24/Student/1048/install/bot/lib/bot\n'}
+[6.807823] (bot) StdoutLine: {'line': b'Installing nav script to /home/eyantra/LB24/Student/1048/install/bot/lib/bot\n'}
+[6.808392] (bot) StdoutLine: {'line': b"writing list of installed files to '/home/eyantra/LB24/Student/1048/build/bot/install.log'\n"}
+[6.834009] (-) TimerEvent: {}
+[6.934508] (-) TimerEvent: {}
+[6.985653] (ff) StdoutLine: {'line': b'running egg_info\n'}
+[6.992590] (ff) StdoutLine: {'line': b'writing ../../build/ff/ff.egg-info/PKG-INFO\n'}
+[6.992905] (ff) StdoutLine: {'line': b'writing dependency_links to ../../build/ff/ff.egg-info/dependency_links.txt\n'}
+[6.993022] (ff) StdoutLine: {'line': b'writing entry points to ../../build/ff/ff.egg-info/entry_points.txt\n'}
+[6.993122] (ff) StdoutLine: {'line': b'writing requirements to ../../build/ff/ff.egg-info/requires.txt\n'}
+[6.993214] (ff) StdoutLine: {'line': b'writing top-level names to ../../build/ff/ff.egg-info/top_level.txt\n'}
+[7.002873] (ff) StdoutLine: {'line': b"reading manifest file '../../build/ff/ff.egg-info/SOURCES.txt'\n"}
+[7.013235] (ff) StdoutLine: {'line': b"writing manifest file '../../build/ff/ff.egg-info/SOURCES.txt'\n"}
+[7.014006] (ff) StdoutLine: {'line': b'running build\n'}
+[7.014182] (ff) StdoutLine: {'line': b'running build_py\n'}
+[7.016182] (ff) StdoutLine: {'line': b'running install\n'}
+[7.016543] (ff) StdoutLine: {'line': b'running install_lib\n'}
+[7.017159] (ur5_control) StdoutLine: {'line': b'running egg_info\n'}
+[7.019302] (ur5_control) StdoutLine: {'line': b'writing ../../build/ur5_control/ur5_control.egg-info/PKG-INFO\n'}
+[7.019690] (ur5_control) StdoutLine: {'line': b'writing dependency_links to ../../build/ur5_control/ur5_control.egg-info/dependency_links.txt\n'}
+[7.019868] (ur5_control) StdoutLine: {'line': b'writing entry points to ../../build/ur5_control/ur5_control.egg-info/entry_points.txt\n'}
+[7.019960] (ur5_control) StdoutLine: {'line': b'writing requirements to ../../build/ur5_control/ur5_control.egg-info/requires.txt\n'}
+[7.020047] (ur5_control) StdoutLine: {'line': b'writing top-level names to ../../build/ur5_control/ur5_control.egg-info/top_level.txt\n'}
+[7.025818] (ur5_control) StdoutLine: {'line': b"reading manifest file '../../build/ur5_control/ur5_control.egg-info/SOURCES.txt'\n"}
+[7.030546] (ur5_control) StdoutLine: {'line': b"writing manifest file '../../build/ur5_control/ur5_control.egg-info/SOURCES.txt'\n"}
+[7.030862] (ur5_control) StdoutLine: {'line': b'running build\n'}
+[7.030986] (ur5_control) StdoutLine: {'line': b'running build_py\n'}
+[7.031082] (ur5_control) StdoutLine: {'line': b'running install\n'}
+[7.031157] (ur5_control) StdoutLine: {'line': b'running install_lib\n'}
+[7.031247] (ff) StdoutLine: {'line': b'running install_data\n'}
+[7.031364] (ff) StdoutLine: {'line': b'running install_egg_info\n'}
+[7.035542] (ur5_control) StdoutLine: {'line': b'running install_data\n'}
+[7.035845] (-) TimerEvent: {}
+[7.036036] (ur5_control) StdoutLine: {'line': b'running install_egg_info\n'}
+[7.036184] (ur5_control) StdoutLine: {'line': b"removing '/home/eyantra/LB24/Student/1048/install/ur5_control/lib/python3.10/site-packages/ur5_control-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[7.036315] (ur5_control) StdoutLine: {'line': b'Copying ../../build/ur5_control/ur5_control.egg-info to /home/eyantra/LB24/Student/1048/install/ur5_control/lib/python3.10/site-packages/ur5_control-0.0.0-py3.10.egg-info\n'}
+[7.036875] (ur5_control) StdoutLine: {'line': b'running install_scripts\n'}
+[7.043484] (ff) StdoutLine: {'line': b"removing '/home/eyantra/LB24/Student/1048/install/ff/lib/python3.10/site-packages/ff-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[7.043989] (ff) StdoutLine: {'line': b'Copying ../../build/ff/ff.egg-info to /home/eyantra/LB24/Student/1048/install/ff/lib/python3.10/site-packages/ff-0.0.0-py3.10.egg-info\n'}
+[7.047121] (ff) StdoutLine: {'line': b'running install_scripts\n'}
+[7.094116] (bot) CommandEnded: {'returncode': 0}
+[7.097543] (ur5_control) StdoutLine: {'line': b'Installing 3a script to /home/eyantra/LB24/Student/1048/install/ur5_control/lib/ur5_control\n'}
+[7.098227] (ur5_control) StdoutLine: {'line': b'Installing arm script to /home/eyantra/LB24/Student/1048/install/ur5_control/lib/ur5_control\n'}
+[7.102383] (ur5_control) StdoutLine: {'line': b'Installing arm5 script to /home/eyantra/LB24/Student/1048/install/ur5_control/lib/ur5_control\n'}
+[7.102700] (ur5_control) StdoutLine: {'line': b'Installing working script to /home/eyantra/LB24/Student/1048/install/ur5_control/lib/ur5_control\n'}
+[7.102895] (ur5_control) StdoutLine: {'line': b"writing list of installed files to '/home/eyantra/LB24/Student/1048/build/ur5_control/install.log'\n"}
+[7.146494] (bot) JobEnded: {'identifier': 'bot', 'rc': 0}
+[7.147786] (-) TimerEvent: {}
+[7.195682] (ur5_control) CommandEnded: {'returncode': 0}
+[7.196496] (ff) StdoutLine: {'line': b'Installing arm script to /home/eyantra/LB24/Student/1048/install/ff/lib/ff\n'}
+[7.205080] (ff) StdoutLine: {'line': b'Installing dock script to /home/eyantra/LB24/Student/1048/install/ff/lib/ff\n'}
+[7.205339] (ff) StdoutLine: {'line': b'Installing nav script to /home/eyantra/LB24/Student/1048/install/ff/lib/ff\n'}
+[7.205459] (ff) StdoutLine: {'line': b"writing list of installed files to '/home/eyantra/LB24/Student/1048/build/ff/install.log'\n"}
+[7.224384] (ur5_control) JobEnded: {'identifier': 'ur5_control', 'rc': 0}
+[7.247942] (-) TimerEvent: {}
+[7.353528] (-) TimerEvent: {}
+[7.454050] (-) TimerEvent: {}
+[7.514203] (ff) CommandEnded: {'returncode': 0}
+[7.562444] (-) TimerEvent: {}
+[7.570921] (ff) JobEnded: {'identifier': 'ff', 'rc': 0}
+[7.663949] (-) TimerEvent: {}
+[7.770629] (-) TimerEvent: {}
+[7.871050] (-) TimerEvent: {}
+[7.971565] (-) TimerEvent: {}
+[8.072267] (-) TimerEvent: {}
+[8.172857] (-) TimerEvent: {}
+[8.273373] (-) TimerEvent: {}
+[8.375748] (-) TimerEvent: {}
+[8.476439] (-) TimerEvent: {}
+[8.577354] (-) TimerEvent: {}
+[8.679697] (-) TimerEvent: {}
+[8.780195] (-) TimerEvent: {}
+[8.881765] (-) TimerEvent: {}
+[8.983036] (-) TimerEvent: {}
+[9.084764] (-) TimerEvent: {}
+[9.185256] (-) TimerEvent: {}
+[9.286284] (-) TimerEvent: {}
+[9.388007] (-) TimerEvent: {}
+[9.490317] (-) TimerEvent: {}
+[9.590894] (-) TimerEvent: {}
+[9.691714] (-) TimerEvent: {}
+[9.792486] (-) TimerEvent: {}
+[9.894534] (-) TimerEvent: {}
+[9.994983] (-) TimerEvent: {}
+[10.095559] (-) TimerEvent: {}
+[10.196585] (-) TimerEvent: {}
+[10.299973] (-) TimerEvent: {}
+[10.400418] (-) TimerEvent: {}
+[10.501106] (-) TimerEvent: {}
+[10.604013] (-) TimerEvent: {}
+[10.704522] (-) TimerEvent: {}
+[10.808658] (-) TimerEvent: {}
+[10.909288] (-) TimerEvent: {}
+[11.010077] (-) TimerEvent: {}
+[11.113545] (-) TimerEvent: {}
+[11.214185] (-) TimerEvent: {}
+[11.314707] (-) TimerEvent: {}
+[11.415972] (-) TimerEvent: {}
+[11.516828] (-) TimerEvent: {}
+[11.617333] (-) TimerEvent: {}
+[11.718366] (-) TimerEvent: {}
+[11.822112] (-) TimerEvent: {}
+[11.927540] (-) TimerEvent: {}
+[12.028042] (-) TimerEvent: {}
+[12.128494] (-) TimerEvent: {}
+[12.239726] (-) TimerEvent: {}
+[12.342094] (-) TimerEvent: {}
+[12.442932] (-) TimerEvent: {}
+[12.544852] (-) TimerEvent: {}
+[12.652062] (-) TimerEvent: {}
+[12.754705] (-) TimerEvent: {}
+[12.858856] (-) TimerEvent: {}
+[12.959741] (-) TimerEvent: {}
+[13.061238] (-) TimerEvent: {}
+[13.162602] (-) TimerEvent: {}
+[13.263192] (-) TimerEvent: {}
+[13.367692] (-) TimerEvent: {}
+[13.469249] (-) TimerEvent: {}
+[13.570277] (-) TimerEvent: {}
+[13.672800] (-) TimerEvent: {}
+[13.780742] (-) TimerEvent: {}
+[13.882752] (-) TimerEvent: {}
+[13.983321] (-) TimerEvent: {}
+[14.084960] (-) TimerEvent: {}
+[14.186162] (-) TimerEvent: {}
+[14.288559] (-) TimerEvent: {}
+[14.389309] (-) TimerEvent: {}
+[14.490842] (-) TimerEvent: {}
+[14.593570] (-) TimerEvent: {}
+[14.694087] (-) TimerEvent: {}
+[14.799070] (-) TimerEvent: {}
+[14.899552] (-) TimerEvent: {}
+[15.002569] (-) TimerEvent: {}
+[15.103169] (-) TimerEvent: {}
+[15.203858] (-) TimerEvent: {}
+[15.304645] (-) TimerEvent: {}
+[15.405127] (-) TimerEvent: {}
+[15.509657] (-) TimerEvent: {}
+[15.610551] (-) TimerEvent: {}
+[15.715877] (-) TimerEvent: {}
+[15.816475] (-) TimerEvent: {}
+[15.916999] (-) TimerEvent: {}
+[16.017520] (-) TimerEvent: {}
+[16.120386] (-) TimerEvent: {}
+[16.224063] (-) TimerEvent: {}
+[16.325069] (-) TimerEvent: {}
+[16.430612] (-) TimerEvent: {}
+[16.531257] (-) TimerEvent: {}
+[16.633861] (-) TimerEvent: {}
+[16.734438] (-) TimerEvent: {}
+[16.834914] (-) TimerEvent: {}
+[16.935537] (-) TimerEvent: {}
+[17.036043] (-) TimerEvent: {}
+[17.143607] (-) TimerEvent: {}
+[17.244196] (-) TimerEvent: {}
+[17.344992] (-) TimerEvent: {}
+[17.446578] (-) TimerEvent: {}
+[17.547211] (-) TimerEvent: {}
+[17.655367] (-) TimerEvent: {}
+[17.756576] (-) TimerEvent: {}
+[17.857432] (-) TimerEvent: {}
+[17.958237] (-) TimerEvent: {}
+[18.060977] (-) TimerEvent: {}
+[18.161677] (-) TimerEvent: {}
+[18.262477] (-) TimerEvent: {}
+[18.369431] (-) TimerEvent: {}
+[18.469954] (-) TimerEvent: {}
+[18.570693] (-) TimerEvent: {}
+[18.671206] (-) TimerEvent: {}
+[18.774089] (-) TimerEvent: {}
+[18.874946] (-) TimerEvent: {}
+[18.975779] (-) TimerEvent: {}
+[19.076491] (-) TimerEvent: {}
+[19.178321] (-) TimerEvent: {}
+[19.280929] (-) TimerEvent: {}
+[19.382040] (-) TimerEvent: {}
+[19.482953] (-) TimerEvent: {}
+[19.602581] (-) TimerEvent: {}
+[19.706595] (-) TimerEvent: {}
+[19.807480] (-) TimerEvent: {}
+[19.908269] (-) TimerEvent: {}
+[20.009039] (-) TimerEvent: {}
+[20.116545] (-) TimerEvent: {}
+[20.217061] (-) TimerEvent: {}
+[20.318090] (-) TimerEvent: {}
+[20.421584] (-) TimerEvent: {}
+[20.526854] (-) TimerEvent: {}
+[20.627386] (-) TimerEvent: {}
+[20.728692] (-) TimerEvent: {}
+[20.829967] (-) TimerEvent: {}
+[20.933000] (-) TimerEvent: {}
+[21.033667] (-) TimerEvent: {}
+[21.134537] (-) TimerEvent: {}
+[21.235289] (-) TimerEvent: {}
+[21.339550] (-) TimerEvent: {}
+[21.440166] (-) TimerEvent: {}
+[21.541310] (-) TimerEvent: {}
+[21.641817] (-) TimerEvent: {}
+[21.744604] (-) TimerEvent: {}
+[21.845525] (-) TimerEvent: {}
+[21.946082] (-) TimerEvent: {}
+[22.048823] (-) TimerEvent: {}
+[22.149595] (-) TimerEvent: {}
+[22.251505] (-) TimerEvent: {}
+[22.354245] (-) TimerEvent: {}
+[22.457584] (-) TimerEvent: {}
+[22.558089] (-) TimerEvent: {}
+[22.660666] (-) TimerEvent: {}
+[22.767755] (-) TimerEvent: {}
+[22.871581] (-) TimerEvent: {}
+[22.972336] (-) TimerEvent: {}
+[23.072900] (-) TimerEvent: {}
+[23.176566] (-) TimerEvent: {}
+[23.277028] (-) TimerEvent: {}
+[23.379957] (-) TimerEvent: {}
+[23.480466] (-) TimerEvent: {}
+[23.585284] (-) TimerEvent: {}
+[23.695567] (-) TimerEvent: {}
+[23.796603] (-) TimerEvent: {}
+[23.897474] (-) TimerEvent: {}
+[24.000528] (-) TimerEvent: {}
+[24.103618] (-) TimerEvent: {}
+[24.204284] (-) TimerEvent: {}
+[24.307558] (-) TimerEvent: {}
+[24.408227] (-) TimerEvent: {}
+[24.509267] (-) TimerEvent: {}
+[24.612561] (-) TimerEvent: {}
+[24.713159] (-) TimerEvent: {}
+[24.813671] (-) TimerEvent: {}
+[24.918636] (-) TimerEvent: {}
+[25.019732] (-) TimerEvent: {}
+[25.124339] (-) TimerEvent: {}
+[25.224940] (-) TimerEvent: {}
+[25.325693] (-) TimerEvent: {}
+[25.426549] (-) TimerEvent: {}
+[25.527136] (-) TimerEvent: {}
+[25.633554] (-) TimerEvent: {}
+[25.735746] (-) TimerEvent: {}
+[25.836368] (-) TimerEvent: {}
+[25.938485] (-) TimerEvent: {}
+[26.039401] (-) TimerEvent: {}
+[26.141716] (-) TimerEvent: {}
+[26.242549] (-) TimerEvent: {}
+[26.345562] (-) TimerEvent: {}
+[26.446283] (-) TimerEvent: {}
+[26.546959] (-) TimerEvent: {}
+[26.647657] (-) TimerEvent: {}
+[26.748398] (-) TimerEvent: {}
+[26.853588] (-) TimerEvent: {}
+[26.954189] (-) TimerEvent: {}
+[27.055166] (-) TimerEvent: {}
+[27.155968] (-) TimerEvent: {}
+[27.265296] (-) TimerEvent: {}
+[27.365941] (-) TimerEvent: {}
+[27.467762] (-) TimerEvent: {}
+[27.570428] (-) TimerEvent: {}
+[27.673539] (-) TimerEvent: {}
+[27.774092] (-) TimerEvent: {}
+[27.878298] (-) TimerEvent: {}
+[27.978961] (-) TimerEvent: {}
+[28.079486] (-) TimerEvent: {}
+[28.181891] (-) TimerEvent: {}
+[28.282492] (-) TimerEvent: {}
+[28.387644] (-) TimerEvent: {}
+[28.491645] (-) TimerEvent: {}
+[28.593567] (-) TimerEvent: {}
+[28.694067] (-) TimerEvent: {}
+[28.795956] (-) TimerEvent: {}
+[28.899626] (-) TimerEvent: {}
+[29.000547] (-) TimerEvent: {}
+[29.101038] (-) TimerEvent: {}
+[29.201759] (-) TimerEvent: {}
+[29.302840] (-) TimerEvent: {}
+[29.404955] (-) TimerEvent: {}
+[29.505473] (-) TimerEvent: {}
+[29.607576] (-) TimerEvent: {}
+[29.718920] (-) TimerEvent: {}
+[29.819393] (-) TimerEvent: {}
+[29.923560] (-) TimerEvent: {}
+[30.024105] (-) TimerEvent: {}
+[30.124861] (-) TimerEvent: {}
+[30.229230] (-) TimerEvent: {}
+[30.330941] (-) TimerEvent: {}
+[30.432339] (-) TimerEvent: {}
+[30.533847] (-) TimerEvent: {}
+[30.637737] (-) TimerEvent: {}
+[30.746108] (-) TimerEvent: {}
+[30.849409] (-) TimerEvent: {}
+[30.953632] (-) TimerEvent: {}
+[31.054286] (-) TimerEvent: {}
+[31.157774] (-) TimerEvent: {}
+[31.260234] (-) TimerEvent: {}
+[31.363181] (-) TimerEvent: {}
+[31.463835] (-) TimerEvent: {}
+[31.566572] (-) TimerEvent: {}
+[31.667025] (-) TimerEvent: {}
+[31.769558] (-) TimerEvent: {}
+[31.870106] (-) TimerEvent: {}
+[31.971303] (-) TimerEvent: {}
+[32.075349] (-) TimerEvent: {}
+[32.182394] (-) TimerEvent: {}
+[32.284763] (-) TimerEvent: {}
+[32.386334] (-) TimerEvent: {}
+[32.486880] (-) TimerEvent: {}
+[32.590895] (-) TimerEvent: {}
+[32.691518] (-) TimerEvent: {}
+[32.791948] (-) TimerEvent: {}
+[32.892647] (-) TimerEvent: {}
+[32.999549] (-) TimerEvent: {}
+[33.105951] (-) TimerEvent: {}
+[33.206776] (-) TimerEvent: {}
+[33.310761] (-) TimerEvent: {}
+[33.412239] (-) TimerEvent: {}
+[33.513071] (-) TimerEvent: {}
+[33.613778] (-) TimerEvent: {}
+[33.715743] (-) TimerEvent: {}
+[33.816368] (-) TimerEvent: {}
+[33.924879] (-) TimerEvent: {}
+[34.025388] (-) TimerEvent: {}
+[34.125998] (-) TimerEvent: {}
+[34.226527] (-) TimerEvent: {}
+[34.335443] (-) TimerEvent: {}
+[34.435935] (-) TimerEvent: {}
+[34.536577] (-) TimerEvent: {}
+[34.644650] (-) TimerEvent: {}
+[34.745222] (-) TimerEvent: {}
+[34.848255] (-) TimerEvent: {}
+[34.950783] (-) TimerEvent: {}
+[35.053543] (-) TimerEvent: {}
+[35.154213] (-) TimerEvent: {}
+[35.255519] (-) TimerEvent: {}
+[35.364181] (-) TimerEvent: {}
+[35.469872] (-) TimerEvent: {}
+[35.570856] (-) TimerEvent: {}
+[35.672758] (-) TimerEvent: {}
+[35.773286] (-) TimerEvent: {}
+[35.875555] (-) TimerEvent: {}
+[35.981244] (-) TimerEvent: {}
+[36.082279] (-) TimerEvent: {}
+[36.183962] (-) TimerEvent: {}
+[36.286084] (-) TimerEvent: {}
+[36.387417] (-) TimerEvent: {}
+[36.488263] (-) TimerEvent: {}
+[36.589524] (-) TimerEvent: {}
+[36.693609] (-) TimerEvent: {}
+[36.794529] (-) TimerEvent: {}
+[36.896736] (-) TimerEvent: {}
+[36.997274] (-) TimerEvent: {}
+[37.103374] (-) TimerEvent: {}
+[37.204231] (-) TimerEvent: {}
+[37.306335] (-) TimerEvent: {}
+[37.407112] (-) TimerEvent: {}
+[37.508517] (-) TimerEvent: {}
+[37.609108] (-) TimerEvent: {}
+[37.709999] (-) TimerEvent: {}
+[37.811550] (-) TimerEvent: {}
+[37.912036] (-) TimerEvent: {}
+[38.013994] (-) TimerEvent: {}
+[38.115228] (-) TimerEvent: {}
+[38.215929] (-) TimerEvent: {}
+[38.316344] (-) TimerEvent: {}
+[38.422746] (-) TimerEvent: {}
+[38.525643] (-) TimerEvent: {}
+[38.626337] (-) TimerEvent: {}
+[38.727848] (-) TimerEvent: {}
+[38.828630] (-) TimerEvent: {}
+[38.946540] (-) TimerEvent: {}
+[39.046955] (-) TimerEvent: {}
+[39.147585] (-) TimerEvent: {}
+[39.248221] (-) TimerEvent: {}
+[39.353851] (-) TimerEvent: {}
+[39.454637] (-) TimerEvent: {}
+[39.555419] (-) TimerEvent: {}
+[39.655807] (-) TimerEvent: {}
+[39.761690] (-) TimerEvent: {}
+[39.863424] (-) TimerEvent: {}
+[39.969225] (-) TimerEvent: {}
+[40.069889] (-) TimerEvent: {}
+[40.172073] (-) TimerEvent: {}
+[40.273738] (-) TimerEvent: {}
+[40.376601] (-) TimerEvent: {}
+[40.477208] (-) TimerEvent: {}
+[40.578595] (-) TimerEvent: {}
+[40.679318] (-) TimerEvent: {}
+[40.780533] (-) TimerEvent: {}
+[40.882088] (-) TimerEvent: {}
+[40.984748] (-) TimerEvent: {}
+[41.085302] (-) TimerEvent: {}
+[41.189738] (-) TimerEvent: {}
+[41.290473] (-) TimerEvent: {}
+[41.391414] (-) TimerEvent: {}
+[41.492970] (-) TimerEvent: {}
+[41.595261] (-) TimerEvent: {}
+[41.695842] (-) TimerEvent: {}
+[41.796929] (-) TimerEvent: {}
+[41.861235] (fin) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX executable nav\x1b[0m\n'}
+[41.897040] (-) TimerEvent: {}
+[41.999732] (-) TimerEvent: {}
+[42.100829] (-) TimerEvent: {}
+[42.201545] (-) TimerEvent: {}
+[42.304678] (-) TimerEvent: {}
+[42.410134] (-) TimerEvent: {}
+[42.512921] (-) TimerEvent: {}
+[42.617964] (-) TimerEvent: {}
+[42.718867] (-) TimerEvent: {}
+[42.819538] (-) TimerEvent: {}
+[42.921801] (-) TimerEvent: {}
+[43.026696] (-) TimerEvent: {}
+[43.127435] (-) TimerEvent: {}
+[43.229592] (-) TimerEvent: {}
+[43.331829] (-) TimerEvent: {}
+[43.433515] (-) TimerEvent: {}
+[43.534340] (-) TimerEvent: {}
+[43.636554] (-) TimerEvent: {}
+[43.737100] (-) TimerEvent: {}
+[43.837848] (-) TimerEvent: {}
+[43.939093] (-) TimerEvent: {}
+[44.054585] (-) TimerEvent: {}
+[44.156311] (-) TimerEvent: {}
+[44.256793] (-) TimerEvent: {}
+[44.357616] (-) TimerEvent: {}
+[44.458031] (-) TimerEvent: {}
+[44.562529] (-) TimerEvent: {}
+[44.663145] (-) TimerEvent: {}
+[44.763724] (-) TimerEvent: {}
+[44.864346] (-) TimerEvent: {}
+[44.967588] (-) TimerEvent: {}
+[45.068359] (-) TimerEvent: {}
+[45.170973] (-) TimerEvent: {}
+[45.271479] (-) TimerEvent: {}
+[45.375760] (-) TimerEvent: {}
+[45.391323] (fin) StdoutLine: {'line': b'Built target nav\n'}
+[45.453701] (fin) StdoutLine: {'line': b'Built target dock\n'}
+[45.475835] (-) TimerEvent: {}
+[45.478605] (fin) CommandEnded: {'returncode': 0}
+[45.479949] (fin) JobProgress: {'identifier': 'fin', 'progress': 'install'}
+[45.480203] (fin) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/eyantra/LB24/Student/1048/build/fin'], 'cwd': '/home/eyantra/LB24/Student/1048/build/fin', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'eyantra'), ('evalpwd2', '/home/eyantra/LB24/Eval/'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eyantra'), ('OLDPWD', '/home/eyantra'), ('server', 'http://3.111.147.97:15001/'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/eyantra/.nvm/versions/node/v22.12.0/bin'), ('NVM_INC', '/home/eyantra/.nvm/versions/node/v22.12.0/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1959'), ('startVNcPWD', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/src'), ('SYSTEMD_EXEC_PID', '2206'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3276'), ('NVM_DIR', '/home/eyantra/.nvm'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'eyantra'), ('JOURNAL_STREAM', '8:14841'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('pwd', '/home/e-yantra/LB24/Student'), ('XDG_SESSION_CLASS', 'user'), ('server2', 'http://3.111.147.97:6080/vnc/api/'), ('vncPwd', '/home/e-yantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('USERNAME', 'eyantra'), ('TERM', 'xterm-color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/eyantra/.nvm/versions/node/v22.12.0/bin:/opt/ros/humble/bin:/home/eyantra/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ml-box:@/tmp/.ICE-unix/2179,unix/ml-box:/tmp/.ICE-unix/2179'), ('INVOCATION_ID', '2f1a63cd45b9424c92e171f0d25b86c1'), ('startVNcPWD2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/src'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '2'), ('AMENT_PREFIX_PATH', '/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c3cfae08-92b5-4360-9c43-af445a980c01'), ('QT_ACCESSIBILITY', '1'), ('pwd2', '/home/eyantra/LB24/Student'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('vncPwd2', '/home/eyantra/3_Software_automation_for_robotics/server/src/test/noVNC'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('evalpwd', '/home/e-yantra/LB24/task3AEVAL/'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/eyantra/LB24/Student/1048/build/fin'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble')]), 'shell': False}
+[45.504009] (fin) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[45.504672] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/lib/fin/arm\n'}
+[45.505684] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/lib/fin/dock\n'}
+[45.508331] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/lib/fin/nav\n'}
+[45.510094] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/lib/fin/arm.py\n'}
+[45.510688] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/ament_index/resource_index/package_run_dependencies/fin\n'}
+[45.512611] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/ament_index/resource_index/parent_prefix_path/fin\n'}
+[45.513207] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/environment/ament_prefix_path.sh\n'}
+[45.513731] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/environment/ament_prefix_path.dsv\n'}
+[45.514223] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/environment/path.sh\n'}
+[45.515516] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/environment/path.dsv\n'}
+[45.515770] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/local_setup.bash\n'}
+[45.515964] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/local_setup.sh\n'}
+[45.516300] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/local_setup.zsh\n'}
+[45.516560] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/local_setup.dsv\n'}
+[45.516718] (fin) StdoutLine: {'line': b'-- Installing: /home/eyantra/LB24/Student/1048/install/fin/share/fin/package.dsv\n'}
+[45.516844] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/ament_index/resource_index/packages/fin\n'}
+[45.517010] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/cmake/finConfig.cmake\n'}
+[45.517133] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/cmake/finConfig-version.cmake\n'}
+[45.517243] (fin) StdoutLine: {'line': b'-- Up-to-date: /home/eyantra/LB24/Student/1048/install/fin/share/fin/package.xml\n'}
+[45.517367] (fin) CommandEnded: {'returncode': 0}
+[45.543779] (fin) JobEnded: {'identifier': 'fin', 'rc': 0}
+[45.545977] (-) EventReactorShutdown: {}

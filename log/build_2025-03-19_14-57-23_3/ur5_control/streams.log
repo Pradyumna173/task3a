@@ -1,0 +1,24 @@
+[6.609s] Invoking command in '/home/eyantra/LB24/Student/1048/src/ur5_control': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/ur5_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/ur5_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur5_control build --build-base /home/eyantra/LB24/Student/1048/build/ur5_control/build install --record /home/eyantra/LB24/Student/1048/build/ur5_control/install.log --single-version-externally-managed install_data
+[7.915s] running egg_info
+[7.917s] writing ../../build/ur5_control/ur5_control.egg-info/PKG-INFO
+[7.923s] writing dependency_links to ../../build/ur5_control/ur5_control.egg-info/dependency_links.txt
+[7.923s] writing entry points to ../../build/ur5_control/ur5_control.egg-info/entry_points.txt
+[7.923s] writing requirements to ../../build/ur5_control/ur5_control.egg-info/requires.txt
+[7.923s] writing top-level names to ../../build/ur5_control/ur5_control.egg-info/top_level.txt
+[7.923s] reading manifest file '../../build/ur5_control/ur5_control.egg-info/SOURCES.txt'
+[7.923s] writing manifest file '../../build/ur5_control/ur5_control.egg-info/SOURCES.txt'
+[7.923s] running build
+[7.923s] running build_py
+[7.923s] running install
+[7.924s] running install_lib
+[7.926s] running install_data
+[7.927s] running install_egg_info
+[7.937s] removing '/home/eyantra/LB24/Student/1048/install/ur5_control/lib/python3.10/site-packages/ur5_control-0.0.0-py3.10.egg-info' (and everything under it)
+[7.937s] Copying ../../build/ur5_control/ur5_control.egg-info to /home/eyantra/LB24/Student/1048/install/ur5_control/lib/python3.10/site-packages/ur5_control-0.0.0-py3.10.egg-info
+[7.937s] running install_scripts
+[7.979s] Installing 3a script to /home/eyantra/LB24/Student/1048/install/ur5_control/lib/ur5_control
+[7.980s] Installing arm script to /home/eyantra/LB24/Student/1048/install/ur5_control/lib/ur5_control
+[7.980s] Installing arm5 script to /home/eyantra/LB24/Student/1048/install/ur5_control/lib/ur5_control
+[7.980s] Installing working script to /home/eyantra/LB24/Student/1048/install/ur5_control/lib/ur5_control
+[7.981s] writing list of installed files to '/home/eyantra/LB24/Student/1048/build/ur5_control/install.log'
+[8.128s] Invoked command in '/home/eyantra/LB24/Student/1048/src/ur5_control' returned '0': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/ur5_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/ur5_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur5_control build --build-base /home/eyantra/LB24/Student/1048/build/ur5_control/build install --record /home/eyantra/LB24/Student/1048/build/ur5_control/install.log --single-version-externally-managed install_data

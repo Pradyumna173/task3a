@@ -1,0 +1,281 @@
+[0.045s] Invoking command in '/home/eyantra/LB24/Student/1048/build/ebot_docking': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eyantra/LB24/Student/1048/src/ebot_docking -DCMAKE_INSTALL_PREFIX=/home/eyantra/LB24/Student/1048/install/ebot_docking
+[1.124s] -- The C compiler identification is GNU 11.4.0
+[1.126s] -- The CXX compiler identification is GNU 11.4.0
+[1.126s] -- Detecting C compiler ABI info
+[1.127s] -- Detecting C compiler ABI info - done
+[1.127s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.127s] -- Detecting C compile features
+[1.127s] -- Detecting C compile features - done
+[1.127s] -- Detecting CXX compiler ABI info
+[1.127s] -- Detecting CXX compiler ABI info - done
+[1.127s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.128s] -- Detecting CXX compile features
+[1.128s] -- Detecting CXX compile features - done
+[1.128s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.128s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.128s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[1.128s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.129s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.129s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.129s] -- Found rclpy: 3.3.15 (/opt/ros/humble/share/rclpy/cmake)
+[1.129s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.465s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.957s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.003s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[2.007s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[2.069s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[2.069s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.069s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[2.069s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[2.106s] -- Found PythonExtra: .so  
+[2.168s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.201s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.202s] -- Added test 'lint_cmake' to check CMake code style
+[2.203s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[2.205s] -- Added test 'xmllint' to check XML markup files
+[2.211s] -- Configuring done
+[2.260s] -- Generating done
+[2.282s] -- Build files have been written to: /home/eyantra/LB24/Student/1048/build/ebot_docking
+[2.296s] Invoked command in '/home/eyantra/LB24/Student/1048/build/ebot_docking' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eyantra/LB24/Student/1048/src/ebot_docking -DCMAKE_INSTALL_PREFIX=/home/eyantra/LB24/Student/1048/install/ebot_docking
+[2.297s] Invoking command in '/home/eyantra/LB24/Student/1048/build/ebot_docking': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ebot_docking -- -j8 -l8
+[2.745s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[2.746s] [  5%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.746s] [  5%] Built target ament_cmake_python_copy_ebot_docking
+[3.204s] running egg_info
+[3.211s] creating ebot_docking.egg-info
+[3.211s] writing ebot_docking.egg-info/PKG-INFO
+[3.215s] writing dependency_links to ebot_docking.egg-info/dependency_links.txt
+[3.216s] writing top-level names to ebot_docking.egg-info/top_level.txt
+[3.222s] writing manifest file 'ebot_docking.egg-info/SOURCES.txt'
+[3.241s] reading manifest file 'ebot_docking.egg-info/SOURCES.txt'
+[3.242s] writing manifest file 'ebot_docking.egg-info/SOURCES.txt'
+[3.378s] [  5%] Built target ament_cmake_python_build_ebot_docking_egg
+[3.384s] [  5%] Built target ebot_docking__cpp
+[3.393s] [  7%] [32mBuilding C object CMakeFiles/ebot_docking__rosidl_generator_c.dir/rosidl_generator_c/ebot_docking/srv/detail/dock_sw__functions.c.o[0m
+[3.406s] [ 10%] [32mBuilding C object CMakeFiles/ebot_docking__rosidl_generator_c.dir/rosidl_generator_c/ebot_docking/srv/detail/passing_service__functions.c.o[0m
+[3.414s] [ 12%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[3.416s] [ 15%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[3.422s] [ 17%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[3.572s] [ 20%] [32m[1mLinking C shared library libebot_docking__rosidl_generator_c.so[0m
+[3.707s] [ 20%] Built target ebot_docking__rosidl_generator_c
+[3.736s] [ 23%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[3.740s] [ 25%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[3.741s] [ 28%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[4.143s] [ 30%] [32mBuilding CXX object CMakeFiles/ebot_docking__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ebot_docking/srv/dock_sw__type_support.cpp.o[0m
+[4.156s] [ 33%] [32mBuilding CXX object CMakeFiles/ebot_docking__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ebot_docking/srv/passing_service__type_support.cpp.o[0m
+[4.200s] [ 35%] [32mBuilding CXX object CMakeFiles/ebot_docking__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ebot_docking/srv/detail/dock_sw__type_support.cpp.o[0m
+[4.208s] [ 38%] [32mBuilding CXX object CMakeFiles/ebot_docking__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ebot_docking/srv/detail/passing_service__type_support.cpp.o[0m
+[4.409s] [ 41%] [32mBuilding CXX object CMakeFiles/ebot_docking__rosidl_typesupport_c.dir/rosidl_typesupport_c/ebot_docking/srv/dock_sw__type_support.cpp.o[0m
+[4.525s] [ 43%] [32mBuilding CXX object CMakeFiles/ebot_docking__rosidl_typesupport_c.dir/rosidl_typesupport_c/ebot_docking/srv/passing_service__type_support.cpp.o[0m
+[4.539s] [ 46%] [32mBuilding CXX object CMakeFiles/ebot_docking__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ebot_docking/srv/detail/dds_fastrtps/dock_sw__type_support.cpp.o[0m
+[4.635s] [ 48%] [32m[1mLinking CXX shared library libebot_docking__rosidl_typesupport_c.so[0m
+[4.660s] [ 51%] [32mBuilding C object CMakeFiles/ebot_docking__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ebot_docking/srv/detail/dock_sw__type_support.c.o[0m
+[4.714s] [ 53%] [32mBuilding CXX object CMakeFiles/ebot_docking__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ebot_docking/srv/detail/dock_sw__type_support_c.cpp.o[0m
+[4.716s] [ 56%] [32mBuilding CXX object CMakeFiles/ebot_docking__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ebot_docking/srv/detail/passing_service__type_support_c.cpp.o[0m
+[4.755s] [ 56%] Built target ebot_docking__rosidl_typesupport_c
+[4.766s] [ 58%] [32mBuilding C object CMakeFiles/ebot_docking__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ebot_docking/srv/detail/passing_service__type_support.c.o[0m
+[4.789s] [ 61%] [32mBuilding CXX object CMakeFiles/ebot_docking__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ebot_docking/srv/detail/dds_fastrtps/passing_service__type_support.cpp.o[0m
+[4.812s] [ 64%] [32m[1mLinking CXX shared library libebot_docking__rosidl_typesupport_cpp.so[0m
+[4.890s] [ 64%] Built target ebot_docking__rosidl_typesupport_cpp
+[4.898s] [ 66%] [32m[1mLinking C shared library libebot_docking__rosidl_typesupport_introspection_c.so[0m
+[4.965s] [ 66%] Built target ebot_docking__rosidl_typesupport_introspection_c
+[5.106s] [ 69%] [32m[1mLinking CXX shared library libebot_docking__rosidl_typesupport_introspection_cpp.so[0m
+[5.171s] [ 69%] Built target ebot_docking__rosidl_typesupport_introspection_cpp
+[5.325s] [ 71%] [32m[1mLinking CXX shared library libebot_docking__rosidl_typesupport_fastrtps_c.so[0m
+[5.362s] [ 74%] [32m[1mLinking CXX shared library libebot_docking__rosidl_typesupport_fastrtps_cpp.so[0m
+[5.430s] [ 74%] Built target ebot_docking__rosidl_typesupport_fastrtps_c
+[5.460s] [ 74%] Built target ebot_docking__rosidl_typesupport_fastrtps_cpp
+[5.479s] [ 74%] Built target ebot_docking
+[5.502s] [ 76%] [34m[1mGenerating Python code for ROS interfaces[0m
+[6.003s] [ 76%] Built target ebot_docking__py
+[6.021s] [ 82%] [32mBuilding C object CMakeFiles/ebot_docking__rosidl_generator_py.dir/rosidl_generator_py/ebot_docking/srv/_passing_service_s.c.o[0m
+[6.022s] [ 82%] [32mBuilding C object CMakeFiles/ebot_docking__rosidl_generator_py.dir/rosidl_generator_py/ebot_docking/srv/_dock_sw_s.c.o[0m
+[6.115s] [ 84%] [32m[1mLinking C shared library rosidl_generator_py/ebot_docking/libebot_docking__rosidl_generator_py.so[0m
+[6.151s] [ 84%] Built target ebot_docking__rosidl_generator_py
+[6.171s] [ 89%] [32mBuilding C object CMakeFiles/ebot_docking__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[6.171s] [ 89%] [32mBuilding C object CMakeFiles/ebot_docking__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[6.171s] [ 92%] [32mBuilding C object CMakeFiles/ebot_docking__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_c.c.o[0m
+[6.268s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/ebot_docking/ebot_docking_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[6.268s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/ebot_docking/ebot_docking_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[6.272s] [100%] [32m[1mLinking C shared library rosidl_generator_py/ebot_docking/ebot_docking_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[6.302s] [100%] Built target ebot_docking__rosidl_typesupport_introspection_c__pyext
+[6.303s] [100%] Built target ebot_docking__rosidl_typesupport_c__pyext
+[6.307s] [100%] Built target ebot_docking__rosidl_typesupport_fastrtps_c__pyext
+[6.318s] Invoked command in '/home/eyantra/LB24/Student/1048/build/ebot_docking' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ebot_docking -- -j8 -l8
+[6.319s] Invoking command in '/home/eyantra/LB24/Student/1048/build/ebot_docking': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ebot_docking
+[6.328s] -- Install configuration: ""
+[6.328s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ament_index/resource_index/rosidl_interfaces/ebot_docking
+[6.328s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking
+[6.328s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg
+[6.328s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_generator_c__visibility_control.h
+[6.328s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[6.329s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/passing_service.h
+[6.329s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/dock_sw.h
+[6.329s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[6.329s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__functions.h
+[6.329s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__struct.h
+[6.329s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__functions.h
+[6.329s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__functions.c
+[6.329s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.h
+[6.330s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.h
+[6.330s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__struct.h
+[6.330s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__functions.c
+[6.330s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/library_path.sh
+[6.330s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/library_path.dsv
+[6.330s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_generator_c.so
+[6.330s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_generator_c.so" to ""
+[6.331s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking
+[6.331s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg
+[6.331s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[6.331s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[6.331s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[6.331s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_fastrtps_c.h
+[6.331s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_fastrtps_c.h
+[6.331s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_fastrtps_c.so
+[6.332s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_fastrtps_c.so" to ""
+[6.332s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking
+[6.332s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg
+[6.332s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[6.332s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[6.332s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[6.332s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_introspection_c.h
+[6.332s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_introspection_c.h
+[6.332s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.c
+[6.333s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.c
+[6.333s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_introspection_c.so
+[6.333s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_introspection_c.so" to ""
+[6.333s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_c.so
+[6.333s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_c.so" to ""
+[6.333s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking
+[6.333s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg
+[6.333s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_generator_cpp__visibility_control.hpp
+[6.333s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[6.334s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/dock_sw.hpp
+[6.334s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/passing_service.hpp
+[6.334s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[6.334s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__traits.hpp
+[6.334s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__traits.hpp
+[6.334s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__builder.hpp
+[6.334s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__struct.hpp
+[6.334s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.hpp
+[6.334s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.hpp
+[6.334s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__builder.hpp
+[6.334s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__struct.hpp
+[6.335s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking
+[6.335s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg
+[6.335s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[6.335s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[6.335s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[6.335s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_fastrtps_cpp.hpp
+[6.335s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dds_fastrtps
+[6.335s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_fastrtps_cpp.hpp
+[6.335s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_fastrtps_cpp.so
+[6.335s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_fastrtps_cpp.so" to ""
+[6.335s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking
+[6.336s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv
+[6.336s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail
+[6.336s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__type_support.cpp
+[6.336s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__rosidl_typesupport_introspection_cpp.hpp
+[6.336s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/dock_sw__type_support.cpp
+[6.336s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/include/ebot_docking/ebot_docking/srv/detail/passing_service__rosidl_typesupport_introspection_cpp.hpp
+[6.336s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_introspection_cpp.so
+[6.336s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_introspection_cpp.so" to ""
+[6.336s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_cpp.so
+[6.337s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_typesupport_cpp.so" to ""
+[6.337s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/pythonpath.sh
+[6.337s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/pythonpath.dsv
+[6.337s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info
+[6.337s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/dependency_links.txt
+[6.337s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/SOURCES.txt
+[6.337s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/top_level.txt
+[6.338s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking-0.0.0-py3.10.egg-info/PKG-INFO
+[6.338s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking
+[6.338s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_c.c
+[6.338s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/libebot_docking__rosidl_generator_py.so
+[6.338s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[6.338s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_introspection_c.c
+[6.338s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[6.338s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_fastrtps_c.c
+[6.338s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[6.339s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/__init__.py
+[6.339s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv
+[6.339s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_passing_service_s.c
+[6.339s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_passing_service.py
+[6.339s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_dock_sw_s.c
+[6.339s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_dock_sw.py
+[6.339s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/__init__.py
+[6.370s] Listing '/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking'...
+[6.371s] Compiling '/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/__init__.py'...
+[6.371s] Listing '/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv'...
+[6.371s] Compiling '/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/__init__.py'...
+[6.371s] Compiling '/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_dock_sw.py'...
+[6.371s] Compiling '/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/srv/_passing_service.py'...
+[6.376s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[6.376s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[6.376s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[6.377s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[6.377s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[6.377s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages/ebot_docking/ebot_docking_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[6.377s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_generator_py.so
+[6.378s] -- Set runtime path of "/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/libebot_docking__rosidl_generator_py.so" to ""
+[6.378s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/DockSw.idl
+[6.378s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/PassingService.idl
+[6.378s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/DockSw.srv
+[6.378s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/DockSw_Request.msg
+[6.378s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/DockSw_Response.msg
+[6.379s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/PassingService.srv
+[6.379s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/PassingService_Request.msg
+[6.379s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/srv/PassingService_Response.msg
+[6.379s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//srv
+[6.379s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//srv/DockSw.srv
+[6.379s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//srv/PassingService.srv
+[6.379s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts
+[6.379s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/nav.py
+[6.379s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/s_dock.py
+[6.380s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/s_nav.py
+[6.380s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/nav5.py
+[6.380s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/dock.py
+[6.381s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking//scripts/ebot_docking_boilerplate.py
+[6.381s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/ebot_docking/nav.py
+[6.381s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/ebot_docking/nav5.py
+[6.381s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/lib/ebot_docking/dock.py
+[6.381s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ament_index/resource_index/package_run_dependencies/ebot_docking
+[6.382s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ament_index/resource_index/parent_prefix_path/ebot_docking
+[6.382s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/ament_prefix_path.sh
+[6.382s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/ament_prefix_path.dsv
+[6.382s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/path.sh
+[6.382s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/environment/path.dsv
+[6.382s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/local_setup.bash
+[6.382s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/local_setup.sh
+[6.383s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/local_setup.zsh
+[6.383s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/local_setup.dsv
+[6.383s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.dsv
+[6.383s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ament_index/resource_index/packages/ebot_docking
+[6.383s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_cExport.cmake
+[6.383s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_cExport-noconfig.cmake
+[6.383s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cExport.cmake
+[6.384s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[6.384s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cExport.cmake
+[6.384s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[6.384s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cExport.cmake
+[6.384s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cExport-noconfig.cmake
+[6.384s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_cppExport.cmake
+[6.384s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cppExport.cmake
+[6.385s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[6.385s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cppExport.cmake
+[6.385s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[6.385s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cppExport.cmake
+[6.385s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_docking__rosidl_typesupport_cppExport-noconfig.cmake
+[6.385s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_pyExport.cmake
+[6.385s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/export_ebot_docking__rosidl_generator_pyExport-noconfig.cmake
+[6.386s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/rosidl_cmake-extras.cmake
+[6.386s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_include_directories-extras.cmake
+[6.386s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_libraries-extras.cmake
+[6.386s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_targets-extras.cmake
+[6.386s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[6.386s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ament_cmake_export_dependencies-extras.cmake
+[6.386s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[6.387s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_dockingConfig.cmake
+[6.387s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/cmake/ebot_dockingConfig-version.cmake
+[6.387s] -- Installing: /home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.xml
+[6.391s] Invoked command in '/home/eyantra/LB24/Student/1048/build/ebot_docking' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ebot_docking
