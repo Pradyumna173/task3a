@@ -10,4 +10,8 @@ detector = aruco.ArucoDetector(ARUCO_DICT, ARUCO_PARAMS)
 # Ebot ID
 EBOT_ID = 12  # 6 for hardware, 12 for sim
 
-BOX_REQUEST = 1  # 0 means do nothing, 1 means
+BOX_REQUEST = 0  # 0 means do nothing, 1 means
+
+REACHED_POSE = False
+
+GOAL_CONVEYER = 0

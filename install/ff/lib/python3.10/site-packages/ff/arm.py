@@ -88,6 +88,10 @@ class Arm(Node):
         # --------------------------- End of Constructor --------------------------------------
 
     def timer_handler(self):
+        if globals.BOX_REQUEST == 4:
+            self.arm_timer = self.create_timer(0.05, self.arm_handler)
+            globals.BOX_REQUEST = 0
+
         if (globals.BOX_REQUEST == 1) and (self.ebot_pose) and (self.state == 5):
             self.arm_timer = self.create_timer(0.05, self.arm_handler)
 
@@ -99,7 +103,7 @@ class Arm(Node):
 
         box_number = list(self.box_dict)[0]
         box_pose = self.box_dict[box_number]
-        print(box_number)
+        # print(box_number)
         self.box_conveyer = (int(box_number) % 2) + 1
 
         goal_x, goal_y, goal_z = box_pose
@@ -184,6 +188,7 @@ class Arm(Node):
                 self.state = 7
         elif state == 7:
             self.call_detach_box(box_number)
+            globals.GOAL_CONVEYER = self.box_conveyer
             if self.arm_timer:
                 self.arm_timer.destroy()
         elif state == 8:
@@ -378,7 +383,7 @@ class Arm(Node):
                 msg.format = "jpeg"
                 msg.data = np.array(buffer).tobytes()
                 self.image_pub.publish(msg)
-                self.get_logger().info("Published ArUco detected image")
+                # self.get_logger().info("Published ArUco detected image")
 
                 R, _ = Rodrigues(rvec[0])
 
@@ -515,7 +520,6 @@ class Arm(Node):
             response = future.result()
             if response.success:
                 self.state += 1
-                self.arm_timer = self.create_timer(0.05, self.arm_handler)
                 globals.BOX_REQUEST = 3
 
                 self.box_done.append(box_number)

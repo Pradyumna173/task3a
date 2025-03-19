@@ -10,6 +10,7 @@ setup.py
 ../../build/ff/ff.egg-info/zip-safe
 ff/__init__.py
 ff/arm.py
+ff/dock.py
 ff/globals.py
 ff/nav.py
 ff/run.py

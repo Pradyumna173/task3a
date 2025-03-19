@@ -6,19 +6,14 @@ import sys
 
 import rclpy
 from arm import Arm
+from dock import Dock
 from nav import Nav
-from rclpy.executors import SingleThreadedExecutor
-from rclpy.node import Node
-
-
-class Dock(Node):
-    def __init__(self):
-        super().__init__("dock_node")
+from rclpy.executors import MultiThreadedExecutor
 
 
 def main(args=sys.argv):
     rclpy.init(args=args)
-    executor = SingleThreadedExecutor()
+    executor = MultiThreadedExecutor(3)
 
     nodes = []
 

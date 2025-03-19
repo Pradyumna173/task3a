@@ -9,7 +9,10 @@ setup(
     data_files=[
         ("share/ament_index/resource_index/packages", ["resource/" + package_name]),
         ("share/" + package_name, ["package.xml"]),
-        ("lib/" + package_name, ["ff/arm.py", "ff/nav.py", "ff/globals.py"]),
+        (
+            "lib/" + package_name,
+            ["ff/arm.py", "ff/nav.py", "ff/globals.py", "ff/dock.py"],
+        ),
     ],
     install_requires=["setuptools"],
     zip_safe=True,

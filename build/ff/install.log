@@ -1,9 +1,11 @@
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/__init__.py
+/home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/dock.py
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/run.py
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/arm.py
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/globals.py
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/nav.py
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/__pycache__/__init__.cpython-310.pyc
+/home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/__pycache__/dock.cpython-310.pyc
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/__pycache__/run.cpython-310.pyc
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/__pycache__/arm.cpython-310.pyc
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/__pycache__/globals.cpython-310.pyc
@@ -13,6 +15,7 @@
 /home/northee/git/task3a/install/ff/lib/ff/arm.py
 /home/northee/git/task3a/install/ff/lib/ff/nav.py
 /home/northee/git/task3a/install/ff/lib/ff/globals.py
+/home/northee/git/task3a/install/ff/lib/ff/dock.py
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff-0.0.0-py3.10.egg-info/entry_points.txt
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff-0.0.0-py3.10.egg-info/requires.txt
 /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff-0.0.0-py3.10.egg-info/zip-safe

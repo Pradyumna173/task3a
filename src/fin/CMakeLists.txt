@@ -39,7 +39,7 @@ ament_target_dependencies(
   std_msgs
   nav_msgs)
 
-install(TARGETS arm dock nav DESTINATION lib/${PROJECT_NAME})
+install(TARGETS dock nav DESTINATION lib/${PROJECT_NAME})
 
 install(PROGRAMS src/arm.py DESTINATION lib/${PROJECT_NAME})
 
