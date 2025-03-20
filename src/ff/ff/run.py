@@ -13,7 +13,7 @@ from rclpy.executors import MultiThreadedExecutor
 
 def main(args=sys.argv):
     rclpy.init(args=args)
-    executor = MultiThreadedExecutor(3)
+    executor = MultiThreadedExecutor(1)
 
     nodes = []
 

@@ -73,7 +73,7 @@ class Nav(Node):
     def check_box(self):
         if not globals.REACHED_POSE:
             globals.BOX_REQUEST = 1  # Asks arm script to pass box
-
+        print("Checking")
         if globals.BOX_REQUEST == 3:  # If box is dropped
             if self.box_check_timer:
                 self.box_check_timer.destroy()

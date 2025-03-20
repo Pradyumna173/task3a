@@ -74,43 +74,40 @@ class Dock : public rclcpp::Node {
         static bool b_isFirstDock{true};
         float f_rangeDiff{};
 
-        while (1) {
-            if ((f_usonicLeft > 100.0f) && (f_usonicRight > 100.0f)) {
-                vel_msg.linear.x = -0.3;
+        while ((f_usonicLeft > 120.0f) && (f_usonicRight > 120.0f)) {
+            vel_msg.linear.x = -0.3;
+            vel_msg.angular.z = 0.0;
+            RCLCPP_INFO(this->get_logger(), "Getting in Range");
+            vel_pub->publish(vel_msg);
+            std::this_thread::sleep_for(std::chrono::milliseconds(40));
+        }
+
+        while ((f_usonicLeft > f_stopDist) && (f_usonicRight > f_stopDist)) {
+			RCLCPP_INFO(this->get_logger(), "Docking...");
+            f_rangeDiff = f_usonicLeft - f_usonicRight;
+
+            if (abs(f_rangeDiff) < 5.0f) {
+                vel_msg.linear.x = -0.003 * f_usonicLeft;
                 vel_msg.angular.z = 0.0;
-                RCLCPP_INFO(this->get_logger(), "Getting in Range");
-            } else if ((f_usonicLeft > f_stopDist) && (f_usonicRight > f_stopDist)) {
-                f_rangeDiff = f_usonicLeft - f_usonicRight;
-                
-                vel_msg.angular.z = -0.02 * f_rangeDiff;
-                vel_msg.linear.x = 0.0;
-                if (abs(f_rangeDiff) < 5.0f) {
-                    vel_msg.linear.x = -0.003 * ((f_usonicLeft + f_usonicRight) / 2.0);
-                    vel_msg.angular.z = 0.0;
-                }
-                if  (abs(vel_msg.angular.z) > 1.0) {
-                    vel_msg.linear.x = 0.0;
-                    vel_msg.angular.z = 0.0;
-                }
-                
-                RCLCPP_INFO(this->get_logger(), "%f", f_rangeDiff);
             } else {
+                vel_msg.angular.z = 0.01 * f_rangeDiff;
                 vel_msg.linear.x = 0.0;
-                vel_msg.angular.z = 0.0;
-                vel_pub->publish(vel_msg);
+            }
+			vel_pub->publish(vel_msg);
+			std::this_thread::sleep_for(std::chrono::milliseconds(40));
+        }
+
+        vel_msg.linear.x = 0.0;
+        vel_msg.angular.z = 0.0;
+        vel_pub->publish(vel_msg);
+
 #ifndef SIM
-                if (!b_isFirstDock) call_servo(true);
+        if (!b_isFirstDock) call_servo(true);
 
 #endif
-                std::this_thread::sleep_for(std::chrono::seconds(2));
-                b_isFirstDock = false;
-                RCLCPP_INFO(this->get_logger(), "Stopped, %d", b_isFirstDock);
-                break;
-            }
-
-            vel_pub->publish(vel_msg);
-            std::this_thread::sleep_for(std::chrono::milliseconds(20));
-        }
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        b_isFirstDock = false;
+        RCLCPP_INFO(this->get_logger(), "Stopped, %d", b_isFirstDock);
 
         RCLCPP_INFO(this->get_logger(), "%d", target);
         response->success = true;

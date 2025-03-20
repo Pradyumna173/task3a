@@ -38,7 +38,8 @@ class Nav : public rclcpp::Node {
         odom_sub = this->create_subscription<nav_msgs::msg::Odometry>(
             "/odom", 10, std::bind(&Nav::callback_odom_sub, this, std::placeholders::_1));
 
-        timer_ = this->create_wall_timer(std::chrono::milliseconds(50), std::bind(&Nav::send_goal, this));
+        timer_ = this->create_wall_timer(std::chrono::milliseconds(50),
+                                         std::bind(&Nav::send_goal, this));
 
         init_pose_pub = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
             "/initialpose", 10);
@@ -49,9 +50,8 @@ class Nav : public rclcpp::Node {
         double w, x, y, z;
     };
 
-    //float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
+    /*float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};*/
     float waypoints_[3][3] = {{2.50, -2.827, 2.95}, {2.5, 2.0, -2.95}, {2.3, -1.2, 3.07}};
-    /*float waypoints_[3][3] = {{2.45, 2.1, -3.0}, {2.45, 2.15, -2.95}, {2.5, -1.2, -3.0}};*/
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
     rclcpp::Client<ebot_docking::srv::DockSw>::SharedPtr dockClient;
@@ -80,33 +80,24 @@ class Nav : public rclcpp::Node {
             auto vel_msg = geometry_msgs::msg::Twist();
             float dist = sqrt(pow(odom_update[0] - odom_stored[0], 2) +
                               pow(odom_update[1] - odom_stored[1], 2));
-            vel_msg.linear.x = 0.03 * dist * 10;
-            if(vel_msg.linear.x > 0.5) {
+
+            vel_msg.linear.x = 0.3 * dist;
+
+            if (vel_msg.linear.x > 0.5) {
                 vel_msg.linear.x = 0.5;
             }
-            
+
             if (dist < 0.05) {
                 vel_msg.linear.x = 0.0;
-				vel_pub->publish(vel_msg);
+                vel_pub->publish(vel_msg);
                 inside_dock = false;
-                
+
                 // setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
                 //            waypoints_[last_waypoint][2]);
-                std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+                std::this_thread::sleep_for(std::chrono::milliseconds(2000));
             }
-            
-            
+
             vel_pub->publish(vel_msg);
-            //int64_t time_to_stop = std::round(dist / vel_msg.linear.x) * 1000;
-            //std::this_thread::sleep_for(std::chrono::milliseconds(time_to_stop));
-            RCLCPP_INFO(this->get_logger(), "dist: %f", dist);
-            return;
-            //inside_dock = false;
-            //vel_msg.linear.x = 0.0;
-            //vel_pub->publish(vel_msg);
-            //setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
-            //               waypoints_[last_waypoint][2]);
-			
         }
 
         if (current_goal == waypoint_index_) {
@@ -214,10 +205,9 @@ class Nav : public rclcpp::Node {
         pose_msg.pose.pose.position.z = 0.0;
         pose_msg.pose.pose.orientation = to_quaternion(0.0, 0.0, yaw);
 
-        pose_msg.pose.covariance[0] = 0.2;  // X variance (moderate uncertainty)
-        pose_msg.pose.covariance[7] = 0.2;  // Y variance (moderate uncertainty)
-        pose_msg.pose.covariance[35] = 0.5; // Yaw variance (higher uncertainty)
-
+        pose_msg.pose.covariance[0] = 0.2;   // X variance (moderate uncertainty)
+        pose_msg.pose.covariance[7] = 0.2;   // Y variance (moderate uncertainty)
+        pose_msg.pose.covariance[35] = 0.5;  // Yaw variance (higher uncertainty)
 
         RCLCPP_INFO(this->get_logger(), "Publishing initial pose...");
         init_pose_pub->publish(pose_msg);

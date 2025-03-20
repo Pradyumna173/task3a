@@ -189,6 +189,7 @@ class Arm(Node):
         elif state == 7:
             self.call_detach_box(box_number)
             globals.GOAL_CONVEYER = self.box_conveyer
+            globals.BOX_REQUEST = 3
             if self.arm_timer:
                 self.arm_timer.destroy()
         elif state == 8:

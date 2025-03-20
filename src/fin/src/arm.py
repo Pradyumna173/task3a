@@ -181,7 +181,7 @@ class Arm(Node):
 
         self.saved_z = goal_z + 0.15
 
-        #if box_number != "3":
+        # if box_number != "3":
         goal_x -= 0.06
         goal_y += 0.04
 

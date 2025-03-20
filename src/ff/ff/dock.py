@@ -46,12 +46,12 @@ class Dock(Node):
 
     def dock_control(self):
         if globals.EBOT_ID == 6:
-            stop_dist = 28.0
-        else:
             stop_dist = 15.0
+        else:
+            stop_dist = 10.0
         vel_msg = Twist()
 
-        if (self.left_dist > 80.0) and (self.right_dist > 80.0):
+        if (self.left_dist > 100.0) and (self.right_dist > 100.0):
             vel_msg.linear.x = -0.3
             vel_msg.angular.z = 0.0
         elif (self.left_dist > stop_dist) and (self.right_dist > stop_dist):
