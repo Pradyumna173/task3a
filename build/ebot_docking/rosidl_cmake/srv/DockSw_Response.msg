@@ -1,0 +1,2 @@
+
+bool success   # indicate successful run of triggered service

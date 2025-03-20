@@ -1,0 +1,4 @@
+gmake[2]: *** No rule to make target 'rosidl_generator_py/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_fastrtps_c.c', needed by 'CMakeFiles/ebot_docking__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/ebot_docking/_ebot_docking_s.ep.rosidl_typesupport_fastrtps_c.c.o'.  Stop.
+gmake[1]: *** [CMakeFiles/Makefile2:505: CMakeFiles/ebot_docking__rosidl_typesupport_fastrtps_c__pyext.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

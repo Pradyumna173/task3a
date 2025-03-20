@@ -38,7 +38,7 @@ class Nav : public rclcpp::Node {
         odom_sub = this->create_subscription<nav_msgs::msg::Odometry>(
             "/odom", 10, std::bind(&Nav::callback_odom_sub, this, std::placeholders::_1));
 
-        timer_ = this->create_wall_timer(std::chrono::seconds(1), std::bind(&Nav::send_goal, this));
+        timer_ = this->create_wall_timer(std::chrono::milliseconds(50), std::bind(&Nav::send_goal, this));
 
         init_pose_pub = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
             "/initialpose", 10);
@@ -50,7 +50,7 @@ class Nav : public rclcpp::Node {
     };
 
     //float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
-    float waypoints_[3][3] = {{2.50, -2.827, 2.95}, {2.45, 2.1, -2.95}, {2.5, -1.2, -3.0}};
+    float waypoints_[3][3] = {{2.50, -2.827, 2.95}, {2.5, 2.0, -2.95}, {2.3, -1.2, 3.07}};
     /*float waypoints_[3][3] = {{2.45, 2.1, -3.0}, {2.45, 2.15, -2.95}, {2.5, -1.2, -3.0}};*/
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
@@ -89,16 +89,18 @@ class Nav : public rclcpp::Node {
                 vel_msg.linear.x = 0.0;
 				vel_pub->publish(vel_msg);
                 inside_dock = false;
-                setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
-                           waypoints_[last_waypoint][2]);
-                std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+                
+                // setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
+                //            waypoints_[last_waypoint][2]);
+                std::this_thread::sleep_for(std::chrono::milliseconds(3000));
             }
             
+            
             vel_pub->publish(vel_msg);
-            return;
             //int64_t time_to_stop = std::round(dist / vel_msg.linear.x) * 1000;
             //std::this_thread::sleep_for(std::chrono::milliseconds(time_to_stop));
             RCLCPP_INFO(this->get_logger(), "dist: %f", dist);
+            return;
             //inside_dock = false;
             //vel_msg.linear.x = 0.0;
             //vel_pub->publish(vel_msg);

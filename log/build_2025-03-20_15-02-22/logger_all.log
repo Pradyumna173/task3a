@@ -1,0 +1,533 @@
+[0.235s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.235s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x73233a869a50>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x73233a9e7310>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x73233a9e7310>>)
+[0.636s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.636s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.637s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.637s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.637s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.638s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.638s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/eyantra/LB24/Student/1048'
+[0.638s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.639s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.639s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.639s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.639s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.639s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.639s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.640s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.640s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.712s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.714s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_docking) by extensions ['ignore', 'ignore_ament_install']
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_docking) by extension 'ignore'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_docking) by extension 'ignore_ament_install'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_docking) by extensions ['colcon_pkg']
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_docking) by extension 'colcon_pkg'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_docking) by extensions ['colcon_meta']
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_docking) by extension 'colcon_meta'
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_docking) by extensions ['ros']
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_docking) by extension 'ros'
+[0.726s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ebot_docking' with type 'ros.ament_cmake' and name 'ebot_docking'
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_nav2) by extensions ['ignore', 'ignore_ament_install']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_nav2) by extension 'ignore'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_nav2) by extension 'ignore_ament_install'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_nav2) by extensions ['colcon_pkg']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_nav2) by extension 'colcon_pkg'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_nav2) by extensions ['colcon_meta']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_nav2) by extension 'colcon_meta'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_nav2) by extensions ['ros']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/ebot_nav2) by extension 'ros'
+[0.736s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ebot_nav2' with type 'ros.ament_cmake' and name 'ebot_nav2'
+[0.737s] Level 1:colcon.colcon_core.package_identification:_identify(src/ff) by extensions ['ignore', 'ignore_ament_install']
+[0.737s] Level 1:colcon.colcon_core.package_identification:_identify(src/ff) by extension 'ignore'
+[0.737s] Level 1:colcon.colcon_core.package_identification:_identify(src/ff) by extension 'ignore_ament_install'
+[0.737s] Level 1:colcon.colcon_core.package_identification:_identify(src/ff) by extensions ['colcon_pkg']
+[0.737s] Level 1:colcon.colcon_core.package_identification:_identify(src/ff) by extension 'colcon_pkg'
+[0.737s] Level 1:colcon.colcon_core.package_identification:_identify(src/ff) by extensions ['colcon_meta']
+[0.737s] Level 1:colcon.colcon_core.package_identification:_identify(src/ff) by extension 'colcon_meta'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(src/ff) by extensions ['ros']
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(src/ff) by extension 'ros'
+[0.747s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ff' with type 'ros.ament_python' and name 'ff'
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(src/fin) by extensions ['ignore', 'ignore_ament_install']
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(src/fin) by extension 'ignore'
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(src/fin) by extension 'ignore_ament_install'
+[0.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/fin) by extensions ['colcon_pkg']
+[0.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/fin) by extension 'colcon_pkg'
+[0.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/fin) by extensions ['colcon_meta']
+[0.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/fin) by extension 'colcon_meta'
+[0.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/fin) by extensions ['ros']
+[0.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/fin) by extension 'ros'
+[0.750s] DEBUG:colcon.colcon_core.package_identification:Package 'src/fin' with type 'ros.ament_cmake' and name 'fin'
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/pymoveit2) by extensions ['ignore', 'ignore_ament_install']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/pymoveit2) by extension 'ignore'
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/pymoveit2) by extension 'ignore_ament_install'
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/pymoveit2) by extensions ['colcon_pkg']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/pymoveit2) by extension 'colcon_pkg'
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/pymoveit2) by extensions ['colcon_meta']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/pymoveit2) by extension 'colcon_meta'
+[0.751s] Level 1:colcon.colcon_core.package_identification:_identify(src/pymoveit2) by extensions ['ros']
+[0.751s] Level 1:colcon.colcon_core.package_identification:_identify(src/pymoveit2) by extension 'ros'
+[0.752s] DEBUG:colcon.colcon_core.package_identification:Package 'src/pymoveit2' with type 'ros.ament_cmake' and name 'pymoveit2'
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_moveit_config) by extensions ['ignore', 'ignore_ament_install']
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_moveit_config) by extension 'ignore'
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_moveit_config) by extension 'ignore_ament_install'
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_moveit_config) by extensions ['colcon_pkg']
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_moveit_config) by extension 'colcon_pkg'
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_moveit_config) by extensions ['colcon_meta']
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_moveit_config) by extension 'colcon_meta'
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_moveit_config) by extensions ['ros']
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_moveit_config) by extension 'ros'
+[0.755s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ur_moveit_config' with type 'ros.ament_cmake' and name 'ur_moveit_config'
+[0.755s] Level 1:colcon.colcon_core.package_identification:_identify(src/usb_servo) by extensions ['ignore', 'ignore_ament_install']
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(src/usb_servo) by extension 'ignore'
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(src/usb_servo) by extension 'ignore_ament_install'
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(src/usb_servo) by extensions ['colcon_pkg']
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(src/usb_servo) by extension 'colcon_pkg'
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(src/usb_servo) by extensions ['colcon_meta']
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(src/usb_servo) by extension 'colcon_meta'
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(src/usb_servo) by extensions ['ros']
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(src/usb_servo) by extension 'ros'
+[0.758s] DEBUG:colcon.colcon_core.package_identification:Package 'src/usb_servo' with type 'ros.ament_cmake' and name 'usb_servo'
+[0.758s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.758s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.758s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.758s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.758s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.799s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.800s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.806s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 512 installed packages in /opt/ros/humble
+[0.813s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.928s] WARNING:colcon.colcon_core.package_selection:Some selected packages are already built in one or more underlay workspaces:
+	'ur_moveit_config' is in: /opt/ros/humble
+If a package in a merged underlay workspace is overridden and it installs headers, then all packages in the overlay must sort their include directories by workspace order. Failure to do so may result in build failures or undefined behavior at run time.
+If the overridden package is used by another package in any underlay, then the overriding package in the overlay must be API and ABI compatible or undefined behavior at run time may occur.
+
+If you understand the risks and want to override a package anyways, add the following to the command line:
+	--allow-overriding ur_moveit_config
+
+This may be promoted to an error in a future release of colcon-override-check.
+[0.933s] Level 5:colcon.colcon_core.verb:set package 'ebot_docking' build argument 'cmake_args' from command line to 'None'
+[0.933s] Level 5:colcon.colcon_core.verb:set package 'ebot_docking' build argument 'cmake_target' from command line to 'None'
+[0.934s] Level 5:colcon.colcon_core.verb:set package 'ebot_docking' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.934s] Level 5:colcon.colcon_core.verb:set package 'ebot_docking' build argument 'cmake_clean_cache' from command line to 'False'
+[0.934s] Level 5:colcon.colcon_core.verb:set package 'ebot_docking' build argument 'cmake_clean_first' from command line to 'False'
+[0.934s] Level 5:colcon.colcon_core.verb:set package 'ebot_docking' build argument 'cmake_force_configure' from command line to 'False'
+[0.934s] Level 5:colcon.colcon_core.verb:set package 'ebot_docking' build argument 'ament_cmake_args' from command line to 'None'
+[0.934s] Level 5:colcon.colcon_core.verb:set package 'ebot_docking' build argument 'catkin_cmake_args' from command line to 'None'
+[0.934s] Level 5:colcon.colcon_core.verb:set package 'ebot_docking' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.935s] DEBUG:colcon.colcon_core.verb:Building package 'ebot_docking' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/eyantra/LB24/Student/1048/build/ebot_docking', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/eyantra/LB24/Student/1048/install/ebot_docking', 'merge_install': False, 'path': '/home/eyantra/LB24/Student/1048/src/ebot_docking', 'symlink_install': False, 'test_result_base': None}
+[0.936s] Level 5:colcon.colcon_core.verb:set package 'ebot_nav2' build argument 'cmake_args' from command line to 'None'
+[0.936s] Level 5:colcon.colcon_core.verb:set package 'ebot_nav2' build argument 'cmake_target' from command line to 'None'
+[0.936s] Level 5:colcon.colcon_core.verb:set package 'ebot_nav2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.936s] Level 5:colcon.colcon_core.verb:set package 'ebot_nav2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.936s] Level 5:colcon.colcon_core.verb:set package 'ebot_nav2' build argument 'cmake_clean_first' from command line to 'False'
+[0.937s] Level 5:colcon.colcon_core.verb:set package 'ebot_nav2' build argument 'cmake_force_configure' from command line to 'False'
+[0.937s] Level 5:colcon.colcon_core.verb:set package 'ebot_nav2' build argument 'ament_cmake_args' from command line to 'None'
+[0.937s] Level 5:colcon.colcon_core.verb:set package 'ebot_nav2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.937s] Level 5:colcon.colcon_core.verb:set package 'ebot_nav2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.937s] DEBUG:colcon.colcon_core.verb:Building package 'ebot_nav2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/eyantra/LB24/Student/1048/build/ebot_nav2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/eyantra/LB24/Student/1048/install/ebot_nav2', 'merge_install': False, 'path': '/home/eyantra/LB24/Student/1048/src/ebot_nav2', 'symlink_install': False, 'test_result_base': None}
+[0.938s] Level 5:colcon.colcon_core.verb:set package 'ff' build argument 'cmake_args' from command line to 'None'
+[0.938s] Level 5:colcon.colcon_core.verb:set package 'ff' build argument 'cmake_target' from command line to 'None'
+[0.939s] Level 5:colcon.colcon_core.verb:set package 'ff' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.939s] Level 5:colcon.colcon_core.verb:set package 'ff' build argument 'cmake_clean_cache' from command line to 'False'
+[0.939s] Level 5:colcon.colcon_core.verb:set package 'ff' build argument 'cmake_clean_first' from command line to 'False'
+[0.939s] Level 5:colcon.colcon_core.verb:set package 'ff' build argument 'cmake_force_configure' from command line to 'False'
+[0.939s] Level 5:colcon.colcon_core.verb:set package 'ff' build argument 'ament_cmake_args' from command line to 'None'
+[0.939s] Level 5:colcon.colcon_core.verb:set package 'ff' build argument 'catkin_cmake_args' from command line to 'None'
+[0.939s] Level 5:colcon.colcon_core.verb:set package 'ff' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.939s] DEBUG:colcon.colcon_core.verb:Building package 'ff' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/eyantra/LB24/Student/1048/build/ff', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/eyantra/LB24/Student/1048/install/ff', 'merge_install': False, 'path': '/home/eyantra/LB24/Student/1048/src/ff', 'symlink_install': False, 'test_result_base': None}
+[0.940s] Level 5:colcon.colcon_core.verb:set package 'pymoveit2' build argument 'cmake_args' from command line to 'None'
+[0.940s] Level 5:colcon.colcon_core.verb:set package 'pymoveit2' build argument 'cmake_target' from command line to 'None'
+[0.940s] Level 5:colcon.colcon_core.verb:set package 'pymoveit2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.940s] Level 5:colcon.colcon_core.verb:set package 'pymoveit2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.940s] Level 5:colcon.colcon_core.verb:set package 'pymoveit2' build argument 'cmake_clean_first' from command line to 'False'
+[0.940s] Level 5:colcon.colcon_core.verb:set package 'pymoveit2' build argument 'cmake_force_configure' from command line to 'False'
+[0.940s] Level 5:colcon.colcon_core.verb:set package 'pymoveit2' build argument 'ament_cmake_args' from command line to 'None'
+[0.940s] Level 5:colcon.colcon_core.verb:set package 'pymoveit2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.940s] Level 5:colcon.colcon_core.verb:set package 'pymoveit2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.940s] DEBUG:colcon.colcon_core.verb:Building package 'pymoveit2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/eyantra/LB24/Student/1048/build/pymoveit2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/eyantra/LB24/Student/1048/install/pymoveit2', 'merge_install': False, 'path': '/home/eyantra/LB24/Student/1048/src/pymoveit2', 'symlink_install': False, 'test_result_base': None}
+[0.941s] Level 5:colcon.colcon_core.verb:set package 'ur_moveit_config' build argument 'cmake_args' from command line to 'None'
+[0.941s] Level 5:colcon.colcon_core.verb:set package 'ur_moveit_config' build argument 'cmake_target' from command line to 'None'
+[0.941s] Level 5:colcon.colcon_core.verb:set package 'ur_moveit_config' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.942s] Level 5:colcon.colcon_core.verb:set package 'ur_moveit_config' build argument 'cmake_clean_cache' from command line to 'False'
+[0.942s] Level 5:colcon.colcon_core.verb:set package 'ur_moveit_config' build argument 'cmake_clean_first' from command line to 'False'
+[0.942s] Level 5:colcon.colcon_core.verb:set package 'ur_moveit_config' build argument 'cmake_force_configure' from command line to 'False'
+[0.942s] Level 5:colcon.colcon_core.verb:set package 'ur_moveit_config' build argument 'ament_cmake_args' from command line to 'None'
+[0.942s] Level 5:colcon.colcon_core.verb:set package 'ur_moveit_config' build argument 'catkin_cmake_args' from command line to 'None'
+[0.942s] Level 5:colcon.colcon_core.verb:set package 'ur_moveit_config' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.942s] DEBUG:colcon.colcon_core.verb:Building package 'ur_moveit_config' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/eyantra/LB24/Student/1048/build/ur_moveit_config', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/eyantra/LB24/Student/1048/install/ur_moveit_config', 'merge_install': False, 'path': '/home/eyantra/LB24/Student/1048/src/ur_moveit_config', 'symlink_install': False, 'test_result_base': None}
+[0.943s] Level 5:colcon.colcon_core.verb:set package 'usb_servo' build argument 'cmake_args' from command line to 'None'
+[0.943s] Level 5:colcon.colcon_core.verb:set package 'usb_servo' build argument 'cmake_target' from command line to 'None'
+[0.943s] Level 5:colcon.colcon_core.verb:set package 'usb_servo' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.943s] Level 5:colcon.colcon_core.verb:set package 'usb_servo' build argument 'cmake_clean_cache' from command line to 'False'
+[0.943s] Level 5:colcon.colcon_core.verb:set package 'usb_servo' build argument 'cmake_clean_first' from command line to 'False'
+[0.943s] Level 5:colcon.colcon_core.verb:set package 'usb_servo' build argument 'cmake_force_configure' from command line to 'False'
+[0.943s] Level 5:colcon.colcon_core.verb:set package 'usb_servo' build argument 'ament_cmake_args' from command line to 'None'
+[0.943s] Level 5:colcon.colcon_core.verb:set package 'usb_servo' build argument 'catkin_cmake_args' from command line to 'None'
+[0.943s] Level 5:colcon.colcon_core.verb:set package 'usb_servo' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.943s] DEBUG:colcon.colcon_core.verb:Building package 'usb_servo' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/eyantra/LB24/Student/1048/build/usb_servo', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/eyantra/LB24/Student/1048/install/usb_servo', 'merge_install': False, 'path': '/home/eyantra/LB24/Student/1048/src/usb_servo', 'symlink_install': False, 'test_result_base': None}
+[0.944s] Level 5:colcon.colcon_core.verb:set package 'fin' build argument 'cmake_args' from command line to 'None'
+[0.945s] Level 5:colcon.colcon_core.verb:set package 'fin' build argument 'cmake_target' from command line to 'None'
+[0.945s] Level 5:colcon.colcon_core.verb:set package 'fin' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.945s] Level 5:colcon.colcon_core.verb:set package 'fin' build argument 'cmake_clean_cache' from command line to 'False'
+[0.945s] Level 5:colcon.colcon_core.verb:set package 'fin' build argument 'cmake_clean_first' from command line to 'False'
+[0.945s] Level 5:colcon.colcon_core.verb:set package 'fin' build argument 'cmake_force_configure' from command line to 'False'
+[0.945s] Level 5:colcon.colcon_core.verb:set package 'fin' build argument 'ament_cmake_args' from command line to 'None'
+[0.945s] Level 5:colcon.colcon_core.verb:set package 'fin' build argument 'catkin_cmake_args' from command line to 'None'
+[0.945s] Level 5:colcon.colcon_core.verb:set package 'fin' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.945s] DEBUG:colcon.colcon_core.verb:Building package 'fin' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/eyantra/LB24/Student/1048/build/fin', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/eyantra/LB24/Student/1048/install/fin', 'merge_install': False, 'path': '/home/eyantra/LB24/Student/1048/src/fin', 'symlink_install': False, 'test_result_base': None}
+[0.945s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.947s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.948s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/eyantra/LB24/Student/1048/src/ebot_docking' with build type 'ament_cmake'
+[0.948s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/eyantra/LB24/Student/1048/src/ebot_docking'
+[0.953s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.953s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.953s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.967s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/eyantra/LB24/Student/1048/src/usb_servo' with build type 'ament_cmake'
+[0.968s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/eyantra/LB24/Student/1048/src/usb_servo'
+[0.969s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.969s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.979s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/eyantra/LB24/Student/1048/src/ebot_nav2' with build type 'ament_cmake'
+[0.980s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/eyantra/LB24/Student/1048/src/ebot_nav2'
+[0.983s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.983s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.990s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/eyantra/LB24/Student/1048/src/ff' with build type 'ament_python'
+[0.990s] Level 1:colcon.colcon_core.shell:create_environment_hook('ff', 'ament_prefix_path')
+[0.991s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ff/share/ff/hook/ament_prefix_path.ps1'
+[0.993s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/ff/share/ff/hook/ament_prefix_path.dsv'
+[0.994s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ff/share/ff/hook/ament_prefix_path.sh'
+[1.000s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.009s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.023s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/eyantra/LB24/Student/1048/src/pymoveit2' with build type 'ament_cmake'
+[1.024s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/eyantra/LB24/Student/1048/src/pymoveit2'
+[1.025s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.025s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.035s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/eyantra/LB24/Student/1048/src/ur_moveit_config' with build type 'ament_cmake'
+[1.036s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/eyantra/LB24/Student/1048/src/ur_moveit_config'
+[1.037s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.037s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.059s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/ebot_docking': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ebot_docking -- -j8 -l8
+[1.078s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/usb_servo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/usb_servo -- -j8 -l8
+[1.104s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/ebot_nav2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ebot_nav2 -- -j8 -l8
+[1.775s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/eyantra/LB24/Student/1048/src/ff'
+[1.775s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.776s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.803s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/pymoveit2 -- -j8 -l8
+[1.819s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ur_moveit_config -- -j8 -l8
+[1.876s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/ebot_nav2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ebot_nav2 -- -j8 -l8
+[1.900s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/ebot_nav2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ebot_nav2
+[1.946s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ebot_nav2)
+[1.951s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ur_moveit_config -- -j8 -l8
+[1.951s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ur_moveit_config
+[1.952s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/ebot_nav2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ebot_nav2
+[1.954s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2' for CMake module files
+[1.955s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2' for CMake config files
+[1.957s] Level 1:colcon.colcon_core.shell:create_environment_hook('ebot_nav2', 'cmake_prefix_path')
+[1.957s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/hook/cmake_prefix_path.ps1'
+[1.958s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/hook/cmake_prefix_path.dsv'
+[1.959s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/hook/cmake_prefix_path.sh'
+[1.963s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2/lib'
+[1.963s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2/bin'
+[1.963s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2/lib/pkgconfig/ebot_nav2.pc'
+[1.964s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2/lib/python3.10/site-packages'
+[1.964s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2/bin'
+[1.965s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.ps1'
+[1.966s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.dsv'
+[1.967s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.sh'
+[1.968s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.bash'
+[1.971s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.zsh'
+[1.972s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/colcon-core/packages/ebot_nav2)
+[1.974s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ebot_nav2)
+[1.974s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2' for CMake module files
+[1.975s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2' for CMake config files
+[1.976s] Level 1:colcon.colcon_core.shell:create_environment_hook('ebot_nav2', 'cmake_prefix_path')
+[1.976s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/hook/cmake_prefix_path.ps1'
+[1.977s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/hook/cmake_prefix_path.dsv'
+[1.978s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/hook/cmake_prefix_path.sh'
+[1.979s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2/lib'
+[1.979s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2/bin'
+[1.979s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2/lib/pkgconfig/ebot_nav2.pc'
+[1.981s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2/lib/python3.10/site-packages'
+[1.981s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_nav2/bin'
+[1.982s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.ps1'
+[1.983s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.dsv'
+[1.984s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.sh'
+[1.985s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.bash'
+[1.985s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/ebot_nav2/package.zsh'
+[1.986s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/ebot_nav2/share/colcon-core/packages/ebot_nav2)
+[1.989s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_moveit_config)
+[1.990s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config' for CMake module files
+[1.991s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config' for CMake config files
+[1.990s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ur_moveit_config
+[1.992s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_moveit_config', 'cmake_prefix_path')
+[1.993s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/hook/cmake_prefix_path.ps1'
+[1.994s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/hook/cmake_prefix_path.dsv'
+[1.995s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/hook/cmake_prefix_path.sh'
+[1.996s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/bin'
+[1.996s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/lib/pkgconfig/ur_moveit_config.pc'
+[1.996s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/lib/python3.10/site-packages'
+[1.996s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/bin'
+[1.997s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.ps1'
+[1.998s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.dsv'
+[1.999s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.sh'
+[2.000s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.bash'
+[2.001s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.zsh'
+[2.001s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/colcon-core/packages/ur_moveit_config)
+[2.002s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_moveit_config)
+[2.003s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config' for CMake module files
+[2.003s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config' for CMake config files
+[2.004s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_moveit_config', 'cmake_prefix_path')
+[2.004s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/hook/cmake_prefix_path.ps1'
+[2.005s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/hook/cmake_prefix_path.dsv'
+[2.006s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/hook/cmake_prefix_path.sh'
+[2.007s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/bin'
+[2.007s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/lib/pkgconfig/ur_moveit_config.pc'
+[2.008s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/lib/python3.10/site-packages'
+[2.008s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/bin'
+[2.009s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.ps1'
+[2.010s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.dsv'
+[2.011s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.sh'
+[2.012s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.bash'
+[2.013s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.zsh'
+[2.013s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/colcon-core/packages/ur_moveit_config)
+[2.941s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/usb_servo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/usb_servo -- -j8 -l8
+[2.948s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/usb_servo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/usb_servo
+[2.954s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/pymoveit2 -- -j8 -l8
+[2.955s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/pymoveit2
+[3.089s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pymoveit2)
+[3.094s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2' for CMake module files
+[3.099s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2' for CMake config files
+[3.102s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/src/ff': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/ff/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/ff/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ff build --build-base /home/eyantra/LB24/Student/1048/build/ff/build install --record /home/eyantra/LB24/Student/1048/build/ff/install.log --single-version-externally-managed install_data
+[3.104s] Level 1:colcon.colcon_core.shell:create_environment_hook('pymoveit2', 'cmake_prefix_path')
+[3.109s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/hook/cmake_prefix_path.ps1'
+[3.117s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/hook/cmake_prefix_path.dsv'
+[3.121s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/hook/cmake_prefix_path.sh'
+[3.124s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2/lib'
+[3.124s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2/bin'
+[3.124s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pkgconfig/pymoveit2.pc'
+[3.124s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2/lib/python3.10/site-packages'
+[3.125s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2/bin'
+[3.125s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.ps1'
+[3.128s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.dsv'
+[3.129s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.sh'
+[3.146s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.bash'
+[3.148s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/pymoveit2
+[3.151s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.zsh'
+[3.165s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/pymoveit2/share/colcon-core/packages/pymoveit2)
+[3.167s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pymoveit2)
+[3.167s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2' for CMake module files
+[3.169s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2' for CMake config files
+[3.170s] Level 1:colcon.colcon_core.shell:create_environment_hook('pymoveit2', 'cmake_prefix_path')
+[3.171s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/hook/cmake_prefix_path.ps1'
+[3.171s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/hook/cmake_prefix_path.dsv'
+[3.172s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/hook/cmake_prefix_path.sh'
+[3.173s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2/lib'
+[3.173s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2/bin'
+[3.173s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pkgconfig/pymoveit2.pc'
+[3.173s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2/lib/python3.10/site-packages'
+[3.174s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/pymoveit2/bin'
+[3.175s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.ps1'
+[3.176s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.dsv'
+[3.180s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.sh'
+[3.184s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.bash'
+[3.185s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.zsh'
+[3.189s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/pymoveit2/share/colcon-core/packages/pymoveit2)
+[3.206s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/ebot_docking' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ebot_docking -- -j8 -l8
+[3.207s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/ebot_docking': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ebot_docking
+[3.216s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(usb_servo)
+[3.224s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo' for CMake module files
+[3.225s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo' for CMake config files
+[3.226s] Level 1:colcon.colcon_core.shell:create_environment_hook('usb_servo', 'cmake_prefix_path')
+[3.223s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/usb_servo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/usb_servo
+[3.227s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/cmake_prefix_path.ps1'
+[3.231s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/cmake_prefix_path.dsv'
+[3.233s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/cmake_prefix_path.sh'
+[3.234s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo/lib'
+[3.234s] Level 1:colcon.colcon_core.shell:create_environment_hook('usb_servo', 'ld_library_path_lib')
+[3.234s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/ld_library_path_lib.ps1'
+[3.235s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/ld_library_path_lib.dsv'
+[3.244s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/ld_library_path_lib.sh'
+[3.245s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo/bin'
+[3.249s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo/lib/pkgconfig/usb_servo.pc'
+[3.258s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo/lib/python3.10/site-packages'
+[3.259s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo/bin'
+[3.259s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.ps1'
+[3.260s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.dsv'
+[3.267s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.sh'
+[3.269s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.bash'
+[3.270s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.zsh'
+[3.270s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/usb_servo/share/colcon-core/packages/usb_servo)
+[3.273s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(usb_servo)
+[3.274s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo' for CMake module files
+[3.274s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo' for CMake config files
+[3.275s] Level 1:colcon.colcon_core.shell:create_environment_hook('usb_servo', 'cmake_prefix_path')
+[3.275s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/cmake_prefix_path.ps1'
+[3.276s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/cmake_prefix_path.dsv'
+[3.276s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/cmake_prefix_path.sh'
+[3.277s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo/lib'
+[3.277s] Level 1:colcon.colcon_core.shell:create_environment_hook('usb_servo', 'ld_library_path_lib')
+[3.277s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/ld_library_path_lib.ps1'
+[3.278s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/ld_library_path_lib.dsv'
+[3.279s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/hook/ld_library_path_lib.sh'
+[3.284s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo/bin'
+[3.284s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo/lib/pkgconfig/usb_servo.pc'
+[3.285s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo/lib/python3.10/site-packages'
+[3.285s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/usb_servo/bin'
+[3.286s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.ps1'
+[3.291s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.dsv'
+[3.292s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.sh'
+[3.293s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.bash'
+[3.298s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/usb_servo/share/usb_servo/package.zsh'
+[3.300s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/usb_servo/share/colcon-core/packages/usb_servo)
+[3.336s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ebot_docking)
+[3.337s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking' for CMake module files
+[3.341s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking' for CMake config files
+[3.344s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/ebot_docking' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ebot_docking
+[3.344s] Level 1:colcon.colcon_core.shell:create_environment_hook('ebot_docking', 'cmake_prefix_path')
+[3.345s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/cmake_prefix_path.ps1'
+[3.345s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/cmake_prefix_path.dsv'
+[3.346s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/cmake_prefix_path.sh'
+[3.347s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking/lib'
+[3.347s] Level 1:colcon.colcon_core.shell:create_environment_hook('ebot_docking', 'ld_library_path_lib')
+[3.347s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/ld_library_path_lib.ps1'
+[3.348s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/ld_library_path_lib.dsv'
+[3.349s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/ld_library_path_lib.sh'
+[3.350s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking/bin'
+[3.350s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/pkgconfig/ebot_docking.pc'
+[3.354s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/python3.10/site-packages'
+[3.359s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking/bin'
+[3.359s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.ps1'
+[3.361s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.dsv'
+[3.372s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.sh'
+[3.373s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.bash'
+[3.374s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.zsh'
+[3.374s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/ebot_docking/share/colcon-core/packages/ebot_docking)
+[3.381s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ebot_docking)
+[3.381s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking' for CMake module files
+[3.382s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking' for CMake config files
+[3.384s] Level 1:colcon.colcon_core.shell:create_environment_hook('ebot_docking', 'cmake_prefix_path')
+[3.385s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/cmake_prefix_path.ps1'
+[3.387s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/cmake_prefix_path.dsv'
+[3.388s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/cmake_prefix_path.sh'
+[3.389s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking/lib'
+[3.390s] Level 1:colcon.colcon_core.shell:create_environment_hook('ebot_docking', 'ld_library_path_lib')
+[3.390s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/ld_library_path_lib.ps1'
+[3.391s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/ld_library_path_lib.dsv'
+[3.392s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/hook/ld_library_path_lib.sh'
+[3.393s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking/bin'
+[3.393s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/pkgconfig/ebot_docking.pc'
+[3.394s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking/lib/python3.10/site-packages'
+[3.394s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ebot_docking/bin'
+[3.395s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.ps1'
+[3.397s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.dsv'
+[3.399s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.sh'
+[3.400s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.bash'
+[3.401s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ebot_docking/share/ebot_docking/package.zsh'
+[3.402s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/ebot_docking/share/colcon-core/packages/ebot_docking)
+[3.402s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/eyantra/LB24/Student/1048/src/fin' with build type 'ament_cmake'
+[3.403s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/eyantra/LB24/Student/1048/src/fin'
+[3.404s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.404s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.447s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/fin': AMENT_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/fin -- -j8 -l8
+[3.973s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ff' for CMake module files
+[3.974s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/src/ff' returned '0': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/ff/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/ff/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ff build --build-base /home/eyantra/LB24/Student/1048/build/ff/build install --record /home/eyantra/LB24/Student/1048/build/ff/install.log --single-version-externally-managed install_data
+[3.974s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ff' for CMake config files
+[3.975s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ff/lib'
+[3.976s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ff/bin'
+[3.976s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ff/lib/pkgconfig/ff.pc'
+[3.977s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ff/lib/python3.10/site-packages'
+[3.977s] Level 1:colcon.colcon_core.shell:create_environment_hook('ff', 'pythonpath')
+[3.977s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ff/share/ff/hook/pythonpath.ps1'
+[3.978s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/ff/share/ff/hook/pythonpath.dsv'
+[3.980s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/ff/share/ff/hook/pythonpath.sh'
+[3.981s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/ff/bin'
+[3.981s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ff)
+[3.982s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ff/share/ff/package.ps1'
+[3.984s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/ff/share/ff/package.dsv'
+[3.985s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ff/share/ff/package.sh'
+[3.986s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ff/share/ff/package.bash'
+[3.987s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/ff/share/ff/package.zsh'
+[3.988s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/ff/share/colcon-core/packages/ff)
+[73.540s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/fin' returned '0': AMENT_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/fin -- -j8 -l8
+[73.544s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/eyantra/LB24/Student/1048/build/fin': AMENT_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/fin
+[73.616s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(fin)
+[73.620s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin' for CMake module files
+[73.623s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/eyantra/LB24/Student/1048/build/fin' returned '0': AMENT_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo:/home/eyantra/LB24/Student/1048/install/ebot_docking:/opt/ros/humble LD_LIBRARY_PATH=/home/eyantra/LB24/Student/1048/install/usb_servo/lib:/home/eyantra/LB24/Student/1048/install/ebot_docking/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eyantra/LB24/Student/1048/install/usb_servo/local/lib/python3.10/dist-packages:/home/eyantra/LB24/Student/1048/install/ebot_docking/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/fin
+[73.624s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin' for CMake config files
+[73.624s] Level 1:colcon.colcon_core.shell:create_environment_hook('fin', 'cmake_prefix_path')
+[73.625s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/fin/share/fin/hook/cmake_prefix_path.ps1'
+[73.626s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/fin/share/fin/hook/cmake_prefix_path.dsv'
+[73.627s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/fin/share/fin/hook/cmake_prefix_path.sh'
+[73.628s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin/lib'
+[73.628s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin/bin'
+[73.628s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin/lib/pkgconfig/fin.pc'
+[73.629s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin/lib/python3.10/site-packages'
+[73.629s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin/bin'
+[73.630s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/fin/share/fin/package.ps1'
+[73.631s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/fin/share/fin/package.dsv'
+[73.632s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/fin/share/fin/package.sh'
+[73.632s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/fin/share/fin/package.bash'
+[73.633s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/fin/share/fin/package.zsh'
+[73.633s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/fin/share/colcon-core/packages/fin)
+[73.634s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(fin)
+[73.634s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin' for CMake module files
+[73.635s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin' for CMake config files
+[73.635s] Level 1:colcon.colcon_core.shell:create_environment_hook('fin', 'cmake_prefix_path')
+[73.635s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/fin/share/fin/hook/cmake_prefix_path.ps1'
+[73.636s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/eyantra/LB24/Student/1048/install/fin/share/fin/hook/cmake_prefix_path.dsv'
+[73.636s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/eyantra/LB24/Student/1048/install/fin/share/fin/hook/cmake_prefix_path.sh'
+[73.637s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin/lib'
+[73.637s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin/bin'
+[73.637s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin/lib/pkgconfig/fin.pc'
+[73.638s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin/lib/python3.10/site-packages'
+[73.638s] Level 1:colcon.colcon_core.environment:checking '/home/eyantra/LB24/Student/1048/install/fin/bin'
+[73.639s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/fin/share/fin/package.ps1'
+[73.641s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/eyantra/LB24/Student/1048/install/fin/share/fin/package.dsv'
+[73.644s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/fin/share/fin/package.sh'
+[73.646s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/fin/share/fin/package.bash'
+[73.647s] INFO:colcon.colcon_core.shell:Creating package script '/home/eyantra/LB24/Student/1048/install/fin/share/fin/package.zsh'
+[73.648s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/eyantra/LB24/Student/1048/install/fin/share/colcon-core/packages/fin)
+[73.649s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[73.649s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[73.649s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[73.650s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[73.688s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[73.688s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[73.689s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[73.723s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[73.725s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/eyantra/LB24/Student/1048/install/local_setup.ps1'
+[73.734s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/eyantra/LB24/Student/1048/install/_local_setup_util_ps1.py'
+[73.755s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/eyantra/LB24/Student/1048/install/setup.ps1'
+[73.765s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/eyantra/LB24/Student/1048/install/local_setup.sh'
+[73.769s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/eyantra/LB24/Student/1048/install/_local_setup_util_sh.py'
+[73.771s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/eyantra/LB24/Student/1048/install/setup.sh'
+[73.776s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/eyantra/LB24/Student/1048/install/local_setup.bash'
+[73.778s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/eyantra/LB24/Student/1048/install/setup.bash'
+[73.780s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/eyantra/LB24/Student/1048/install/local_setup.zsh'
+[73.784s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/eyantra/LB24/Student/1048/install/setup.zsh'
