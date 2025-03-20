@@ -90,7 +90,7 @@ class Dock : public rclcpp::Node {
                 vel_msg.linear.x = -0.003 * f_usonicLeft;
                 vel_msg.angular.z = 0.0;
             } else {
-                vel_msg.angular.z = 0.007 * f_rangeDiff;
+                vel_msg.angular.z = 0.01 * f_rangeDiff;
                 vel_msg.linear.x = 0.0;
             }
 			vel_pub->publish(vel_msg);

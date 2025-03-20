@@ -1,7 +1,0 @@
-{
-  "package_name": "ebot_docking",
-  "non_idl_tuples": [
-    "/home/eyantra/LB24/Student/1048/src/ebot_docking:srv/DockSw.srv",
-    "/home/eyantra/LB24/Student/1048/src/ebot_docking:srv/PassingService.srv"
-  ]
-}

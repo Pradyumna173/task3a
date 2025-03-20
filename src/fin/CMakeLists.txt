@@ -16,7 +16,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(usb_servo REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
-# find_package(usb_servo REQUIRED)
+find_package(usb_servo REQUIRED)
 
 add_executable(dock src/dock.cpp)
 ament_target_dependencies(
@@ -37,7 +37,9 @@ ament_target_dependencies(
   geometry_msgs
   ebot_docking
   std_msgs
-  nav_msgs)
+  nav_msgs
+  sensor_msgs
+  usb_servo)
 
 install(TARGETS dock nav DESTINATION lib/${PROJECT_NAME})
 

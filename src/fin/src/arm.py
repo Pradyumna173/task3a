@@ -24,8 +24,6 @@ import tf_transformations
 from cv2 import aruco
 from cv_bridge import CvBridge
 from geometry_msgs.msg import TransformStamped, TwistStamped
-
-# from linkattacher_msgs.srv import AttachLink, DetachLink  # uncomment for sim
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
@@ -39,6 +37,8 @@ from tf_transformations import (
     translation_from_matrix,
     translation_matrix,
 )
+
+# from linkattacher_msgs.srv import AttachLink, DetachLink
 from ur_msgs.srv import SetIO
 
 from ebot_docking.srv import PassingService
@@ -182,8 +182,9 @@ class Arm(Node):
         self.saved_z = goal_z + 0.18
 
         # if box_number != "3":
-        goal_x -= 0.06
-        goal_y += 0.04
+        if EBOT_ID == 6:
+            goal_x -= 0.06
+            goal_y += 0.04
 
         error_x = 0.0
         error_y = 0.0

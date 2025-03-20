@@ -25,6 +25,19 @@
 #include <thread>
 #include <vector>
 
+/*#define SIM*/
+
+#ifdef SIM
+
+#include <sensor_msgs/msg/range.hpp>
+
+#else
+
+#include <std_msgs/msg/float32_multi_array.hpp>
+#include <usb_servo/srv/servo_sw.hpp>
+
+#endif  // SIM
+
 class Nav : public rclcpp::Node {
   public:
     using NavigateToPose = nav2_msgs::action::NavigateToPose;
@@ -43,15 +56,33 @@ class Nav : public rclcpp::Node {
 
         init_pose_pub = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
             "/initialpose", 10);
+#ifdef SIM
+        usonicL_sub = this->create_subscription<sensor_msgs::msg::Range>(
+            "/ultrasonic_rl/scan", 10,
+            std::bind(&Nav::callback_usonicL_sub, this, std::placeholders::_1));
+
+        usonicR_sub = this->create_subscription<sensor_msgs::msg::Range>(
+            "/ultrasonic_rr/scan", 10,
+            std::bind(&Nav::callback_usonicR_sub, this, std::placeholders::_1));
+#else
+        usonic_sub = this->create_subscription<std_msgs::msg::Float32MultiArray>(
+            "ultrasonic_sensor_std_float", 10,
+            std::bind(&Nav::callback_usonic_sub, this, std::placeholders::_1));
+#endif  // SIM
     }
 
   private:
+    float f_usonicLeft{}, f_usonicRight{};
+
+    bool b_usonicOn = false;
     struct Quaternion {
         double w, x, y, z;
     };
-
-    /*float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};*/
+#ifdef SIM
+    float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
+#else
     float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.5, 2.0, -2.95}, {2.3, -1.2, 3.07}};
+#endif  // SIM
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
     rclcpp::Client<ebot_docking::srv::DockSw>::SharedPtr dockClient;
@@ -75,30 +106,66 @@ class Nav : public rclcpp::Node {
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr vel_pub;
     rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr init_pose_pub;
 
+#ifdef SIM
+    rclcpp::Subscription<sensor_msgs::msg::Range>::SharedPtr usonicR_sub;
+    rclcpp::Subscription<sensor_msgs::msg::Range>::SharedPtr usonicL_sub;
+
+    void callback_usonicL_sub(sensor_msgs::msg::Range::SharedPtr msg) {
+        f_usonicLeft = static_cast<float>(msg->range * 100.0f);
+        b_usonicOn = true;
+        // RCLCPP_INFO(this->get_logger(), "%f", f_usonicLeft);
+    }
+    void callback_usonicR_sub(sensor_msgs::msg::Range::SharedPtr msg) {
+        f_usonicRight = static_cast<float>(msg->range * 100.0f);
+        b_usonicOn = true;
+        // RCLCPP_INFO(this->get_logger(), "%f", f_usonicRight);
+    }
+#else
+
+    rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr usonic_sub;
+    void callback_usonic_sub(std_msgs::msg::Float32MultiArray::SharedPtr msg) {
+        f_usonicLeft = (float)msg->data[5];
+        f_usonicRight = (float)msg->data[4];
+
+        b_usonicOn = true;
+    }
+#endif  // SIM
+
     void send_goal() {
         if (inside_dock) {
-            
-            static auto vel_msg = geometry_msgs::msg::Twist();
-            float dist = sqrt(pow(odom_update[0] - odom_stored[0], 2) +
-                              pow(odom_update[1] - odom_stored[1], 2));
-            
-            if ((dist * 0.3) > vel_msg.linear.x) {
+            auto vel_msg = geometry_msgs::msg::Twist();
+            float dist = (f_usonicRight + f_usonicLeft) / 2.0f;
+#ifdef SIM
+#define OUT_DIST 80.0f
+#else
+#define OUT_DIST 150.0f
+#endif
+            if (dist > OUT_DIST) {
                 vel_msg.linear.x = 0.0;
+                vel_msg.angular.z = 0.0;
                 vel_pub->publish(vel_msg);
                 inside_dock = false;
 
-                //setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
-                 //           waypoints_[last_waypoint][2]);
+                // setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
+                //            waypoints_[last_waypoint][2]);
                 std::this_thread::sleep_for(std::chrono::milliseconds(2000));
                 return;
             }
 
-            vel_msg.linear.x = 0.3 * dist;
+            if (abs(f_usonicLeft - f_usonicRight) > 5.0f) {
+                vel_msg.angular.z = 0.007 * (f_usonicLeft - f_usonicRight);
+                vel_msg.linear.x = 0.0;
+            } else {
+                vel_msg.linear.x = 0.008 * (OUT_DIST * dist);
+                vel_msg.angular.z = 0.0;
+            }
 
             if (vel_msg.linear.x > 0.5) {
                 vel_msg.linear.x = 0.5;
+            } else if (vel_msg.linear.x < 0.01) {
+                vel_msg.linear.x = 0.01;
             }
-
+            RCLCPP_INFO(this->get_logger(), "%f", dist);
             vel_pub->publish(vel_msg);
             return;
         }
