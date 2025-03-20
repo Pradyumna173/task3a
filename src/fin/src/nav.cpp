@@ -87,6 +87,7 @@ class Nav : public rclcpp::Node {
             
             if (dist < 0.05) {
                 vel_msg.linear.x = 0.0;
+				vel_pub->publish(vel_msg);
                 inside_dock = false;
                 setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
                            waypoints_[last_waypoint][2]);
