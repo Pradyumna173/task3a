@@ -70,16 +70,16 @@ class Dock : public rclcpp::Node {
             std::this_thread::sleep_for(std::chrono::milliseconds(500));
         }  // Waiting for ultrasonic node to start publishing
 
-        static float f_stopDist = 15.0f;
+        static float f_stopDist = 18.0f;
         static bool b_isFirstDock{true};
         float f_rangeDiff{};
 
-        while ((f_usonicLeft > 120.0f) && (f_usonicRight > 120.0f)) {
+        while ((f_usonicLeft > 100.0f) && (f_usonicRight > 100.0f)) {
             vel_msg.linear.x = -0.3;
             vel_msg.angular.z = 0.0;
             RCLCPP_INFO(this->get_logger(), "Getting in Range");
             vel_pub->publish(vel_msg);
-            std::this_thread::sleep_for(std::chrono::milliseconds(40));
+            std::this_thread::sleep_for(std::chrono::milliseconds(20));
         }
 
         while ((f_usonicLeft > f_stopDist) && (f_usonicRight > f_stopDist)) {
@@ -90,11 +90,11 @@ class Dock : public rclcpp::Node {
                 vel_msg.linear.x = -0.003 * f_usonicLeft;
                 vel_msg.angular.z = 0.0;
             } else {
-                vel_msg.angular.z = 0.01 * f_rangeDiff;
+                vel_msg.angular.z = 0.007 * f_rangeDiff;
                 vel_msg.linear.x = 0.0;
             }
 			vel_pub->publish(vel_msg);
-			std::this_thread::sleep_for(std::chrono::milliseconds(40));
+			std::this_thread::sleep_for(std::chrono::milliseconds(20));
         }
 
         vel_msg.linear.x = 0.0;
@@ -118,12 +118,12 @@ class Dock : public rclcpp::Node {
     rclcpp::Subscription<sensor_msgs::msg::Range>::SharedPtr usonicL_sub;
 
     void callback_usonicL_sub(sensor_msgs::msg::Range::SharedPtr msg) {
-        f_usonicLeft = static_cast<int16_t>(msg->range * 100.0f);
+        f_usonicLeft = static_cast<float>(msg->range * 100.0f);
         b_usonicOn = true;
         // RCLCPP_INFO(this->get_logger(), "%f", f_usonicLeft);
     }
     void callback_usonicR_sub(sensor_msgs::msg::Range::SharedPtr msg) {
-        f_usonicRight = static_cast<int16_t>(msg->range * 100.0f);
+        f_usonicRight = static_cast<float>(msg->range * 100.0f);
         b_usonicOn = true;
         // RCLCPP_INFO(this->get_logger(), "%f", f_usonicRight);
     }
@@ -133,8 +133,8 @@ class Dock : public rclcpp::Node {
 
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr usonic_sub;
     void callback_usonic_sub(std_msgs::msg::Float32MultiArray::SharedPtr msg) {
-        f_usonicLeft = msg->data[4];
-        f_usonicRight = msg->data[5];
+        f_usonicLeft = (float)msg->data[5];
+        f_usonicRight = (float)msg->data[4];
 
         b_usonicOn = true;
     }

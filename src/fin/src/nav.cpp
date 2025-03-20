@@ -38,7 +38,7 @@ class Nav : public rclcpp::Node {
         odom_sub = this->create_subscription<nav_msgs::msg::Odometry>(
             "/odom", 10, std::bind(&Nav::callback_odom_sub, this, std::placeholders::_1));
 
-        timer_ = this->create_wall_timer(std::chrono::milliseconds(50),
+        timer_ = this->create_wall_timer(std::chrono::milliseconds(20),
                                          std::bind(&Nav::send_goal, this));
 
         init_pose_pub = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
@@ -51,7 +51,7 @@ class Nav : public rclcpp::Node {
     };
 
     /*float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};*/
-    float waypoints_[3][3] = {{2.50, -2.827, 2.95}, {2.5, 2.0, -2.95}, {2.3, -1.2, 3.07}};
+    float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.5, 2.0, -2.95}, {2.3, -1.2, 3.07}};
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;
     rclcpp::Client<ebot_docking::srv::DockSw>::SharedPtr dockClient;
@@ -77,9 +77,21 @@ class Nav : public rclcpp::Node {
 
     void send_goal() {
         if (inside_dock) {
-            auto vel_msg = geometry_msgs::msg::Twist();
+            
+            static auto vel_msg = geometry_msgs::msg::Twist();
             float dist = sqrt(pow(odom_update[0] - odom_stored[0], 2) +
                               pow(odom_update[1] - odom_stored[1], 2));
+            
+            if ((dist * 0.3) > vel_msg.linear.x) {
+                vel_msg.linear.x = 0.0;
+                vel_pub->publish(vel_msg);
+                inside_dock = false;
+
+                //setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
+                 //           waypoints_[last_waypoint][2]);
+                std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+                return;
+            }
 
             vel_msg.linear.x = 0.3 * dist;
 
@@ -87,17 +99,8 @@ class Nav : public rclcpp::Node {
                 vel_msg.linear.x = 0.5;
             }
 
-            if (dist < 0.05) {
-                vel_msg.linear.x = 0.0;
-                vel_pub->publish(vel_msg);
-                inside_dock = false;
-
-                // setInitialPose(waypoints_[last_waypoint][0], waypoints_[last_waypoint][1],
-                //            waypoints_[last_waypoint][2]);
-                std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-            }
-
             vel_pub->publish(vel_msg);
+            return;
         }
 
         if (current_goal == waypoint_index_) {

@@ -1,0 +1,85 @@
+[0.775s] Invoking command in '/home/eyantra/LB24/Student/1048/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eyantra/LB24/Student/1048/src/pymoveit2 -DCMAKE_INSTALL_PREFIX=/home/eyantra/LB24/Student/1048/install/pymoveit2
+[0.927s] -- The C compiler identification is GNU 11.4.0
+[1.150s] -- The CXX compiler identification is GNU 11.4.0
+[1.165s] -- Detecting C compiler ABI info
+[1.350s] -- Detecting C compiler ABI info - done
+[1.361s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.362s] -- Detecting C compile features
+[1.363s] -- Detecting C compile features - done
+[1.368s] -- Detecting CXX compiler ABI info
+[1.599s] -- Detecting CXX compiler ABI info - done
+[1.616s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.617s] -- Detecting CXX compile features
+[1.618s] -- Detecting CXX compile features - done
+[1.625s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.034s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.664s] -- Configuring done
+[2.672s] -- Generating done
+[2.678s] -- Build files have been written to: /home/eyantra/LB24/Student/1048/build/pymoveit2
+[2.694s] Invoked command in '/home/eyantra/LB24/Student/1048/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eyantra/LB24/Student/1048/src/pymoveit2 -DCMAKE_INSTALL_PREFIX=/home/eyantra/LB24/Student/1048/install/pymoveit2
+[2.697s] Invoking command in '/home/eyantra/LB24/Student/1048/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/pymoveit2 -- -j8 -l8
+[2.842s] Built target ament_cmake_python_copy_pymoveit2
+[3.448s] running egg_info
+[3.449s] creating pymoveit2.egg-info
+[3.449s] writing pymoveit2.egg-info/PKG-INFO
+[3.449s] writing dependency_links to pymoveit2.egg-info/dependency_links.txt
+[3.449s] writing top-level names to pymoveit2.egg-info/top_level.txt
+[3.449s] writing manifest file 'pymoveit2.egg-info/SOURCES.txt'
+[3.449s] reading manifest file 'pymoveit2.egg-info/SOURCES.txt'
+[3.449s] writing manifest file 'pymoveit2.egg-info/SOURCES.txt'
+[3.545s] Built target ament_cmake_python_build_pymoveit2_egg
+[3.572s] Invoked command in '/home/eyantra/LB24/Student/1048/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/pymoveit2 -- -j8 -l8
+[3.579s] Invoking command in '/home/eyantra/LB24/Student/1048/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/pymoveit2
+[3.607s] -- Install configuration: ""
+[3.607s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/pythonpath.sh
+[3.607s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/pythonpath.dsv
+[3.607s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info
+[3.607s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/dependency_links.txt
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/SOURCES.txt
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/top_level.txt
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2-2.1.0-py3.10.egg-info/PKG-INFO
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/moveit2_servo.py
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/ur5.py
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/kinova.py
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/__init__.py
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/moveit2.py
+[3.608s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/__init__.py
+[3.686s] Listing '/home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2'...
+[3.686s] Compiling '/home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/__init__.py'...
+[3.686s] Compiling '/home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/moveit2.py'...
+[3.686s] Compiling '/home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/moveit2_servo.py'...
+[3.686s] Listing '/home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots'...
+[3.687s] Compiling '/home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/__init__.py'...
+[3.687s] Compiling '/home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/kinova.py'...
+[3.687s] Compiling '/home/eyantra/LB24/Student/1048/install/pymoveit2/local/lib/python3.10/dist-packages/pymoveit2/robots/ur5.py'...
+[3.700s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/ex_collision_object.py
+[3.700s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/ex_joint_goal.py
+[3.701s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/ex_pose_goal.py
+[3.701s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/ex_servo.py
+[3.702s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets
+[3.703s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/rack.stl
+[3.709s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/box2.stl
+[3.710s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/box3.stl
+[3.710s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/rack_box.stl
+[3.710s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/box.stl
+[3.711s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/rack_box_again.stl
+[3.711s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/box1.stl
+[3.712s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/lib/pymoveit2/assets/suzanne.stl
+[3.712s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/ament_index/resource_index/package_run_dependencies/pymoveit2
+[3.713s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/ament_index/resource_index/parent_prefix_path/pymoveit2
+[3.713s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/ament_prefix_path.sh
+[3.714s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/ament_prefix_path.dsv
+[3.714s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/path.sh
+[3.714s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/environment/path.dsv
+[3.714s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/local_setup.bash
+[3.715s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/local_setup.sh
+[3.715s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/local_setup.zsh
+[3.716s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/local_setup.dsv
+[3.716s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.dsv
+[3.716s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/ament_index/resource_index/packages/pymoveit2
+[3.717s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/cmake/pymoveit2Config.cmake
+[3.717s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/cmake/pymoveit2Config-version.cmake
+[3.717s] -- Installing: /home/eyantra/LB24/Student/1048/install/pymoveit2/share/pymoveit2/package.xml
+[3.720s] Invoked command in '/home/eyantra/LB24/Student/1048/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/pymoveit2
