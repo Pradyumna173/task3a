@@ -20,7 +20,8 @@ import cv2
 import numpy as np
 import rclpy
 import tf2_ros
-from cv2 import Rodrigues, aruco
+import tf_transformations
+from cv2 import aruco
 from cv_bridge import CvBridge
 from geometry_msgs.msg import TransformStamped, TwistStamped
 
@@ -34,7 +35,6 @@ from std_srvs.srv import Trigger
 from tf_transformations import (
     concatenate_matrices,
     euler_from_quaternion,
-    quaternion_from_euler,
     quaternion_matrix,
     translation_from_matrix,
     translation_matrix,
@@ -94,11 +94,17 @@ class Arm(Node):
         self.servo_tf_buffer = tf2_ros.Buffer()
         self.servo_tf_listener = tf2_ros.TransformListener(self.servo_tf_buffer, self)
 
+        if EBOT_ID == 6:  # only for hardware
+            image_topic = "/camera/camera/color/image_raw"
+            vel_topic = "/ServoCmdVel"
+        else:
+            image_topic = "/camera/color/image_raw"
+            vel_topic = "/servo_node/delta_twist_cmds"
+
         # Subscribers
         self.color_cam_sub = self.create_subscription(
             Image,
-            # "/camera/color/image_raw",  # only for software
-            "/camera/camera/color/image_raw",
+            image_topic,
             self.colorImageCB,
             10,
         )
@@ -115,8 +121,7 @@ class Arm(Node):
 
         self.servo_pub = self.create_publisher(
             TwistStamped,
-            # "/servo_node/delta_twist_cmds",  # only for software
-            "/ServoCmdVel",
+            vel_topic,
             10,
         )
 
@@ -171,11 +176,14 @@ class Arm(Node):
         self.box_conveyer = (int(box_number) % 2) + 1
 
         goal_x, goal_y, goal_z = box_pose
-        goal_z += 0.1  # only for hardware
+        if EBOT_ID == 6:
+            goal_z += 0.1  # only for hardware
+
         self.saved_z = goal_z + 0.15
-        # if box_number == '1':
-        goal_x -= 0.06
-        goal_y += 0.04
+
+        # if box_number != "3":
+        #     goal_x -= 0.06
+        #     goal_y += 0.04
 
         error_x = 0.0
         error_y = 0.0
@@ -210,11 +218,14 @@ class Arm(Node):
                 error_y = 0.0
                 error_z = 0.0
         elif state == 2:
-            error_z = -0.01
-            if self.force > 75.0:  # only for hardware
-                error_z = 0.0
-                self.state = 3
-            # self.state = 3  # only for software
+            if EBOT_ID == 6:
+                error_z = -0.01
+
+                if self.force > 75.0:  # only for hardware
+                    error_z = 0.0
+                    self.state = 3
+            else:
+                self.state = 3  # only for software
         elif state == 3:
             if not self.attach_called:
                 self.call_attach_box(box_number)
@@ -235,7 +246,7 @@ class Arm(Node):
                 self.process_image()
                 return
 
-            error_x = (self.ebot_pose[0] + 0.015) - self.servo_x
+            error_x = (self.ebot_pose[0] + 0.01) - self.servo_x
             error_y = self.ebot_pose[1] - self.servo_y
             error_z = self.saved_z - self.servo_z
 
@@ -280,158 +291,6 @@ class Arm(Node):
         twist_msg.twist.angular.y = rot_error * 45.0
 
         self.servo_pub.publish(twist_msg)
-
-    def pick_box(self):
-        """
-        Output: null | Timer based function call
-        ---
-        Logic : Continuously latches one thread to control the arm. Destructs the thread only when no boxes remain to be passed
-        """
-        self.process_image()
-        if not (self.arm_started and self.allow_pick and self.box_dict):
-            return
-
-        if self.servo_looked_up is None:
-            return
-
-        box_number = list(self.box_dict)[0]
-        box_pose = self.box_dict[box_number]
-        print(box_number)
-        self.box_conveyer = (int(box_number) % 2) + 1
-        print(self.box_conveyer)
-
-        goal_x, goal_y, goal_z = box_pose
-        # goal_z += 0.1  # only for hardware
-        self.saved_z = goal_z + 0.05
-        goal_y += 0.02
-
-        twist_msg = TwistStamped()
-        twist_msg.header.frame_id = "base_link"
-        while True:
-            self.servo_lookup()
-            rot_error = (
-                math.pi - abs(self.servo_roll)
-                if self.servo_roll >= 0
-                else -math.pi - self.servo_roll
-            )
-
-            if abs(rot_error) < 0.05:
-                twist_msg.header.stamp = self.get_clock().now().to_msg()
-                twist_msg.twist.angular.y = 0.0
-                self.servo_pub.publish(twist_msg)
-                break  # LOOP ESCAPE
-
-            twist_msg.header.stamp = self.get_clock().now().to_msg()
-            twist_msg.twist.angular.y = 45.0 * rot_error
-            self.servo_pub.publish(twist_msg)
-            self.arm_rate.sleep()
-        print("Rotation Corrected")
-
-        while True:
-            self.servo_lookup()
-            error_x = goal_x - self.servo_x
-            error_y = goal_y - self.servo_y
-            error_z = goal_z - self.servo_z
-
-            if all(abs(err) < 0.015 for err in (error_x, error_y, error_z)):
-                twist_msg = TwistStamped()
-                twist_msg.header.stamp = self.get_clock().now().to_msg()
-                self.servo_pub.publish(twist_msg)
-                break  # LOOP ESCAPE
-
-            twist_msg.header.stamp = self.get_clock().now().to_msg()
-
-            twist_msg.twist.linear.y = 30.0 * error_y
-            twist_msg.twist.linear.x = 0.0
-            twist_msg.twist.linear.z = 0.0
-
-            if abs(error_y) < 0.25:
-                twist_msg.twist.linear.x = 30.0 * error_x
-                twist_msg.twist.linear.z = 30.0 * error_z
-
-            self.servo_pub.publish(twist_msg)
-
-            self.arm_rate.sleep()
-        print("Translation Corrected")
-
-        twist_msg.twist.linear.z = 0.4
-        # while self.force < 85.0:  # only for hardware
-        #     twist_msg.header.stamp = self.get_clock().now().to_msg()
-        #     self.servo_pub.publish(twist_msg)
-        #     self.arm_rate.sleep()
-
-        twist_msg.twist.linear.z = 0.0
-        twist_msg.header.stamp = self.get_clock().now().to_msg()
-        self.servo_pub.publish(twist_msg)
-
-        self.call_attach_box(box_number)
-        while not self.attach_done:
-            pass
-
-        while True:
-            self.servo_lookup()
-            error_z = self.saved_z - self.servo_z
-
-            if abs(error_z < 0.015):
-                twist_msg.twist.linear.z = 0.0
-                twist_msg.header.stamp = self.get_clock().now().to_msg()
-                self.servo_pub.publish(twist_msg)
-                break  # LOOP ESCAPE
-
-            twist_msg.header.stamp = self.get_clock().now().to_msg()
-
-            twist_msg.twist.linear.z = -30.0 * error_z
-            self.servo_pub.publish(twist_msg)
-
-            self.arm_rate.sleep()
-
-        self.allow_pick = False
-        self.place_box(box_number)
-
-    def place_box(self, box_number):
-        """
-        Output: null | Timer based function call
-        ---
-        Logic: Called by pick_box function. Latches the same thread to drop the box onto ebot, if aruco is visible and box has been requested by ebot via PassingService
-        """
-        while not self.box_request:
-            pass
-
-        while not self.ebot_pose:
-            self.process_image()
-
-        goal_x, goal_y, _ = self.ebot_pose
-        twist_msg = TwistStamped()
-        twist_msg.header.frame_id = "base_link"
-
-        while True:
-            self.servo_lookup()
-            error_x = goal_x - self.servo_x
-            error_y = goal_y - self.servo_y
-            error_z = self.saved_z - self.servo_z
-
-            if all(abs(err) < 0.015 for err in (error_x, error_y, error_z)):
-                twist_msg = TwistStamped()
-                twist_msg.header.stamp = self.get_clock().now().to_msg()
-                self.servo_pub.publish(twist_msg)
-                break  # LOOP ESCAPE
-
-            twist_msg.header.stamp = self.get_clock().now().to_msg()
-
-            twist_msg.twist.linear.z = 30.0 * error_z
-            twist_msg.twist.linear.x = 0.0
-            twist_msg.twist.linear.y = 0.0
-            if abs(error_z) < 0.015:
-                twist_msg.twist.linear.x = 30.0 * error_x
-                if abs(error_x) < 0.25:
-                    twist_msg.twist.linear.y = 30.0 * error_y
-
-            self.servo_pub.publish(twist_msg)
-            self.arm_rate.sleep()
-        self.call_detach_box(box_number)
-        while self.attach_done:
-            pass
-        self.box_request = False
 
     # def call_attach_box(self, box_number):
     #     client = self.create_client(AttachLink, "GripperMagnetON")
@@ -550,6 +409,7 @@ class Arm(Node):
             return
 
         result = self.detect_aruco()
+
         if result is not None:
             translation, angle, ids = result
         else:
@@ -562,30 +422,25 @@ class Arm(Node):
                 # "camera_link",
                 "1048_cam_" + str(ids[i]),
                 translation[i],
-                quaternion_from_euler(0.0, 0.0, 0.0, "sxyz"),
+                angle[i],
             )  # Broadcast aruco tf w.r.t camera
 
-            base_to_aruco_pose = self.find_transform(
+            pose, rotation = self.find_transform(
                 translation[i],
-                quaternion_from_euler(angle[i][0], angle[i][1], angle[i][2], "sxyz"),
+                angle[i],
             )
 
             self.broadcast_transform(
                 "base_link",
                 "1048_base_" + str(ids[i]),
-                base_to_aruco_pose,
-                quaternion_from_euler(
-                    0.0,
-                    math.pi,
-                    (math.pi / 2.0) - angle[i][2],
-                    "sxyz",  # The pitch, is to make z axis point toward inside the box
-                ),
+                pose,
+                rotation,
             )  # Broadcast box tf w.r.t base
 
             if ids[i] == EBOT_ID:
-                self.ebot_pose = base_to_aruco_pose
+                self.ebot_pose = pose
             elif ids[i] < 6:
-                self.box_dict[str(ids[i])] = base_to_aruco_pose
+                self.box_dict[str(ids[i])] = pose
 
             for done_box in self.box_done:
                 self.box_dict.pop(done_box, None)
@@ -640,6 +495,7 @@ class Arm(Node):
         ---
         Logic: Lookup transform between base_link and camera frame to estimate aruco pose of box w.r.t base_link
         """
+
         try:
             base_to_camera = self.tf_buffer.lookup_transform(
                 "base_link", "camera_color_optical_frame", rclpy.time.Time()
@@ -650,33 +506,41 @@ class Arm(Node):
                 base_to_camera.transform.translation.y,
                 base_to_camera.transform.translation.z,
             ]
-            base_rotation = [
+
+            cam_orientation = [
                 base_to_camera.transform.rotation.x,
                 base_to_camera.transform.rotation.y,
                 base_to_camera.transform.rotation.z,
                 base_to_camera.transform.rotation.w,
             ]
 
-            aruco_translation = translation
-            aruco_rotation = angles
+            base_rotation = tf_transformations.quaternion_multiply(
+                cam_orientation, angles
+            )
 
             base_to_camera_matrix = concatenate_matrices(
-                translation_matrix(base_translation), quaternion_matrix(base_rotation)
+                translation_matrix(base_translation), quaternion_matrix(cam_orientation)
             )
 
             camera_to_aruco_matrix = concatenate_matrices(
-                translation_matrix(aruco_translation), quaternion_matrix(aruco_rotation)
+                translation_matrix(translation), quaternion_matrix(angles)
             )
 
             base_to_aruco_matrix = concatenate_matrices(
                 base_to_camera_matrix, camera_to_aruco_matrix
             )
 
-            aruco_translation_in_base = translation_from_matrix(base_to_aruco_matrix)
-            return (
-                aruco_translation_in_base.tolist()
-            )  # convert numpy array to python list for easier parsing
+            deg = tf_transformations.euler_from_quaternion(base_rotation)
 
+            base_rotation = tf_transformations.quaternion_from_euler(
+                0.0,
+                math.pi,
+                (2 * math.pi) + deg[2],
+                "sxyz",  # The pitch, is to make z axis point toward inside the box
+            )
+            aruco_translation_in_base = translation_from_matrix(base_to_aruco_matrix)
+
+            return aruco_translation_in_base.tolist(), base_rotation
         except Exception as e:
             self.get_logger().info(f"Could not calculate transform: {e}")
 
@@ -691,14 +555,14 @@ class Arm(Node):
         transform.header.frame_id = parent_frame
         transform.child_frame_id = child_frame
 
-        transform.transform.translation.x = translation[0]
-        transform.transform.translation.y = translation[1]
-        transform.transform.translation.z = translation[2]
+        transform.transform.translation.x = float(translation[0])
+        transform.transform.translation.y = float(translation[1])
+        transform.transform.translation.z = float(translation[2])
 
-        transform.transform.rotation.x = rotation[0]
-        transform.transform.rotation.y = rotation[1]
-        transform.transform.rotation.z = rotation[2]
-        transform.transform.rotation.w = rotation[3]
+        transform.transform.rotation.x = float(rotation[0])
+        transform.transform.rotation.y = float(rotation[1])
+        transform.transform.rotation.z = float(rotation[2])
+        transform.transform.rotation.w = float(rotation[3])
 
         self.tf_broadcaster.sendTransform(transform)
 
@@ -735,6 +599,9 @@ class Arm(Node):
                     dist_coeffs,  # 0.15 is marker_size
                 )
 
+                rvec = np.squeeze(rvec)
+                tvec = np.squeeze(tvec)
+
                 cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, rvec, tvec, 0.1)
 
                 _, buffer = cv2.imencode(".jpg", frame)
@@ -745,11 +612,9 @@ class Arm(Node):
                 self.image_pub.publish(msg)
                 self.get_logger().info("Published ArUco detected image")
 
-                R, _ = Rodrigues(rvec[0])
-
                 marker = marker_id[0]
-                translation_aruco = tvec[0][0]
-                angle_aruco = [*self.rotation_matrix_to_euler_angles(R)]
+                translation_aruco = tvec
+                angle_aruco = [*self.quaternion_from_rotation_vector(rvec)]
 
                 marker_ids.append(marker)
                 translation_aruco_list.append(translation_aruco)
@@ -759,28 +624,21 @@ class Arm(Node):
 
         return None
 
-    def rotation_matrix_to_euler_angles(self, R):
-        """
-        Output: List | roll, pitch, yaw for given rotation matrix
-        ---
-        Logic: Converts rotation matrix to legible roll, pitch, yaw
-        """
-        sy = math.sqrt(
-            R[0, 0] ** 2 + R[1, 0] ** 2
-        )  # Calculate the magnitude of the first two elements in the first column of R
-
-        singular = sy < 1e-6  # Check for a singularity (gimbal lock)
-
-        if not singular:
-            roll = math.atan2(R[2, 1], R[2, 2])
-            pitch = math.atan2(-R[2, 0], sy)
-            yaw = math.atan2(R[1, 0], R[0, 0])
-        else:  # Handle singularity where pitch is limited to +-90 degrees
-            roll = math.atan2(-R[1, 2], R[1, 1])
-            pitch = math.atan2(-R[2, 0], sy)
-            yaw = 0
-
-        return (roll, pitch, yaw)
+    def quaternion_from_rotation_vector(self, rvec):
+        theta = np.linalg.norm(rvec)
+        if theta < 1e-6:
+            return np.array([0, 0, 0, 1], dtype=np.float32)
+        else:
+            axis = rvec / theta
+            return np.array(
+                [
+                    np.sin(theta / 2) * axis[0],
+                    np.sin(theta / 2) * axis[1],
+                    np.sin(theta / 2) * axis[2],
+                    np.cos(theta / 2),
+                ],
+                dtype=np.float32,
+            )
 
     def call_servo_trigger(self):
         client = self.create_client(Trigger, "/servo_node/start_servo")

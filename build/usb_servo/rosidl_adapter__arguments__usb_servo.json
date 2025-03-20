@@ -1,6 +1,0 @@
-{
-  "package_name": "usb_servo",
-  "non_idl_tuples": [
-    "/home/northee/git/task3a/src/usb_servo:srv/ServoSw.srv"
-  ]
-}

@@ -1,4 +1,0 @@
-[31mCMake Error at CMakeLists.txt:42 (install):
-  install TARGETS given target "arm" which does not exist.
-
-[0m
