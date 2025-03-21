@@ -1,0 +1,9 @@
+setup.py
+ebot_docking/__init__.py
+ebot_docking.egg-info/PKG-INFO
+ebot_docking.egg-info/SOURCES.txt
+ebot_docking.egg-info/dependency_links.txt
+ebot_docking.egg-info/top_level.txt
+ebot_docking/srv/__init__.py
+ebot_docking/srv/_dock_sw.py
+ebot_docking/srv/_passing_service.py

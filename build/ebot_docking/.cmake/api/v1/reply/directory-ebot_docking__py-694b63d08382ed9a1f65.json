@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "ebot_docking__py",
+		"source" : "/home/eyantra/LB24/Student/1048/build/ebot_docking/ebot_docking__py"
+	}
+}

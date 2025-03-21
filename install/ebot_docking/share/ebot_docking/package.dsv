@@ -1,0 +1,11 @@
+source;share/ebot_docking/hook/cmake_prefix_path.ps1
+source;share/ebot_docking/hook/cmake_prefix_path.dsv
+source;share/ebot_docking/hook/cmake_prefix_path.sh
+source;share/ebot_docking/hook/ld_library_path_lib.ps1
+source;share/ebot_docking/hook/ld_library_path_lib.dsv
+source;share/ebot_docking/hook/ld_library_path_lib.sh
+source;share/ebot_docking/local_setup.bash
+source;share/ebot_docking/local_setup.dsv
+source;share/ebot_docking/local_setup.ps1
+source;share/ebot_docking/local_setup.sh
+source;share/ebot_docking/local_setup.zsh

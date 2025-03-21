@@ -81,7 +81,7 @@ class Nav : public rclcpp::Node {
 #ifdef SIM
     float waypoints_[3][3] = {{0.4, -2.4, 3.14}, {-4.0, 2.89, -1.57}, {2.32, 2.55, -1.57}};
 #else
-    float waypoints_[3][3] = {{2.50, -2.8275, 2.95}, {2.5, 2.0, -2.95}, {2.3, -1.2, 3.07}};
+    float waypoints_[3][3] = {{2.50, -2.828, 2.95}, {2.5, 2.0, -2.95}, {1.9, -0.95, -2.95}};
 #endif  // SIM
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client;

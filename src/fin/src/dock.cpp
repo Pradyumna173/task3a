@@ -85,14 +85,8 @@ class Dock : public rclcpp::Node {
         while ((f_usonicLeft > f_stopDist) && (f_usonicRight > f_stopDist)) {
 			RCLCPP_INFO(this->get_logger(), "Docking...");
             f_rangeDiff = f_usonicLeft - f_usonicRight;
-
-            if (abs(f_rangeDiff) < 5.0f) {
-                vel_msg.linear.x = -0.003 * f_usonicLeft;
-                vel_msg.angular.z = 0.0;
-            } else {
-                vel_msg.angular.z = 0.01 * f_rangeDiff;
-                vel_msg.linear.x = 0.0;
-            }
+            vel_msg.linear.x = -0.003 * f_usonicLeft;
+            vel_msg.angular.z = 0.015 * f_rangeDiff;
 			vel_pub->publish(vel_msg);
 			std::this_thread::sleep_for(std::chrono::milliseconds(20));
         }
