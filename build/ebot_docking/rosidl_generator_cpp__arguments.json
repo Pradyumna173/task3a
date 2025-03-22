@@ -1,10 +1,10 @@
 {
   "package_name": "ebot_docking",
-  "output_dir": "/home/eyantra/LB24/Student/1048/build/ebot_docking/rosidl_generator_cpp/ebot_docking",
+  "output_dir": "/home/northee/git/task3a/build/ebot_docking/rosidl_generator_cpp/ebot_docking",
   "template_dir": "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource",
   "idl_tuples": [
-    "/home/eyantra/LB24/Student/1048/build/ebot_docking/rosidl_adapter/ebot_docking:srv/DockSw.idl",
-    "/home/eyantra/LB24/Student/1048/build/ebot_docking/rosidl_adapter/ebot_docking:srv/PassingService.idl"
+    "/home/northee/git/task3a/build/ebot_docking/rosidl_adapter/ebot_docking:srv/DockSw.idl",
+    "/home/northee/git/task3a/build/ebot_docking/rosidl_adapter/ebot_docking:srv/PassingService.idl"
   ],
   "target_dependencies": [
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp",
@@ -22,7 +22,7 @@
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__builder.hpp.em",
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__struct.hpp.em",
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__traits.hpp.em",
-    "/home/eyantra/LB24/Student/1048/build/ebot_docking/rosidl_adapter/ebot_docking/srv/DockSw.idl",
-    "/home/eyantra/LB24/Student/1048/build/ebot_docking/rosidl_adapter/ebot_docking/srv/PassingService.idl"
+    "/home/northee/git/task3a/build/ebot_docking/rosidl_adapter/ebot_docking/srv/DockSw.idl",
+    "/home/northee/git/task3a/build/ebot_docking/rosidl_adapter/ebot_docking/srv/PassingService.idl"
   ]
 }

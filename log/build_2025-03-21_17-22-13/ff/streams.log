@@ -1,0 +1,54 @@
+[0.724s] Invoking command in '/home/northee/git/task3a/src/ff': PYTHONPATH=/home/northee/git/task3a/build/ff/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/northee/git/task3a/install/ff/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ff build --build-base /home/northee/git/task3a/build/ff/build install --record /home/northee/git/task3a/build/ff/install.log --single-version-externally-managed install_data
+[0.821s] running egg_info
+[0.821s] creating ../../build/ff/ff.egg-info
+[0.822s] writing ../../build/ff/ff.egg-info/PKG-INFO
+[0.822s] writing dependency_links to ../../build/ff/ff.egg-info/dependency_links.txt
+[0.822s] writing entry points to ../../build/ff/ff.egg-info/entry_points.txt
+[0.822s] writing requirements to ../../build/ff/ff.egg-info/requires.txt
+[0.822s] writing top-level names to ../../build/ff/ff.egg-info/top_level.txt
+[0.822s] writing manifest file '../../build/ff/ff.egg-info/SOURCES.txt'
+[0.822s] reading manifest file '../../build/ff/ff.egg-info/SOURCES.txt'
+[0.823s] writing manifest file '../../build/ff/ff.egg-info/SOURCES.txt'
+[0.823s] running build
+[0.823s] running build_py
+[0.823s] creating /home/northee/git/task3a/build/ff/build
+[0.823s] creating /home/northee/git/task3a/build/ff/build/lib
+[0.823s] creating /home/northee/git/task3a/build/ff/build/lib/ff
+[0.823s] copying ff/__init__.py -> /home/northee/git/task3a/build/ff/build/lib/ff
+[0.823s] copying ff/dock.py -> /home/northee/git/task3a/build/ff/build/lib/ff
+[0.823s] copying ff/run.py -> /home/northee/git/task3a/build/ff/build/lib/ff
+[0.824s] copying ff/arm.py -> /home/northee/git/task3a/build/ff/build/lib/ff
+[0.824s] copying ff/globals.py -> /home/northee/git/task3a/build/ff/build/lib/ff
+[0.825s] copying ff/nav.py -> /home/northee/git/task3a/build/ff/build/lib/ff
+[0.832s] running install
+[0.832s] running install_lib
+[0.833s] creating /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff
+[0.833s] copying /home/northee/git/task3a/build/ff/build/lib/ff/__init__.py -> /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff
+[0.833s] copying /home/northee/git/task3a/build/ff/build/lib/ff/dock.py -> /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff
+[0.833s] copying /home/northee/git/task3a/build/ff/build/lib/ff/run.py -> /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff
+[0.833s] copying /home/northee/git/task3a/build/ff/build/lib/ff/arm.py -> /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff
+[0.833s] copying /home/northee/git/task3a/build/ff/build/lib/ff/globals.py -> /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff
+[0.833s] copying /home/northee/git/task3a/build/ff/build/lib/ff/nav.py -> /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff
+[0.833s] byte-compiling /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/__init__.py to __init__.cpython-310.pyc
+[0.834s] byte-compiling /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/dock.py to dock.cpython-310.pyc
+[0.835s] byte-compiling /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/run.py to run.cpython-310.pyc
+[0.835s] byte-compiling /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/arm.py to arm.cpython-310.pyc
+[0.836s] byte-compiling /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/globals.py to globals.cpython-310.pyc
+[0.836s] byte-compiling /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff/nav.py to nav.cpython-310.pyc
+[0.837s] running install_data
+[0.837s] creating /home/northee/git/task3a/install/ff/share/ament_index
+[0.837s] creating /home/northee/git/task3a/install/ff/share/ament_index/resource_index
+[0.837s] creating /home/northee/git/task3a/install/ff/share/ament_index/resource_index/packages
+[0.837s] copying resource/ff -> /home/northee/git/task3a/install/ff/share/ament_index/resource_index/packages
+[0.837s] copying package.xml -> /home/northee/git/task3a/install/ff/share/ff
+[0.837s] creating /home/northee/git/task3a/install/ff/lib/ff
+[0.837s] copying ff/arm.py -> /home/northee/git/task3a/install/ff/lib/ff
+[0.837s] copying ff/nav.py -> /home/northee/git/task3a/install/ff/lib/ff
+[0.837s] copying ff/globals.py -> /home/northee/git/task3a/install/ff/lib/ff
+[0.837s] copying ff/dock.py -> /home/northee/git/task3a/install/ff/lib/ff
+[0.837s] running install_egg_info
+[0.838s] Copying ../../build/ff/ff.egg-info to /home/northee/git/task3a/install/ff/lib/python3.10/site-packages/ff-0.0.0-py3.10.egg-info
+[0.838s] running install_scripts
+[0.847s] Installing go script to /home/northee/git/task3a/install/ff/lib/ff
+[0.847s] writing list of installed files to '/home/northee/git/task3a/build/ff/install.log'
+[0.897s] Invoked command in '/home/northee/git/task3a/src/ff' returned '0': PYTHONPATH=/home/northee/git/task3a/build/ff/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/northee/git/task3a/install/ff/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ff build --build-base /home/northee/git/task3a/build/ff/build install --record /home/northee/git/task3a/build/ff/install.log --single-version-externally-managed install_data

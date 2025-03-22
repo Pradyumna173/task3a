@@ -1,8 +1,8 @@
-# Install script for directory: /home/eyantra/LB24/Student/1048/build/usb_servo/usb_servo__py
+# Install script for directory: /home/northee/git/task3a/build/usb_servo/usb_servo__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/eyantra/LB24/Student/1048/install/usb_servo")
+  set(CMAKE_INSTALL_PREFIX "/home/northee/git/task3a/install/usb_servo")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

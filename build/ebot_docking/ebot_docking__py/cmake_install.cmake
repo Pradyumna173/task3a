@@ -1,8 +1,8 @@
-# Install script for directory: /home/eyantra/LB24/Student/1048/build/ebot_docking/ebot_docking__py
+# Install script for directory: /home/northee/git/task3a/build/ebot_docking/ebot_docking__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/eyantra/LB24/Student/1048/install/ebot_docking")
+  set(CMAKE_INSTALL_PREFIX "/home/northee/git/task3a/install/ebot_docking")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

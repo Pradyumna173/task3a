@@ -4,5 +4,3 @@ usb_servo.egg-info/PKG-INFO
 usb_servo.egg-info/SOURCES.txt
 usb_servo.egg-info/dependency_links.txt
 usb_servo.egg-info/top_level.txt
-usb_servo/srv/__init__.py
-usb_servo/srv/_servo_sw.py

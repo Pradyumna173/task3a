@@ -1,8 +1,8 @@
-# Install script for directory: /home/eyantra/LB24/Student/1048/src/ebot_nav2
+# Install script for directory: /home/northee/git/task3a/src/ebot_nav2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/eyantra/LB24/Student/1048/install/ebot_nav2")
+  set(CMAKE_INSTALL_PREFIX "/home/northee/git/task3a/install/ebot_nav2")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -42,88 +42,88 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2/" TYPE DIRECTORY FILES
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/launch"
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/models"
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/meshes"
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/config"
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/plugins"
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/maps"
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/params"
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/rviz"
+    "/home/northee/git/task3a/src/ebot_nav2/launch"
+    "/home/northee/git/task3a/src/ebot_nav2/models"
+    "/home/northee/git/task3a/src/ebot_nav2/meshes"
+    "/home/northee/git/task3a/src/ebot_nav2/config"
+    "/home/northee/git/task3a/src/ebot_nav2/plugins"
+    "/home/northee/git/task3a/src/ebot_nav2/maps"
+    "/home/northee/git/task3a/src/ebot_nav2/params"
+    "/home/northee/git/task3a/src/ebot_nav2/rviz"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ebot_nav2" TYPE DIRECTORY FILES "/home/eyantra/LB24/Student/1048/src/ebot_nav2/scripts/pyarmor_runtime_000000")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ebot_nav2" TYPE DIRECTORY FILES "/home/northee/git/task3a/src/ebot_nav2/scripts/pyarmor_runtime_000000")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ebot_nav2" TYPE PROGRAM FILES
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/scripts/pose_detector.py"
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/scripts/pf_pose_saver.py"
-    "/home/eyantra/LB24/Student/1048/src/ebot_nav2/scripts/duplicate_imu.py"
+    "/home/northee/git/task3a/src/ebot_nav2/scripts/pose_detector.py"
+    "/home/northee/git/task3a/src/ebot_nav2/scripts/pf_pose_saver.py"
+    "/home/northee/git/task3a/src/ebot_nav2/scripts/duplicate_imu.py"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ebot_nav2")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ebot_nav2")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ebot_nav2")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ebot_nav2")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2/environment" TYPE FILE FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2/environment" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2/environment" TYPE FILE FILES "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2/environment" TYPE FILE FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2/environment" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_environment_hooks/path.dsv")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2/environment" TYPE FILE FILES "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_environment_hooks/path.dsv")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_environment_hooks/local_setup.bash")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_environment_hooks/local_setup.sh")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_environment_hooks/local_setup.zsh")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_environment_hooks/local_setup.dsv")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_environment_hooks/package.dsv")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_environment_hooks/package.dsv")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_index/share/ament_index/resource_index/packages/ebot_nav2")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_index/share/ament_index/resource_index/packages/ebot_nav2")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2/cmake" TYPE FILE FILES
-    "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_core/ebot_nav2Config.cmake"
-    "/home/eyantra/LB24/Student/1048/build/ebot_nav2/ament_cmake_core/ebot_nav2Config-version.cmake"
+    "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_core/ebot_nav2Config.cmake"
+    "/home/northee/git/task3a/build/ebot_nav2/ament_cmake_core/ebot_nav2Config-version.cmake"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/eyantra/LB24/Student/1048/src/ebot_nav2/package.xml")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ebot_nav2" TYPE FILE FILES "/home/northee/git/task3a/src/ebot_nav2/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -134,5 +134,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/eyantra/LB24/Student/1048/build/ebot_nav2/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/northee/git/task3a/build/ebot_nav2/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

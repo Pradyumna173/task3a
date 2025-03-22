@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "usb_servo__py",
+		"source" : "/home/northee/git/task3a/build/usb_servo/usb_servo__py"
+	}
+}

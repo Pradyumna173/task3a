@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "../rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_c.c"
-  "../rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_fastrtps_c.c"
-  "../rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_introspection_c.c"
-  "../rosidl_generator_py/usb_servo/srv/__init__.py"
-  "../rosidl_generator_py/usb_servo/srv/_servo_sw.py"
-  "../rosidl_generator_py/usb_servo/srv/_servo_sw_s.c"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_c.c"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/_usb_servo_s.ep.rosidl_typesupport_introspection_c.c"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/srv/__init__.py"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/srv/_servo_sw.py"
+  "/home/northee/git/task3a/build/usb_servo/rosidl_generator_py/usb_servo/srv/_servo_sw_s.c"
   "CMakeFiles/usb_servo__py"
 )
 
