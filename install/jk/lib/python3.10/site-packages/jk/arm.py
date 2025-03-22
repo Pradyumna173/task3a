@@ -1,19 +1,10 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-"""
-* Team Id : LB#1048
-* Author List : Pradyumna Ponkshe
-* Filename: arm.py
-* Theme: Logistic Cobot
-* Functions: Arm{passingServerCB, pick_box, place_box, call_attach_box, callback_call_attach_box,
-    call_detach_box, callback_call_detach_box, process_image, servo_lookup, find_transform, broadcast_transform, detect_aruco, rotation_matrix_to_euler_angles, call_servo_trigger, callback_call_servo_trigger, colorImageCB, netWrenchCB}
-* Global Variables: ARUCO_DICT, ARUCO_PARAMS, detector, EBOT_ID
-"""
 
 import math
 import sys
-import time
+import time as tm
 from functools import partial
 
 import cv2
@@ -24,11 +15,13 @@ import tf_transformations
 from cv2 import aruco
 from cv_bridge import CvBridge
 from geometry_msgs.msg import TransformStamped, TwistStamped
+from linkattacher_msgs.srv import AttachLink, DetachLink
+from rclpy import time
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
 from sensor_msgs.msg import CompressedImage, Image
-from std_msgs.msg import Bool, Float64
+from std_msgs.msg import Float64
 from std_srvs.srv import Trigger
 from tf_transformations import (
     concatenate_matrices,
@@ -38,9 +31,7 @@ from tf_transformations import (
     translation_matrix,
 )
 
-# from linkattacher_msgs.srv import AttachLink, DetachLink
-from ur_msgs.srv import SetIO
-
+# from ur_msgs.srv import SetIO
 from ebot_docking.srv import PassingService
 
 # Aruco Processing Objects
@@ -49,7 +40,7 @@ ARUCO_PARAMS = aruco.DetectorParameters()
 detector = aruco.ArucoDetector(ARUCO_DICT, ARUCO_PARAMS)
 
 # Ebot ID
-EBOT_ID = 6  # only for hardware, 12 for sim
+EBOT_ID = 12  # only for hardware, 12 for sim
 
 
 class Arm(Node):
@@ -58,24 +49,19 @@ class Arm(Node):
         # Variables
         self.state = 0
 
-        self.arm_started = False  # toggled after servo trigger
-        self.arm_rate = self.create_rate(
-            20, self.get_clock()
-        )  # sampling rate at which all my controller threads run
-
         self.cv_image = None
         self.bridge = CvBridge()
 
         self.attach_done = False  # Flag for attach service
         self.attach_called = False
-        self.allow_pick = True  # Flag for passing control from picking timer to passing service request
 
         self.force = 0.0
 
         self.box_dict = {}
         self.box_done = []
         self.ebot_pose = []
-        self.box_request = False
+
+        self.box_number = None
         self.box_conveyer = None
 
         # Lookup and Broadcast TF
@@ -89,7 +75,6 @@ class Arm(Node):
         self.servo_roll = 0.0
         self.servo_pitch = 0.0
         self.servo_yaw = 0.0
-        self.servo_looked_up = False
 
         self.servo_tf_buffer = tf2_ros.Buffer()
         self.servo_tf_listener = tf2_ros.TransformListener(self.servo_tf_buffer, self)
@@ -125,65 +110,37 @@ class Arm(Node):
             10,
         )
 
-        self.image_group = MutuallyExclusiveCallbackGroup()
-        self.image_timer = self.create_timer(
-            1.0, self.process_image, callback_group=self.image_group
-        )
+        self.image_timer = self.create_timer(1.0, self.process_image)
 
         self.passing_group = MutuallyExclusiveCallbackGroup()
-        self.passing_server = self.create_service(
-            PassingService,
-            "/passing_service",
-            self.passingServerCB,
-            callback_group=self.passing_group,
-        )
-        self.pass_done = self.create_publisher(Bool, "/pass_done", 10)
-
-        self.arm_group = MutuallyExclusiveCallbackGroup()
-
-        self.timer = self.create_timer(
-            0.05, self.arm_handler, callback_group=self.arm_group
-        )
+        self.pass_done = False
 
         self.call_servo_trigger()
 
-    def passingServerCB(self, request, response):
-        """
-        Output: srv.PassingService | Tells ebot which conveyer box is supposed to be dropped at
-        ---
-        Logic: Box request flag tells arm controller to drop the box onto ebot_aruco, and send conveyer number based on box number
-        """
-        self.box_request = True
-        while self.box_conveyer is None:
-            pass
+    def pick_box(self):
+        if self.pass_done:
+            self.passing_server.destroy()
+            self.pass_done = False
 
-        response.conveyer = self.box_conveyer
-        return response
-
-    def arm_handler(self):
-        if not (self.arm_started and self.box_dict):
-            self.get_logger().info("Running arm_handler")
-            self.process_image()
+        if not self.box_dict:
             return
 
-        if not self.servo_looked_up:
-            self.servo_lookup()
-            return
+        self.box_number = list(self.box_dict)[0]
+        box_pose = self.box_dict[self.box_number]
 
-        box_number = list(self.box_dict)[0]
-        box_pose = self.box_dict[box_number]
-        print(box_number)
-        self.box_conveyer = (int(box_number) % 2) + 1
+        print(self.box_number)
+
+        self.box_conveyer = (int(self.box_number) % 2) + 1
 
         goal_x, goal_y, goal_z = box_pose
+
         if EBOT_ID == 6:
-            goal_z += 0.1  # only for hardware
+            goal_z += 0.1  # HARDWARE
 
         self.saved_z = goal_z + 0.25
 
-        # if box_number != "3":
-        if EBOT_ID == 6:
-            #     goal_x -= 0.06
+        if EBOT_ID == 6:  # HARDWARE
+            # goal_x -= 0.06
             goal_y -= 0.04
 
         error_x = 0.0
@@ -229,7 +186,7 @@ class Arm(Node):
                 self.state = 3  # only for software
         elif state == 3:
             if not self.attach_called:
-                self.call_attach_box(box_number)
+                self.call_attach_box(self.box_number)
                 self.attach_called = True
 
             if not self.attach_done:
@@ -240,47 +197,15 @@ class Arm(Node):
             error_z = self.saved_z - self.servo_z
             if abs(error_z) < 0.015:
                 self.state = 5
-        elif state == 5:
-            if not self.box_request:
-                return
-            if not self.ebot_pose:
-                self.process_image()
-                return
-
-            error_x = (self.ebot_pose[0] + 0.005) - self.servo_x
-            error_y = self.ebot_pose[1] - self.servo_y
-            error_z = self.saved_z - self.servo_z
-
-            if all(abs(err) < 0.015 for err in (error_x, error_y, error_z)):
-                self.state = 6
-                error_x = 0.0
-                error_y = 0.0
-                error_z = 0.0
-
-            if abs(error_x) > 0.25:
-                error_y = 0.0
-                if abs(error_z) > 0.015:
-                    error_x = 0.0
-        elif state == 6:
-            error_z = (self.saved_z - 0.15) - self.servo_z
-            if abs(error_z) < 0.015:
-                self.state = 7
-        elif state == 7:
-            if self.attach_called:
-                self.call_detach_box(box_number)
-                self.attach_called = False
-
-            if self.attach_done:
-                return
-
-            self.box_request = False
-
-            time.sleep(1.0)
-            self.state = 8
-        elif state == 8:
-            error_z = self.saved_z - self.servo_z
-            if abs(error_z) < 0.015:
-                self.state = 0
+        else:
+            self.pick_timer.cancel()
+            self.passing_server = self.create_service(
+                PassingService,
+                "/passing_service",
+                self.passingServerCB,
+                callback_group=self.passing_group,
+            )
+            self.state = 0
 
         twist_msg = TwistStamped()
         twist_msg.header.frame_id = "base_link"
@@ -293,41 +218,110 @@ class Arm(Node):
 
         self.servo_pub.publish(twist_msg)
 
-    # def call_attach_box(self, box_number):
-    #     client = self.create_client(AttachLink, "GripperMagnetON")
-    #     while not client.wait_for_service(timeout_sec=1.0):
-    #         self.get_logger().warn("Waiting for Attach_Link Server...")
-    #
-    #     request = AttachLink.Request()
-    #     request.model1_name = "box" + box_number
-    #     request.link1_name = "link"
-    #     request.model2_name = "ur5"
-    #     request.link2_name = "wrist_3_link"
-    #
-    #     future = client.call_async(request)
-    #     future.add_done_callback(
-    #         partial(self.callback_call_attach_box, box_number=box_number)
-    #     )
+    def passingServerCB(self, request, response):
+        while not self.ebot_pose:
+            tm.sleep(1.0)
+
+        twist_msg = TwistStamped()
+        twist_msg.header.frame_id = "base_link"
+
+        self.servo_lookup()
+
+        error_x = (self.ebot_pose[0] + 0.005) - self.servo_x
+        error_y = self.ebot_pose[1] - self.servo_y
+        error_z = self.saved_z - self.servo_z
+
+        while any(abs(err) > 0.015 for err in (error_x, error_y, error_z)):
+            self.servo_lookup()
+            error_x = (self.ebot_pose[0] + 0.005) - self.servo_x
+            error_y = self.ebot_pose[1] - self.servo_y
+            error_z = self.saved_z - self.servo_z
+
+            if abs(error_x) > 0.3:
+                error_y = 0.0
+
+            twist_msg.header.stamp = self.get_clock().now().to_msg()
+
+            twist_msg.twist.linear.x = error_x * 30.0
+            twist_msg.twist.linear.y = error_y * 30.0
+            twist_msg.twist.linear.z = error_z * 30.0
+
+            self.servo_pub.publish(twist_msg)
+            tm.sleep(0.05)
+
+        twist_msg.header.stamp = self.get_clock().now().to_msg()
+
+        twist_msg.twist.linear.x = 0.0
+        twist_msg.twist.linear.y = 0.0
+        twist_msg.twist.linear.z = 0.0
+
+        self.servo_pub.publish(twist_msg)
+
+        self.servo_lookup()
+        error_z = (self.saved_z - 0.15) - self.servo_z
+
+        while abs(error_z) > 0.015:
+            self.servo_lookup()
+            error_z = (self.saved_z - 0.15) - self.servo_z
+
+            twist_msg.header.stamp = self.get_clock().now().to_msg()
+            twist_msg.twist.linear.z = error_z * 30.0
+
+            self.servo_pub.publish(twist_msg)
+            tm.sleep(0.05)
+
+        twist_msg.header.stamp = self.get_clock().now().to_msg()
+        twist_msg.twist.linear.z = 0.0
+
+        self.servo_pub.publish(twist_msg)
+
+        self.call_detach_box(self.box_number)
+
+        while self.attach_done:
+            tm.sleep(1.0)
+
+        self.pass_done = True
+
+        self.pick_timer = self.create_timer(0.05, self.pick_box)
+
+        response.conveyer = self.box_conveyer
+        return response
 
     def call_attach_box(self, box_number):
-        """
-        Output: future | Does not return the variable, just attaches a callback at service completion
-        ---
-        Logic: Calls the set_io service. Attaches a callback to address attach completion
-        """
-        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        client = self.create_client(AttachLink, "GripperMagnetON")
         while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info("EEF Tool service not available, waiting again...")
+            self.get_logger().warn("Waiting for Attach_Link Server...")
 
-        request = SetIO.Request()
-        request.fun = 1
-        request.pin = 16
-        request.state = 1.0
+        request = AttachLink.Request()
+        request.model1_name = "box" + box_number
+        request.link1_name = "link"
+        request.model2_name = "ur5"
+        request.link2_name = "wrist_3_link"
 
         future = client.call_async(request)
         future.add_done_callback(
             partial(self.callback_call_attach_box, box_number=box_number)
         )
+
+    # def call_attach_box(self, box_number):
+    #     """
+    #     Output: future | Does not return the variable, just attaches a callback at service completion
+    #     ---
+    #     Logic: Calls the set_io service. Attaches a callback to address attach completion
+    #     """
+    #     client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+    #     while not client.wait_for_service(timeout_sec=1.0):
+    #         self.get_logger().info("EEF Tool service not available, waiting again...")
+    #
+    #     request = SetIO.Request()
+    #     request.fun = 1
+    #     request.pin = 16
+    #     request.state = 1.0
+    #
+    #     future = client.call_async(request)
+    #     future.add_done_callback(
+    #         partial(self.callback_call_attach_box, box_number=box_number)
+    #     )
 
     def callback_call_attach_box(self, future, box_number):
         """
@@ -339,44 +333,45 @@ class Arm(Node):
             response = future.result()
             if response.success:
                 self.attach_done = True
+                self.attach_called = False
                 self.get_logger().info("Attached Box" + box_number)
         except Exception as e:
             self.get_logger().error(f"Attach Box Client Failed: {e}")
 
-    # def call_detach_box(self, box_number):
-    #     client = self.create_client(DetachLink, "GripperMagnetOFF")
-    #     while not client.wait_for_service(timeout_sec=1.0):
-    #         self.get_logger().warn("Waiting for Detach_Link Server...")
-    #
-    #     request = DetachLink.Request()
-    #     request.model1_name = "box" + box_number
-    #     request.link1_name = "link"
-    #     request.model2_name = "ur5"
-    #     request.link2_name = "wrist_3_link"
-    #     future = client.call_async(request)
-    #     future.add_done_callback(
-    #         partial(self.callback_call_detach_box, box_number=box_number)
-    #     )
-
     def call_detach_box(self, box_number):
-        """
-        Output: future | Does not return the variable, just attaches a callback at service completion
-        ---
-        Logic: Calls the set_io service. Attaches a callback to address detach completion
-        """
-        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        client = self.create_client(DetachLink, "GripperMagnetOFF")
         while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info("EEF Tool service not available, waiting...")
+            self.get_logger().warn("Waiting for Detach_Link Server...")
 
-        request = SetIO.Request()
-        request.fun = 1
-        request.pin = 16
-        request.state = 0.0
-
+        request = DetachLink.Request()
+        request.model1_name = "box" + box_number
+        request.link1_name = "link"
+        request.model2_name = "ur5"
+        request.link2_name = "wrist_3_link"
         future = client.call_async(request)
         future.add_done_callback(
             partial(self.callback_call_detach_box, box_number=box_number)
         )
+
+    # def call_detach_box(self, box_number):
+    #     """
+    #     Output: future | Does not return the variable, just attaches a callback at service completion
+    #     ---
+    #     Logic: Calls the set_io service. Attaches a callback to address detach completion
+    #     """
+    #     client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+    #     while not client.wait_for_service(timeout_sec=1.0):
+    #         self.get_logger().info("EEF Tool service not available, waiting...")
+    #
+    #     request = SetIO.Request()
+    #     request.fun = 1
+    #     request.pin = 16
+    #     request.state = 0.0
+    #
+    #     future = client.call_async(request)
+    #     future.add_done_callback(
+    #         partial(self.callback_call_detach_box, box_number=box_number)
+    #     )
 
     def callback_call_detach_box(self, future, box_number):
         """
@@ -387,15 +382,14 @@ class Arm(Node):
         try:
             response = future.result()
             if response.success:
-                self.allow_pick = True
                 self.attach_done = False
+
                 self.box_done.append(box_number)
                 del self.box_dict[box_number]
+
                 self.ebot_pose = []
                 self.get_logger().info("Detached Box" + box_number)
-                done = Bool()
-                done.data = True
-                self.pass_done.publish(done)
+
         except Exception as e:
             self.get_logger().error(f"Detach Box Client Failed: {e}")
 
@@ -456,7 +450,7 @@ class Arm(Node):
         """
         try:
             self.servo_transform = self.tf_buffer.lookup_transform(
-                "base_link", "tool0", rclpy.time.Time()
+                "base_link", "tool0", time.Time()
             )
 
             self.servo_x, self.servo_y, self.servo_z = (
@@ -611,7 +605,6 @@ class Arm(Node):
                 msg.format = "jpeg"
                 msg.data = np.array(buffer).tobytes()
                 self.image_pub.publish(msg)
-                self.get_logger().info("Published ArUco detected image")
 
                 marker = marker_id[0]
                 translation_aruco = tvec
@@ -655,7 +648,7 @@ class Arm(Node):
         try:
             response = future.result()
             if response.success:
-                self.arm_started = True
+                self.pick_timer = self.create_timer(0.05, self.pick_box)
         except Exception as e:
             self.get_logger().error(f"Servo Trigger Call Failed: {e}")
 

@@ -1,0 +1,26 @@
+[0.430s] Invoking command in '/home/northee/git/task3a/src/jk': PYTHONPATH=/home/northee/git/task3a/build/jk/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/northee/git/task3a/install/jk/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/jk build --build-base /home/northee/git/task3a/build/jk/build install --record /home/northee/git/task3a/build/jk/install.log --single-version-externally-managed install_data
+[0.536s] running egg_info
+[0.536s] writing ../../build/jk/jk.egg-info/PKG-INFO
+[0.537s] writing dependency_links to ../../build/jk/jk.egg-info/dependency_links.txt
+[0.537s] writing entry points to ../../build/jk/jk.egg-info/entry_points.txt
+[0.537s] writing requirements to ../../build/jk/jk.egg-info/requires.txt
+[0.537s] writing top-level names to ../../build/jk/jk.egg-info/top_level.txt
+[0.537s] reading manifest file '../../build/jk/jk.egg-info/SOURCES.txt'
+[0.538s] writing manifest file '../../build/jk/jk.egg-info/SOURCES.txt'
+[0.538s] running build
+[0.538s] running build_py
+[0.538s] copying jk/arm.py -> /home/northee/git/task3a/build/jk/build/lib/jk
+[0.538s] running install
+[0.538s] running install_lib
+[0.538s] copying /home/northee/git/task3a/build/jk/build/lib/jk/arm.py -> /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk
+[0.539s] byte-compiling /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk/arm.py to arm.cpython-310.pyc
+[0.541s] running install_data
+[0.541s] running install_egg_info
+[0.541s] removing '/home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk-0.0.0-py3.10.egg-info' (and everything under it)
+[0.541s] Copying ../../build/jk/jk.egg-info to /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk-0.0.0-py3.10.egg-info
+[0.542s] running install_scripts
+[0.551s] Installing arm script to /home/northee/git/task3a/install/jk/lib/jk
+[0.551s] Installing dock script to /home/northee/git/task3a/install/jk/lib/jk
+[0.551s] Installing nav script to /home/northee/git/task3a/install/jk/lib/jk
+[0.551s] writing list of installed files to '/home/northee/git/task3a/build/jk/install.log'
+[0.562s] Invoked command in '/home/northee/git/task3a/src/jk' returned '0': PYTHONPATH=/home/northee/git/task3a/build/jk/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/northee/git/task3a/install/jk/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/jk build --build-base /home/northee/git/task3a/build/jk/build install --record /home/northee/git/task3a/build/jk/install.log --single-version-externally-managed install_data

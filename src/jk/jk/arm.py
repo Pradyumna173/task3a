@@ -21,7 +21,7 @@ from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
 from sensor_msgs.msg import CompressedImage, Image
-from std_msgs.msg import Bool, Float64
+from std_msgs.msg import Float64
 from std_srvs.srv import Trigger
 from tf_transformations import (
     concatenate_matrices,
@@ -49,17 +49,11 @@ class Arm(Node):
         # Variables
         self.state = 0
 
-        self.arm_started = False  # toggled after servo trigger
-        self.arm_rate = self.create_rate(
-            20, self.get_clock()
-        )  # sampling rate at which all my controller threads run
-
         self.cv_image = None
         self.bridge = CvBridge()
 
         self.attach_done = False  # Flag for attach service
         self.attach_called = False
-        self.allow_pick = True  # Flag for passing control from picking timer to passing service request
 
         self.force = 0.0
 
@@ -81,7 +75,6 @@ class Arm(Node):
         self.servo_roll = 0.0
         self.servo_pitch = 0.0
         self.servo_yaw = 0.0
-        self.servo_looked_up = False
 
         self.servo_tf_buffer = tf2_ros.Buffer()
         self.servo_tf_listener = tf2_ros.TransformListener(self.servo_tf_buffer, self)
@@ -117,29 +110,27 @@ class Arm(Node):
             10,
         )
 
-        self.image_group = MutuallyExclusiveCallbackGroup()
-        self.image_timer = self.create_timer(
-            1.0, self.process_image, callback_group=self.image_group
-        )
+        self.image_timer = self.create_timer(1.0, self.process_image)
 
         self.passing_group = MutuallyExclusiveCallbackGroup()
-
-        self.pass_done = self.create_publisher(Bool, "/pass_done", 10)
-
-        self.arm_group = MutuallyExclusiveCallbackGroup()
+        self.pass_done = False
 
         self.call_servo_trigger()
 
     def pick_box(self):
+        if self.pass_done:
+            self.passing_server.destroy()
+            self.pass_done = False
+
         if not self.box_dict:
             return
 
-        box_number = list(self.box_dict)[0]
-        box_pose = self.box_dict[box_number]
+        self.box_number = list(self.box_dict)[0]
+        box_pose = self.box_dict[self.box_number]
 
-        print(box_number)
+        print(self.box_number)
 
-        self.box_conveyer = (int(box_number) % 2) + 1
+        self.box_conveyer = (int(self.box_number) % 2) + 1
 
         goal_x, goal_y, goal_z = box_pose
 
@@ -195,7 +186,7 @@ class Arm(Node):
                 self.state = 3  # only for software
         elif state == 3:
             if not self.attach_called:
-                self.call_attach_box(box_number)
+                self.call_attach_box(self.box_number)
                 self.attach_called = True
 
             if not self.attach_done:
@@ -246,7 +237,7 @@ class Arm(Node):
             error_y = self.ebot_pose[1] - self.servo_y
             error_z = self.saved_z - self.servo_z
 
-            if abs(error_x) > 0.35:
+            if abs(error_x) > 0.3:
                 error_y = 0.0
 
             twist_msg.header.stamp = self.get_clock().now().to_msg()
@@ -289,7 +280,8 @@ class Arm(Node):
         while self.attach_done:
             tm.sleep(1.0)
 
-        self.passing_server.destroy()
+        self.pass_done = True
+
         self.pick_timer = self.create_timer(0.05, self.pick_box)
 
         response.conveyer = self.box_conveyer
@@ -341,6 +333,7 @@ class Arm(Node):
             response = future.result()
             if response.success:
                 self.attach_done = True
+                self.attach_called = False
                 self.get_logger().info("Attached Box" + box_number)
         except Exception as e:
             self.get_logger().error(f"Attach Box Client Failed: {e}")
@@ -612,7 +605,6 @@ class Arm(Node):
                 msg.format = "jpeg"
                 msg.data = np.array(buffer).tobytes()
                 self.image_pub.publish(msg)
-                self.get_logger().info("Published ArUco detected image")
 
                 marker = marker_id[0]
                 translation_aruco = tvec
