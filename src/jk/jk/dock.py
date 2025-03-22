@@ -68,6 +68,8 @@ class Dock(Node):
             self.vel_pub.publish(vel_msg)
             tm.sleep(0.03)
 
+        self.get_logger().info("Docking Done")
+
         vel_msg.linear.x = 0.0
         vel_msg.angular.z = 0.0
         self.vel_pub.publish(vel_msg)
