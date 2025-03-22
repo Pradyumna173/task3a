@@ -20,6 +20,7 @@ setup(
     entry_points={
         "console_scripts": [
             "arm = jk.arm:main",
+            "nav = jk.nav:main",
         ],
     },
 )

@@ -200,7 +200,7 @@ class EbotNav(Node):
     def callback_call_passing_service(self, future):
         try:
             response = future.result()
-            if response.success:
+         self.nav_timer = self.create_timer(CONTROLLER_RATE, self.get_out)   if response.success:
                 box_number = int(response.box_number)
                 if box_number % 2 != 0:
                     self.activity_queue.append("con2")

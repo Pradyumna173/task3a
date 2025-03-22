@@ -1,0 +1,6 @@
+Invoking command in '/home/northee/git/task3a/build/ebot_docking': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/northee/git/task3a/src/ebot_docking -DCMAKE_INSTALL_PREFIX=/home/northee/git/task3a/install/ebot_docking
+Invoked command in '/home/northee/git/task3a/build/ebot_docking' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/northee/git/task3a/src/ebot_docking -DCMAKE_INSTALL_PREFIX=/home/northee/git/task3a/install/ebot_docking
+Invoking command in '/home/northee/git/task3a/build/ebot_docking': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/northee/git/task3a/build/ebot_docking -- -j24 -l24
+Invoked command in '/home/northee/git/task3a/build/ebot_docking' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/northee/git/task3a/build/ebot_docking -- -j24 -l24
+Invoking command in '/home/northee/git/task3a/build/ebot_docking': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/northee/git/task3a/build/ebot_docking
+Invoked command in '/home/northee/git/task3a/build/ebot_docking' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/northee/git/task3a/build/ebot_docking

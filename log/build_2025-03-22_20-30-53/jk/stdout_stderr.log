@@ -1,0 +1,39 @@
+running egg_info
+creating ../../build/jk/jk.egg-info
+writing ../../build/jk/jk.egg-info/PKG-INFO
+writing dependency_links to ../../build/jk/jk.egg-info/dependency_links.txt
+writing entry points to ../../build/jk/jk.egg-info/entry_points.txt
+writing requirements to ../../build/jk/jk.egg-info/requires.txt
+writing top-level names to ../../build/jk/jk.egg-info/top_level.txt
+writing manifest file '../../build/jk/jk.egg-info/SOURCES.txt'
+reading manifest file '../../build/jk/jk.egg-info/SOURCES.txt'
+writing manifest file '../../build/jk/jk.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/northee/git/task3a/build/jk/build
+creating /home/northee/git/task3a/build/jk/build/lib
+creating /home/northee/git/task3a/build/jk/build/lib/jk
+copying jk/__init__.py -> /home/northee/git/task3a/build/jk/build/lib/jk
+copying jk/arm.py -> /home/northee/git/task3a/build/jk/build/lib/jk
+copying jk/nav.py -> /home/northee/git/task3a/build/jk/build/lib/jk
+running install
+running install_lib
+creating /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk
+copying /home/northee/git/task3a/build/jk/build/lib/jk/__init__.py -> /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk
+copying /home/northee/git/task3a/build/jk/build/lib/jk/arm.py -> /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk
+copying /home/northee/git/task3a/build/jk/build/lib/jk/nav.py -> /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk
+byte-compiling /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk/arm.py to arm.cpython-310.pyc
+byte-compiling /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk/nav.py to nav.cpython-310.pyc
+running install_data
+creating /home/northee/git/task3a/install/jk/share/ament_index
+creating /home/northee/git/task3a/install/jk/share/ament_index/resource_index
+creating /home/northee/git/task3a/install/jk/share/ament_index/resource_index/packages
+copying resource/jk -> /home/northee/git/task3a/install/jk/share/ament_index/resource_index/packages
+copying package.xml -> /home/northee/git/task3a/install/jk/share/jk
+running install_egg_info
+Copying ../../build/jk/jk.egg-info to /home/northee/git/task3a/install/jk/lib/python3.10/site-packages/jk-0.0.0-py3.10.egg-info
+running install_scripts
+Installing arm script to /home/northee/git/task3a/install/jk/lib/jk
+Installing nav script to /home/northee/git/task3a/install/jk/lib/jk
+writing list of installed files to '/home/northee/git/task3a/build/jk/install.log'
