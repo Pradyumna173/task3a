@@ -1,9 +1,0 @@
-/home/northee/git/task3a/build/ebot_nav2/CMakeFiles/uninstall.dir
-/home/northee/git/task3a/build/ebot_nav2/CMakeFiles/ebot_nav2_uninstall.dir
-/home/northee/git/task3a/build/ebot_nav2/CMakeFiles/test.dir
-/home/northee/git/task3a/build/ebot_nav2/CMakeFiles/edit_cache.dir
-/home/northee/git/task3a/build/ebot_nav2/CMakeFiles/rebuild_cache.dir
-/home/northee/git/task3a/build/ebot_nav2/CMakeFiles/list_install_components.dir
-/home/northee/git/task3a/build/ebot_nav2/CMakeFiles/install.dir
-/home/northee/git/task3a/build/ebot_nav2/CMakeFiles/install/local.dir
-/home/northee/git/task3a/build/ebot_nav2/CMakeFiles/install/strip.dir

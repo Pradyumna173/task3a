@@ -1,7 +1,0 @@
-{
-  "package_name": "ebot_docking",
-  "non_idl_tuples": [
-    "/home/northee/git/task3a/src/ebot_docking:srv/DockSw.srv",
-    "/home/northee/git/task3a/src/ebot_docking:srv/PassingService.srv"
-  ]
-}

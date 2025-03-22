@@ -27,9 +27,9 @@ class Nav(Node):
         super().__init__("nav_node")
 
         self.waypoints = [
-            [2.50, -2.8, -1.57],
-            [2.45, 2.1, -2.95],
-            [2.5, -1.2, -3.0],
+            [2.5, -2.8, -math.pi / 2.0],
+            [2.5, 2.1, math.pi / 2.0],
+            [2.5, -1.2, math.pi / 2.0],
         ]
 
         self.align_stops = {0: 20.0, 1: 69.0, 2: 32.0}
@@ -100,7 +100,7 @@ class Nav(Node):
         vel_msg = Twist()
 
         if abs(front_us_diff) > 3.0:
-            vel_msg.angular.z = 0.01 * front_us_diff
+            vel_msg.angular.z = -0.01 * front_us_diff
             vel_msg.linear.x = 0.0
         elif (self.front_left > (stop_at + 2.5)) or (self.front_left < (stop_at - 2.5)):
             vel_msg.angular.z = 0.0
@@ -115,18 +115,19 @@ class Nav(Node):
         self.vel_pub.publish(vel_msg)
 
     def align_yaw(self):
-        self.get_logger().info("Aligning Yaw for Docking...")
         if self.waypoint_index == 0:
-            goal_yaw = self.nav_yaw + (math.pi / 2.0)
-        else:
             goal_yaw = self.nav_yaw - (math.pi / 2.0)
+        else:
+            goal_yaw = self.nav_yaw + (math.pi / 2.0)
 
         if goal_yaw < 0.0:
-            goal_yaw += 6.28
+            goal_yaw += 2 * math.pi
         else:
-            goal_yaw = goal_yaw % 6.28
+            goal_yaw = goal_yaw % (2 * math.pi)
 
         vel_msg = Twist()
+
+        self.get_logger().info(f"Aligning Yaw for Docking...{goal_yaw}")
 
         if abs(goal_yaw - self.yaw) > 0.1:
             vel_msg.linear.x = 0.0
@@ -195,7 +196,7 @@ class Nav(Node):
         request.servostate = True
 
         future = client.call_async(request)
-        self.get_logger().info("\nServo Called\n")
+        self.get_logger().info("\nServo Toggle Called\n")
         future.add_done_callback(partial(self.callback_call_servo_toggle))
 
     def callback_call_servo_toggle(self, future):
