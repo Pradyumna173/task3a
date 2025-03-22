@@ -15,7 +15,6 @@ import tf_transformations
 from cv2 import aruco
 from cv_bridge import CvBridge
 from geometry_msgs.msg import TransformStamped, TwistStamped
-from linkattacher_msgs.srv import AttachLink, DetachLink
 from rclpy import time
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
@@ -31,7 +30,9 @@ from tf_transformations import (
     translation_matrix,
 )
 
-# from ur_msgs.srv import SetIO
+# from linkattacher_msgs.srv import AttachLink, DetachLink
+from ur_msgs.srv import SetIO
+
 from ebot_docking.srv import PassingService
 
 # Aruco Processing Objects
@@ -40,7 +41,7 @@ ARUCO_PARAMS = aruco.DetectorParameters()
 detector = aruco.ArucoDetector(ARUCO_DICT, ARUCO_PARAMS)
 
 # Ebot ID
-EBOT_ID = 12  # only for hardware, 12 for sim
+EBOT_ID = 6  # only for hardware, 12 for sim
 
 
 class Arm(Node):
@@ -287,41 +288,41 @@ class Arm(Node):
         response.conveyer = self.box_conveyer
         return response
 
-    def call_attach_box(self, box_number):
-        client = self.create_client(AttachLink, "GripperMagnetON")
-        while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().warn("Waiting for Attach_Link Server...")
-
-        request = AttachLink.Request()
-        request.model1_name = "box" + box_number
-        request.link1_name = "link"
-        request.model2_name = "ur5"
-        request.link2_name = "wrist_3_link"
-
-        future = client.call_async(request)
-        future.add_done_callback(
-            partial(self.callback_call_attach_box, box_number=box_number)
-        )
-
     # def call_attach_box(self, box_number):
-    #     """
-    #     Output: future | Does not return the variable, just attaches a callback at service completion
-    #     ---
-    #     Logic: Calls the set_io service. Attaches a callback to address attach completion
-    #     """
-    #     client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+    #     client = self.create_client(AttachLink, "GripperMagnetON")
     #     while not client.wait_for_service(timeout_sec=1.0):
-    #         self.get_logger().info("EEF Tool service not available, waiting again...")
+    #         self.get_logger().warn("Waiting for Attach_Link Server...")
     #
-    #     request = SetIO.Request()
-    #     request.fun = 1
-    #     request.pin = 16
-    #     request.state = 1.0
+    #     request = AttachLink.Request()
+    #     request.model1_name = "box" + box_number
+    #     request.link1_name = "link"
+    #     request.model2_name = "ur5"
+    #     request.link2_name = "wrist_3_link"
     #
     #     future = client.call_async(request)
     #     future.add_done_callback(
     #         partial(self.callback_call_attach_box, box_number=box_number)
     #     )
+
+    def call_attach_box(self, box_number):
+        """
+        Output: future | Does not return the variable, just attaches a callback at service completion
+        ---
+        Logic: Calls the set_io service. Attaches a callback to address attach completion
+        """
+        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info("EEF Tool service not available, waiting again...")
+
+        request = SetIO.Request()
+        request.fun = 1
+        request.pin = 16
+        request.state = 1.0
+
+        future = client.call_async(request)
+        future.add_done_callback(
+            partial(self.callback_call_attach_box, box_number=box_number)
+        )
 
     def callback_call_attach_box(self, future, box_number):
         """
@@ -338,40 +339,40 @@ class Arm(Node):
         except Exception as e:
             self.get_logger().error(f"Attach Box Client Failed: {e}")
 
-    def call_detach_box(self, box_number):
-        client = self.create_client(DetachLink, "GripperMagnetOFF")
-        while not client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().warn("Waiting for Detach_Link Server...")
-
-        request = DetachLink.Request()
-        request.model1_name = "box" + box_number
-        request.link1_name = "link"
-        request.model2_name = "ur5"
-        request.link2_name = "wrist_3_link"
-        future = client.call_async(request)
-        future.add_done_callback(
-            partial(self.callback_call_detach_box, box_number=box_number)
-        )
-
     # def call_detach_box(self, box_number):
-    #     """
-    #     Output: future | Does not return the variable, just attaches a callback at service completion
-    #     ---
-    #     Logic: Calls the set_io service. Attaches a callback to address detach completion
-    #     """
-    #     client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+    #     client = self.create_client(DetachLink, "GripperMagnetOFF")
     #     while not client.wait_for_service(timeout_sec=1.0):
-    #         self.get_logger().info("EEF Tool service not available, waiting...")
+    #         self.get_logger().warn("Waiting for Detach_Link Server...")
     #
-    #     request = SetIO.Request()
-    #     request.fun = 1
-    #     request.pin = 16
-    #     request.state = 0.0
-    #
+    #     request = DetachLink.Request()
+    #     request.model1_name = "box" + box_number
+    #     request.link1_name = "link"
+    #     request.model2_name = "ur5"
+    #     request.link2_name = "wrist_3_link"
     #     future = client.call_async(request)
     #     future.add_done_callback(
     #         partial(self.callback_call_detach_box, box_number=box_number)
     #     )
+
+    def call_detach_box(self, box_number):
+        """
+        Output: future | Does not return the variable, just attaches a callback at service completion
+        ---
+        Logic: Calls the set_io service. Attaches a callback to address detach completion
+        """
+        client = self.create_client(SetIO, "/io_and_status_controller/set_io")
+        while not client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info("EEF Tool service not available, waiting...")
+
+        request = SetIO.Request()
+        request.fun = 1
+        request.pin = 16
+        request.state = 0.0
+
+        future = client.call_async(request)
+        future.add_done_callback(
+            partial(self.callback_call_detach_box, box_number=box_number)
+        )
 
     def callback_call_detach_box(self, future, box_number):
         """
