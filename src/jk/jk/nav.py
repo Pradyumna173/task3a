@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import math
 import sys
+import time as tm
 from functools import partial
 
 import rclpy
@@ -32,7 +33,7 @@ class Nav(Node):
         ]
 
         self.align_stops = {0: 20.0, 1: 69.0, 2: 32.0}
-        self.get_out_dist = {0: 150.0, 1: 150.0, 2: 200.0}
+        self.get_out_dist = {0: 150.0, 1: 120.0, 2: 200.0}
 
         self.waypoint_index = 0
 
@@ -43,6 +44,9 @@ class Nav(Node):
         # front side of robot
         self.front_left = 0.0
         self.front_right = 0.0
+        # Left side of robot
+        self.left_front = 0.0
+        self.left_back = 0.0
 
         # IMU
         self.yaw = 0.0
@@ -85,6 +89,10 @@ class Nav(Node):
                 )
 
     def align_perp(self, stop_at):
+        if self.back_left == 0.0:
+            self.get_logger().warn("Ultrasonic not working...")
+            return
+
         self.get_logger().info("Aligning Perpendicular...")
         front_us_diff = self.front_left - self.front_right
         front_stop_dist = stop_at
@@ -139,6 +147,7 @@ class Nav(Node):
         request = DockSw.Request()
 
         future = client.call_async(request)
+        self.get_logger().info("\nDocking Called\n")
         future.add_done_callback(partial(self.callback_call_dock))
 
     def callback_call_dock(self, future):
@@ -158,18 +167,21 @@ class Nav(Node):
         request = PassingService.Request()
 
         future = client.call_async(request)
+        self.get_logger().info("\nPassing Service Called\n")
         future.add_done_callback(partial(self.callback_call_passing_service))
 
     def callback_call_passing_service(self, future):
         try:
             response = future.result()
             if response.success:
+                tm.sleep(2)
                 curr_index = self.waypoint_index
                 self.nav_timer = self.create_timer(
                     CONTROLLER_RATE,
                     partial(self.get_out, self.get_out_dist[curr_index]),
                 )
                 self.waypoint_index = response.conveyer
+                self.get_logger().info("\nPassing Service Done\n")
 
         except Exception:
             self.get_logger().error("Passing Service Call Failed!")
@@ -183,23 +195,27 @@ class Nav(Node):
         request.servostate = True
 
         future = client.call_async(request)
+        self.get_logger().info("\nServo Called\n")
         future.add_done_callback(partial(self.callback_call_servo_toggle))
 
     def callback_call_servo_toggle(self, future):
         try:
             response = future.result()
+            tm.sleep(2)
             curr_index = self.waypoint_index
             self.nav_timer = self.create_timer(
                 CONTROLLER_RATE, partial(self.get_out, self.get_out_dist[curr_index])
             )
             self.waypoint_index = 0
+            self.get_logger().info("\nServo Toggle Done\n")
         except Exception:
             self.get_logger().error("Servo Toggle Service Failed")
 
     def get_out(self, out_dist):
+        self.get_logger().info("Getting out...")
         vel_msg = Twist()
         if self.back_left < out_dist:
-            vel_msg.linear.x = 0.4
+            vel_msg.linear.x = 0.3
         else:
             vel_msg.linear.x = 0.0
             self.nav_timer.cancel()
@@ -222,11 +238,14 @@ class Nav(Node):
         return goal_pose
 
     def callback_ultra_sub(self, msg):
-        self.back_left = msg.data[5]
-        self.back_right = msg.data[4]
-
+        self.front_right = msg.data[0]
         self.front_left = msg.data[1]
-        self.front_right = msg.data[2]
+
+        self.left_front = msg.data[2]
+        self.left_back = msg.data[3]
+
+        self.back_right = msg.data[4]
+        self.back_left = msg.data[5]
 
     def callback_imu_sub(self, msg):
         self.yaw = msg.data
@@ -237,7 +256,7 @@ def main():
 
     nav_node = Nav()
 
-    executor = MultiThreadedExecutor(3)
+    executor = MultiThreadedExecutor(2)
     executor.add_node(nav_node)
     executor.spin()
 

@@ -1,4 +1,5 @@
 [console_scripts]
 arm = jk.arm:main
+dock = jk.dock:main
 nav = jk.nav:main
 

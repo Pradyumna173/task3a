@@ -10,6 +10,7 @@ setup.py
 ../../build/jk/jk.egg-info/zip-safe
 jk/__init__.py
 jk/arm.py
+jk/dock.py
 jk/nav.py
 resource/jk
 test/test_copyright.py

@@ -21,6 +21,7 @@ setup(
         "console_scripts": [
             "arm = jk.arm:main",
             "nav = jk.nav:main",
+            "dock = jk.dock:main",
         ],
     },
 )
