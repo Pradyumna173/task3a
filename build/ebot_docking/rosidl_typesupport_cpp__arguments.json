@@ -1,0 +1,19 @@
+{
+  "package_name": "ebot_docking",
+  "output_dir": "/home/eyantra/LB24/Student/1048/build/ebot_docking/rosidl_typesupport_cpp/ebot_docking",
+  "template_dir": "/opt/ros/humble/share/rosidl_typesupport_cpp/resource",
+  "idl_tuples": [
+    "/home/eyantra/LB24/Student/1048/build/ebot_docking/rosidl_adapter/ebot_docking:srv/DockSw.idl",
+    "/home/eyantra/LB24/Student/1048/build/ebot_docking/rosidl_adapter/ebot_docking:srv/PassingService.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/humble/lib/rosidl_typesupport_cpp/rosidl_typesupport_cpp",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_typesupport_cpp/__init__.py",
+    "/opt/ros/humble/share/rosidl_typesupport_cpp/resource/action__type_support.cpp.em",
+    "/opt/ros/humble/share/rosidl_typesupport_cpp/resource/idl__type_support.cpp.em",
+    "/opt/ros/humble/share/rosidl_typesupport_cpp/resource/msg__type_support.cpp.em",
+    "/opt/ros/humble/share/rosidl_typesupport_cpp/resource/srv__type_support.cpp.em",
+    "/home/eyantra/LB24/Student/1048/build/ebot_docking/rosidl_adapter/ebot_docking/srv/DockSw.idl",
+    "/home/eyantra/LB24/Student/1048/build/ebot_docking/rosidl_adapter/ebot_docking/srv/PassingService.idl"
+  ]
+}

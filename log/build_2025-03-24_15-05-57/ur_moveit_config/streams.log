@@ -1,0 +1,29 @@
+[1.367s] Invoking command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ur_moveit_config -- -j8 -l8
+[1.585s] Invoked command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ur_moveit_config -- -j8 -l8
+[1.610s] Invoking command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ur_moveit_config
+[1.648s] -- Install configuration: ""
+[1.650s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/config
+[1.653s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/config/kinematics.yaml
+[1.653s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/launch
+[1.653s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/launch/ur_moveit.launch.py
+[1.653s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/rviz
+[1.653s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/rviz/view_robot.rviz
+[1.653s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/srdf
+[1.653s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/srdf/ur_macro.srdf.xacro
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/srdf/ur.srdf.xacro
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ament_index/resource_index/package_run_dependencies/ur_moveit_config
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ament_index/resource_index/parent_prefix_path/ur_moveit_config
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/ament_prefix_path.sh
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/ament_prefix_path.dsv
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/path.sh
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/path.dsv
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.bash
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.sh
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.zsh
+[1.654s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.dsv
+[1.654s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.dsv
+[1.655s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ament_index/resource_index/packages/ur_moveit_config
+[1.655s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/cmake/ur_moveit_configConfig.cmake
+[1.655s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/cmake/ur_moveit_configConfig-version.cmake
+[1.655s] -- Up-to-date: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.xml
+[1.663s] Invoked command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ur_moveit_config
