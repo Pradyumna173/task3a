@@ -27,15 +27,15 @@ class Nav(Node):
         super().__init__("nav_node")
 
         self.waypoints = [
-            [2.5, -2.4, -math.pi / 2.0],
+            [2.5, -2.0, -math.pi / 2.0],
             [2.7, 2.1, math.pi / 2.0],
-            [2.7, -1.2, math.pi / 2.0],
+            [2.8, -1.4, math.pi / 2.0],
         ]
 
-        self.align_stops = {0: 40.0, 1: 100.0, 2: 35.0}
+        self.align_stops = {0: 22.0, 1: 100.0, 2: 22.0}
         self.get_out_dist = {0: 160.0, 1: 160.0, 2: 200.0}
 
-        self.waypoint_index = 1
+        self.waypoint_index = 0
 
         # Ultrasonics
         # rear side of robot
@@ -93,16 +93,15 @@ class Nav(Node):
             self.get_logger().warn("Ultrasonic not working...")
             return
 
-        
         front_us_diff = self.front_left - self.front_right
         front_stop_dist = stop_at
 
         vel_msg = Twist()
 
-        if abs(front_us_diff) > 3.0:
+        if abs(front_us_diff) > 3:
             vel_msg.angular.z = -0.01 * front_us_diff
             vel_msg.linear.x = 0.0
-        elif (self.front_left > (stop_at + 2.5)) or (self.front_left < (stop_at - 2.5)):
+        elif (self.front_left > (stop_at + 2)) or (self.front_left < (stop_at - 2)):
             vel_msg.angular.z = 0.0
             vel_msg.linear.x = 0.03 * (self.front_left - front_stop_dist)
         else:
@@ -111,7 +110,6 @@ class Nav(Node):
             self.nav_yaw = self.yaw
             self.nav_timer.cancel()
             self.nav_timer = self.create_timer(CONTROLLER_RATE, self.align_yaw)
-            
 
         self.vel_pub.publish(vel_msg)
 
@@ -126,23 +124,30 @@ class Nav(Node):
         else:
             goal_yaw = goal_yaw % (2 * math.pi)
 
+        error = goal_yaw - self.yaw
+
+        if error > math.pi:
+            error -= 2 * math.pi
+        elif error < -math.pi:
+            error += 2 * math.pi
+
         vel_msg = Twist()
 
         self.get_logger().info(f"Aligning Yaw for Docking...{goal_yaw}, {self.yaw}")
 
-        if abs(goal_yaw - self.yaw) > 0.15:
+        if abs(error) > 0.1:
             vel_msg.linear.x = 0.0
-            
-            vel_msg.angular.z = (goal_yaw - self.yaw) * -5.5
+
+            vel_msg.angular.z = error * -5.5
             if vel_msg.angular.z > 1.0:
                 vel_msg.angular.z = 1.0
             elif vel_msg.angular.z < -1.0:
                 vel_msg.angular.z = -1.0
-            
+
         else:
             vel_msg.linear.x = 0.0
             vel_msg.angular.z = 0.0
-            self.vel_pub.publish(vel_msg)            
+            self.vel_pub.publish(vel_msg)
             self.nav_timer.cancel()
             self.call_dock()
 

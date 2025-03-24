@@ -1,6 +1,0 @@
-{
-  "package_name": "usb_servo",
-  "non_idl_tuples": [
-    "/home/eyantra/LB24/Student/1048/src/usb_servo:srv/ServoSw.srv"
-  ]
-}

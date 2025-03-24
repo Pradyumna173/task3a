@@ -1,6 +1,0 @@
-Invoking command in '/home/eyantra/LB24/Student/1048/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eyantra/LB24/Student/1048/src/pymoveit2 -DCMAKE_INSTALL_PREFIX=/home/eyantra/LB24/Student/1048/install/pymoveit2
-Invoked command in '/home/eyantra/LB24/Student/1048/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eyantra/LB24/Student/1048/src/pymoveit2 -DCMAKE_INSTALL_PREFIX=/home/eyantra/LB24/Student/1048/install/pymoveit2
-Invoking command in '/home/eyantra/LB24/Student/1048/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/pymoveit2 -- -j8 -l8
-Invoked command in '/home/eyantra/LB24/Student/1048/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/pymoveit2 -- -j8 -l8
-Invoking command in '/home/eyantra/LB24/Student/1048/build/pymoveit2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/pymoveit2
-Invoked command in '/home/eyantra/LB24/Student/1048/build/pymoveit2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/pymoveit2

@@ -260,7 +260,8 @@ class Nav : public rclcpp::Node {
             RCLCPP_ERROR(this->get_logger(), "Docking Service Call Failed: %s", e.what());
         }
     }
-
+	/// @brief This function adds a client call to a vector of threads
+	/// @param Takes no params
     inline void call_dock() {
         threads_.push_back(std::thread(std::bind(&Nav::callback_call_dock, this)));
     }

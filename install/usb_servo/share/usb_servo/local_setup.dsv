@@ -1,4 +1,0 @@
-source;share/usb_servo/environment/ament_prefix_path.sh
-source;share/usb_servo/environment/library_path.sh
-source;share/usb_servo/environment/path.sh
-source;share/usb_servo/environment/pythonpath.sh
