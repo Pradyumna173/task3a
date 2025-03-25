@@ -78,8 +78,8 @@ class Dock(Node):
         return response
 
     def ultra_callback(self, msg):
-        self.front_left = msg.data[0]
-        self.front_right = msg.data[1]
+        self.front_right = msg.data[0]
+        self.front_left = msg.data[1]
 
         self.left_front = msg.data[2]
         self.left_back = msg.data[3]
