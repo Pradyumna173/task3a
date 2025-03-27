@@ -1,3 +1,0 @@
-bool servostate # e.g. for servo enabling / disabling
----
-int64 num

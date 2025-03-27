@@ -1,5 +1,0 @@
-gmake[2]: *** [CMakeFiles/usb_servo__rosidl_typesupport_fastrtps_c.dir/build.make:112: CMakeFiles/usb_servo__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/usb_servo/srv/detail/servo_sw__type_support_c.cpp.o] Interrupt
-gmake[1]: *** wait: No child processes.  Stop.
-gmake[1]: *** Waiting for unfinished jobs....
-gmake[1]: *** wait: No child processes.  Stop.
-gmake: *** [Makefile:146: all] Error 2

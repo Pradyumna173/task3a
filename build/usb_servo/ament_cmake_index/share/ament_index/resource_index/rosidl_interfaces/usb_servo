@@ -1,6 +1,0 @@
-msg/Num.idl
-msg/Num.msg
-srv/ServoSw.idl
-srv/ServoSw.srv
-srv/ServoSw_Request.msg
-srv/ServoSw_Response.msg
