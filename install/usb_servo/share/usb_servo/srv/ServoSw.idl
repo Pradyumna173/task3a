@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from usb_servo/srv/ServoSw.srv
+// generated code does not contain a copyright notice
+
+
+module usb_servo {
+  module srv {
+    struct ServoSw_Request {
+      @verbatim (language="comment", text=
+        "e.g. for servo enabling / disabling")
+      boolean servostate;
+    };
+    struct ServoSw_Response {
+      int64 num;
+    };
+  };
+};

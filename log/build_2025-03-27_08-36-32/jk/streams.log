@@ -1,0 +1,26 @@
+[2.269s] Invoking command in '/home/eyantra/LB24/Student/1048/src/jk': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/jk/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/jk/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/jk build --build-base /home/eyantra/LB24/Student/1048/build/jk/build install --record /home/eyantra/LB24/Student/1048/build/jk/install.log --single-version-externally-managed install_data
+[2.754s] running egg_info
+[2.755s] writing ../../build/jk/jk.egg-info/PKG-INFO
+[2.756s] writing dependency_links to ../../build/jk/jk.egg-info/dependency_links.txt
+[2.756s] writing entry points to ../../build/jk/jk.egg-info/entry_points.txt
+[2.756s] writing requirements to ../../build/jk/jk.egg-info/requires.txt
+[2.757s] writing top-level names to ../../build/jk/jk.egg-info/top_level.txt
+[2.759s] reading manifest file '../../build/jk/jk.egg-info/SOURCES.txt'
+[2.760s] writing manifest file '../../build/jk/jk.egg-info/SOURCES.txt'
+[2.760s] running build
+[2.761s] running build_py
+[2.762s] copying jk/arm.py -> /home/eyantra/LB24/Student/1048/build/jk/build/lib/jk
+[2.762s] running install
+[2.762s] running install_lib
+[2.763s] copying /home/eyantra/LB24/Student/1048/build/jk/build/lib/jk/arm.py -> /home/eyantra/LB24/Student/1048/install/jk/lib/python3.10/site-packages/jk
+[2.764s] byte-compiling /home/eyantra/LB24/Student/1048/install/jk/lib/python3.10/site-packages/jk/arm.py to arm.cpython-310.pyc
+[2.769s] running install_data
+[2.774s] running install_egg_info
+[2.776s] removing '/home/eyantra/LB24/Student/1048/install/jk/lib/python3.10/site-packages/jk-0.0.0-py3.10.egg-info' (and everything under it)
+[2.776s] Copying ../../build/jk/jk.egg-info to /home/eyantra/LB24/Student/1048/install/jk/lib/python3.10/site-packages/jk-0.0.0-py3.10.egg-info
+[2.777s] running install_scripts
+[2.816s] Installing arm script to /home/eyantra/LB24/Student/1048/install/jk/lib/jk
+[2.818s] Installing dock script to /home/eyantra/LB24/Student/1048/install/jk/lib/jk
+[2.820s] Installing nav script to /home/eyantra/LB24/Student/1048/install/jk/lib/jk
+[2.823s] writing list of installed files to '/home/eyantra/LB24/Student/1048/build/jk/install.log'
+[2.922s] Invoked command in '/home/eyantra/LB24/Student/1048/src/jk' returned '0': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/jk/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/jk/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/jk build --build-base /home/eyantra/LB24/Student/1048/build/jk/build install --record /home/eyantra/LB24/Student/1048/build/jk/install.log --single-version-externally-managed install_data

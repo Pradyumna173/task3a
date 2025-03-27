@@ -1,0 +1,49 @@
+[1.471s] Invoking command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eyantra/LB24/Student/1048/install/jk:/home/eyantra/LB24/Student/1048/install/ff:/opt/ros/humble /usr/bin/cmake /home/eyantra/LB24/Student/1048/src/ur_moveit_config -DCMAKE_INSTALL_PREFIX=/home/eyantra/LB24/Student/1048/install/ur_moveit_config
+[1.685s] -- The C compiler identification is GNU 11.4.0
+[1.823s] -- The CXX compiler identification is GNU 11.4.0
+[1.857s] -- Detecting C compiler ABI info
+[2.133s] -- Detecting C compiler ABI info - done
+[2.170s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.170s] -- Detecting C compile features
+[2.172s] -- Detecting C compile features - done
+[2.192s] -- Detecting CXX compiler ABI info
+[2.443s] -- Detecting CXX compiler ABI info - done
+[2.466s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.467s] -- Detecting CXX compile features
+[2.469s] -- Detecting CXX compile features - done
+[2.477s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.015s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[3.333s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.550s] -- Configuring done
+[3.556s] -- Generating done
+[3.571s] -- Build files have been written to: /home/eyantra/LB24/Student/1048/build/ur_moveit_config
+[3.664s] Invoked command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eyantra/LB24/Student/1048/install/jk:/home/eyantra/LB24/Student/1048/install/ff:/opt/ros/humble /usr/bin/cmake /home/eyantra/LB24/Student/1048/src/ur_moveit_config -DCMAKE_INSTALL_PREFIX=/home/eyantra/LB24/Student/1048/install/ur_moveit_config
+[3.673s] Invoking command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eyantra/LB24/Student/1048/install/jk:/home/eyantra/LB24/Student/1048/install/ff:/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ur_moveit_config -- -j8 -l8
+[3.799s] Invoked command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eyantra/LB24/Student/1048/install/jk:/home/eyantra/LB24/Student/1048/install/ff:/opt/ros/humble /usr/bin/cmake --build /home/eyantra/LB24/Student/1048/build/ur_moveit_config -- -j8 -l8
+[3.800s] Invoking command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eyantra/LB24/Student/1048/install/jk:/home/eyantra/LB24/Student/1048/install/ff:/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ur_moveit_config
+[3.809s] -- Install configuration: ""
+[3.812s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/config
+[3.812s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/config/kinematics.yaml
+[3.813s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/launch
+[3.813s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/launch/ur_moveit.launch.py
+[3.813s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/rviz
+[3.813s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/rviz/view_robot.rviz
+[3.814s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/srdf
+[3.814s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/srdf/ur_macro.srdf.xacro
+[3.814s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/srdf/ur.srdf.xacro
+[3.814s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ament_index/resource_index/package_run_dependencies/ur_moveit_config
+[3.814s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ament_index/resource_index/parent_prefix_path/ur_moveit_config
+[3.815s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/ament_prefix_path.sh
+[3.818s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/ament_prefix_path.dsv
+[3.818s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/path.sh
+[3.818s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/environment/path.dsv
+[3.818s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.bash
+[3.818s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.sh
+[3.818s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.zsh
+[3.818s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/local_setup.dsv
+[3.818s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.dsv
+[3.819s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ament_index/resource_index/packages/ur_moveit_config
+[3.819s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/cmake/ur_moveit_configConfig.cmake
+[3.819s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/cmake/ur_moveit_configConfig-version.cmake
+[3.819s] -- Installing: /home/eyantra/LB24/Student/1048/install/ur_moveit_config/share/ur_moveit_config/package.xml
+[3.819s] Invoked command in '/home/eyantra/LB24/Student/1048/build/ur_moveit_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eyantra/LB24/Student/1048/install/jk:/home/eyantra/LB24/Student/1048/install/ff:/opt/ros/humble /usr/bin/cmake --install /home/eyantra/LB24/Student/1048/build/ur_moveit_config

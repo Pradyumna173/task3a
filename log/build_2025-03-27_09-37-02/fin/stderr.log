@@ -1,0 +1,16 @@
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/home/eyantra/LB24/Student/1048/src/fin/src/dock.cpp:6[m[K:
+[01m[K/home/eyantra/LB24/Student/1048/src/fin/src/dock.cpp:[m[K In member function ‘[01m[Kvoid Dock::callback_call_servo(bool)[m[K’:
+[01m[K/home/eyantra/LB24/Student/1048/src/fin/src/dock.cpp:154:45:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 5 has type ‘[01m[Kusb_servo::srv::ServoSw_Response_<std::allocator<void> >::_num_type[m[K’ {aka ‘[01m[Klong int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+  154 |             RCLCPP_INFO(this->get_logger(), [01;35m[K"angle = %d"[m[K, [32m[Kresponse->num[m[K);
+      |                                             [01;35m[K^~~~~~~~~~~~[m[K  [32m[K~~~~~~~~~~~~~[m[K
+      |                                                                     [32m[K|[m[K
+      |                                                                     [32m[Kusb_servo::srv::ServoSw_Response_<std::allocator<void> >::_num_type {aka long int}[m[K
+[01m[K/home/eyantra/LB24/Student/1048/src/fin/src/dock.cpp:154:55:[m[K [01;36m[Knote: [m[Kformat string is defined here
+  154 |             RCLCPP_INFO(this->get_logger(), "angle = [01;36m[K%d[m[K", response->num);
+      |                                                      [01;36m[K~^[m[K
+      |                                                       [01;36m[K|[m[K
+      |                                                       [01;36m[Kint[m[K
+      |                                                      [32m[K%ld[m[K

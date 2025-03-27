@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-c098f3c73295f364bcda.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "usb_servo__py",
+					"jsonFile" : "directory-usb_servo__py-3f0ab7176244cc03bf5a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/eyantra/LB24/Student/1048/build/usb_servo/usb_servo__py",
+					"targetIndexes" : 
+					[
+						5
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "usb_servo",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_usb_servo_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_usb_servo_egg-2f5480a8a331bfd64f1b.json",
+					"name" : "ament_cmake_python_build_usb_servo_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_usb_servo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_usb_servo-1d5e9a280d1f1ca5f611.json",
+					"name" : "ament_cmake_python_copy_usb_servo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-6653ff8b7a79c72b6ba2.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo-68cd53dd29326c13281a.json",
+					"name" : "usb_servo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__cpp-4715dc4a98bccf9b6d7b.json",
+					"name" : "usb_servo__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "usb_servo__py::@171d2240e1e1019875e6",
+					"jsonFile" : "target-usb_servo__py-57e8c3337240a6c9372b.json",
+					"name" : "usb_servo__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_generator_c-79be0eb06fadd324ee5d.json",
+					"name" : "usb_servo__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_generator_py-61e64c0367a7d7aa3f37.json",
+					"name" : "usb_servo__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_typesupport_c-e31917bb03dc40851bc6.json",
+					"name" : "usb_servo__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_typesupport_c__pyext-47187cd5f14534de6364.json",
+					"name" : "usb_servo__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_typesupport_cpp-76d18c0825feba2c70ac.json",
+					"name" : "usb_servo__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_typesupport_fastrtps_c-89c4dbaadce6b976b8e2.json",
+					"name" : "usb_servo__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_typesupport_fastrtps_c__pyext-224130abc724f426834c.json",
+					"name" : "usb_servo__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_typesupport_fastrtps_cpp-a931f07d07281473582e.json",
+					"name" : "usb_servo__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_typesupport_introspection_c-89466759e5cd1f303da5.json",
+					"name" : "usb_servo__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_typesupport_introspection_c__pyext-41dcda8fe38c7124ad87.json",
+					"name" : "usb_servo__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo__rosidl_typesupport_introspection_cpp-f0bce0b348138cbd4b8e.json",
+					"name" : "usb_servo__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usb_servo_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usb_servo_uninstall-c7fa77832ac79a533604.json",
+					"name" : "usb_servo_uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/eyantra/LB24/Student/1048/build/usb_servo",
+		"source" : "/home/eyantra/LB24/Student/1048/src/usb_servo"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

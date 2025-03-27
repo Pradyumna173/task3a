@@ -1,0 +1,21 @@
+[2.386s] Invoking command in '/home/eyantra/LB24/Student/1048/src/ff': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/ff/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/ff/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ff build --build-base /home/eyantra/LB24/Student/1048/build/ff/build install --record /home/eyantra/LB24/Student/1048/build/ff/install.log --single-version-externally-managed install_data
+[2.891s] running egg_info
+[2.892s] writing ../../build/ff/ff.egg-info/PKG-INFO
+[2.892s] writing dependency_links to ../../build/ff/ff.egg-info/dependency_links.txt
+[2.893s] writing entry points to ../../build/ff/ff.egg-info/entry_points.txt
+[2.893s] writing requirements to ../../build/ff/ff.egg-info/requires.txt
+[2.893s] writing top-level names to ../../build/ff/ff.egg-info/top_level.txt
+[2.896s] reading manifest file '../../build/ff/ff.egg-info/SOURCES.txt'
+[2.897s] writing manifest file '../../build/ff/ff.egg-info/SOURCES.txt'
+[2.902s] running build
+[2.903s] running build_py
+[2.903s] running install
+[2.904s] running install_lib
+[2.904s] running install_data
+[2.904s] running install_egg_info
+[2.906s] removing '/home/eyantra/LB24/Student/1048/install/ff/lib/python3.10/site-packages/ff-0.0.0-py3.10.egg-info' (and everything under it)
+[2.906s] Copying ../../build/ff/ff.egg-info to /home/eyantra/LB24/Student/1048/install/ff/lib/python3.10/site-packages/ff-0.0.0-py3.10.egg-info
+[2.908s] running install_scripts
+[2.951s] Installing go script to /home/eyantra/LB24/Student/1048/install/ff/lib/ff
+[2.952s] writing list of installed files to '/home/eyantra/LB24/Student/1048/build/ff/install.log'
+[3.046s] Invoked command in '/home/eyantra/LB24/Student/1048/src/ff' returned '0': PYTHONPATH=/home/eyantra/LB24/Student/1048/build/ff/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eyantra/LB24/Student/1048/install/ff/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ff build --build-base /home/eyantra/LB24/Student/1048/build/ff/build install --record /home/eyantra/LB24/Student/1048/build/ff/install.log --single-version-externally-managed install_data
