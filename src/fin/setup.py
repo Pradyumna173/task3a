@@ -24,6 +24,7 @@ setup(
             "navplus = fin.navplus:main",
             "navminus = fin.navminus:main",
             "nav = fin.nav:main",
+            "navtrust = fin.navtrust:main",
         ],
     },
 )
